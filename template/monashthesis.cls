@@ -8,7 +8,7 @@
 %% at Monash University, Australia.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{monashthesis}[2016/09/06 Monash Thesis Class]
+\ProvidesClass{template/monashthesis}[2016/09/06 Monash Thesis Class]
 
 %% FONT
 \usepackage[T1]{fontenc}

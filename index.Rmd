@@ -5,7 +5,7 @@ degreetype: 'Doctor of Philosophy'
 degrees: 'B.Comm. (Hons), Monash University'
 output: bookdown::gitbook
 site: bookdown::bookdown_site
-bibliography: [bib/packages.bib, bib/calendar.bib, bib/tsibb.bib, bib/thesisrefs.bib]
+bibliography: [bib/packages.bib, bib/calendar.bib, bib/tsibble.bib, bib/thesisrefs.bib]
 link-citations: yes
 ---
 
