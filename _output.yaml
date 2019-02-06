@@ -1,14 +1,20 @@
 bookdown::gitbook:
   css: template/style.css
   dev: "svglite"
+  split_by: section
+  split_bib: no
   config:
     toc:
+      collapse: none
       before: |
         <li><a href="./">PhD thesis</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
     edit: https://github.com/earowang/thesis/edit/master/%s
     download: ["pdf"]
+  sharing:
+    github: yes
+    facebook: no
 bookdown::pdf_book:
   template: template/monashthesis.tex
   dev: "pdf"

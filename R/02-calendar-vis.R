@@ -5,6 +5,7 @@ library(lubridate)
 library(tidyverse)
 library(sugrrants)
 library(tsibble)
+theme_set(theme_bw())
 
 ## ---- load-02-data
 # loading pedestrian data
