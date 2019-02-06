@@ -1,5 +1,5 @@
 thesis:
-	Rscript --quiet _render.R "bookdown::pdf_book"
+	Rscript --quiet _render.R
 
 preview:
-	open _output/thesis.pdf
+	open _thesis/thesis.pdf

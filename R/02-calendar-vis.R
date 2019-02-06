@@ -7,7 +7,6 @@ library(sugrrants)
 library(tsibble)
 theme_set(theme_bw())
 
-## ---- load-02-data
 # loading pedestrian data
 pedestrian_2016 <- read_rds("data/02-calendar-vis/pedestrian-2016.rds")
 
