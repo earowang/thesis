@@ -1,6 +1,7 @@
 # Tidy data structure and visualisation to support exploration and modeling of temporal data
 
 [![Travis-CI Build Status](https://travis-ci.org/earowang/thesis.svg?branch=master)](https://travis-ci.org/earowang/thesis)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/093a311c-82c5-4c5b-86e2-14b95eb37917/deploy-status)](https://app.netlify.com/sites/earothesis/deploys)
 
 This repo contains the source files for my PhD thesis at Monash University.
 
