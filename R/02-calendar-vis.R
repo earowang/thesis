@@ -5,7 +5,6 @@ library(lubridate)
 library(tidyverse)
 library(sugrrants)
 library(tsibble)
-theme_set(theme_bw())
 
 # loading pedestrian data
 pedestrian_2016 <- read_rds("data/02-calendar-vis/pedestrian-2016.rds")

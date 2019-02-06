@@ -6,5 +6,13 @@ Authors@R:
            family = "Wang",
            role = c("aut", "cre"),
            email = "earo.wang@gmail.com")
+Depends:
+    forcats,
+    ggmap,
+    lubridate,
+    R (>= 3.1),
+    sugrrants,
+    tidyverse,
+    tsibble
 Imports:
     bookdown
