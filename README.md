@@ -11,6 +11,7 @@ This repo contains source files for my PhD thesis at Monash University.
 * `Rmd/`: R Markdown source documents for thesis document.
 * `data/`: Cleaned data used for thesis document.
 * `data-raw/`: R code to generate data in `data/`.
+* `figure/`: Figures produced from `R/`. 
 * `img/`: Images made with other tools to illustrate ideas. 
 * `bib/`: Bibliography files.
 * `template/`: Monash thesis template from [robjhydman/MonashThesis](https://github.com/robjhyndman/MonashThesis).
