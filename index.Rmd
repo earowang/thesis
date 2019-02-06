@@ -1,0 +1,22 @@
+---
+title: 'Tidy data structure and visualisation to support exploration and modeling of temporal data'
+author: 'Earo Wang'
+degreetype: 'Doctor of Philosophy'
+degrees: 'B.Comm. (Hons), Monash University'
+output: bookdown::pdf_book
+site: bookdown::bookdown_site
+link-citations: yes
+---
+
+```{r initial, echo = FALSE, cache = FALSE, results = 'hide'}
+library(knitr)
+opts_chunk$set(
+  warning = FALSE, message = FALSE, echo = FALSE,
+  fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center', 
+  fig.show = 'hold', cache = TRUE, external = TRUE
+)
+```
+
+# Acknowledgements {-}
+
+This document was created with bookdown [@bookdown], and the raw files contain all the R code to produce the plots and tables. 

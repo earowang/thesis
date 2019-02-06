@@ -1,0 +1,3 @@
+# Preface {-}
+
+Chapter \@ref(ch:calendar) has been submitted to *Journal of Statistical Software* and is currently under review. It has won the 2018 ASA Statistical Graphics Student Paper Award.

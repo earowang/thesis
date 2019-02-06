@@ -1,0 +1,10 @@
+Type: Compendium
+Package: thesis
+Version: 0.1.0
+Authors@R: 
+    person(given = "Earo",
+           family = "Wang",
+           role = c("aut", "cre"),
+           email = "earo.wang@gmail.com")
+Imports:
+    bookdown

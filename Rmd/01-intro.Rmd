@@ -1,0 +1,29 @@
+# Introduction {#ch:intro}
+
+The conventional plot for time series is a line plot, where the measured variable is plotted against a time variable, and consecutive points are connected by lines. The line plot assumes: (1) there are no missing values, (2) the series is not too long so that seasonality can be viewed along with trend, (3) the time series stands alone without any complementary information, and (4) there is a single measured variable. The problem is that data rarely comes in this form. Quite often the temporal component is just one aspect of multi-facetted data, some observations are missing, the series could be very long, so that seasonality is lost relative to any long-term trend, measurements might be taken at irregular intervals, and we may have a big collection of time series. This thesis addresses these broader issues of better data structures and visualisation for big temporal-context data.
+
+## Research framework
+
+Data visualisation in statistics has evolved in recent years to have graphics formally described using a grammar [@wilkinson2006grammar; @wickham2010layered], and also data structures for statistical analysis have been organised into a conceptual framework of "tidy data" [@wickham2014tidy]. Both aspects are critical for evaluating the strength of the research, and for building on a foundation of sound data practice.
+
+### Tidy data structure
+
+@wickham2014tidy developed a set of tidy data principles to standardise and facilitate the data analysis process, and also suggested that each variable is a column, each observation is a row. An attribute describing a unit's properties (such as temperature, precipitation, pedestrian counts) is thought of as a variable. An observation refers to the same unit measured across each variable. A variable together with an observation defines the values that essentially comprise of a dataset. The newer concept of tidy data is the "long" form: every measured value is described by a unique set of identifiers. From the long form, data can be summarised, and shaped, and arranged in many different forms, making different types of analysis on the same data easier.
+
+However, in some ways it is the classical statistical format of a rectangular table where each time series is a column, and each time index is a row. This format is the "wide" form of tidy data, and it is what is typically required for many statistical models as it proves computationally efficient when doing matrix operations.
+
+The common data structure for time series data in statistical software, like `R` [@r], is actually short-hand. For example, a time series defined as a `ts` object in `R` is a vector of values, annotated with a starting time and frequency. Associated with the data object are methods that can be applied to plot, summarise and model. However, this approach is model-centric rather than data-centric. Data typically doesn't come in this form. Data typically has a lot more with it, and to get it in this form requires extracting a small part of all the data, and maybe, even massaging it into regular time measurements. Working from a tidy format this specialist form could be created with several wrapper functions, whilst maintaining the connections to the complete data.
+
+### The grammar of graphics
+
+A grammar of graphics was first proposed by @wilkinson2006grammar and extended by @wickham2010layered. These methods establish a conceptual framework for mapping data to graphical form. It is the analogue to thinking of statistics as a mapping of random variables. For example, a mean is the mapping of $n$ independent and identically distributed random variables, $X_1, \ldots, X_n$, $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$. With this functional mapping, the statistic can be computed on a sample, and the properties of the statistic can be analytically studied.
+
+The grammar formulates a set of rules to map variables to visual quantities. Therefore, we can make the comparisons between different displays and describe the differences under a standard framework. The grammar enables one to understand the process of creating visual graphics and the data structure behind the statistical plots. It is efficient and replicable to make any type of graphic display. The `R` package **ggplot2** [@R-ggplot2] is an implementation of the grammar of graphics.
+
+## Scope
+
+This thesis research proposes a data-centric structure to represent time series by extending the "tidy data" principles. It allows rich data information to be included, which is not currently supported by time series model objects. It also provides a mapping bridging the semantics of a dataset to its physical representation, and consequently fosters ideas of a data pipeline that supports thinking of operations on the data variables. A collection of verbs are developed to smooth out the workflow for analysis of temporal data.
+
+A new calendar-based graphics have been created and implemented to better visualise sub-daily data related to human behaviours. Tidy temporal data builds the foundation of calendarising the data using the data re-structuring approach. The grammar of graphics further adds the plotting capacities to the calendar format.
+
+Tidy temporal data also integrates nested and crossed factors. A visualisation framework will be proposed and formulated for time series with nested and crossed factors.

@@ -1,0 +1,23 @@
+bookdown::gitbook:
+  css: template/style.css
+  dev: "svglite"
+  config:
+    toc:
+      before: |
+        <li><a href="./">PhD thesis</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/earowang/thesis/edit/master/%s
+    download: ["pdf"]
+bookdown::pdf_book:
+  template: template/monashthesis.tex
+  dev: "pdf"
+  fig_caption: yes
+  fig_height: 3.8
+  fig_width: 6.3
+  keep_tex: no
+  number_sections: yes
+  pandoc_args: [
+    "--top-level-division=chapter"
+  ]
+  citation_package: biblatex
