@@ -1,5 +1,5 @@
 cache/
-data-raw/02-calendar-vis/*.csv
+data-raw/calendar-vis/*.csv
 /figure/
 .DS_Store
 *.log
