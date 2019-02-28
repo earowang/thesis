@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3.6 Case studies | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="3.6 Case studies | Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3.6 Case studies | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.6 Case studies | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  
+  
+  
+
+<meta name="author" content="Earo Wang">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sec-software.html">
+<link rel="next" href="sec-conclusion.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PhD thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="declaration.html"><a href="declaration.html"><i class="fa fa-check"></i>Declaration</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="research-framework.html"><a href="research-framework.html"><i class="fa fa-check"></i><b>1.1</b> Research framework</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="research-framework.html"><a href="research-framework.html#tidy-data-structure"><i class="fa fa-check"></i><b>1.1.1</b> Tidy data structure</a></li>
+<li class="chapter" data-level="1.1.2" data-path="research-framework.html"><a href="research-framework.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1.2</b> The grammar of graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="scope.html"><a href="scope.html"><i class="fa fa-check"></i><b>1.2</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-calendar.html"><a href="ch-calendar.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="3" data-path="ch-tsibble.html"><a href="ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-intro.html"><a href="sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="sec-str.html"><a href="sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-str.html"><a href="sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-str.html"><a href="sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-str.html"><a href="sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-semantics.html"><a href="sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-pipeline.html"><a href="sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sec-software.html"><a href="sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sec-software.html"><a href="sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
+<li class="chapter" data-level="3.5.2" data-path="sec-software.html"><a href="sec-software.html#functional-programming"><i class="fa fa-check"></i><b>3.5.2</b> Functional programming</a></li>
+<li class="chapter" data-level="3.5.3" data-path="sec-software.html"><a href="sec-software.html#modularity"><i class="fa fa-check"></i><b>3.5.3</b> Modularity</a></li>
+<li class="chapter" data-level="3.5.4" data-path="sec-software.html"><a href="sec-software.html#extensibility"><i class="fa fa-check"></i><b>3.5.4</b> Extensibility</a></li>
+<li class="chapter" data-level="3.5.5" data-path="sec-software.html"><a href="sec-software.html#tidy-evaluation"><i class="fa fa-check"></i><b>3.5.5</b> Tidy evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="sec-cases.html"><a href="sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="sec-cases.html"><a href="sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tidy data structure and visualisation to support exploration and modeling of temporal data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:cases" class="section level2">
+<h2><span class="header-section-number">3.6</span> Case studies</h2>
+<div id="on-time-performance-for-domestic-flights-in-u.s.a" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> On-time performance for domestic flights in U.S.A</h3>
+<p>The dataset of on-time performance for US domestic flights in 2017 represents event-driven data caught in the wild, sourced from US Bureau of Transportation Statistics <span class="citation">(<span class="citeproc-not-found" data-reference-id="flights-data"><strong>???</strong></span>)</span>. It contains 5,548,445 operating flights with many measurements (such as departure delay, arrival delay in minutes, and other performance metrics) and detailed flight information (such as origin, destination, plane number and etc.) in a tabular format. This kind of event describes each flight scheduled for departure at a time point in its local time zone. Every single flight should be uniquely identified by the flight number and its scheduled departure time, from a passenger’s point of view. In fact, it fails to pass the tsibble hurdle due to duplicates in the original data. An error is immediately raised when attempting to convert this data into a tsibble, and closer inspection has to be carried out to locate the issue. The <strong>tsibble</strong> package provides tools to easily locate the duplicates in the data with <code>duplicates()</code>. The problematic entries are shown below.</p>
+<pre><code>#&gt;   flight_num  sched_dep_datetime  sched_arr_datetime dep_delay arr_delay
+#&gt; 1      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+#&gt; 2      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+#&gt;   carrier tailnum origin dest air_time distance origin_city_name
+#&gt; 1      NK  N601NK    LAX  DEN      107      862      Los Angeles
+#&gt; 2      NK  N639NK    ORD  LGA      107      733          Chicago
+#&gt;   origin_state dest_city_name dest_state taxi_out taxi_in carrier_delay
+#&gt; 1           CA         Denver         CO       69      13             0
+#&gt; 2           IL       New York         NY       69      13             0
+#&gt;   weather_delay nas_delay security_delay late_aircraft_delay
+#&gt; 1             0       194              0                   0
+#&gt; 2             0       194              0                   0</code></pre>
+<p>The issue was perhaps introduced when updating or entering the data into a system. The same flight is scheduled at exactly the same time, together with the same performance statistics but different flight details. As flight NK630 is usually scheduled at 17:45 from Chicago to New York (discovered by searching the full database), a decision is made to remove the first row from the duplicated entries before proceeding to the tsibble creation.</p>
+<p>This dataset is intrinsically heterogeneous, encoded in numbers, strings, and date-times. The tsibble framework, as expected, incorporates this type of data without any loss of data richness and heterogeneity. To declare the flight data as a valid tsibble, column <code>sched_dep_datetime</code> is specified as the “index”, and column <code>flight_num</code> as the “key” via <code>id(flight_num)</code>. As a result of event timing, the data are irregularly spaced, and hence switching to the irregular option is necessary. The software internally validates if the key and index produce distinct rows, and then sorts the key and the index from past to recent. When the tsibble creation is done, the print display is data-oriented and contextually informative, including dimensions, irregular interval (<code>5,548,444 x 22 [!] &lt;UTC&gt;</code>) and the number of time-based observational units (<code>flight_num [22,562]</code>).</p>
+<pre><code>#&gt; # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
+#&gt; # Key:       flight_num [22,562]</code></pre>
+<p>Transforming a tsibble for exploratory data analysis with a suite of time-specific and general-purpose manipulation verbs can result in well-constructed pipelines. From the perspective of a passenger, for example, one needs to travel smart by choosing an efficient carrier to fly with and the time of day to avoid congestion. To explore this data, we drill down starting with annual carrier performance and followed by disaggregation to finer time resolutions.</p>
+<div class="figure" style="text-align: center"><span id="fig:carrier-mosaic"></span>
+<img src="figure/carrier-mosaic-1.pdf" alt="Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest." width="\textwidth" />
+<p class="caption">
+Figure 3.5: Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:flight-pipeline1"></span>
+<img src="img/flight-pipeline1" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<p class="caption">
+Figure 3.6: Flow chart illustrating the pipeline that preprocessed the data for creating .
+</p>
+</div>
+
+<p> visually presents the end product of aggregating the number of on-time and delayed flights to the year interval by carriers. This pipeline is initialized by defining a new variable if the flight is delayed, and involves summarizing the tallies of on-time and delayed flights for each carrier annually. To prepare the summarized data for a mosaic plot, it is further manipulated by melting new tallies into a single column. The flow chart () demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval, and the output ends up with a tsibble of unknown interval (as each carrier ends up with only one annual summary). The final data set includes each carrier along with a single year, with the interval undetermined, which in turn feeds into the mosaic display. Note that Southwest Airlines (WN), as the largest carrier, operates less efficiently than Delta (DL).</p>
+<p>A closer examination of some big airports across the US will give an indication of how well the busiest airports manage the outflow traffic on a daily basis. A subset that contains observations for Houston (IAH), New York (JFK), Kalaoa (KOA), Los Angeles (LAX) and Seattle (SEA) airports is obtained first. The succeeding operations compute delayed percentages every day at each airport, which are framed as grey lines in Figure <a href="sec-cases.html#fig:sel-monthly-plot">3.7</a>. Winter months tend to fluctuate a lot compared to the summer across all the airports. Superimposed on the plot are two-month moving averages, so the temporal trend is more visible. The number of days for each month is variable. Moving averages for two months call for computing weighted mean. But this can also be accomplished using a pair of commonly used verbs–<code>nest()</code> and <code>unnest()</code> to handle list-columns, without weight specification. The sliding operation with a large window size smooths out the fluctuations and gives a stable trend around 25% over the year. LAX airport has seen a gradual decline in delays over the year, whereas the SEA airport has a steady number delays over time. The IAH and JFK airports have more delays in the middle of year, while the KOA has the inverse pattern with higher delay percentage in both ends of the year.</p>
+<div class="figure" style="text-align: center"><span id="fig:sel-monthly-plot"></span>
+<img src="figure/sel-monthly-plot-1.pdf" alt="Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays." width="\textwidth" />
+<p class="caption">
+Figure 3.7: Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:flight-pipeline2"></span>
+<img src="img/flight-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<p class="caption">
+Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for creating .
+</p>
+</div>
+
+<p>What time of day and day of week should we travel to avoid suffering from horrible delay?  plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are shown. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18). <!--As moving towards the upper extremes, the variations considerably increase, making departure time unpredictable.--></p>
+<div class="figure" style="text-align: center"><span id="fig:draw-qtl"></span>
+<img src="figure/draw-qtl-1.pdf" alt="Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails." width="\textwidth" />
+<p class="caption">
+Figure 3.9: Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:flight-pipeline3"></span>
+<img src="img/flight-pipeline3" alt="Flow chart illustrates the pipeline that preprocesses the data for creating ." width="\textwidth" />
+<p class="caption">
+Figure 3.10: Flow chart illustrates the pipeline that preprocesses the data for creating .
+</p>
+</div>
+
+
+</div>
+<div id="smart-grid-customer-data-in-australia" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Smart-grid customer data in Australia</h3>
+<p>Sensors have been installed in households across major cities in Australia to collect data for the smart city project. One of the trials is monitoring households’ electricity usage through installed smart meters in the area of Newcastle over 2010–2014 <span class="citation">(<span class="citeproc-not-found" data-reference-id="smart-meter"><strong>???</strong></span>)</span>. Data from 2013 have been sliced to examine temporal patterns of customer’s energy consumption with <strong>tsibble</strong> for this case study. Half-hourly general supply in kwH have been recorded for 2,924 customers in the data set, resulting in 46,102,229 observations in total. Daily high and low temperatures in Newcastle in 2013 provides explanatory variables other than time in a different data table <span class="citation">(<span class="citeproc-not-found" data-reference-id="newcastle-temp"><strong>???</strong></span>)</span>, obtained using the R package <strong>bomrang</strong> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-bomrang"><strong>???</strong></span>)</span>. Two data tables might be joined to explore how local weather can contribute to the variations of daily electricity use when needed.</p>
+<p>During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to 17.9% of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household.  shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.</p>
+<div class="figure" style="text-align: center"><span id="fig:count-gaps"></span>
+<img src="figure/count-gaps-1.pdf" alt="Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months." width="\textwidth" />
+<p class="caption">
+Figure 3.11: Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months.
+</p>
+</div>
+
+<p>Aggregation across all individuals helps to sketch a big picture of the behavioral change over time, organized into a calendar display (). Each glyph represents the daily pattern of average residential electricity usage every thirty minutes. Higher consumption is indicated by higher values, and typically occurs in daylight hours. Color indicates hot days. The daily snapshots vary depending on the season in the year. During the summer months (December and January), the late-afternoon peak becomes predominant driven by the use of air conditioning, especially on hot days with daily average temperature greater than 25 degrees C. However, the winter time (July and August) sees two peaks in a day, which is probably due to heating in the morning and evening. This plot illustrates how the tsibble data can easily integrate with other tools and graphics.</p>
+<div class="figure" style="text-align: center"><span id="fig:calendar-plot"></span>
+<img src="figure/calendar-plot-1.pdf" alt="Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use." width="\textwidth" />
+<p class="caption">
+Figure 3.12: Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:elec-pipeline2"></span>
+<img src="img/elec-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<p class="caption">
+Figure 3.13: Flow chart illustrating the pipeline that preprocessed the data for creating .
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-software.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

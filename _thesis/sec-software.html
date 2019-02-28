@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3.5 Software structure and design decisions | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="3.5 Software structure and design decisions | Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3.5 Software structure and design decisions | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.5 Software structure and design decisions | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  
+  
+  
+
+<meta name="author" content="Earo Wang">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sec-pipeline.html">
+<link rel="next" href="sec-cases.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PhD thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="declaration.html"><a href="declaration.html"><i class="fa fa-check"></i>Declaration</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="research-framework.html"><a href="research-framework.html"><i class="fa fa-check"></i><b>1.1</b> Research framework</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="research-framework.html"><a href="research-framework.html#tidy-data-structure"><i class="fa fa-check"></i><b>1.1.1</b> Tidy data structure</a></li>
+<li class="chapter" data-level="1.1.2" data-path="research-framework.html"><a href="research-framework.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1.2</b> The grammar of graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="scope.html"><a href="scope.html"><i class="fa fa-check"></i><b>1.2</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-calendar.html"><a href="ch-calendar.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="3" data-path="ch-tsibble.html"><a href="ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-intro.html"><a href="sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="sec-str.html"><a href="sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-str.html"><a href="sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-str.html"><a href="sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-str.html"><a href="sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-semantics.html"><a href="sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-pipeline.html"><a href="sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sec-software.html"><a href="sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sec-software.html"><a href="sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
+<li class="chapter" data-level="3.5.2" data-path="sec-software.html"><a href="sec-software.html#functional-programming"><i class="fa fa-check"></i><b>3.5.2</b> Functional programming</a></li>
+<li class="chapter" data-level="3.5.3" data-path="sec-software.html"><a href="sec-software.html#modularity"><i class="fa fa-check"></i><b>3.5.3</b> Modularity</a></li>
+<li class="chapter" data-level="3.5.4" data-path="sec-software.html"><a href="sec-software.html#extensibility"><i class="fa fa-check"></i><b>3.5.4</b> Extensibility</a></li>
+<li class="chapter" data-level="3.5.5" data-path="sec-software.html"><a href="sec-software.html#tidy-evaluation"><i class="fa fa-check"></i><b>3.5.5</b> Tidy evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="sec-cases.html"><a href="sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="sec-cases.html"><a href="sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tidy data structure and visualisation to support exploration and modeling of temporal data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:software" class="section level2">
+<h2><span class="header-section-number">3.5</span> Software structure and design decisions</h2>
+<div id="data-first" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Data first</h3>
+<p>The primary force that drives the software’s design choices is “data”. All functions in the package <strong>tsibble</strong> start with <code>data</code> or its variants as the first argument, namely “data first”. This lays out a consistent interface and addresses the significance of the data throughout the software.</p>
+<p>Beyond the tools, the print display provides a quick and comprehensive glimpse of data in temporal context, particularly useful when handling a large collection of data. The contextual summary provided by the print function, shown below on the data from , contains (1) data dimension with its shorthand time interval, alongside time zone if date-times, (2) variables that constitute the “key” with the number of series. These details aid users in understanding their data better.</p>
+<pre><code>#&gt; # A tsibble: 12 x 5 [1Y]
+#&gt; # Key:       country, gender [6]
+#&gt;   country     continent gender  year count
+#&gt;   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Australia   Oceania   Female  2011   120
+#&gt; 2 Australia   Oceania   Female  2012   125
+#&gt; 3 Australia   Oceania   Male    2011   176
+#&gt; 4 Australia   Oceania   Male    2012   161
+#&gt; 5 New Zealand Oceania   Female  2011    36
+#&gt; # … with 7 more rows</code></pre>
+</div>
+<div id="functional-programming" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Functional programming</h3>
+<p>Rolling window calculations are widely used techniques in time series analysis, and often apply to other applications. These operations are dependent on having an ordering, particularly time ordering for temporal data. Three common types of variations for sliding window operations are:</p>
+<ol style="list-style-type: decimal">
+<li><strong>slide</strong>: sliding window with overlapping observations.</li>
+<li><strong>tile</strong>: tiling window without overlapping observations.</li>
+<li><strong>stretch</strong>: fixing an initial window and expanding to include more observations.</li>
+</ol>
+<p> shows the animations of rolling windows for sliding, tiling and stretching, respectively, on annual tuberculosis cases for Australia. A block of consecutive elements with a window size of 5 are initialized and started rolling sequentially till the end of series by computing average counts.</p>
+<div class="figure" style="text-align: center"><span id="fig:animate"></span>
+<img src="figure/animate.gif" alt="An illustration of window of size 5 computing rolling averages over annual tuberculosis cases in Australia with respect to sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)" width="\textwidth" />
+<p class="caption">
+Figure 3.4: An illustration of window of size 5 computing rolling averages over annual tuberculosis cases in Australia with respect to sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)
+</p>
+</div>
+
+<p>Rolling window uses a programming paradigm—functional programming, which is different from those table verbs listed in . Table verbs expect and return a tsibble, and does what the function name suggests. On the contrary, these rolling window functions could accept arbitrary input types and would return arbitrary sorts of output, depending on which method is put into the rolling window. For example, computing moving averages requires numerics and a function like <code>mean()</code>, and produces averaged numerics. However, rolling window regression takes a data frame and a linear regression method like <code>lm()</code>, and generates a complex object that contains coefficients, fitted values, and etc.</p>
+<p>The <strong>purrr</strong> package <span class="citation">(Henry and Wickham <a href="references.html#ref-R-purrr">2017</a>)</span> provides a good example of functional programming in R. It provides a complete and consistent set of tools to iterate each element of a vector with a function. Rolling window does not just iterate but rolls over a sequence of elements, namely <code>slide()</code>, <code>tile()</code> and <code>stretch()</code>. <code>slide()</code> expects one input, <code>slide2()</code> two inputs, and <code>pslide()</code> multiple inputs. For type stability, the functions always return lists. Other variants including <code>*_lgl()</code>, <code>*_int()</code>, <code>*_dbl()</code>, <code>*_chr()</code> return vectors of the corresponding type, as well as <code>*_dfr()</code> and <code>*_dfc()</code> for row-binding and column-binding data frames respectively. Their multiprocessing equivalents prefixed by <code>future_*()</code> enable rolling in parallel <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-future"><strong>???</strong></span>; <span class="citeproc-not-found" data-reference-id="R-furrr"><strong>???</strong></span>)</span>. This family of functions empowers users to incorporate window-related operations in their workflows.</p>
+</div>
+<div id="modularity" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Modularity</h3>
+<p>Modular programming is adopted in the design of the <strong>tsibble</strong> package. Modularity benefits users by providing small focused and manageable chunks, and provides developers with simpler maintenance.</p>
+<p>All user-facing functions can be roughly organized into three major chunks according to their functionality: vector functions (1d), table verbs (2d), and window family. Each chunk is an independent module, but works interdependently. Vector functions in the package mostly deal with time. The atomic functions (such as <code>yearmonth()</code> and <code>yearquarter()</code>) embedded in the <code>index_by()</code> table verb achieves in collapsing a tsibble to a less granular interval. The substitution of another time function in the <code>index_by()</code> results in the aggregation of different time resolution. Since these time functions are not exclusive to a tsibble, they can be used in a variety of applications in conjunction with other packages. On the other hand, these tsibble verbs can incorporate many third-party vector functions to step out of the current tsibble zone. It is also generally easier to trace back the errors users encounter from separating 1d and 2d functions, and increase the code readability.</p>
+</div>
+<div id="extensibility" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Extensibility</h3>
+<p>As a fundamental infrastructure, extensibility is a design decision that was employed from the start of <strong>tsibble</strong>’s development. Contrary to the “data first” principle for end users, extensibility is developer focused and would be mostly used in dependent packages, which heavily relies on S3 classes and methods in R <span class="citation">(<span class="citeproc-not-found" data-reference-id="adv-r"><strong>???</strong></span>)</span>. The package can be extended in two major aspects: custom index and new tsibble class.</p>
+<p>Time representation could be arbitrary, for example R’s native <code>POSIXct</code> and <code>Date</code> for versatile date-times, nano time for nanosecond resolution implemented in <strong>nanotime</strong> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-nanotime"><strong>???</strong></span>)</span>, and pure numbers in simulations. Ordered factors can also be a source of time, such as month names, January to December, and weekdays, Monday to Sunday. The <strong>tsibble</strong> package supports an extensive range of index types from numerics to nano time, but there might be custom indexes used for some occasions, for example school semesters. These academic terms vary from one institution to another, within an academic year which is defined differently from a calendar year. A new index would be immediately recognized by the software upon defining <code>index_valid()</code>, as long as it can be ordered from past to future. The interval regarding semesters is further outlined through <code>pull_interval()</code>. As a result, the rest of the software methods such as <code>has_gaps()</code> and <code>fill_gaps()</code> will have instant support for data that contains this new index.</p>
+<p>The class of tsibble is an underlying basis of temporal data, and there is a demand for sub-classing a tsibble. For example, a fable is actually an extension of a tsibble, mentioned in . A low-level constructor <code>new_tsibble()</code> provides a vehicle to easily create a new subclass. This new object itself is a tsibble. It perhaps needs more metadata than those of a tsibble, that gives rise to a new data extension, like prediction distributions to a fable. Tsibble verbs are also S3 generics. Developers will be able to implement these verbs for the new class, if necessary.</p>
+</div>
+<div id="tidy-evaluation" class="section level3">
+<h3><span class="header-section-number">3.5.5</span> Tidy evaluation</h3>
+<p>The <strong>tsibble</strong> packages leverages the <strong>tidyverse</strong> grammars and pipelines through tidy evaluation <span class="citation">(<span class="citeproc-not-found" data-reference-id="tidy-eval"><strong>???</strong></span>)</span> via the <strong>rlang</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rlang"><strong>???</strong></span>)</span>. In particular, the table verbs extensively use tidy evaluation to evaluate computation in the context of tsibble data and spotlights the “tidy” interface that is compatible with the <strong>tidyverse</strong>. This not only saves a few keystrokes without explicitly repeated references to the data source, but the resulting code is typically cleaner and more expressive.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-pipeline.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-cases.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

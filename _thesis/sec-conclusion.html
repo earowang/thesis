@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3.7 Conclusion and future work | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="3.7 Conclusion and future work | Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3.7 Conclusion and future work | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.7 Conclusion and future work | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  
+  
+  
+
+<meta name="author" content="Earo Wang">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sec-cases.html">
+<link rel="next" href="acknowledgments.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PhD thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="declaration.html"><a href="declaration.html"><i class="fa fa-check"></i>Declaration</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="research-framework.html"><a href="research-framework.html"><i class="fa fa-check"></i><b>1.1</b> Research framework</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="research-framework.html"><a href="research-framework.html#tidy-data-structure"><i class="fa fa-check"></i><b>1.1.1</b> Tidy data structure</a></li>
+<li class="chapter" data-level="1.1.2" data-path="research-framework.html"><a href="research-framework.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1.2</b> The grammar of graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="scope.html"><a href="scope.html"><i class="fa fa-check"></i><b>1.2</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-calendar.html"><a href="ch-calendar.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="3" data-path="ch-tsibble.html"><a href="ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-intro.html"><a href="sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="sec-str.html"><a href="sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-str.html"><a href="sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-str.html"><a href="sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-str.html"><a href="sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-semantics.html"><a href="sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-pipeline.html"><a href="sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sec-software.html"><a href="sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sec-software.html"><a href="sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
+<li class="chapter" data-level="3.5.2" data-path="sec-software.html"><a href="sec-software.html#functional-programming"><i class="fa fa-check"></i><b>3.5.2</b> Functional programming</a></li>
+<li class="chapter" data-level="3.5.3" data-path="sec-software.html"><a href="sec-software.html#modularity"><i class="fa fa-check"></i><b>3.5.3</b> Modularity</a></li>
+<li class="chapter" data-level="3.5.4" data-path="sec-software.html"><a href="sec-software.html#extensibility"><i class="fa fa-check"></i><b>3.5.4</b> Extensibility</a></li>
+<li class="chapter" data-level="3.5.5" data-path="sec-software.html"><a href="sec-software.html#tidy-evaluation"><i class="fa fa-check"></i><b>3.5.5</b> Tidy evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="sec-cases.html"><a href="sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="sec-cases.html"><a href="sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tidy data structure and visualisation to support exploration and modeling of temporal data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:conclusion" class="section level2">
+<h2><span class="header-section-number">3.7</span> Conclusion and future work</h2>
+<p>The “tsibble” is a new data abstraction to represent temporal data, allowing the “tidy data” principles to be brought to the time domain. Tidy data begins to take shape in the state of time with the introduction of the contextual semantics of index and key. A declared index provides direct support to the time variable; variables that comprise the key define observations over time. These semantics further determine unique data entries required for a valid tsibble. No matter how temporal data arrives, a tsibble respects a time index and maintains the data richness. A tsibble frictionlessly allows transformation, visualization and modeling, and smoothly shifts between them, allowing for rapid iteration to gain data insights.</p>
+<p>A missing piece of the <strong>tsibble</strong> package is to enable user-defined calendars and to respect structurally missing observations. For example, a call center may operate only between 9:00 am and 5:00 pm on week days, and stock trading resumes on Monday straight after Friday. No data available outside trading hours would be labeled as structural missingness, which tsibble currently disregards. However, a few R packages provide functionality to create and manage many sorts of calendars, including market-specific business calendars. <!-- This delays the implementation.--> Generally, custom calendars are easily embedded into the tsibble framework. Consequently these tsibble operators, like <code>fill_gaps()</code>, would work out of the box, and forecasts would be generated within its definable time range.</p>
+<p>The <strong>tsibble</strong> package provides the grammar of temporal data manipulation, regardless of how the data is stored. Currently, it works for managing and manipulating temporal data frames in memory locally. But it is possible to work with remote tables stored in databases, such as SQLite and MySQL, using exactly the same tsibble code. This is left for future work.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-cases.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="acknowledgments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

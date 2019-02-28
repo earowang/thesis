@@ -8,3 +8,5 @@ data-raw/tsibble/airports.dat
 *.run.xml
 .Rproj.user
 *.bbl
+
+thesis\.tex

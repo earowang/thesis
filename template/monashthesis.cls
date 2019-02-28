@@ -297,4 +297,18 @@
 \usepackage{longtable,booktabs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{todonotes}
+\usepackage{multirow}
+\usepackage{animate}
+\usepackage[section]{placeins}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.95}
+
+\usepackage[english]{babel}
+\addto\extrasenglish{
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+}
 \raggedbottom

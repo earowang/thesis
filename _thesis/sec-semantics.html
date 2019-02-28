@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3.3 Contextual semantics | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="3.3 Contextual semantics | Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3.3 Contextual semantics | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.3 Contextual semantics | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  
+  
+  
+
+<meta name="author" content="Earo Wang">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sec-str.html">
+<link rel="next" href="sec-pipeline.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PhD thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="declaration.html"><a href="declaration.html"><i class="fa fa-check"></i>Declaration</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="research-framework.html"><a href="research-framework.html"><i class="fa fa-check"></i><b>1.1</b> Research framework</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="research-framework.html"><a href="research-framework.html#tidy-data-structure"><i class="fa fa-check"></i><b>1.1.1</b> Tidy data structure</a></li>
+<li class="chapter" data-level="1.1.2" data-path="research-framework.html"><a href="research-framework.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1.2</b> The grammar of graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="scope.html"><a href="scope.html"><i class="fa fa-check"></i><b>1.2</b> Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-calendar.html"><a href="ch-calendar.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="3" data-path="ch-tsibble.html"><a href="ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-intro.html"><a href="sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="sec-str.html"><a href="sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-str.html"><a href="sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-str.html"><a href="sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-str.html"><a href="sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-semantics.html"><a href="sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-semantics.html"><a href="sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-pipeline.html"><a href="sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="sec-pipeline.html"><a href="sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sec-software.html"><a href="sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sec-software.html"><a href="sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
+<li class="chapter" data-level="3.5.2" data-path="sec-software.html"><a href="sec-software.html#functional-programming"><i class="fa fa-check"></i><b>3.5.2</b> Functional programming</a></li>
+<li class="chapter" data-level="3.5.3" data-path="sec-software.html"><a href="sec-software.html#modularity"><i class="fa fa-check"></i><b>3.5.3</b> Modularity</a></li>
+<li class="chapter" data-level="3.5.4" data-path="sec-software.html"><a href="sec-software.html#extensibility"><i class="fa fa-check"></i><b>3.5.4</b> Extensibility</a></li>
+<li class="chapter" data-level="3.5.5" data-path="sec-software.html"><a href="sec-software.html#tidy-evaluation"><i class="fa fa-check"></i><b>3.5.5</b> Tidy evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="sec-cases.html"><a href="sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="sec-cases.html"><a href="sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tidy data structure and visualisation to support exploration and modeling of temporal data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:semantics" class="section level2">
+<h2><span class="header-section-number">3.3</span> Contextual semantics</h2>
+<p>The choice of tidy representation of temporal data arises from a data-centric perspective, which accommodates all of the operations that are to be performed on the data.  marks where this new abstraction is placed in the tidy model, which we refer to as a “tsibble”. The tsibble structure is an extension of a data frame—a two-dimensional array in R—with additional time series semantics: index and key, as shown in .</p>
+<div class="figure" style="text-align: center"><span id="fig:tsibble-semantics"></span>
+<img src="img/tsibble-semantics.pdf" alt="The architecture of the tsibble structure is built on top of the data frame—a two-dimensional array in R, with time series semantics: index and key." width="\textwidth" />
+<p class="caption">
+Figure 3.2: The architecture of the tsibble structure is built on top of the data frame—a two-dimensional array in R, with time series semantics: index and key.
+</p>
+</div>
+
+<p>To demonstrate the concept of the tsibble,  presents a subset of tuberculosis cases estimated by <span class="citation">(<span class="citeproc-not-found" data-reference-id="tb-data"><strong>???</strong></span>)</span>. It contains 12 observations and 5 variables arranged in a “long” tabular form. Each observation comprises the number of people who are diagnosed with tuberculosis for each gender at three selected countries in the years of 2011 and 2012. To turn this data into a tsibble: (1) column <code>year</code> is declared as the index variable; (2) the key is specified to consist of columns <code>country</code> and <code>gender</code>. The column <code>count</code> is the only measured variable in this data, but the structure is sufficiently flexible to hold other measured variables; for example, adding the corresponding population size (if known) in order to normalize the count later.</p>
+
+
+<p>The new data structure, tsibble, bridges the gap between raw temporal data and model inputs. Contextual semantics are introduced to tidy data in order to support more intuitive time-related manipulations and enlighten new perspectives for time series model inputs. Index, key and time interval are the three stone pillars to this new semantically structured temporal data. Each is now described in more detail.</p>
+<div id="sec:index" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Index</h3>
+<p>Time provides a contextual basis for temporal data. A variable representing time is essential for a tsibble, and is referred to as an “index”. The “index” is an intact data column rather than a masked attribute, which makes time visible and accessible to users. This is highly advantageous when manipulating time. For example, one could easily extract time components, such as time of day and day of week, from the index to visualize seasonal effects of response variables. One could also join other data sources to the tsibble based on common time indexes. The accessibility of the tsibble index motivates data analysis towards transparency and human readability. When the “index” is available only as meta information (such as in the <code>ts</code> class), it creates an obstacle for analysts to write these simple queries in a programmatic manner, which should be discouraged from an analytic point of view.</p>
+<p>A variable number of time representations can be spotted in the wild. A date-time object, universally accepted across computing systems, is the most commonly used type for representing time. Date-time also typically associates with a time zone including adjustments such as summer time. This diversity and time zone is acknowledged and accommodated by tsibble’s index. When creating a tsibble, time indices are arranged from past to future within each series for the strict temporal ordering that is assumed by time series operations.</p>
+</div>
+<div id="sec:key" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Key</h3>
+<p>The “key” specification is the second essential ingredient for a tsibble. The “key” uniquely identifies observations that are recorded over time in a data table. It is similar to a primary key <span class="citation">(<span class="citeproc-not-found" data-reference-id="codd_relational_1970"><strong>???</strong></span>)</span> defining each observation in a relational database. In the wide format in which multiple time series are often structured, the columns hold a series of values, so that the column implicitly serves as identification. In long format, columns are melted with names converted to “key” values. However, the “key” provides much more flexibility. It is not constrained to a single field, but can be composed from multiple fields. The identifying variables from which the “key” is constituted remain the same as in the original table with no further tweaks.</p>
+<p>The “key” is usually known a priori by analysts. For example,  describes the number of tuberculosis cases for each gender across the countries every year. This data description suggests that columns <code>gender</code> and <code>country</code> have to be declared as the key, similar to a panel variable for longitudinal data. Lacking either of the two will be inadequate, because the observations would not be uniquely identified, and thus a tsibble construction would fail. An alternative specification of the key for this data is to include a third variable <code>continent</code>. Since <code>country</code> is nested within <code>continent</code>, it is a free variable for use. This variable brings additional information that can be used for forecasting reconciliation <span class="citation">(<span class="citeproc-not-found" data-reference-id="fpp"><strong>???</strong></span>)</span>. The key needs to be explicit when multiple units exist in the data. The key can be implicit when it finds a univariate series in the table, but it cannot be absent from a tsibble.</p>
+<p>The “key” also provides a link between the data, models, and forecasts. This neatly decouples the data from models and forecasts, leaving more room for necessary model components, such as coefficients, fitted values and residuals. More details are given in .</p>
+</div>
+<div id="sec:interval" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Interval</h3>
+<p>One of the cornerstones of time series data, and hence beneath a tsibble, is the time interval. This information plays a critical role in computing statistics (e.g. seasonal unit root tests) and building models (e.g. seasonal ARIMA). The principal divide is between regularly or irregularly spaced observations in time. A tsibble permits implicit missing time, making it difficult to distinguish regularity from the index. It relies on a user’s specification by switching the <code>regular</code> argument off, when the data involves irregular intervals. This type of data can flow into event-based data modeling, but would need to be processed or regularized to fit models that expect time series.</p>
+<p>For data indexed in regular time space, the time interval is automatically calculated, by first computing absolute differences of time indexes and then finding the greatest common divisor. This covers all conceivable cases, assuming that all observations in a tsibble have only one interval. Data collected at different intervals should be organized in separate tsibbles, encouraging well-tailored analysis and models, because each observation may have different underlying data generating processes.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-str.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-pipeline.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
