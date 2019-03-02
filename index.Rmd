@@ -13,7 +13,7 @@ library(knitr)
 opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
   fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center', 
-  fig.show = 'hold', cache = FALSE, external = TRUE,
+  fig.show = 'hold', cache = TRUE, external = TRUE,
   out.width = ifelse(is_html_output(), "100%", "\\textwidth"),
   comment = "#>"
 )

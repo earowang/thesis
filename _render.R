@@ -4,7 +4,8 @@ if (Sys.getenv("RSTUDIO") != "1" && Sys.info()['sysname'] == "Darwin") {
 
 options(warn = 1)
 
-# spell checking
+# spelling check
+cat("spelling check ...\n")
 rmd_files <- list.files("Rmd/", full.names = TRUE)
 wordlist <- readLines("WORDLIST")
 spell_gb <- spelling::spell_check_files(rmd_files, wordlist, "en_GB")
@@ -15,6 +16,8 @@ if (NROW(spell_res) != 0) {
   stop("Please fix typos first!")
 }
 
+# convert pdf to png for html output
+cat("coverting pdf to png ...\n")
 img_pdf <- list.files("img/", pattern = "*.pdf")
 for (i in img_pdf) {
   file_pdf <- paste0("img/", i)
@@ -26,14 +29,16 @@ for (i in img_pdf) {
 }
 
 # provide default formats if necessary
-formats <- c("bookdown::pdf_book", "bookdown::gitbook")
+formats <- commandArgs(trailingOnly = TRUE)
+if (length(formats) == 0) {
+  formats <- "bookdown::pdfbook"
+}
 
 # render the book to all formats
 for (fmt in formats)
   bookdown::render_book("index.Rmd", fmt, quiet = FALSE)
 
 gif_file <- list.files("figure", "*.gif", full.names = TRUE)
-
 invisible(file.copy(gif_file, "_thesis/figure/animate.gif"))
 # dir.create("_thesis/img", showWarnings = FALSE)
 # img_files <- list.files("img", "*.png", full.names = TRUE)

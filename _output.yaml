@@ -7,7 +7,7 @@ bookdown::gitbook:
     toc:
       collapse: none
       before: |
-        <li><a href="./">PhD thesis (Earo Wang)</a></li>
+        <li><a href="./">My PhD thesis</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
     edit: https://github.com/earowang/thesis/edit/master/%s
