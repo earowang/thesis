@@ -3,14 +3,6 @@
 Mining temporal data for information is often inhibited by a multitude of formats: irregular or multiple time intervals, point events that need aggregating, multiple observational units or repeated measurements on multiple individuals, and heterogeneous data types. On the other hand, the software supporting time series modeling and forecasting, makes strict assumptions on the data to be provided, typically requiring a matrix of numeric data with implicit time indexes. Going from raw data to model-ready data is painful. This work presents a cohesive and conceptual framework for organizing and manipulating temporal data, which in turn flows into visualization, modeling and forecasting routines. Tidy data principles are extended to temporal data by: (1) mapping the semantics of a dataset into its physical layout; (2) including an explicitly declared index variable representing time; (3) incorporating a "key" comprising single or multiple variables to uniquely identify units over time. This tidy data representation most naturally supports thinking of operations on the data as building blocks, forming part of a "data pipeline" in time-based contexts. A sound data pipeline facilitates a fluent workflow for analyzing temporal data. The infrastructure of tidy temporal data has been implemented in the R package **tsibble**.
 
 ```{r tsibble-initial, echo = FALSE, cache = FALSE, include = FALSE}
-library(knitr)
-opts_chunk$set(
-  warning = FALSE, message = FALSE, echo = FALSE,
-  fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center',
-  fig.show = 'hold', cache = TRUE, external = TRUE, dev = "pdf",
-  fig.height = 5, fig.width = 8, out.width = "\\textwidth",
-  comment = "#>"
-)
 read_chunk('R/tsibble-demo.R')
 read_chunk('R/tsibble-flights.R')
 read_chunk('R/tsibble-smart-meter.R')
@@ -25,17 +17,15 @@ Temporal data arrives in many possible formats, with many different time context
 
 Despite this variety and heterogeneity of temporal data, current software typically requires time series objects to be model-oriented matrices. Analysts are expected to do their own data preprocessing and take care of anything else needed to allow model fitting, which leads to a myriad of ad hoc solutions and duplicated efforts.
 
-@r4ds proposed the tidy data workflow, which provides a conceptual 
-framework for processing data (as described in \autoref{fig:tsibble-fit}). Currently, time series modeling and forecasting enters this framework at the *modeling* stage, while temporal data enters at the start. This paper integrates
-time series analysis into this tidy framework, providing a coherent way for getting temporal data into the matrix format for modeling. 
+@r4ds proposed the tidy data workflow, which provides a conceptual framework for processing data (as described in Figure \@ref(fig:tsibble-fit)). Currently, time series modeling and forecasting enters this framework at the *modeling* stage, while temporal data enters at the start. This paper integrates time series analysis into this tidy framework, providing a coherent way for getting temporal data into the matrix format for modeling. 
 
 ```{r tsibble-fit, fig.cap = "(ref:tsibble-fit-cap)"}
-include_graphics("img/tsibble-fit.pdf")
+include_graphics("img/tsibble-fit.png")
 ```
 
 (ref:tsibble-fit-cap) Illustration of the data science workflow, drawn from @r4ds, showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the "tidy" step, which produce tidy temporal data for time series visualization and modeling.
 
-The paper is structured as follows. \autoref{sec:str} reviews temporal data structures corresponding to time series and longitudinal analysis, and discusses "tidy data" and the grammar of data manipulation. \autoref{sec:semantics} proposes contextual semantics for temporal data, built on top of tidy data. The concept of data pipelines with respect to the time domain will be discussed in depth in \autoref{sec:pipeline}, followed by a discussion of the design choices made in the software structure in \autoref{sec:software}. Two case studies are presented in \autoref{sec:cases} illustrating temporal data exploration using the newly implemented infrastructure. \autoref{sec:conclusion} discusses future work.
+The paper is structured as follows. Section \@ref(sec:str) reviews temporal data structures corresponding to time series and longitudinal analysis, and discusses "tidy data" and the grammar of data manipulation. Section \@ref(sec:semantics) proposes contextual semantics for temporal data, built on top of tidy data. The concept of data pipelines with respect to the time domain will be discussed in depth in Section \@ref(sec:pipeline), followed by a discussion of the design choices made in the software structure in Section \@ref(sec:software). Two case studies are presented in Section \@ref(sec:cases) illustrating temporal data exploration using the newly implemented infrastructure. Section \@ref(sec:conclusion) discusses future work.
 
 ## Data structures {#sec:str}
 
@@ -55,25 +45,28 @@ The **tidyverse** largely formalizes exploratory data analysis. Many in the R co
 
 ### Existing time series standards in R
 
-Current standards, provided by the native `ts` object in R, and extended by **zoo** [@zoo2005] and **xts** [@R-xts], assemble temporal data into matrices with implicit time indexes. These objects were designed for modeling methods. The diagram in the style of \autoref{fig:tsibble-fit} would place the model at the center of the analytical universe, and all the transformations and visualizations would hinge on that format. This is contrary to the **tidyverse** conceptualization, which holistically captures the full data workflow.
+Current standards, provided by the native `ts` object in R, and extended by **zoo** [@zoo2005] and **xts** [@R-xts], assemble temporal data into matrices with implicit time indexes. These objects were designed for modeling methods. The diagram in the style of Figure \@ref(fig:tsibble-fit) would place the model at the center of the analytical universe, and all the transformations and visualizations would hinge on that format. This is contrary to the **tidyverse** conceptualization, which holistically captures the full data workflow.
 
-A new temporal data class is needed in the upstream of the workflow, which could incorporate all the downstream modules. A relatively new R package **tibbletime** [@R-tibbletime] proposed a data class of *time tibble* to represent temporal data in heterogeneous tabular format. It only requires an index variable to declare a temporal data object, thus placing it at the import stage. However, as proposed in \autoref{sec:semantics} a more rigid data structure is required for time series analytics and models. 
+A new temporal data class is needed in the upstream of the workflow, which could incorporate all the downstream modules. A relatively new R package **tibbletime** [@R-tibbletime] proposed a data class of *time tibble* to represent temporal data in heterogeneous tabular format. It only requires an index variable to declare a temporal data object, thus placing it at the import stage. However, as proposed in Section \@ref(sec:semantics) a more rigid data structure is required for time series analytics and models. 
 
 This paper describes a new tidy representation for temporal data, and a unified framework to streamline the workflow from data preprocessing to visualization and forecasting, as an integral part of a tidy data analysis.
 
 ## Contextual semantics {#sec:semantics}
 
-The choice of tidy representation of temporal data arises from a data-centric perspective, which accommodates all of the operations that are to be performed on the data. \autoref{fig:tsibble-fit} marks where this new abstraction is placed in the tidy model, which we refer to as a "tsibble". The tsibble structure is an extension of a data frame---a two-dimensional array in R---with additional time series semantics: index and key, as shown in \autoref{fig:tsibble-semantics}.
+The choice of tidy representation of temporal data arises from a data-centric perspective, which accommodates all of the operations that are to be performed on the data. Figure \@ref(fig:tsibble-fit) marks where this new abstraction is placed in the tidy model, which we refer to as a "tsibble". The tsibble structure is an extension of a data frame---a two-dimensional array in R---with additional time series semantics: index and key, as shown in Figure \@ref(fig:tsibble-semantics).
 
 ```{r tsibble-semantics, fig.cap = "(ref:tsibble-semantics-cap)"}
-include_graphics("img/tsibble-semantics.pdf")
+include_graphics("img/tsibble-semantics.png")
 ```
 
 (ref:tsibble-semantics-cap) The architecture of the tsibble structure is built on top of the data frame---a two-dimensional array in R, with time series semantics: index and key.
 
-To demonstrate the concept of the tsibble, \autoref{tab:tb-sub} presents a subset of tuberculosis cases estimated by @tb-data. It contains 12 observations and 5 variables arranged in a "long" tabular form. Each observation comprises the number of people who are diagnosed with tuberculosis for each gender at three selected countries in the years of 2011 and 2012. To turn this data into a tsibble: (1) column `year` is declared as the index variable; (2) the key is specified to consist of columns `country` and `gender`. The column `count` is the only measured variable in this data, but the structure is sufficiently flexible to hold other measured variables; for example, adding the corresponding population size (if known) in order to normalize the count later.
+To demonstrate the concept of the tsibble, Table \@ref(tab:tb-sub) presents a subset of tuberculosis cases estimated by @tb-data. It contains 12 observations and 5 variables arranged in a "long" tabular form. Each observation comprises the number of people who are diagnosed with tuberculosis for each gender at three selected countries in the years of 2011 and 2012. To turn this data into a tsibble: (1) column `year` is declared as the index variable; (2) the key is specified to consist of columns `country` and `gender`. The column `count` is the only measured variable in this data, but the structure is sufficiently flexible to hold other measured variables; for example, adding the corresponding population size (if known) in order to normalize the count later.
 
-```{r tb-sub}
+```{r tb-sub, eval = knitr::is_latex_output()}
+```
+
+```{r tb-sub-html, eval = knitr::is_html_output()}
 ```
 
 (ref:tb-sub) A small subset of estimates of tuberculosis burden generated by World Health Organization in 2011 and 2012, with 12 observations and 5 variables. The index refers to column `year`, the key to multiple columns: `country` and `gender`, and the measured variable to column `count`.
@@ -90,9 +83,9 @@ A variable number of time representations can be spotted in the wild. A date-tim
 
 The "key" specification is the second essential ingredient for a tsibble. The "key" uniquely identifies observations that are recorded over time in a data table. It is similar to a primary key [@codd_relational_1970] defining each observation in a relational database. In the wide format in which multiple time series are often structured, the columns hold a series of values, so that the column implicitly serves as identification. In long format, columns are melted with names converted to "key" values. However, the "key" provides much more flexibility. It is not constrained to a single field, but can be composed from multiple fields. The identifying variables from which the "key" is constituted remain the same as in the original table with no further tweaks.
 
-The "key" is usually known a priori by analysts. For example, \autoref{tab:tb-sub} describes the number of tuberculosis cases for each gender across the countries every year. This data description suggests that columns `gender` and `country` have to be declared as the key, similar to a panel variable for longitudinal data. Lacking either of the two will be inadequate, because the observations would not be uniquely identified, and thus a tsibble construction would fail. An alternative specification of the key for this data is to include a third variable `continent`. Since `country` is nested within `continent`, it is a free variable for use. This variable brings additional information that can be used for forecasting reconciliation [@fpp]. The key needs to be explicit when multiple units exist in the data. The key can be implicit when it finds a univariate series in the table, but it cannot be absent from a tsibble.
+The "key" is usually known a priori by analysts. For example, Table \@ref(tab:tb-sub) describes the number of tuberculosis cases for each gender across the countries every year. This data description suggests that columns `gender` and `country` have to be declared as the key, similar to a panel variable for longitudinal data. Lacking either of the two will be inadequate, because the observations would not be uniquely identified, and thus a tsibble construction would fail. An alternative specification of the key for this data is to include a third variable `continent`. Since `country` is nested within `continent`, it is a free variable for use. This variable brings additional information that can be used for forecasting reconciliation [@fpp]. The key needs to be explicit when multiple units exist in the data. The key can be implicit when it finds a univariate series in the table, but it cannot be absent from a tsibble.
 
-The "key" also provides a link between the data, models, and forecasts. This neatly decouples the data from models and forecasts, leaving more room for necessary model components, such as coefficients, fitted values and residuals. More details are given  in \autoref{sec:ts-models}.
+The "key" also provides a link between the data, models, and forecasts. This neatly decouples the data from models and forecasts, leaving more room for necessary model components, such as coefficients, fitted values and residuals. More details are given  in Section \@ref(sec:ts-models).
 
 ### Interval {#sec:interval}
 
@@ -110,10 +103,10 @@ What is notable about an effective implementation of a data pipeline is that it 
 
 ### Time series transformation {#sec:timepipeline}
 
-\autoref{fig:tsibble-pipeline} illustrates the distinction of a time series pipeline from a regular data pipeline. It is highly recommended to check for identical entries of key and index before constructing a tsibble. Duplicates signal the data quality issue, which would likely affect subsequent analyses and hence decision making. Analysts are encouraged to gaze at data early and reason about the process of data cleaning. When the data meets the tsibble standard, it flows neatly into the analysis stage and takes full advantage of the tsibble infrastructure.
+Figure \@ref(fig:tsibble-pipeline) illustrates the distinction of a time series pipeline from a regular data pipeline. It is highly recommended to check for identical entries of key and index before constructing a tsibble. Duplicates signal the data quality issue, which would likely affect subsequent analyses and hence decision making. Analysts are encouraged to gaze at data early and reason about the process of data cleaning. When the data meets the tsibble standard, it flows neatly into the analysis stage and takes full advantage of the tsibble infrastructure.
 
 ```{r tsibble-pipeline, fig.cap = "(ref:tsibble-pipeline-cap)"}
-include_graphics("img/tsibble-pipeline.pdf")
+include_graphics("img/tsibble-pipeline.png")
 ```
 
 (ref:tsibble-pipeline-cap) A time series pipeline is different from a regular data pipeline: (1) check if the key and index uniquely identify each observation in the data whist creating a tsibble; (2) check if there are time gaps in the tsibble before analysis.
@@ -155,7 +148,7 @@ Many time operations such as lag/lead and time series models, assume an intact v
 \end{tabular}
 \end{table}
 
-Besides the time gap verbs, the **tidyverse** vocabulary is adapted and expanded to facilitate time series transformations, as listed in \autoref{tab:verb-table}. The **tidyverse** suite showcases the general-purpose verbs for effectively manipulating tabular data, for example `filter()` picks observations, `select()` picks variables, and `left_join()` joins two tables. But these verbs need handling with care when used in the time series domain. A perceivable difference is summarizing variables between data frame and tsibble using `summarize()`. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries. Users who are already familiar with the **tidyverse**, will experience a gentle learning curve for mastering these verbs and glide into time series analysis with low cognitive load.
+Besides the time gap verbs, the **tidyverse** vocabulary is adapted and expanded to facilitate time series transformations, as listed in Table \@ref(tab:verb-table). The **tidyverse** suite showcases the general-purpose verbs for effectively manipulating tabular data, for example `filter()` picks observations, `select()` picks variables, and `left_join()` joins two tables. But these verbs need handling with care when used in the time series domain. A perceivable difference is summarizing variables between data frame and tsibble using `summarize()`. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries. Users who are already familiar with the **tidyverse**, will experience a gentle learning curve for mastering these verbs and glide into time series analysis with low cognitive load.
 
 Attention has been paid to warning and error handling. The principle that underpins most verbs is a tsibble in and a tsibble out, thereby striving to maintain a valid tsibble by automatically updating index and key under the hood. If the desired temporal ordering is changed by row-wise verbs, a warning is broadcast. If a tsibble cannot be maintained in the output of a pipeline module (likely occurring to column-wise verbs), for example the index is removed by selection, an error informs users of the problem and suggests alternatives. This avoids surprising users and reminds them of the time context.
 
@@ -169,7 +162,7 @@ As a tsibble is a subclassing of data frame, it integrates well with the grammar
 
 ### Time series models {#sec:ts-models}
 
-Modeling is crucial to explanatory and predictive analytics, but often imposes stricter assumptions on tsibble data. The verbs listed in \autoref{tab:verb-table} ease the transition to a tsibble that suits modeling. A tidy forecasting framework built on top of tsibble is under development, which aims at promoting transparent forecasting practices and concise model representation. A tsibble usually contains multiple time series. Batch forecasting will be enabled if a univariate model, such as ARIMA and Exponential Smoothing, is applied to each time series independently. This yields a "mable" (short for model table), where each model relates to each "key" value in tsibble. This avoids expensive data copying and reduces model storage. The mable is further supplied to forecasting methods, to produce a "fable" (short for forecasting table) in which each "key" along with its future time holds predictions. It also underlines the advantage of tsibble's "key" in acting as linkage between data inputs, models and forecasts. Advanced forecasting techniques, such as vector autocorrelation, hierarchical reconciliation, and ensembles, can be developed in a similar spirit. The modeling module is a current endeavor.
+Modeling is crucial to explanatory and predictive analytics, but often imposes stricter assumptions on tsibble data. The verbs listed in Table \@ref(tab:verb-table) ease the transition to a tsibble that suits modeling. A tidy forecasting framework built on top of tsibble is under development, which aims at promoting transparent forecasting practices and concise model representation. A tsibble usually contains multiple time series. Batch forecasting will be enabled if a univariate model, such as ARIMA and Exponential Smoothing, is applied to each time series independently. This yields a "mable" (short for model table), where each model relates to each "key" value in tsibble. This avoids expensive data copying and reduces model storage. The mable is further supplied to forecasting methods, to produce a "fable" (short for forecasting table) in which each "key" along with its future time holds predictions. It also underlines the advantage of tsibble's "key" in acting as linkage between data inputs, models and forecasts. Advanced forecasting techniques, such as vector autocorrelation, hierarchical reconciliation, and ensembles, can be developed in a similar spirit. The modeling module is a current endeavor.
 
 ## Software structure and design decisions {#sec:software}
 
@@ -177,7 +170,7 @@ Modeling is crucial to explanatory and predictive analytics, but often imposes s
 
 The primary force that drives the software's design choices is "data". All functions in the package **tsibble** start with `data` or its variants as the first argument, namely "data first". This lays out a consistent interface and addresses the significance of the data throughout the software.
 
-Beyond the tools, the print display provides a quick and comprehensive glimpse of data in temporal context, particularly useful when handling a large collection of data. The contextual summary provided by the print function, shown below on the data from \autoref{tab:tb-sub}, contains (1) data dimension with its shorthand time interval, alongside time zone if date-times, (2) variables that constitute the "key" with the number of series. These details aid users in understanding their data better.
+Beyond the tools, the print display provides a quick and comprehensive glimpse of data in temporal context, particularly useful when handling a large collection of data. The contextual summary provided by the print function, shown below on the data from Table \@ref(tab:tb-sub), contains (1) data dimension with its shorthand time interval, alongside time zone if date-times, (2) variables that constitute the "key" with the number of series. These details aid users in understanding their data better.
 
 ```{r tb-print}
 ```
@@ -190,17 +183,20 @@ Rolling window calculations are widely used techniques in time series analysis, 
 2. **tile**: tiling window without overlapping observations.
 3. **stretch**: fixing an initial window and expanding to include more observations.
 
-\autoref{fig:animate} shows the animations of rolling windows for sliding, tiling and stretching, respectively, on annual tuberculosis cases for Australia. A block of consecutive elements with a window size of 5 are initialized and started rolling sequentially till the end of series by computing average counts.
+Figure \@ref(fig:animate) shows the animations of rolling windows for sliding, tiling and stretching, respectively, on annual tuberculosis cases for Australia. A block of consecutive elements with a window size of 5 are initialized and started rolling sequentially till the end of series by computing average counts.
 
 ```{r tb-au}
 ```
 
-```{r animate, fig.show = "animate", fig.height = 7, fig.cap = "(ref:animate-cap)", interval = 0.5, aniopts = c("autoplay", "controls", "loop"), ffmpeg.format = "gif", dev = "png"}
+```{r animate, fig.show = "animate", fig.height = 7, fig.cap = "(ref:animate-cap)", interval = 0.5, aniopts = c("autoplay", "controls", "loop"), eval = knitr::is_latex_output()}
+```
+
+```{r animate, fig.show = "animate", fig.height = 7, fig.cap = "(ref:animate-cap)", interval = 0.5, ffmpeg.format = "gif", dev = "png", eval = knitr::is_html_output(), fig.process = "animate.gif"}
 ```
 
 (ref:animate-cap) An illustration of window of size 5 computing rolling averages over annual tuberculosis cases in Australia with respect to sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)
 
-Rolling window uses a programming paradigm---functional programming, which is different from those table verbs listed in \autoref{tab:verb-table}. Table verbs expect and return a tsibble, and does what the function name suggests. On the contrary, these rolling window functions could accept arbitrary input types and would return arbitrary sorts of output, depending on which method is put into the rolling window. For example, computing moving averages requires numerics and a function like `mean()`, and produces averaged numerics. However, rolling window regression takes a data frame and a linear regression method like `lm()`, and generates a complex object that contains coefficients, fitted values, and etc.
+Rolling window uses a programming paradigm---functional programming, which is different from those table verbs listed in Table \@ref(tab:verb-table). Table verbs expect and return a tsibble, and does what the function name suggests. On the contrary, these rolling window functions could accept arbitrary input types and would return arbitrary sorts of output, depending on which method is put into the rolling window. For example, computing moving averages requires numerics and a function like `mean()`, and produces averaged numerics. However, rolling window regression takes a data frame and a linear regression method like `lm()`, and generates a complex object that contains coefficients, fitted values, and etc.
 
 The **purrr** package [@R-purrr] provides a good example of functional programming in R. It provides a complete and consistent set of tools to iterate each element of a vector with a function. Rolling window does not just iterate but rolls over a sequence of elements, namely `slide()`, `tile()` and `stretch()`. `slide()` expects one input, `slide2()` two inputs, and `pslide()` multiple inputs. For type stability, the functions always return lists. Other variants including `*_lgl()`, `*_int()`, `*_dbl()`, `*_chr()` return vectors of the corresponding type, as well as `*_dfr()` and `*_dfc()` for row-binding and column-binding data frames respectively. Their multiprocessing equivalents prefixed by `future_*()` enable rolling in parallel [@R-future; @R-furrr]. This family of functions empowers users to incorporate window-related operations in their workflows.
 
@@ -216,7 +212,7 @@ As a fundamental infrastructure, extensibility is a design decision that was emp
 
 Time representation could be arbitrary, for example R's native `POSIXct` and `Date` for versatile date-times, nano time for nanosecond resolution implemented in **nanotime** [@R-nanotime], and pure numbers in simulations. Ordered factors can also be a source of time, such as month names, January to December, and weekdays, Monday to Sunday. The **tsibble** package supports an extensive range of index types from numerics to nano time, but there might be custom indexes used for some occasions, for example school semesters. These academic terms vary from one institution to another, within an academic year which is defined differently from a calendar year. A new index would be immediately recognized by the software upon defining `index_valid()`, as long as it can be ordered from past to future. The interval regarding semesters is further outlined through `pull_interval()`. As a result, the rest of the software methods such as `has_gaps()` and `fill_gaps()` will have instant support for data that contains this new index.
 
-The class of tsibble is an underlying basis of temporal data, and there is a demand for sub-classing a tsibble. For example, a fable is actually an extension of a tsibble, mentioned in \autoref{sec:ts-models}. A low-level constructor `new_tsibble()` provides a vehicle to easily create a new subclass. This new object itself is a tsibble. It perhaps needs more metadata than those of a tsibble, that gives rise to a new data extension, like prediction distributions to a fable. Tsibble verbs are also S3 generics. Developers will be able to implement these verbs for the new class, if necessary.
+The class of tsibble is an underlying basis of temporal data, and there is a demand for sub-classing a tsibble. For example, a fable is actually an extension of a tsibble, mentioned in Section \@ref(sec:ts-models). A low-level constructor `new_tsibble()` provides a vehicle to easily create a new subclass. This new object itself is a tsibble. It perhaps needs more metadata than those of a tsibble, that gives rise to a new data extension, like prediction distributions to a fable. Tsibble verbs are also S3 generics. Developers will be able to implement these verbs for the new class, if necessary.
 
 ### Tidy evaluation
 
@@ -258,12 +254,12 @@ Transforming a tsibble for exploratory data analysis with a suite of time-specif
 (ref:carrier-mosaic-cap) Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest.
 
 ```{r flight-pipeline1, fig.cap = "(ref:flight-pipeline1-cap)"}
-include_graphics("img/flight-pipeline1")
+include_graphics("img/flight-pipeline1.png")
 ```
 
-(ref:flight-pipeline1-cap) Flow chart illustrating the pipeline that preprocessed the data for creating \autoref{fig:carrier-mosaic}.
+(ref:flight-pipeline1-cap) Flow chart illustrating the pipeline that preprocessed the data for creating Figure \@ref(fig:carrier-mosaic).
 
-\autoref{fig:carrier-mosaic} visually presents the end product of aggregating the number of on-time and delayed flights to the year interval by carriers. This pipeline is initialized by defining a new variable if the flight is delayed, and involves summarizing the tallies of on-time and delayed flights for each carrier annually. To prepare the summarized data for a mosaic plot, it is further manipulated by melting new tallies into a single column. The flow chart (\autoref{fig:flight-pipeline1}) demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval, and the output ends up with a tsibble of unknown interval (as each carrier ends up with only one annual summary). The final data set includes each carrier along with a single year, with the interval undetermined, which in turn feeds into the mosaic display. Note that Southwest Airlines (WN), as the largest carrier, operates less efficiently than Delta (DL).
+Figure \@ref(fig:carrier-mosaic) visually presents the end product of aggregating the number of on-time and delayed flights to the year interval by carriers. This pipeline is initialized by defining a new variable if the flight is delayed, and involves summarizing the tallies of on-time and delayed flights for each carrier annually. To prepare the summarized data for a mosaic plot, it is further manipulated by melting new tallies into a single column. The flow chart (Figure \@ref(fig:flight-pipeline1)) demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval, and the output ends up with a tsibble of unknown interval (as each carrier ends up with only one annual summary). The final data set includes each carrier along with a single year, with the interval undetermined, which in turn feeds into the mosaic display. Note that Southwest Airlines (WN), as the largest carrier, operates less efficiently than Delta (DL).
 
 A closer examination of some big airports across the US will give an indication of how well the busiest airports manage the outflow traffic on a daily basis. A subset that contains observations for Houston (IAH), New York (JFK), Kalaoa (KOA), Los Angeles (LAX) and Seattle (SEA) airports is obtained first. The succeeding operations compute delayed percentages every day at each airport, which are framed as grey lines in Figure \@ref(fig:sel-monthly-plot). Winter months tend to fluctuate a lot compared to the summer across all the airports. Superimposed on the plot are two-month moving averages, so the temporal trend is more visible. The number of days for each month is variable. Moving averages for two months call for computing weighted mean. But this can also be accomplished using a pair of commonly used verbs--`nest()` and `unnest()` to handle list-columns, without weight specification. The sliding operation with a large window size smooths out the fluctuations and gives a stable trend around 25% over the year. LAX airport has seen a gradual decline in delays over the year, whereas the SEA airport has a steady number delays over time. The IAH and JFK airports have more delays in the middle of year, while the KOA has the inverse pattern with higher delay percentage in both ends of the year.
 
@@ -285,12 +281,12 @@ A closer examination of some big airports across the US will give an indication 
 (ref:sel-monthly-plot-cap) Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays.
 
 ```{r flight-pipeline2, fig.cap = "(ref:flight-pipeline2-cap)"}
-include_graphics("img/flight-pipeline2")
+include_graphics("img/flight-pipeline2.png")
 ```
 
-(ref:flight-pipeline2-cap) Flow chart illustrating the pipeline that preprocessed the data for creating \autoref{fig:sel-monthly-plot}.
+(ref:flight-pipeline2-cap) Flow chart illustrating the pipeline that preprocessed the data for creating Figure \@ref(fig:sel-monthly-plot).
 
-What time of day and day of week should we travel to avoid suffering from horrible delay? \autoref{fig:draw-qtl} plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are shown. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18). <!--As moving towards the upper extremes, the variations considerably increase, making departure time unpredictable.-->
+What time of day and day of week should we travel to avoid suffering from horrible delay? Figure \@ref(fig:draw-qtl) plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are shown. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18).
 
 ```{r quantile}
 ```
@@ -304,10 +300,10 @@ What time of day and day of week should we travel to avoid suffering from horrib
 (ref:draw-qtl-cap) Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
 
 ```{r flight-pipeline3, fig.cap = "(ref:flight-pipeline3-cap)"}
-include_graphics("img/flight-pipeline3")
+include_graphics("img/flight-pipeline3.png")
 ```
 
-(ref:flight-pipeline3-cap) Flow chart illustrates the pipeline that preprocesses the data for creating \autoref{fig:draw-qtl}.
+(ref:flight-pipeline3-cap) Flow chart illustrates the pipeline that preprocesses the data for creating Figure \@ref(fig:draw-qtl).
 
 \FloatBarrier
 
@@ -321,14 +317,14 @@ Sensors have been installed in households across major cities in Australia to co
 ```{r elec-gaps}
 ```
 
-During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to `r scales::percent(sum(gap_df$.gaps) / NROW(gap_df))` of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household. \autoref{fig:count-gaps} shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.
+During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to `r scales::percent(sum(gap_df$.gaps) / NROW(gap_df))` of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household. Figure \@ref(fig:count-gaps) shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.
 
 ```{r count-gaps, fig.height = 7, fig.cap = "(ref:count-gaps-cap)"}
 ```
 
 (ref:count-gaps-cap) Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months.
 
-Aggregation across all individuals helps to sketch a big picture of the behavioral change over time, organized into a calendar display (\autoref{fig:calendar-plot}). Each glyph represents the daily pattern of average residential electricity usage every thirty minutes. Higher consumption is indicated by higher values, and typically occurs in daylight hours. Color indicates hot days. The daily snapshots vary depending on the season in the year. During the summer months (December and January), the late-afternoon peak becomes predominant driven by the use of air conditioning, especially on hot days with daily average temperature greater than 25 degrees C. However, the winter time (July and August) sees two peaks in a day, which is probably due to heating in the morning and evening. This plot illustrates how the tsibble data can easily integrate with other tools and graphics.
+Aggregation across all individuals helps to sketch a big picture of the behavioral change over time, organized into a calendar display (Figure \@ref(fig:calendar-plot)). Each glyph represents the daily pattern of average residential electricity usage every thirty minutes. Higher consumption is indicated by higher values, and typically occurs in daylight hours. Color indicates hot days. The daily snapshots vary depending on the season in the year. During the summer months (December and January), the late-afternoon peak becomes predominant driven by the use of air conditioning, especially on hot days with daily average temperature greater than 25 degrees C. However, the winter time (July and August) sees two peaks in a day, which is probably due to heating in the morning and evening. This plot illustrates how the tsibble data can easily integrate with other tools and graphics.
 
 ```{r calendar-plot, fig.height = 7, fig.cap = "(ref:calendar-plot-cap)"}
 ```
@@ -336,10 +332,10 @@ Aggregation across all individuals helps to sketch a big picture of the behavior
 (ref:calendar-plot-cap) Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use.
 
 ```{r elec-pipeline2, fig.cap = "(ref:elec-pipeline2-cap)"}
-include_graphics("img/elec-pipeline2")
+include_graphics("img/elec-pipeline2.png")
 ```
 
-(ref:elec-pipeline2-cap) Flow chart illustrating the pipeline that preprocessed the data for creating \autoref{fig:calendar-plot}.
+(ref:elec-pipeline2-cap) Flow chart illustrating the pipeline that preprocessed the data for creating Figure \@ref(fig:calendar-plot).
 
 ## Conclusion and future work {#sec:conclusion}
 

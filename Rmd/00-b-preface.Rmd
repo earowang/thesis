@@ -1,3 +1,5 @@
 # Preface {-}
 
-Chapter \@ref(ch:calendar) has been submitted to *Journal of Statistical Software* and is currently under review. It has won the 2018 ASA Statistical Graphics Student Paper Award.
+Chapter \@ref(ch:calendar) has been revised and resubmitted to *Journal of Computational and Graphical Statistics*. It has won the 2018 ASA Statistical Graphics Student Paper Award and the 2018 ACEMS Business Analytics Prize. Chapter \@ref(ch:tsibble) has been submitted to *Journal of Computational and Graphical Statistics* and is currently under review. The accompanying R package **tsibble** has won the 2019 John Chambers Statistical Software Award.
+
+This thesis is written in R Markdown [@rmarkdown] with **bookdown** [@bookdown], hosted at <https://thesis.earo.me>. All materials (including the data sets and source files) required to reproduce this thesis can be found at the Github repository <https://github.com/earowang/thesis>.

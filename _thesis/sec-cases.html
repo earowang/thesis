@@ -63,7 +63,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">PhD thesis</a></li>
+<li><a href="./">PhD thesis (Earo Wang)</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
@@ -134,66 +134,66 @@
 <h2><span class="header-section-number">3.6</span> Case studies</h2>
 <div id="on-time-performance-for-domestic-flights-in-u.s.a" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> On-time performance for domestic flights in U.S.A</h3>
-<p>The dataset of on-time performance for US domestic flights in 2017 represents event-driven data caught in the wild, sourced from US Bureau of Transportation Statistics <span class="citation">(<span class="citeproc-not-found" data-reference-id="flights-data"><strong>???</strong></span>)</span>. It contains 5,548,445 operating flights with many measurements (such as departure delay, arrival delay in minutes, and other performance metrics) and detailed flight information (such as origin, destination, plane number and etc.) in a tabular format. This kind of event describes each flight scheduled for departure at a time point in its local time zone. Every single flight should be uniquely identified by the flight number and its scheduled departure time, from a passenger’s point of view. In fact, it fails to pass the tsibble hurdle due to duplicates in the original data. An error is immediately raised when attempting to convert this data into a tsibble, and closer inspection has to be carried out to locate the issue. The <strong>tsibble</strong> package provides tools to easily locate the duplicates in the data with <code>duplicates()</code>. The problematic entries are shown below.</p>
-<pre><code>#&gt;   flight_num  sched_dep_datetime  sched_arr_datetime dep_delay arr_delay
-#&gt; 1      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
-#&gt; 2      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
-#&gt;   carrier tailnum origin dest air_time distance origin_city_name
-#&gt; 1      NK  N601NK    LAX  DEN      107      862      Los Angeles
-#&gt; 2      NK  N639NK    ORD  LGA      107      733          Chicago
-#&gt;   origin_state dest_city_name dest_state taxi_out taxi_in carrier_delay
-#&gt; 1           CA         Denver         CO       69      13             0
-#&gt; 2           IL       New York         NY       69      13             0
-#&gt;   weather_delay nas_delay security_delay late_aircraft_delay
-#&gt; 1             0       194              0                   0
-#&gt; 2             0       194              0                   0</code></pre>
+<p>The dataset of on-time performance for US domestic flights in 2017 represents event-driven data caught in the wild, sourced from US Bureau of Transportation Statistics <span class="citation">(Bureau of Transportation Statistics <a href="references.html#ref-flights-data">2018</a>)</span>. It contains 5,548,445 operating flights with many measurements (such as departure delay, arrival delay in minutes, and other performance metrics) and detailed flight information (such as origin, destination, plane number and etc.) in a tabular format. This kind of event describes each flight scheduled for departure at a time point in its local time zone. Every single flight should be uniquely identified by the flight number and its scheduled departure time, from a passenger’s point of view. In fact, it fails to pass the tsibble hurdle due to duplicates in the original data. An error is immediately raised when attempting to convert this data into a tsibble, and closer inspection has to be carried out to locate the issue. The <strong>tsibble</strong> package provides tools to easily locate the duplicates in the data with <code>duplicates()</code>. The problematic entries are shown below.</p>
+<pre><code>##   flight_num  sched_dep_datetime  sched_arr_datetime dep_delay arr_delay
+## 1      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+## 2      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+##   carrier tailnum origin dest air_time distance origin_city_name
+## 1      NK  N601NK    LAX  DEN      107      862      Los Angeles
+## 2      NK  N639NK    ORD  LGA      107      733          Chicago
+##   origin_state dest_city_name dest_state taxi_out taxi_in carrier_delay
+## 1           CA         Denver         CO       69      13             0
+## 2           IL       New York         NY       69      13             0
+##   weather_delay nas_delay security_delay late_aircraft_delay
+## 1             0       194              0                   0
+## 2             0       194              0                   0</code></pre>
 <p>The issue was perhaps introduced when updating or entering the data into a system. The same flight is scheduled at exactly the same time, together with the same performance statistics but different flight details. As flight NK630 is usually scheduled at 17:45 from Chicago to New York (discovered by searching the full database), a decision is made to remove the first row from the duplicated entries before proceeding to the tsibble creation.</p>
 <p>This dataset is intrinsically heterogeneous, encoded in numbers, strings, and date-times. The tsibble framework, as expected, incorporates this type of data without any loss of data richness and heterogeneity. To declare the flight data as a valid tsibble, column <code>sched_dep_datetime</code> is specified as the “index”, and column <code>flight_num</code> as the “key” via <code>id(flight_num)</code>. As a result of event timing, the data are irregularly spaced, and hence switching to the irregular option is necessary. The software internally validates if the key and index produce distinct rows, and then sorts the key and the index from past to recent. When the tsibble creation is done, the print display is data-oriented and contextually informative, including dimensions, irregular interval (<code>5,548,444 x 22 [!] &lt;UTC&gt;</code>) and the number of time-based observational units (<code>flight_num [22,562]</code>).</p>
-<pre><code>#&gt; # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
-#&gt; # Key:       flight_num [22,562]</code></pre>
+<pre><code>## # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
+## # Key:       flight_num [22,562]</code></pre>
 <p>Transforming a tsibble for exploratory data analysis with a suite of time-specific and general-purpose manipulation verbs can result in well-constructed pipelines. From the perspective of a passenger, for example, one needs to travel smart by choosing an efficient carrier to fly with and the time of day to avoid congestion. To explore this data, we drill down starting with annual carrier performance and followed by disaggregation to finer time resolutions.</p>
 <div class="figure" style="text-align: center"><span id="fig:carrier-mosaic"></span>
-<img src="figure/carrier-mosaic-1.pdf" alt="Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest." width="\textwidth" />
+<img src="figure/carrier-mosaic-1.svg" alt="Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest." width="100%" />
 <p class="caption">
 Figure 3.5: Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline1"></span>
-<img src="img/flight-pipeline1" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<img src="img/flight-pipeline1.png" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.5." width="100%" />
 <p class="caption">
-Figure 3.6: Flow chart illustrating the pipeline that preprocessed the data for creating .
+Figure 3.6: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="sec-cases.html#fig:carrier-mosaic">3.5</a>.
 </p>
 </div>
 
-<p> visually presents the end product of aggregating the number of on-time and delayed flights to the year interval by carriers. This pipeline is initialized by defining a new variable if the flight is delayed, and involves summarizing the tallies of on-time and delayed flights for each carrier annually. To prepare the summarized data for a mosaic plot, it is further manipulated by melting new tallies into a single column. The flow chart () demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval, and the output ends up with a tsibble of unknown interval (as each carrier ends up with only one annual summary). The final data set includes each carrier along with a single year, with the interval undetermined, which in turn feeds into the mosaic display. Note that Southwest Airlines (WN), as the largest carrier, operates less efficiently than Delta (DL).</p>
+<p>Figure <a href="sec-cases.html#fig:carrier-mosaic">3.5</a> visually presents the end product of aggregating the number of on-time and delayed flights to the year interval by carriers. This pipeline is initialized by defining a new variable if the flight is delayed, and involves summarizing the tallies of on-time and delayed flights for each carrier annually. To prepare the summarized data for a mosaic plot, it is further manipulated by melting new tallies into a single column. The flow chart (Figure <a href="sec-cases.html#fig:flight-pipeline1">3.6</a>) demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval, and the output ends up with a tsibble of unknown interval (as each carrier ends up with only one annual summary). The final data set includes each carrier along with a single year, with the interval undetermined, which in turn feeds into the mosaic display. Note that Southwest Airlines (WN), as the largest carrier, operates less efficiently than Delta (DL).</p>
 <p>A closer examination of some big airports across the US will give an indication of how well the busiest airports manage the outflow traffic on a daily basis. A subset that contains observations for Houston (IAH), New York (JFK), Kalaoa (KOA), Los Angeles (LAX) and Seattle (SEA) airports is obtained first. The succeeding operations compute delayed percentages every day at each airport, which are framed as grey lines in Figure <a href="sec-cases.html#fig:sel-monthly-plot">3.7</a>. Winter months tend to fluctuate a lot compared to the summer across all the airports. Superimposed on the plot are two-month moving averages, so the temporal trend is more visible. The number of days for each month is variable. Moving averages for two months call for computing weighted mean. But this can also be accomplished using a pair of commonly used verbs–<code>nest()</code> and <code>unnest()</code> to handle list-columns, without weight specification. The sliding operation with a large window size smooths out the fluctuations and gives a stable trend around 25% over the year. LAX airport has seen a gradual decline in delays over the year, whereas the SEA airport has a steady number delays over time. The IAH and JFK airports have more delays in the middle of year, while the KOA has the inverse pattern with higher delay percentage in both ends of the year.</p>
 <div class="figure" style="text-align: center"><span id="fig:sel-monthly-plot"></span>
-<img src="figure/sel-monthly-plot-1.pdf" alt="Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays." width="\textwidth" />
+<img src="figure/sel-monthly-plot-1.svg" alt="Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays." width="100%" />
 <p class="caption">
 Figure 3.7: Daily delayed percentages for departure with two-month moving averages overlaid at five international airports. There are least fluctuations and relatively fewer delays observed at KOA airport. The estimates of temporal trend are around 25% across the other four airports, but highlight different time periods of severe delays.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline2"></span>
-<img src="img/flight-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<img src="img/flight-pipeline2.png" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.7." width="100%" />
 <p class="caption">
-Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for creating .
+Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="sec-cases.html#fig:sel-monthly-plot">3.7</a>.
 </p>
 </div>
 
-<p>What time of day and day of week should we travel to avoid suffering from horrible delay?  plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are shown. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18). <!--As moving towards the upper extremes, the variations considerably increase, making departure time unpredictable.--></p>
+<p>What time of day and day of week should we travel to avoid suffering from horrible delay? Figure <a href="sec-cases.html#fig:draw-qtl">3.9</a> plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are shown. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18).</p>
 <div class="figure" style="text-align: center"><span id="fig:draw-qtl"></span>
-<img src="figure/draw-qtl-1.pdf" alt="Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails." width="\textwidth" />
+<img src="figure/draw-qtl-1.svg" alt="Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails." width="100%" />
 <p class="caption">
 Figure 3.9: Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline3"></span>
-<img src="img/flight-pipeline3" alt="Flow chart illustrates the pipeline that preprocesses the data for creating ." width="\textwidth" />
+<img src="img/flight-pipeline3.png" alt="Flow chart illustrates the pipeline that preprocesses the data for creating Figure 3.9." width="100%" />
 <p class="caption">
-Figure 3.10: Flow chart illustrates the pipeline that preprocesses the data for creating .
+Figure 3.10: Flow chart illustrates the pipeline that preprocesses the data for creating Figure <a href="sec-cases.html#fig:draw-qtl">3.9</a>.
 </p>
 </div>
 
@@ -201,27 +201,27 @@ Figure 3.10: Flow chart illustrates the pipeline that preprocesses the data for 
 </div>
 <div id="smart-grid-customer-data-in-australia" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Smart-grid customer data in Australia</h3>
-<p>Sensors have been installed in households across major cities in Australia to collect data for the smart city project. One of the trials is monitoring households’ electricity usage through installed smart meters in the area of Newcastle over 2010–2014 <span class="citation">(<span class="citeproc-not-found" data-reference-id="smart-meter"><strong>???</strong></span>)</span>. Data from 2013 have been sliced to examine temporal patterns of customer’s energy consumption with <strong>tsibble</strong> for this case study. Half-hourly general supply in kwH have been recorded for 2,924 customers in the data set, resulting in 46,102,229 observations in total. Daily high and low temperatures in Newcastle in 2013 provides explanatory variables other than time in a different data table <span class="citation">(<span class="citeproc-not-found" data-reference-id="newcastle-temp"><strong>???</strong></span>)</span>, obtained using the R package <strong>bomrang</strong> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-bomrang"><strong>???</strong></span>)</span>. Two data tables might be joined to explore how local weather can contribute to the variations of daily electricity use when needed.</p>
-<p>During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to 17.9% of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household.  shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.</p>
+<p>Sensors have been installed in households across major cities in Australia to collect data for the smart city project. One of the trials is monitoring households’ electricity usage through installed smart meters in the area of Newcastle over 2010–2014 <span class="citation">(Department of the Environment and Energy <a href="references.html#ref-smart-meter">2018</a>)</span>. Data from 2013 have been sliced to examine temporal patterns of customer’s energy consumption with <strong>tsibble</strong> for this case study. Half-hourly general supply in kwH have been recorded for 2,924 customers in the data set, resulting in 46,102,229 observations in total. Daily high and low temperatures in Newcastle in 2013 provides explanatory variables other than time in a different data table <span class="citation">(Bureau of Meteorology <a href="references.html#ref-newcastle-temp">2019</a>)</span>, obtained using the R package <strong>bomrang</strong> <span class="citation">(Sparks et al. <a href="references.html#ref-R-bomrang">2018</a>)</span>. Two data tables might be joined to explore how local weather can contribute to the variations of daily electricity use when needed.</p>
+<p>During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to 17.9% of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household. Figure <a href="sec-cases.html#fig:count-gaps">3.11</a> shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.</p>
 <div class="figure" style="text-align: center"><span id="fig:count-gaps"></span>
-<img src="figure/count-gaps-1.pdf" alt="Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months." width="\textwidth" />
+<img src="figure/count-gaps-1.svg" alt="Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months." width="100%" />
 <p class="caption">
 Figure 3.11: Time gap plots for the 49 customers with most implicit missing values, and the remaining customers grouped into the one line at top. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Each row corresponds to one customer. Missing values occur at various times, with more in January and February than other months.
 </p>
 </div>
 
-<p>Aggregation across all individuals helps to sketch a big picture of the behavioral change over time, organized into a calendar display (). Each glyph represents the daily pattern of average residential electricity usage every thirty minutes. Higher consumption is indicated by higher values, and typically occurs in daylight hours. Color indicates hot days. The daily snapshots vary depending on the season in the year. During the summer months (December and January), the late-afternoon peak becomes predominant driven by the use of air conditioning, especially on hot days with daily average temperature greater than 25 degrees C. However, the winter time (July and August) sees two peaks in a day, which is probably due to heating in the morning and evening. This plot illustrates how the tsibble data can easily integrate with other tools and graphics.</p>
+<p>Aggregation across all individuals helps to sketch a big picture of the behavioral change over time, organized into a calendar display (Figure <a href="sec-cases.html#fig:calendar-plot">3.12</a>). Each glyph represents the daily pattern of average residential electricity usage every thirty minutes. Higher consumption is indicated by higher values, and typically occurs in daylight hours. Color indicates hot days. The daily snapshots vary depending on the season in the year. During the summer months (December and January), the late-afternoon peak becomes predominant driven by the use of air conditioning, especially on hot days with daily average temperature greater than 25 degrees C. However, the winter time (July and August) sees two peaks in a day, which is probably due to heating in the morning and evening. This plot illustrates how the tsibble data can easily integrate with other tools and graphics.</p>
 <div class="figure" style="text-align: center"><span id="fig:calendar-plot"></span>
-<img src="figure/calendar-plot-1.pdf" alt="Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use." width="\textwidth" />
+<img src="figure/calendar-plot-1.svg" alt="Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use." width="100%" />
 <p class="caption">
 Figure 3.12: Half-hourly average electricity use across all customers in the region, organized into calendar format, with color indicating hot days. Energy use of hot days tends to be higher, suggesting air conditioner use. Days in the winter months have a double peak suggesting heater use.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:elec-pipeline2"></span>
-<img src="img/elec-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating ." width="\textwidth" />
+<img src="img/elec-pipeline2.png" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.12." width="100%" />
 <p class="caption">
-Figure 3.13: Flow chart illustrating the pipeline that preprocessed the data for creating .
+Figure 3.13: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="sec-cases.html#fig:calendar-plot">3.12</a>.
 </p>
 </div>
 

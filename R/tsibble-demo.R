@@ -9,6 +9,12 @@ tb_small %>%
   knitr::kable(booktabs = TRUE, caption = "(ref:tb-sub)", linesep = "") %>%
   kableExtra::kable_styling(position = "center", latex_options= "hold_position")
 
+## ---- tb-sub-html
+tb_small <- read_rds("data/tsibble/tb-small.rds")
+tb_small %>%
+  filter(year > 2010) %>%
+  knitr::kable(booktabs = TRUE, caption = "(ref:tb-sub)", linesep = "")
+
 ## ---- tb-print
 as_tsibble(tb_small, key = id(country, gender), index = year) %>%
   filter(year > 2010) %>%
