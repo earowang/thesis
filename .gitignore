@@ -2,8 +2,8 @@ cache/
 data-raw/calendar-vis/*.csv
 data-raw/tsibble/flights/
 data-raw/tsibble/airports.dat
-\figure/
-\img/*.png
+/figure
+/img/*.png
 .DS_Store
 *.log
 *.run.xml
