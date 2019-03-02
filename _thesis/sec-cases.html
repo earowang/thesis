@@ -107,7 +107,7 @@
 <li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -135,22 +135,22 @@
 <div id="on-time-performance-for-domestic-flights-in-u.s.a" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> On-time performance for domestic flights in U.S.A</h3>
 <p>The dataset of on-time performance for US domestic flights in 2017 represents event-driven data caught in the wild, sourced from US Bureau of Transportation Statistics <span class="citation">(Bureau of Transportation Statistics <a href="references.html#ref-flights-data">2018</a>)</span>. It contains 5,548,445 operating flights with many measurements (such as departure delay, arrival delay in minutes, and other performance metrics) and detailed flight information (such as origin, destination, plane number and etc.) in a tabular format. This kind of event describes each flight scheduled for departure at a time point in its local time zone. Every single flight should be uniquely identified by the flight number and its scheduled departure time, from a passenger’s point of view. In fact, it fails to pass the tsibble hurdle due to duplicates in the original data. An error is immediately raised when attempting to convert this data into a tsibble, and closer inspection has to be carried out to locate the issue. The <strong>tsibble</strong> package provides tools to easily locate the duplicates in the data with <code>duplicates()</code>. The problematic entries are shown below.</p>
-<pre><code>##   flight_num  sched_dep_datetime  sched_arr_datetime dep_delay arr_delay
-## 1      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
-## 2      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
-##   carrier tailnum origin dest air_time distance origin_city_name
-## 1      NK  N601NK    LAX  DEN      107      862      Los Angeles
-## 2      NK  N639NK    ORD  LGA      107      733          Chicago
-##   origin_state dest_city_name dest_state taxi_out taxi_in carrier_delay
-## 1           CA         Denver         CO       69      13             0
-## 2           IL       New York         NY       69      13             0
-##   weather_delay nas_delay security_delay late_aircraft_delay
-## 1             0       194              0                   0
-## 2             0       194              0                   0</code></pre>
+<pre><code>#&gt;   flight_num  sched_dep_datetime  sched_arr_datetime dep_delay arr_delay
+#&gt; 1      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+#&gt; 2      NK630 2017-08-03 17:45:00 2017-08-03 21:00:00       140       194
+#&gt;   carrier tailnum origin dest air_time distance origin_city_name
+#&gt; 1      NK  N601NK    LAX  DEN      107      862      Los Angeles
+#&gt; 2      NK  N639NK    ORD  LGA      107      733          Chicago
+#&gt;   origin_state dest_city_name dest_state taxi_out taxi_in carrier_delay
+#&gt; 1           CA         Denver         CO       69      13             0
+#&gt; 2           IL       New York         NY       69      13             0
+#&gt;   weather_delay nas_delay security_delay late_aircraft_delay
+#&gt; 1             0       194              0                   0
+#&gt; 2             0       194              0                   0</code></pre>
 <p>The issue was perhaps introduced when updating or entering the data into a system. The same flight is scheduled at exactly the same time, together with the same performance statistics but different flight details. As flight NK630 is usually scheduled at 17:45 from Chicago to New York (discovered by searching the full database), a decision is made to remove the first row from the duplicated entries before proceeding to the tsibble creation.</p>
 <p>This dataset is intrinsically heterogeneous, encoded in numbers, strings, and date-times. The tsibble framework, as expected, incorporates this type of data without any loss of data richness and heterogeneity. To declare the flight data as a valid tsibble, column <code>sched_dep_datetime</code> is specified as the “index”, and column <code>flight_num</code> as the “key” via <code>id(flight_num)</code>. As a result of event timing, the data are irregularly spaced, and hence switching to the irregular option is necessary. The software internally validates if the key and index produce distinct rows, and then sorts the key and the index from past to recent. When the tsibble creation is done, the print display is data-oriented and contextually informative, including dimensions, irregular interval (<code>5,548,444 x 22 [!] &lt;UTC&gt;</code>) and the number of time-based observational units (<code>flight_num [22,562]</code>).</p>
-<pre><code>## # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
-## # Key:       flight_num [22,562]</code></pre>
+<pre><code>#&gt; # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
+#&gt; # Key:       flight_num [22,562]</code></pre>
 <p>Transforming a tsibble for exploratory data analysis with a suite of time-specific and general-purpose manipulation verbs can result in well-constructed pipelines. From the perspective of a passenger, for example, one needs to travel smart by choosing an efficient carrier to fly with and the time of day to avoid congestion. To explore this data, we drill down starting with annual carrier performance and followed by disaggregation to finer time resolutions.</p>
 <div class="figure" style="text-align: center"><span id="fig:carrier-mosaic"></span>
 <img src="figure/carrier-mosaic-1.svg" alt="Mosaic plot showing the association between the size of airline carriers and the delayed proportion of departures in 2017. Southwest Airlines is the largest operator, but does not operate as efficiently as Delta. Hawaiian Airlines, a small operator, outperforms the rest." width="100%" />

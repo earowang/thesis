@@ -107,7 +107,7 @@
 <li class="chapter" data-level="3.6.2" data-path="sec-cases.html"><a href="sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -136,16 +136,16 @@
 <h3><span class="header-section-number">3.5.1</span> Data first</h3>
 <p>The primary force that drives the software’s design choices is “data”. All functions in the package <strong>tsibble</strong> start with <code>data</code> or its variants as the first argument, namely “data first”. This lays out a consistent interface and addresses the significance of the data throughout the software.</p>
 <p>Beyond the tools, the print display provides a quick and comprehensive glimpse of data in temporal context, particularly useful when handling a large collection of data. The contextual summary provided by the print function, shown below on the data from Table <a href="#tab:tb-sub"><strong>??</strong></a>, contains (1) data dimension with its shorthand time interval, alongside time zone if date-times, (2) variables that constitute the “key” with the number of series. These details aid users in understanding their data better.</p>
-<pre><code>## # A tsibble: 12 x 5 [1Y]
-## # Key:       country, gender [6]
-##   country     continent gender  year count
-##   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
-## 1 Australia   Oceania   Female  2011   120
-## 2 Australia   Oceania   Female  2012   125
-## 3 Australia   Oceania   Male    2011   176
-## 4 Australia   Oceania   Male    2012   161
-## 5 New Zealand Oceania   Female  2011    36
-## # … with 7 more rows</code></pre>
+<pre><code>#&gt; # A tsibble: 12 x 5 [1Y]
+#&gt; # Key:       country, gender [6]
+#&gt;   country     continent gender  year count
+#&gt;   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 Australia   Oceania   Female  2011   120
+#&gt; 2 Australia   Oceania   Female  2012   125
+#&gt; 3 Australia   Oceania   Male    2011   176
+#&gt; 4 Australia   Oceania   Male    2012   161
+#&gt; 5 New Zealand Oceania   Female  2011    36
+#&gt; # … with 7 more rows</code></pre>
 </div>
 <div id="functional-programming" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Functional programming</h3>

@@ -4,6 +4,17 @@ if (Sys.getenv("RSTUDIO") != "1" && Sys.info()['sysname'] == "Darwin") {
 
 options(warn = 1)
 
+# spell checking
+rmd_files <- list.files("Rmd/", full.names = TRUE)
+wordlist <- readLines("WORDLIST")
+spell_gb <- spelling::spell_check_files(rmd_files, wordlist, "en_GB")
+spell_us <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
+spell_res <- intersect(spell_gb, spell_us)
+if (NROW(spell_res) != 0) {
+  print(spell_res)
+  stop("Please fix typos first!")
+}
+
 img_pdf <- list.files("img/", pattern = "*.pdf")
 for (i in img_pdf) {
   file_pdf <- paste0("img/", i)
