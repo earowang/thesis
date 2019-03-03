@@ -63,12 +63,11 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">My PhD thesis</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="declaration.html"><a href="declaration.html"><i class="fa fa-check"></i>Declaration</a></li>
-<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#open-and-reproducible-research"><i class="fa fa-check"></i>Open and reproducible research</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="research-framework.html"><a href="research-framework.html"><i class="fa fa-check"></i><b>1.1</b> Research framework</a><ul>
@@ -109,7 +108,7 @@
 <li class="chapter" data-level="3.7" data-path="sec-conclusion.html"><a href="sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
 <li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
 
@@ -134,11 +133,11 @@
 <h2><span class="header-section-number">3.1</span> Introduction</h2>
 <p>Temporal data arrives in many possible formats, with many different time contexts. For example, time can have various resolutions (hours, minutes, and seconds), and can be associated with different time zones with possible adjustments such as summer time. Time can be regular (such as quarterly economic data or daily weather data), or irregular (such as patient visits to a doctor’s office). Temporal data also often contains rich information: multiple observational units of different time lengths, multiple and heterogeneous measured variables, and multiple grouping factors. Temporal data may comprise the occurrence of events, such as flight departures, that need to be reduced to a regular structure.</p>
 <p>Despite this variety and heterogeneity of temporal data, current software typically requires time series objects to be model-oriented matrices. Analysts are expected to do their own data preprocessing and take care of anything else needed to allow model fitting, which leads to a myriad of ad hoc solutions and duplicated efforts.</p>
-<p><span class="citation">Wickham and Grolemund (<a href="references.html#ref-r4ds">2016</a>)</span> proposed the tidy data workflow, which provides a conceptual framework for processing data (as described in Figure <a href="sec-intro.html#fig:tsibble-fit">3.1</a>). Currently, time series modeling and forecasting enters this framework at the <em>modeling</em> stage, while temporal data enters at the start. This paper integrates time series analysis into this tidy framework, providing a coherent way for getting temporal data into the matrix format for modeling.</p>
+<p><span class="citation">Wickham and Grolemund (<a href="bibliography.html#ref-r4ds">2016</a>)</span> proposed the tidy data workflow, which provides a conceptual framework for processing data (as described in Figure <a href="sec-intro.html#fig:tsibble-fit">3.1</a>). Currently, time series modeling and forecasting enters this framework at the <em>modeling</em> stage, while temporal data enters at the start. This paper integrates time series analysis into this tidy framework, providing a coherent way for getting temporal data into the matrix format for modeling.</p>
 <div class="figure" style="text-align: center"><span id="fig:tsibble-fit"></span>
 <img src="img/tsibble-fit.png" alt="Illustration of the data science workflow, drawn from Wickham and Grolemund (2016), showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the “tidy” step, which produce tidy temporal data for time series visualization and modeling." width="100%" />
 <p class="caption">
-Figure 3.1: Illustration of the data science workflow, drawn from <span class="citation">Wickham and Grolemund (<a href="references.html#ref-r4ds">2016</a>)</span>, showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the “tidy” step, which produce tidy temporal data for time series visualization and modeling.
+Figure 3.1: Illustration of the data science workflow, drawn from <span class="citation">Wickham and Grolemund (<a href="bibliography.html#ref-r4ds">2016</a>)</span>, showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the “tidy” step, which produce tidy temporal data for time series visualization and modeling.
 </p>
 </div>
 

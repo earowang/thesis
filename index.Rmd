@@ -2,6 +2,7 @@
 title: 'Tidy data structure and visualisation to support exploration and modeling of temporal data'
 author: 'Earo Wang'
 degreetype: 'Doctor of Philosophy'
+site: bookdown::bookdown_site
 degrees: 'B.Comm. (Hons), Monash University'
 bibliography: [bib/packages.bib, bib/calendar.bib, bib/tsibble.bib, bib/thesisrefs.bib]
 link-citations: yes
@@ -21,4 +22,4 @@ opts_chunk$set(
 
 # Acknowledgements {-}
 
-I would like to thank my supervisors, Dianne Cook and Rob J Hyndman.
+First and foremost, I would like to thank my supervisors, [Dianne Cook](http://dicook.org) and [Rob J Hyndman](http://robjhyndman.com).

@@ -10,9 +10,9 @@ rmd_files <- list.files("Rmd/", full.names = TRUE)
 wordlist <- readLines("WORDLIST")
 spell_gb <- spelling::spell_check_files(rmd_files, wordlist, "en_GB")
 spell_us <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
-spell_res <- intersect(spell_gb, spell_us)
-if (NROW(spell_res) != 0) {
-  print(spell_res)
+spell_res <- intersect(spell_gb[[1]], spell_us[[1]])
+if (length(spell_res) > 0) {
+  print(subset(spell_gb, spell_gb[[1]] %in% spell_res))
   stop("Please fix typos first!")
 }
 
@@ -40,6 +40,3 @@ for (fmt in formats)
 
 gif_file <- list.files("figure", "*.gif", full.names = TRUE)
 invisible(file.copy(gif_file, "_thesis/figure/animate.gif"))
-# dir.create("_thesis/img", showWarnings = FALSE)
-# img_files <- list.files("img", "*.png", full.names = TRUE)
-# invisible(file.copy(img_files, "_thesis/img"))
