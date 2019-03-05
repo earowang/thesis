@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="preface.html">
-<link rel="next" href="calendar-based-grammar-of-graphics.html">
+<link rel="next" href="sec-calendar-vis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -69,11 +69,11 @@
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="calendar-based-grammar-of-graphics.html"><a href="calendar-based-grammar-of-graphics.html"><i class="fa fa-check"></i><b>1.1</b> Calendar-based grammar of graphics</a></li>
-<li class="chapter" data-level="1.2" data-path="tidy-temporal-data-structure.html"><a href="tidy-temporal-data-structure.html"><i class="fa fa-check"></i><b>1.2</b> Tidy temporal data structure</a></li>
-<li class="chapter" data-level="1.3" data-path="missingness-in-time.html"><a href="missingness-in-time.html"><i class="fa fa-check"></i><b>1.3</b> Missingness in time</a></li>
+<li class="chapter" data-level="1.1" data-path="sec-calendar-vis.html"><a href="sec-calendar-vis.html"><i class="fa fa-check"></i><b>1.1</b> Calendar-based grammar of graphics</a></li>
+<li class="chapter" data-level="1.2" data-path="sec-tsibble.html"><a href="sec-tsibble.html"><i class="fa fa-check"></i><b>1.2</b> Tidy temporal data structure</a></li>
+<li class="chapter" data-level="1.3" data-path="sec-mists.html"><a href="sec-mists.html"><i class="fa fa-check"></i><b>1.3</b> Missingness in time</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch-calendar.html"><a href="ch-calendar.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="2" data-path="ch-calendar-vis.html"><a href="ch-calendar-vis.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
 <li class="chapter" data-level="3" data-path="ch-tsibble.html"><a href="ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
 <li class="chapter" data-level="3.1" data-path="sec-intro.html"><a href="sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="sec-str.html"><a href="sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
@@ -134,9 +134,8 @@
             <section class="normal" id="section-">
 <div id="ch:intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>Temporal-context data sets often include a richness of information that is not possible to include in the typical data formats that are used in time series analysis. They also present some complications for modelling and visualisation, such as a long time spans, multiple factor variables, heterogeneous data types, low time resolutions, implicit missing values, and multilevel temporal components. In this thesis, we extend the conceptual tidy data framework, which provides the foundation for good modern data practice, to encompass time series data, and develop new graphics for displaying temporal data. First, we develop a new calendar view for visualising sub-daily time series data, which is particularly useful for viewing people patterns. Second, we have extended the tidy data concept to temporal data, and note that the “molten” data structure is flexible enough to handle the full richness of these complex data sets, heterogeneous variables, missing values. The tidy temporal data also builds on ideas of a data pipeline which improves and supports an organised workflow for data analysis. The third topic will focus on providing a visualisation framework for time series with nested and crossed factors. All the methods have been implemented in the <code>R</code> packages <strong>sugrrants</strong> for visualisation and <strong>tsibble</strong> for tidy time series data.</p>
+<p>This thesis contributes to three different facets of working with temporal data, and is grounded in the exploratory data analysis pipeline for time series. It begins the pipeline by visualising data in the time context: Section <a href="sec-calendar-vis.html#sec:calendar-vis">1.1</a> introduces the calendar-based grammar of graphics for plotting people’s daily activities in a calendar layout, detailed in Chapter <a href="ch-calendar-vis.html#ch:calendar-vis">2</a>. This in turn motivates a new data abstraction in need of streamlining transformation, visualisation, and modelling for analysing time series: Section <a href="sec-tsibble.html#sec:tsibble">1.2</a> introduces the “tsibble” data structure to form the basis of time series pipelines, expanded in Chapter <a href="ch-tsibble.html#ch:tsibble">3</a>. The tsibble representation breeds the ground for framing missing value of time series in the data-centric workflow: Section <a href="sec-mists.html#sec:mists">1.3</a> introduces explanatory tools for understanding missing patterns in time, described in Chapter <a href="ch-mists.html#ch:mists">4</a>. The final chapter (Chapter <a href="ch-conclusion.html#ch:conclusion"><strong>??</strong></a>) summarises the software tools developed for the work and the impact, and discusses the future plans.</p>
 <p>Data visualisation in statistics has evolved in recent years to have graphics formally described using a grammar <span class="citation">(Wilkinson <a href="bibliography.html#ref-wilkinson2006grammar">2005</a>; Wickham <a href="bibliography.html#ref-wickham2009ggplot2">2009</a>)</span>, and also data structures for statistical analysis have been organised into a conceptual framework of “tidy data” <span class="citation">(Wickham <a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span>. Both aspects are critical for evaluating the strength of the research, and for building on a foundation of sound data practice.</p>
-<p>This thesis research proposes a data-centric structure to represent time series by extending the “tidy data” principles. It allows rich data information to be included, which is not currently supported by time series model objects. It also provides a mapping bridging the semantics of a dataset to its physical representation, and consequently fosters ideas of a data pipeline that supports thinking of operations on the data variables. A collection of verbs are developed to smooth out the workflow for analysis of temporal data.</p>
 <p>A new calendar-based graphics have been created and implemented to better visualise sub-daily data related to human behaviours. Tidy temporal data builds the foundation of calendarising the data using the data re-structuring approach. The grammar of graphics further adds the plotting capacities to the calendar format.</p> 
 </div>
             </section>
@@ -145,7 +144,7 @@
         </div>
       </div>
 <a href="preface.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="calendar-based-grammar-of-graphics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-calendar-vis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

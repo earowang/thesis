@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
-  <meta name="description" content="Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <title>1.2 Tidy temporal data structure | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="1.2 Tidy temporal data structure | Tidy data structure and visualisation to support exploration and modeling of temporal data">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:title" content="1.2 Tidy temporal data structure | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta name="twitter:title" content="1.2 Tidy temporal data structure | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="preface.html">
+<link rel="prev" href="sec-calendar-vis.html">
+<link rel="next" href="sec-mists.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,32 +132,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tidy data structure and visualisation to support exploration and modeling of temporal data</h1>
-<p class="author"><em>Earo Wang</em></p>
-</div>
-<div id="acknowledgements" class="section level1 unnumbered">
-<h1>Acknowledgements</h1>
-<p>First and foremost, I would like to thank my supervisors, <a href="http://dicook.org">Dianne Cook</a> and <a href="http://robjhyndman.com">Rob J Hyndman</a>.</p>
-
-<!-- 
-
-# Declaration {-}
-
-I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma in any university or equivalent institution, and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis.
-
-\vspace*{2cm}\par\authorname
-
--->
-
+<div id="sec:tsibble" class="section level2">
+<h2><span class="header-section-number">1.2</span> Tidy temporal data structure</h2>
+<p><span class="citation">Wickham (<a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span> developed a set of tidy data principles to standardise and facilitate the data analysis process, and also suggested that each variable is a column, each observation is a row. An attribute describing a unit’s properties (such as temperature, precipitation, pedestrian counts) is thought of as a variable. An observation refers to the same unit measured across each variable. A variable together with an observation defines the values that essentially comprise of a dataset. The newer concept of tidy data is the “long” form: every measured value is described by a unique set of identifiers. From the long form, data can be summarised, and shaped, and arranged in many different forms, making different types of analysis on the same data easier.</p>
+<p>However, in some ways it is the classical statistical format of a rectangular table where each time series is a column, and each time index is a row. This format is the “wide” form of tidy data, and it is what is typically required for many statistical models as it proves computationally efficient when doing matrix operations.</p>
+<p>The common data structure for time series data in statistical software, like R, is actually short-hand. For example, a time series defined as a <code>ts</code> object in R is a vector of values, annotated with a starting time and frequency. Associated with the data object are methods that can be applied to plot, summarise and model. However, this approach is model-centric rather than data-centric. Data typically doesn’t come in this form. Data typically has a lot more with it, and to get it in this form requires extracting a small part of all the data, and maybe, even massaging it into regular time measurements. Working from a tidy format this specialist form could be created with several wrapper functions, whilst maintaining the connections to the complete data.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="preface.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-calendar-vis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-mists.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -187,7 +174,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/earowang/thesis/edit/master/index.Rmd",
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -17,6 +17,7 @@ Depends:
     gganimate
 Imports:
     bookdown,
+    cliapp,
     spelling,
     magick
 Language: en-GB

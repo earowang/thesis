@@ -5,14 +5,14 @@ start_app(theme = simple_theme())
 cli_h1("Preprocessing")
 # spelling check
 cli_h2("Spelling check")
-rmd_files <- list.files("Rmd/", full.names = TRUE)
+rmd_files <- list.files(pattern = "*.Rmd", full.names = TRUE, recursive = TRUE)
 wordlist <- readLines("WORDLIST")
 spell_gb <- spelling::spell_check_files(rmd_files, wordlist, "en_GB")
 spell_us <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
 spell_res <- intersect(spell_gb[[1]], spell_us[[1]])
 if (length(spell_res) > 0) {
   print(subset(spell_gb, spell_gb[[1]] %in% spell_res))
-  stop("Please fix typos first!", call. = FALSE)
+  stop("Can you please fix typos listed above first?", call. = FALSE)
 }
 
 # convert pdf to png for html output
