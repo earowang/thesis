@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Preface | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
-  <meta name="description" content="Preface | Tidy data structure and visualisation to support exploration and modeling of temporal data">
+  <title>3.1 Introduction | Tidy data structure and visualisation to support exploration and modeling of temporal data</title>
+  <meta name="description" content="3.1 Introduction | Tidy data structure and visualisation to support exploration and modeling of temporal data">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Preface | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta property="og:title" content="3.1 Introduction | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Preface | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
+  <meta name="twitter:title" content="3.1 Introduction | Tidy data structure and visualisation to support exploration and modeling of temporal data" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="1-ch-intro.html">
+<link rel="prev" href="3-ch-tsibble.html">
+<link rel="next" href="3-2-sec-str.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,29 +132,27 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Chapter <a href="2-ch-calendar-vis.html#ch:calendar-vis">2</a> has been requested by the <em>Journal of Computational and Graphical Statistics</em> for revision and resubmission. It has won the 2018 ASA Statistical Graphics Student Paper Award and the 2018 ACEMS Business Analytics Prize. Chapter <a href="3-ch-tsibble.html#ch:tsibble">3</a> has been submitted to <em>Journal of Computational and Graphical Statistics</em> and is currently under review. The accompanying R package <strong>tsibble</strong> has won the 2019 John Chambers Statistical Software Award.</p>
-<div id="open-and-reproducible-research" class="section level3 unnumbered">
-<h3>Open and reproducible research</h3>
-<p>This thesis is written in R Markdown <span class="citation">(Xie, Allaire, and Grolemund <a href="bibliography.html#ref-rmarkdown">2018</a>)</span> with <strong>bookdown</strong> <span class="citation">(Xie <a href="bibliography.html#ref-bookdown">2016</a>)</span>. The online version of this thesis is hosted at <a href="https://thesis.earo.me" class="uri">https://thesis.earo.me</a>, powered by <a href="http://netlify.com">Netlify</a>. All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository <a href="https://github.com/earowang/thesis" class="uri">https://github.com/earowang/thesis</a>.</p>
+<div id="sec:intro" class="section level2">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>Temporal data arrives in many possible formats, with many different time contexts. For example, time can have various resolutions (hours, minutes, and seconds), and can be associated with different time zones with possible adjustments such as summer time. Time can be regular (such as quarterly economic data or daily weather data), or irregular (such as patient visits to a doctor’s office). Temporal data also often contains rich information: multiple observational units of different time lengths, multiple and heterogeneous measured variables, and multiple grouping factors. Temporal data may comprise the occurrence of events, such as flight departures, that need to be reduced to a regular structure.</p>
+<p>Despite this variety and heterogeneity of temporal data, current software typically requires time series objects to be model-oriented matrices. Analysts are expected to do their own data preprocessing and take care of anything else needed to allow model fitting, which leads to a myriad of ad hoc solutions and duplicated efforts.</p>
+<p><span class="citation">Wickham and Grolemund (<a href="bibliography.html#ref-r4ds">2016</a>)</span> proposed the tidy data workflow, which provides a conceptual framework for processing data (as described in Figure <a href="3-1-sec-intro.html#fig:tsibble-fit">3.1</a>). Currently, time series modeling and forecasting enters this framework at the <em>modeling</em> stage, while temporal data enters at the start. This paper integrates time series analysis into this tidy framework, providing a coherent way for getting temporal data into the matrix format for modeling.</p>
+<div class="figure" style="text-align: center"><span id="fig:tsibble-fit"></span>
+<img src="img/tsibble-fit.png" alt="Illustration of the data science workflow, drawn from Wickham and Grolemund (2016), showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the “tidy” step, which produce tidy temporal data for time series visualization and modeling." width="100%" />
+<p class="caption">
+Figure 3.1: Illustration of the data science workflow, drawn from <span class="citation">Wickham and Grolemund (<a href="bibliography.html#ref-r4ds">2016</a>)</span>, showing how current time series tools interface with the workflow and how the tsibble structure and tools integrate. The new data structure, tsibble, makes the connection between temporal data input, and specialist modeling formats. It provides elements at the “tidy” step, which produce tidy temporal data for time series visualization and modeling.
+</p>
 </div>
-<div id="license" class="section level3 unnumbered">
-<h3>License</h3>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
-<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<p>The code used in this document is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
-
-</div>
+<p>The paper is structured as follows. Section <a href="3-2-sec-str.html#sec:str">3.2</a> reviews temporal data structures corresponding to time series and longitudinal analysis, and discusses “tidy data” and the grammar of data manipulation. Section <a href="3-3-sec-semantics.html#sec:semantics">3.3</a> proposes contextual semantics for temporal data, built on top of tidy data. The concept of data pipelines with respect to the time domain will be discussed in depth in Section <a href="3-4-sec-pipeline.html#sec:pipeline">3.4</a>, followed by a discussion of the design choices made in the software structure in Section <a href="3-5-sec-software.html#sec:software">3.5</a>. Two case studies are presented in Section <a href="3-6-sec-cases.html#sec:cases">3.6</a> illustrating temporal data exploration using the newly implemented infrastructure. Section <a href="3-7-sec-conclusion.html#sec:conclusion">3.7</a> discusses future work.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1-ch-intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-ch-tsibble.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3-2-sec-str.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -184,7 +182,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/earowang/thesis/edit/master/Rmd/00-b-preface.Rmd",
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -110,6 +110,44 @@ include_graphics("img/tsibble-pipeline.png")
 
 Many time operations such as lag/lead and time series models, assume an intact vector input ordered in time. Since a tsibble permits time gaps in the index, it is good practice to check and inspect any gaps in time following the creation of a tsibble, in order to prevent inviting these avoidable errors into the analysis. The first suite of verbs (rephrasing actions performed on the object) are provided to understand and tackle implicit missing values: (1) `has_gaps()` checks if there exists time gaps; (2) `scan_gaps()` reveals all implicit missing observations; (3) `count_gaps()` summarizes the time ranges that are absent from the data; (4) `fill_gaps()` turns them into explicit ones, along with imputing by values or functions. To look into gaps over individual time periods or full-length time span, the common argument `.full` in these functions gives an option to easily switch between. The specification of `.full = TRUE` will result in fully balanced panels in other words.
 
+```{r verb-table, eval = knitr::is_html_output()}
+fun_gaps <- c("has_gaps()", "scan_gaps()", "count_gaps()", "fill_gaps()")
+desc_gaps <- 
+  c(
+    "Test if a tsibble has gaps in time",
+    "Reveal implicit missing entries",
+    "Summarize time gaps",
+    "Fill in gaps by values and functions"
+  )
+fun_row <- c("filter()", "filter_index()", "slice()", "arrange()")
+desc_row <- 
+  c(
+    "Pick rows based on conditions",
+    "Provide a shorthand for time subsetting",
+    "Select rows based on row positions",
+    "Sort the ordering of row by variables"
+  )
+fun_col <- c("select()", "mutate()", "transmute()", "summarize()")
+desc_col <- 
+  c(
+    "Pick columns by variables",
+    "Add new variables",
+    "Drops existing variables",
+    "Aggregate values over time"
+  )
+fun_grp <- c("index_by()", "group_by()", "group_by_key()")
+desc_grp <- 
+  c(
+    "Group by index candidate",
+    "Group by one or more variables",
+    "Group by key variables"
+  )
+fun_join <- c("left_join()", "right_join()", "full_join()", "inner_join", "semi_join()", "anti_join")
+df <- data.frame(
+  
+)
+```
+
 \begin{table}[!ht]
 \caption{A list of table verbs working with tsibble. Functions in bold originating from the tidyverse and are adapted for tsibble.}\label{tab:verb-table}
 \centering

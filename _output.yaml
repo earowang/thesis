@@ -1,7 +1,7 @@
 bookdown::gitbook:
   css: template/style.css
   dev: "svglite"
-  split_by: section
+  split_by: section+number
   split_bib: no
   config:
     toc:
