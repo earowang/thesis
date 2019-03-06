@@ -110,6 +110,10 @@ include_graphics("img/tsibble-pipeline.png")
 
 Many time operations such as lag/lead and time series models, assume an intact vector input ordered in time. Since a tsibble permits time gaps in the index, it is good practice to check and inspect any gaps in time following the creation of a tsibble, in order to prevent inviting these avoidable errors into the analysis. The first suite of verbs (rephrasing actions performed on the object) are provided to understand and tackle implicit missing values: (1) `has_gaps()` checks if there exists time gaps; (2) `scan_gaps()` reveals all implicit missing observations; (3) `count_gaps()` summarizes the time ranges that are absent from the data; (4) `fill_gaps()` turns them into explicit ones, along with imputing by values or functions. To look into gaps over individual time periods or full-length time span, the common argument `.full` in these functions gives an option to easily switch between. The specification of `.full = TRUE` will result in fully balanced panels in other words.
 
+`r if (knitr::is_latex_output()) '<!--'` 
+<caption>(\#tab:verb-table): A list of table verbs working with tsibble. Functions in bold originating from the tidyverse and are adapted for tsibble.</caption>
+`r if (knitr::is_latex_output()) '-->'`
+
 ```{r verb-table, eval = knitr::is_html_output()}
 fun_gaps <- c("has_gaps()", "scan_gaps()", "count_gaps()", "fill_gaps()")
 desc_gaps <- 
@@ -142,10 +146,35 @@ desc_grp <-
     "Group by one or more variables",
     "Group by key variables"
   )
-fun_join <- c("left_join()", "right_join()", "full_join()", "inner_join", "semi_join()", "anti_join")
-df <- data.frame(
-  
+fun_reshape <- c("gather()", "spread()", "nest()", "unnest()")
+desc_reshape <- 
+  c(
+    "Gather columns into long form",
+    "Spread columns into wide form",
+    "Nest values in a list-variable",
+    "Unnest a list-variable"
+  )
+fun_join <- c("left_join()", "right_join()", "full_join()", "inner_join()", "semi_join()", "anti_join()")
+desc_join <- rep("Join two tables together", length(fun_join))
+verb_types <- 
+  c(
+    "Time gaps", "Row-wise", "Column-wise", "Group-wise", "Reshape", 
+    "Join tables"
+  )
+verb_types2 <- rep(verb_types, times = purrr::map_int(
+  list(fun_gaps, fun_row, fun_col, fun_grp, fun_reshape, fun_join), length
+))
+df <- tibble::tibble(
+  "Type" = verb_types2,
+  "Verb" = c(fun_gaps, fun_row, fun_col, fun_grp, fun_reshape, fun_join),
+  "Description" = c(desc_gaps, desc_row, desc_col, desc_grp, desc_reshape, desc_join)
 )
+library(gt)
+df %>% 
+ gt(groupname_col = "Type")
+# df %>% 
+#  knitr::kable(booktabs = TRUE, caption = "(ref:verb-table-cap)", linesep = "") %>%
+#  kableExtra::kable_styling()
 ```
 
 \begin{table}[!ht]

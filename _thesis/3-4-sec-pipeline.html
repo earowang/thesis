@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -148,8 +149,381 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
 </div>
 
 <p>Many time operations such as lag/lead and time series models, assume an intact vector input ordered in time. Since a tsibble permits time gaps in the index, it is good practice to check and inspect any gaps in time following the creation of a tsibble, in order to prevent inviting these avoidable errors into the analysis. The first suite of verbs (rephrasing actions performed on the object) are provided to understand and tackle implicit missing values: (1) <code>has_gaps()</code> checks if there exists time gaps; (2) <code>scan_gaps()</code> reveals all implicit missing observations; (3) <code>count_gaps()</code> summarizes the time ranges that are absent from the data; (4) <code>fill_gaps()</code> turns them into explicit ones, along with imputing by values or functions. To look into gaps over individual time periods or full-length time span, the common argument <code>.full</code> in these functions gives an option to easily switch between. The specification of <code>.full = TRUE</code> will result in fully balanced panels in other words.</p>
+<caption>
+<span id="tab:verb-table">Table 3.2: </span>: A list of table verbs working with tsibble. Functions in bold originating from the tidyverse and are adapted for tsibble.
+</caption>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
 
-<p>Besides the time gap verbs, the <strong>tidyverse</strong> vocabulary is adapted and expanded to facilitate time series transformations, as listed in Table <a href="#tab:verb-table"><strong>??</strong></a>. The <strong>tidyverse</strong> suite showcases the general-purpose verbs for effectively manipulating tabular data, for example <code>filter()</code> picks observations, <code>select()</code> picks variables, and <code>left_join()</code> joins two tables. But these verbs need handling with care when used in the time series domain. A perceivable difference is summarizing variables between data frame and tsibble using <code>summarize()</code>. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries. Users who are already familiar with the <strong>tidyverse</strong>, will experience a gentle learning curve for mastering these verbs and glide into time series analysis with low cognitive load.</p>
+#ryikaavrzv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#ryikaavrzv .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#ryikaavrzv .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ryikaavrzv .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ryikaavrzv .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#ryikaavrzv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ryikaavrzv .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#ryikaavrzv .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#ryikaavrzv .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ryikaavrzv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#ryikaavrzv .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#ryikaavrzv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ryikaavrzv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ryikaavrzv .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#ryikaavrzv .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#ryikaavrzv .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#ryikaavrzv .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#ryikaavrzv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#ryikaavrzv .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#ryikaavrzv .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#ryikaavrzv .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#ryikaavrzv .gt_center {
+  text-align: center;
+}
+
+#ryikaavrzv .gt_left {
+  text-align: left;
+}
+
+#ryikaavrzv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ryikaavrzv .gt_font_normal {
+  font-weight: normal;
+}
+
+#ryikaavrzv .gt_font_bold {
+  font-weight: bold;
+}
+
+#ryikaavrzv .gt_font_italic {
+  font-style: italic;
+}
+
+#ryikaavrzv .gt_super {
+  font-size: 65%;
+}
+
+#ryikaavrzv .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="ryikaavrzv" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Verb</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Description</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Time gaps</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>has_gaps()</td>
+<td class='gt_row gt_left'>Test if a tsibble has gaps in time</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>scan_gaps()</td>
+<td class='gt_row gt_left gt_striped'>Reveal implicit missing entries</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>count_gaps()</td>
+<td class='gt_row gt_left'>Summarize time gaps</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>fill_gaps()</td>
+<td class='gt_row gt_left gt_striped'>Fill in gaps by values and functions</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Row-wise</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>filter()</td>
+<td class='gt_row gt_left'>Pick rows based on conditions</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>filter_index()</td>
+<td class='gt_row gt_left gt_striped'>Provide a shorthand for time subsetting</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>slice()</td>
+<td class='gt_row gt_left'>Select rows based on row positions</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>arrange()</td>
+<td class='gt_row gt_left gt_striped'>Sort the ordering of row by variables</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Column-wise</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>select()</td>
+<td class='gt_row gt_left'>Pick columns by variables</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>mutate()</td>
+<td class='gt_row gt_left gt_striped'>Add new variables</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>transmute()</td>
+<td class='gt_row gt_left'>Drops existing variables</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>summarize()</td>
+<td class='gt_row gt_left gt_striped'>Aggregate values over time</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Group-wise</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>index_by()</td>
+<td class='gt_row gt_left'>Group by index candidate</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>group_by()</td>
+<td class='gt_row gt_left gt_striped'>Group by one or more variables</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>group_by_key()</td>
+<td class='gt_row gt_left'>Group by key variables</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Reshape</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>gather()</td>
+<td class='gt_row gt_left gt_striped'>Gather columns into long form</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>spread()</td>
+<td class='gt_row gt_left'>Spread columns into wide form</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>nest()</td>
+<td class='gt_row gt_left gt_striped'>Nest values in a list-variable</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>unnest()</td>
+<td class='gt_row gt_left'>Unnest a list-variable</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='2' class='gt_group_heading'>Join tables</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>left_join()</td>
+<td class='gt_row gt_left gt_striped'>Join two tables together</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>right_join()</td>
+<td class='gt_row gt_left'>Join two tables together</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>full_join()</td>
+<td class='gt_row gt_left gt_striped'>Join two tables together</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>inner_join()</td>
+<td class='gt_row gt_left'>Join two tables together</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>semi_join()</td>
+<td class='gt_row gt_left gt_striped'>Join two tables together</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>anti_join()</td>
+<td class='gt_row gt_left'>Join two tables together</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+<p>Besides the time gap verbs, the <strong>tidyverse</strong> vocabulary is adapted and expanded to facilitate time series transformations, as listed in Table <a href="3-4-sec-pipeline.html#tab:verb-table">3.2</a>. The <strong>tidyverse</strong> suite showcases the general-purpose verbs for effectively manipulating tabular data, for example <code>filter()</code> picks observations, <code>select()</code> picks variables, and <code>left_join()</code> joins two tables. But these verbs need handling with care when used in the time series domain. A perceivable difference is summarizing variables between data frame and tsibble using <code>summarize()</code>. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries. Users who are already familiar with the <strong>tidyverse</strong>, will experience a gentle learning curve for mastering these verbs and glide into time series analysis with low cognitive load.</p>
 <p>Attention has been paid to warning and error handling. The principle that underpins most verbs is a tsibble in and a tsibble out, thereby striving to maintain a valid tsibble by automatically updating index and key under the hood. If the desired temporal ordering is changed by row-wise verbs, a warning is broadcast. If a tsibble cannot be maintained in the output of a pipeline module (likely occurring to column-wise verbs), for example the index is removed by selection, an error informs users of the problem and suggests alternatives. This avoids surprising users and reminds them of the time context.</p>
 <p>The tsibble structure and operations support data pipelines for sequencing analysis. <span class="citation">Friedman and Wand (<a href="bibliography.html#ref-eopl">2008</a>)</span> asserted “No matter how complex and polished the individual operations are, it is often the quality of the glue that most directly determines the power of the system.” Each verb works with other transformation family members in harmony. This set of verbs can result in many combinations to prepare tsibble for a broad range of visualization and modeling problems. Chaining operations is achieved with the pipe operator <code>%&gt;%</code> introduced in the <strong>magrittr</strong> package <span class="citation">(Bache and Wickham <a href="bibliography.html#ref-R-magrittr">2014</a>)</span>, read as “then”. A sequence of functions can be composed in a way that can be naturally read from left to right, which improves the readability of the code. It consequently generates a block of code without saving intermediate values.</p>
 <p>Most importantly, a new ecosystem for tidy time series analysis has been undertaken, using the tsibble framework, and is called “tidyverts”, a play on tidyverse that acknowledges the time series analysis purpose.</p>
@@ -160,7 +534,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
 </div>
 <div id="sec:ts-models" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> Time series models</h3>
-<p>Modeling is crucial to explanatory and predictive analytics, but often imposes stricter assumptions on tsibble data. The verbs listed in Table <a href="#tab:verb-table"><strong>??</strong></a> ease the transition to a tsibble that suits modeling. A tidy forecasting framework built on top of tsibble is under development, which aims at promoting transparent forecasting practices and concise model representation. A tsibble usually contains multiple time series. Batch forecasting will be enabled if a univariate model, such as ARIMA and Exponential Smoothing, is applied to each time series independently. This yields a “mable” (short for model table), where each model relates to each “key” value in tsibble. This avoids expensive data copying and reduces model storage. The mable is further supplied to forecasting methods, to produce a “fable” (short for forecasting table) in which each “key” along with its future time holds predictions. It also underlines the advantage of tsibble’s “key” in acting as linkage between data inputs, models and forecasts. Advanced forecasting techniques, such as vector autocorrelation, hierarchical reconciliation, and ensembles, can be developed in a similar spirit. The modeling module is a current endeavor.</p>
+<p>Modeling is crucial to explanatory and predictive analytics, but often imposes stricter assumptions on tsibble data. The verbs listed in Table <a href="3-4-sec-pipeline.html#tab:verb-table">3.2</a> ease the transition to a tsibble that suits modeling. A tidy forecasting framework built on top of tsibble is under development, which aims at promoting transparent forecasting practices and concise model representation. A tsibble usually contains multiple time series. Batch forecasting will be enabled if a univariate model, such as ARIMA and Exponential Smoothing, is applied to each time series independently. This yields a “mable” (short for model table), where each model relates to each “key” value in tsibble. This avoids expensive data copying and reduces model storage. The mable is further supplied to forecasting methods, to produce a “fable” (short for forecasting table) in which each “key” along with its future time holds predictions. It also underlines the advantage of tsibble’s “key” in acting as linkage between data inputs, models and forecasts. Advanced forecasting techniques, such as vector autocorrelation, hierarchical reconciliation, and ensembles, can be developed in a similar spirit. The modeling module is a current endeavor.</p>
 </div>
 </div>
             </section>

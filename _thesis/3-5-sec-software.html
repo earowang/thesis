@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -165,7 +166,7 @@ Figure 3.4: An illustration of window of size 5 computing rolling averages over 
 </p>
 </div>
 
-<p>Rolling window uses a programming paradigm—functional programming, which is different from those table verbs listed in Table <a href="#tab:verb-table"><strong>??</strong></a>. Table verbs expect and return a tsibble, and does what the function name suggests. On the contrary, these rolling window functions could accept arbitrary input types and would return arbitrary sorts of output, depending on which method is put into the rolling window. For example, computing moving averages requires numerics and a function like <code>mean()</code>, and produces averaged numerics. However, rolling window regression takes a data frame and a linear regression method like <code>lm()</code>, and generates a complex object that contains coefficients, fitted values, and etc.</p>
+<p>Rolling window uses a programming paradigm—functional programming, which is different from those table verbs listed in Table <a href="3-4-sec-pipeline.html#tab:verb-table">3.2</a>. Table verbs expect and return a tsibble, and does what the function name suggests. On the contrary, these rolling window functions could accept arbitrary input types and would return arbitrary sorts of output, depending on which method is put into the rolling window. For example, computing moving averages requires numerics and a function like <code>mean()</code>, and produces averaged numerics. However, rolling window regression takes a data frame and a linear regression method like <code>lm()</code>, and generates a complex object that contains coefficients, fitted values, and etc.</p>
 <p>The <strong>purrr</strong> package <span class="citation">(Henry and Wickham <a href="bibliography.html#ref-R-purrr">2017</a>)</span> provides a good example of functional programming in R. It provides a complete and consistent set of tools to iterate each element of a vector with a function. Rolling window does not just iterate but rolls over a sequence of elements, namely <code>slide()</code>, <code>tile()</code> and <code>stretch()</code>. <code>slide()</code> expects one input, <code>slide2()</code> two inputs, and <code>pslide()</code> multiple inputs. For type stability, the functions always return lists. Other variants including <code>*_lgl()</code>, <code>*_int()</code>, <code>*_dbl()</code>, <code>*_chr()</code> return vectors of the corresponding type, as well as <code>*_dfr()</code> and <code>*_dfc()</code> for row-binding and column-binding data frames respectively. Their multiprocessing equivalents prefixed by <code>future_*()</code> enable rolling in parallel <span class="citation">(Bengtsson <a href="bibliography.html#ref-R-future">2019</a>; Vaughan and Dancho <a href="bibliography.html#ref-R-furrr">2018</a><a href="bibliography.html#ref-R-furrr">a</a>)</span>. This family of functions empowers users to incorporate window-related operations in their workflows.</p>
 </div>
 <div id="modularity" class="section level3">
