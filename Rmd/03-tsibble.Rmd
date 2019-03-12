@@ -252,10 +252,10 @@ Figure \@ref(fig:animate) shows the animations of rolling windows for sliding, t
 ```{r tb-au}
 ```
 
-```{r animate, fig.show = "animate", fig.height = 6.5, fig.cap = "(ref:animate-cap)", interval = 0.5, aniopts = c("autoplay", "controls", "loop"), eval = knitr::is_latex_output()}
+```{r animate, fig.show = "animate", fig.height = 6, fig.cap = "(ref:animate-cap)", interval = 0.5, aniopts = c("autoplay", "controls", "loop"), eval = knitr::is_latex_output()}
 ```
 
-```{r animate, fig.show = "animate", fig.height = 6.5, fig.cap = "(ref:animate-cap)", interval = 0.5, ffmpeg.format = "gif", dev = "png", eval = knitr::is_html_output(), fig.process = "animate.gif"}
+```{r animate, fig.show = "animate", fig.height = 6, fig.cap = "(ref:animate-cap)", interval = 0.5, ffmpeg.format = "gif", dev = "png", eval = knitr::is_html_output(), fig.process = "animate.gif"}
 ```
 
 (ref:animate-cap) An illustration of window of size 5 computing rolling averages over annual tuberculosis cases in Australia with respect to sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)

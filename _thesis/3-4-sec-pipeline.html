@@ -77,7 +77,17 @@
 <li class="chapter" data-level="1.2" data-path="1-2-sec-tsibble.html"><a href="1-2-sec-tsibble.html"><i class="fa fa-check"></i><b>1.2</b> Tidy temporal data structure</a></li>
 <li class="chapter" data-level="1.3" data-path="1-3-sec-mists.html"><a href="1-3-sec-mists.html"><i class="fa fa-check"></i><b>1.3</b> Missingness in time</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-ch-calendar-vis.html"><a href="2-ch-calendar-vis.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a></li>
+<li class="chapter" data-level="2" data-path="2-ch-calendar-vis.html"><a href="2-ch-calendar-vis.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-1-introduction.html"><a href="2-1-introduction.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html"><i class="fa fa-check"></i><b>2.2</b> Creating a calendar display</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:transformation"><i class="fa fa-check"></i><b>2.2.1</b> Data transformation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:opt"><i class="fa fa-check"></i><b>2.2.2</b> Options</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-3-sec-case.html"><a href="2-3-sec-case.html"><i class="fa fa-check"></i><b>2.3</b> Case study</a></li>
+<li class="chapter" data-level="2.4" data-path="2-4-sec-discussion.html"><a href="2-4-sec-discussion.html"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="3-ch-tsibble.html"><a href="3-ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-1-sec-intro.html"><a href="3-1-sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
@@ -107,7 +117,7 @@
 <li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements-2.html"><a href="acknowledgements-2.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Missingness in time: speaking the language of data</a></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
@@ -140,7 +150,7 @@
 <h2><span class="header-section-number">3.4</span> Data pipelines</h2>
 <p>A data pipeline describes the flow of data through an analysis, and can generally assist in conceptualizing the process, when it is applied to a variety of problems. <span class="citation">Mcilroy, Pinson, and Tague (<a href="bibliography.html#ref-unix">1978</a>)</span> coined the term “pipelines” in software development while developing Unix at Bell Labs. In Unix-based computer operating systems, a pipeline chains together a series of operations on the basis of their standard streams, so that the output of each program becomes the input to another. The Extract, Transform, and Load (ETL) process from recent data warehousing literature dating back to <span class="citation">Kimball and Caserta (<a href="bibliography.html#ref-kimball2011data">2011</a>)</span> outlines the workflow to prepare data for analysis, and can also be considered a data pipeline. <span class="citation">Buja et al. (<a href="bibliography.html#ref-viewing-pipeline">1988</a>)</span> describes a viewing pipeline for interactive statistical graphics, that takes control of the transformation from data to plot. <span class="citation">Swayne, Cook, and Buja (<a href="bibliography.html#ref-xgobi">1998</a>)</span>, <span class="citation">Swayne et al. (<a href="bibliography.html#ref-ggobi">2003</a>)</span>, <span class="citation">Sutherland et al. (<a href="bibliography.html#ref-orca">2000</a>)</span>, <span class="citation">Wickham et al. (<a href="bibliography.html#ref-plumbing">2010</a>)</span> and <span class="citation">Xie, Hofmann, and Cheng (<a href="bibliography.html#ref-xie2014reactive">2014</a>)</span> implemented data pipelines for the interactive statistical software <strong>XGobi</strong>, <strong>GGobi</strong>, <strong>Orca</strong>, <strong>plumbr</strong> and <strong>cranvas</strong>, respectively. The pipeline is typically described with a one way flow, from data to plot. For interactive graphics, where all plots need to be updated when a user interacts with one plot, the events typically trigger the data pipeline to be run. <span class="citation">Xie, Hofmann, and Cheng (<a href="bibliography.html#ref-xie2014reactive">2014</a>)</span> uses a reactive programming framework, to implement the pipeline, in which user’s interactions trigger a sequence of modules to update their views, that is, practically the same as running the data pipeline producing each plot.</p>
 <p>Building a data pipeline is technically difficult: many implementation decisions have to be made about the interface, input and output objects and functionality. The tidy data abstraction lays the plumbing for data analysis modules of transformation, visualization and modeling. Each module communicates with the others, requiring tidy input, producing tidy output, chaining a series of operations together to accomplish the analytic tasks.</p>
-<p>What is notable about an effective implementation of a data pipeline is that it coordinates a user’s analysis making it cleaner to follow, and permits a wider audience to focus on the data analysis without getting lost in a jungle of computational intricacies. A fluent pipeline glues tidy data and the grammar of data manipulation together. It helps (1) break up a big problem to into manageable blocks, (2) generate human readable analysis workflow, (3) avoid introducing mistakes, at least making it possible to trace them through the pipeline. New data tools developed in the R package <strong>tsibble</strong> <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2018</a><a href="bibliography.html#ref-R-tsibble">b</a>)</span> articulate the time series data pipeline, which shepherds raw temporal data through to time series analysis, and plots. More detailed explanations are given in the following sections, and the examples.</p>
+<p>What is notable about an effective implementation of a data pipeline is that it coordinates a user’s analysis making it cleaner to follow, and permits a wider audience to focus on the data analysis without getting lost in a jungle of computational intricacies. A fluent pipeline glues tidy data and the grammar of data manipulation together. It helps (1) break up a big problem to into manageable blocks, (2) generate human readable analysis workflow, (3) avoid introducing mistakes, at least making it possible to trace them through the pipeline. New data tools developed in the R package <strong>tsibble</strong> <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2019</a>)</span> articulate the time series data pipeline, which shepherds raw temporal data through to time series analysis, and plots. More detailed explanations are given in the following sections, and the examples.</p>
 <div id="sec:timepipeline" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Time series transformation</h3>
 <p>Figure <a href="3-4-sec-pipeline.html#fig:tsibble-pipeline">3.3</a> illustrates the distinction of a time series pipeline from a regular data pipeline. It is highly recommended to check for identical entries of key and index before constructing a tsibble. Duplicates signal the data quality issue, which would likely affect subsequent analyses and hence decision making. Analysts are encouraged to gaze at data early and reason about the process of data cleaning. When the data meets the tsibble standard, it flows neatly into the analysis stage and takes full advantage of the tsibble infrastructure.</p>
@@ -159,7 +169,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hfqikryfow .gt_table {
+#musupfiiba .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -178,13 +188,13 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   /* table.border.top.color */
 }
 
-#hfqikryfow .gt_heading {
+#musupfiiba .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#hfqikryfow .gt_title {
+#musupfiiba .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -195,7 +205,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   border-bottom-width: 0;
 }
 
-#hfqikryfow .gt_subtitle {
+#musupfiiba .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -206,7 +216,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   border-top-width: 0;
 }
 
-#hfqikryfow .gt_bottom_border {
+#musupfiiba .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -215,7 +225,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   /* heading.border.bottom.color */
 }
 
-#hfqikryfow .gt_column_spanner {
+#musupfiiba .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -223,7 +233,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   padding-bottom: 4px;
 }
 
-#hfqikryfow .gt_col_heading {
+#musupfiiba .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -236,11 +246,11 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   margin: 10px;
 }
 
-#hfqikryfow .gt_sep_right {
+#musupfiiba .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#hfqikryfow .gt_group_heading {
+#musupfiiba .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -264,7 +274,7 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   vertical-align: middle;
 }
 
-#hfqikryfow .gt_empty_group_heading {
+#musupfiiba .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -288,37 +298,37 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   vertical-align: middle;
 }
 
-#hfqikryfow .gt_striped {
+#musupfiiba .gt_striped {
   background-color: #f2f2f2;
 }
 
-#hfqikryfow .gt_from_md > :first-child {
+#musupfiiba .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hfqikryfow .gt_from_md > :last-child {
+#musupfiiba .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hfqikryfow .gt_row {
+#musupfiiba .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#hfqikryfow .gt_stub {
+#musupfiiba .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#hfqikryfow .gt_stub.gt_row {
+#musupfiiba .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#hfqikryfow .gt_summary_row {
+#musupfiiba .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -327,13 +337,13 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   /* summary_row.text_transform */
 }
 
-#hfqikryfow .gt_first_summary_row {
+#musupfiiba .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#hfqikryfow .gt_table_body {
+#musupfiiba .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -348,55 +358,55 @@ Figure 3.3: A time series pipeline is different from a regular data pipeline: (1
   /* field.border.bottom.color */
 }
 
-#hfqikryfow .gt_footnote {
+#musupfiiba .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#hfqikryfow .gt_sourcenote {
+#musupfiiba .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#hfqikryfow .gt_center {
+#musupfiiba .gt_center {
   text-align: center;
 }
 
-#hfqikryfow .gt_left {
+#musupfiiba .gt_left {
   text-align: left;
 }
 
-#hfqikryfow .gt_right {
+#musupfiiba .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hfqikryfow .gt_font_normal {
+#musupfiiba .gt_font_normal {
   font-weight: normal;
 }
 
-#hfqikryfow .gt_font_bold {
+#musupfiiba .gt_font_bold {
   font-weight: bold;
 }
 
-#hfqikryfow .gt_font_italic {
+#musupfiiba .gt_font_italic {
   font-style: italic;
 }
 
-#hfqikryfow .gt_super {
+#musupfiiba .gt_super {
   font-size: 65%;
 }
 
-#hfqikryfow .gt_footnote_glyph {
+#musupfiiba .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="hfqikryfow" style="overflow-x:auto;"><!--gt table start-->
+<div id="musupfiiba" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <tr>
 <th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Verb</th>

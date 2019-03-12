@@ -4,7 +4,7 @@ author: 'Earo Wang'
 degreetype: 'Doctor of Philosophy'
 site: bookdown::bookdown_site
 degrees: 'B.Comm. (Hons), Monash University'
-bibliography: [bib/packages.bib, bib/calendar.bib, bib/tsibble.bib, bib/thesisrefs.bib]
+bibliography: [bib/calendar.bib, bib/tsibble.bib, bib/thesisrefs.bib]
 link-citations: yes
 ---
 
@@ -27,3 +27,4 @@ opts_chunk$set(
 This is the website for my PhD thesis at Monash University (Australia), titled "Tidy tools for supporting fluent workflow in temporal data analysis".
 
 `r if (knitr::is_latex_output()) '-->'`
+

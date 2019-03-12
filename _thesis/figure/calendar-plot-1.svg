@@ -491,12 +491,12 @@
     <rect x='0.00' y='0.00' width='504.00' height='504.00' />
   </clipPath>
 </defs>
-<rect x='173.76' y='470.28' width='159.23' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
-<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='179.24' y='488.21' style='font-size: 11.00px; font-family: Utopia;' textLength='16.81px' lengthAdjust='spacingAndGlyphs'>hot</text></g>
-<rect x='200.01' y='475.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #F2F2F2;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
-<line x1='201.73' y1='484.40' x2='215.56' y2='484.40' style='stroke-width: 1.07; stroke: #D95F02; stroke-linecap: butt;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
-<rect x='258.99' y='475.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #F2F2F2;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
-<line x1='260.72' y1='484.40' x2='274.54' y2='484.40' style='stroke-width: 1.07; stroke: #1B9E77; stroke-linecap: butt;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
-<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='222.76' y='487.45' style='font-size: 8.80px; font-family: Utopia;' textLength='31.41px' lengthAdjust='spacingAndGlyphs'>Hot day</text></g>
-<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='281.75' y='487.45' style='font-size: 8.80px; font-family: Utopia;' textLength='46.68px' lengthAdjust='spacingAndGlyphs'>Not hot day</text></g>
+<rect x='172.84' y='470.28' width='161.05' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
+<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='178.32' y='488.21' style='font-size: 11.00px; font-family: Utopia;' textLength='16.81px' lengthAdjust='spacingAndGlyphs'>hot</text></g>
+<rect x='200.36' y='475.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #F2F2F2;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
+<line x1='202.08' y1='484.40' x2='215.91' y2='484.40' style='stroke-width: 1.07; stroke: #D95F02; stroke-linecap: butt;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
+<rect x='259.24' y='475.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #F2F2F2;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
+<line x1='260.97' y1='484.40' x2='274.79' y2='484.40' style='stroke-width: 1.07; stroke: #1B9E77; stroke-linecap: butt;' clip-path='url(#cpMHw1MDR8NTA0fDA=)' />
+<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='223.11' y='487.45' style='font-size: 8.80px; font-family: Utopia;' textLength='31.41px' lengthAdjust='spacingAndGlyphs'>Hot day</text></g>
+<g clip-path='url(#cpMHw1MDR8NTA0fDA=)'><text x='282.00' y='487.45' style='font-size: 8.80px; font-family: Utopia;' textLength='46.68px' lengthAdjust='spacingAndGlyphs'>Not hot day</text></g>
 </svg>

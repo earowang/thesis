@@ -3,6 +3,7 @@ bookdown::gitbook:
   dev: "svglite"
   split_by: section+number
   split_bib: no
+  fig_retina: 1
   config:
     toc:
       collapse: none
