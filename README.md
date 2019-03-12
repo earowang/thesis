@@ -1,6 +1,12 @@
 # PhD thesis
 
-This repo contains source files for my PhD thesis titled, "Tidy data structure and visualisation to support exploration and modeling of temporal data", at Monash University.
+This repo contains source files for my PhD thesis titled, "Tidy tools for supporting fluent workflow in temporal data analysis", at Monash University.
+
+The R packages used in this thesis can be installed via
+
+```r
+remotes::install_github("earowang/thesis")
+```
 
 ## Clone with `git-lfs`
 

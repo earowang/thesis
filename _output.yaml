@@ -6,7 +6,8 @@ bookdown::gitbook:
   config:
     toc:
       collapse: none
-      before: null
+      before: |
+        <li><strong><a href="./">Temporal tidy tools</a></strong></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
     edit: https://github.com/earowang/thesis/edit/master/%s

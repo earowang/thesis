@@ -1,5 +1,5 @@
 ---
-title: 'Tidy data structure and visualisation to support exploration and modeling of temporal data'
+title: 'Tidy tools for supporting fluent workflow in temporal data analysis'
 author: 'Earo Wang'
 degreetype: 'Doctor of Philosophy'
 site: bookdown::bookdown_site
@@ -13,13 +13,17 @@ options("knitr.graphics.auto_pdf" = TRUE)
 library(knitr)
 opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
-  fig.path = 'figure/', cache.path = 'cache/', fig.align = 'center', 
-  fig.show = 'hold', cache = TRUE, external = TRUE,
+  fig.path = 'figure/', fig.align = 'center', fig.show = 'hold',
+  cache = TRUE, external = TRUE, comment = "#>",
   out.width = ifelse(is_html_output(), "100%", "\\textwidth"),
-  comment = "#>"
+  cache.path = ifelse(is_html_output(), 'cache-gitbook/', 'cache-pdfbook/')
 )
 ```
 
-# Acknowledgements {-}
+`r if (knitr::is_latex_output()) '<!--'` 
 
-First and foremost, I would like to thank my supervisors, [Dianne Cook](http://dicook.org) and [Rob J Hyndman](http://robjhyndman.com).
+# Welcome {-}
+
+This is the website for my PhD thesis at Monash University (Australia), titled "Tidy tools for supporting fluent workflow in temporal data analysis".
+
+`r if (knitr::is_latex_output()) '-->'`
