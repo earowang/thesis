@@ -2,7 +2,7 @@
 FROM rocker/verse:3.5.2
 
 # required
-MAINTAINER Your Name <earo.wang@gmail.com>
+MAINTAINER Earo Wang <earo.wang@gmail.com>
 
 COPY . /thesis
 
@@ -15,7 +15,7 @@ RUN . /etc/environment \
   && sudo apt-get install libudunits2-dev -y \
 
   # build this compendium package
-  && R -e "devtools::install('/thesis', dep=TRUE)" \
+  && R -e "devtools::install('/thesis', dependencies = TRUE)" \
 
  # render the manuscript into a docx, you'll need to edit this if you've
  # customised the location and name of your main Rmd file

@@ -1,6 +1,6 @@
 bookdown::gitbook:
   css: template/style.css
-  dev: "svglite"
+  dev: "png"
   split_by: section+number
   split_bib: no
   fig_retina: 1

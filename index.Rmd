@@ -14,7 +14,7 @@ library(knitr)
 opts_chunk$set(
   warning = FALSE, message = FALSE, echo = FALSE,
   fig.path = 'figure/', fig.align = 'center', fig.show = 'hold',
-  cache = TRUE, external = TRUE, comment = "#>",
+  cache = TRUE, external = TRUE, comment = "#>", dpi = 92,
   out.width = ifelse(is_html_output(), "100%", "\\textwidth"),
   cache.path = ifelse(is_html_output(), 'cache-gitbook/', 'cache-pdfbook/')
 )

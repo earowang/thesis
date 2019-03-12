@@ -12,6 +12,7 @@ Depends:
     lubridate,
     R (>= 3.1),
     sugrrants,
+    showtext,
     tidyverse,
     tsibble,
     gganimate

@@ -227,7 +227,7 @@ Figure \@ref(fig:h1)-\@ref(fig:h4) display the data in calendar layout individua
 ```{r h3, fig.height = 7, fig.cap = "Calendar display for household 3. Their energy use reveals higher energy use in the winter months, with multiple peaks daily on both week days and weekends. There are some high peaks in summer, perhaps indicating occasional air conditioner use. There have been several long vacations in the past year."}
 ```
 
-```{r h4, fig.height = 7, fig.cap = "Calendar display for household 4, shows energy use mostly in the evenings and on weekends. Three short trips were taken in October, December, April, and June."}
+```{r h4, fig.height = 7, fig.cap = "Calendar display for household 4, shows energy use mostly in the evenings and on weekends. Four short trips were taken in October, December, April, and June."}
 ```
 
 ## Discussion {#sec:discussion}
