@@ -1,2 +1,15 @@
 # Missingness in time: speaking the language of data {#ch:mists}
 
+...
+
+## Introduction
+
+## Process for generating missing data in time
+
+## Tools for exploring temporal patterns of missingness
+
+## Assessing results of imputation techniques
+
+## Case study
+
+## Discussions
