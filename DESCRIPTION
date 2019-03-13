@@ -6,19 +6,26 @@ Authors@R:
            family = "Wang",
            role = c("aut", "cre"),
            email = "earo.wang@gmail.com")
+URL: https://thesis.earo.me
+BugReports: https://github.com/earowang/thesis/issues
 Depends:
-    forcats,
-    ggmap,
-    lubridate,
-    R (>= 3.1),
-    sugrrants,
-    showtext,
-    tidyverse,
-    tsibble,
-    gganimate
+    R (>= 3.1)
 Imports:
     bookdown,
     cliapp,
+    forcats,
+    gganimate,
+    ggmap,
+    gt,
+    kableExtra,
+    knitr,
+    lubridate,
+    magick,
+    showtext,
     spelling,
-    magick
+    sugrrants,
+    tidyverse,
+    tsibble
+Remotes:
+    rstudio/gt
 Language: en-GB
