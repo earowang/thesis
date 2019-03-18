@@ -13,6 +13,7 @@ Depends:
 Imports:
     bookdown,
     cliapp,
+    cranlogs,
     forcats,
     gganimate,
     ggmap,

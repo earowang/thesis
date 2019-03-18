@@ -129,8 +129,15 @@
 <li class="chapter" data-level="4.6" data-path="4-6-discussions.html"><a href="4-6-discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
-<li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a></li>
-<li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a></li>
+<li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5-1-software-development.html"><a href="5-1-software-development.html#tsibble"><i class="fa fa-check"></i><b>5.1.2</b> tsibble</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#the-grammar-of-forecasting-reconciliation"><i class="fa fa-check"></i><b>5.2.1</b> The grammar of forecasting reconciliation</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-nesting-and-crossing-temporal-data"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for nesting and crossing temporal data</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-inference-for-temporal-data"><i class="fa fa-check"></i><b>5.2.3</b> Visual inference for temporal data</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="5-3-final-words.html"><a href="5-3-final-words.html"><i class="fa fa-check"></i><b>5.3</b> Final words</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -157,8 +164,14 @@
 <div id="software-development" class="section level2">
 <h2><span class="header-section-number">5.1</span> Software development</h2>
 <p>The research methods developed in this thesis have been translated into two open source R packages: <strong>sugrrants</strong> and <strong>tsibble</strong>, both of which are available on CRAN.</p>
-<p>The <strong>sugrrants</strong> R package provides graphical tools to display data in the familiar calendar style via the <code>frame_calendar()</code> and <code>facet_calendar()</code>. The associated research paper, a shorter version of Chapter <a href="2-ch-calendar-vis.html#ch:calendar-vis">2</a>, has been awarded 2018 best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics. There have been a grand total of 10,418 downloads from the RStudio mirror since it was released on CRAN; and it has been starred 33 times on the Github so far. The homepage at <a href="https://pkg.earo.me/sugrrants" class="uri">https://pkg.earo.me/sugrrants</a> contains detailed documentation and a vignette on <code>frame_calendar()</code>.</p>
-<p>The <strong>tsibble</strong> package is a domain specific language in R for representing and manipulating tidy temporal data. This package is aimed for the fundamental architecture that other temporal tools will be built upon. For example, a new suite of time series packages, titled <a href="https://github.com/tidyverts">“tidyverts”</a>, have been developed for the “tsibble” data object. The <strong>tsibble</strong> package has won 2019 John Chambers Statistical Software Award from ASA Sections on Statistical Computing and Statistical Graphics. It has been downloaded 17,750 times from the RStudio mirror since it landed on CRAN; and it has received 175 stars on the Github. These are the indicators of my research impact, the recognition by professionals, and the uptakes by users. The website (<a href="https://tsibble.tidyverts.org" class="uri">https://tsibble.tidyverts.org</a>) includes full documentation and four vignettes about the package usage.</p>
+<div id="sugrrants" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> sugrrants</h3>
+<p>The <strong>sugrrants</strong> R package provides graphical tools to display data in the familiar calendar style via the <code>frame_calendar()</code> and <code>facet_calendar()</code>. The associated research paper, a shorter version of Chapter <a href="2-ch-calendar-vis.html#ch:calendar-vis">2</a>, has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There have been a grand total of 10,418 downloads from the RStudio mirror since it was released on CRAN; and it has been starred 34 times on the Github so far. The homepage at <a href="https://pkg.earo.me/sugrrants" class="uri">https://pkg.earo.me/sugrrants</a> contains detailed documentation and a vignette on <code>frame_calendar()</code>.</p>
+</div>
+<div id="tsibble" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> tsibble</h3>
+<p>The <strong>tsibble</strong> package is a domain specific language in R for representing and manipulating tidy temporal data. This package is aimed for the fundamental architecture that other temporal tools will be built upon. For example, a new suite of time series packages, titled <a href="https://github.com/tidyverts">“tidyverts”</a>, have been developed for the “tsibble” data object. The <strong>tsibble</strong> package has won 2019 John Chambers Statistical Software Award from ASA Sections on Statistical Computing and Statistical Graphics. It has been downloaded 17,750 times from the RStudio mirror since it landed on CRAN; and it has received 176 stars on the Github. These metrics are the indicators of my research impact, the recognition by professionals, and the uptakes by users. The website (<a href="https://tsibble.tidyverts.org" class="uri">https://tsibble.tidyverts.org</a>) includes full documentation and four vignettes about the package usage.</p>
+</div>
 </div>
             </section>
 

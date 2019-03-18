@@ -114,3 +114,5 @@ th
 TimeProjection
 seasonalities
 RStudio
+MCAR
+MNAR
