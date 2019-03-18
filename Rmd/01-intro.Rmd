@@ -10,7 +10,7 @@ Visualisation is critical for understanding the data patterns, and for discoveri
 
 ## Tidy temporal data structure {#sec:tsibble}
 
-Data representation has been more often discussed in data science. "Tidy data" [@wickham2014tidy] is the fundamental data architecture of the **tidyverse** ecosystem, making it possible to build fluent data pipelines for transformation, visualisation, and modelling. But the current time series structure that was useful decades ago for modelling now starts creating barriers for a data-centric workflow. More discussions on data structures can be found in Chapter \@ref(ch:tsibble). I propose a new tidy data abstraction for temporal data, which lubricates the plumbing of temporal data analysis to a great extent.
+Data representation is an important component data science science research. "Tidy data" [@wickham2014tidy] is the fundamental data architecture of the **tidyverse** ecosystem, making it possible to build fluent data pipelines for transformation, visualisation, and modelling. It doesn't adequately describe temporal data, and the current time series structures that are useful for modelling, inhibits a data-centric workflow. This research develops a new tidy data abstraction for temporal data, which lubricates the plumbing of temporal data analysis. Chapter \@ref(ch:tsibble) describes this abstraction, the process of using it for time series analysis, and a comprehensive literature review of related work. 
 
 ## Missingness in time {#sec:mists}
 
