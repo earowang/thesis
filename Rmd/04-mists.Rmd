@@ -1,6 +1,6 @@
 # Missingness in time: speaking the language of data {#ch:mists}
 
-Can missing values methods speak the language of data, to go beyond the probabilistic taxonomy, MCAR, MAR, MNAR? Yes they can! The **naniar** package provides a suite of exploratory methods and imputation choices for tidy missing data analysis, that fit neatly into a tidy data workflow. However, temporal data is left behind. This talk will present exploratory methods for temporal missing, equipped with a new data-centric taxonomy. The work will be available in the R package called **mists**.
+Can missing values methods speak the language of data, to go beyond the probabilistic taxonomy, MCAR, MAR, MNAR? Yes they can! A suite of exploratory methods and imputation choices for tidy missing data analysis have been developed, for example the **naniar** R package, which fit neatly into a tidy data workflow. However, temporal data is left behind. This work will present exploratory and explanatory tools for temporal missing, equipped with a new data-centric taxonomy. How to assess results of imputation techniques will be discussed in turn. Tools to facilitate the process will be available in the R package called **mists**.
 
 ```{r mists-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('R/mists.R')
@@ -19,16 +19,20 @@ read_chunk('R/mists.R')
 
 ## Process for generating missing data in time
 
-```{r miss-types, fig.height = 7}
+```{r miss-types, fig.height = 7, fig.cap = "(ref:miss-types-cap)"}
 ```
+
+(ref:miss-types-cap) Time series lines along with missing distributions plotted for monthly number of international airline passengers from 1949 to 1960. This series shows an upward trend with strong seasonal patterns. The gray blocks indicate the missingness. To generate missing data in time, the process could be classified into four types of temporal missings: (1) missing at level, (2) missing at occasional, (3) missing at runs, (4) missing at season.
 
 ## Tools for exploring temporal patterns of missingness
 
-```{r miss-types-acf, fig.height = 6}
+```{r miss-types-acf, fig.height = 6, fig.cap = "(ref:miss-types-acf-cap)"}
 ```
+
+(ref:miss-types-acf-cap) Autocorrelation plots using the phi coefficients corresponding to the binary form of Figure \@ref(fig:miss-types).
 
 ## Assessing results of imputation techniques
 
 ## Case study
 
-## Discussions
+## Discussion
