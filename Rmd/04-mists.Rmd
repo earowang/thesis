@@ -3,7 +3,7 @@
 Can missing values methods speak the language of data, to go beyond the probabilistic taxonomy, MCAR, MAR, MNAR? Yes they can! A suite of exploratory methods and imputation choices for tidy missing data analysis have been developed, for example the **naniar** R package, which fit neatly into a tidy data workflow. However, temporal data is left behind. This work will present exploratory and explanatory tools for temporal missing, equipped with a new data-centric taxonomy. How to assess results of imputation techniques will be discussed in turn. Tools to facilitate the process will be available in the R package called **mists**.
 
 ```{r mists-initial, echo = FALSE, cache = FALSE, include = FALSE}
-read_chunk('R/mists.R')
+read_chunk('scripts/mists.R')
 ```
 
 ```{r load-mists}

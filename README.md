@@ -14,7 +14,7 @@ To clone this repo, you need to first download and install a git plugin called [
 
 ## Directories
 
-* `R/`: R code to reproduce tables, figures and analysis.
+* `scripts/`: R code to reproduce tables, figures and analysis.
 * `Rmd/`: R Markdown source documents for thesis document.
 * `data/`: Cleaned data used for thesis document.
 * `data-raw/`: R code to generate data in `data/`.
