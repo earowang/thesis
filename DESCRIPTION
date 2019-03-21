@@ -9,8 +9,7 @@ Authors@R:
 URL: https://thesis.earo.me
 BugReports: https://github.com/earowang/thesis/issues
 Depends:
-    R (>= 3.1)
-Imports:
+    R (>= 3.1),
     bookdown,
     cliapp,
     cranlogs,
@@ -21,12 +20,13 @@ Imports:
     kableExtra,
     knitr,
     lubridate,
-    magick,
     showtext,
-    spelling,
     sugrrants,
     tidyverse,
     tsibble
+Imports:
+    magick,
+    spelling
 Remotes:
     rstudio/gt
 Language: en-GB
