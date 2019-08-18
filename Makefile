@@ -4,7 +4,7 @@ pdfbook:
 gitbook:
 	Rscript --quiet _render.R "bookdown::gitbook"
 
-skim:
+open:
 	open _thesis/thesis.pdf
 
 preview:
