@@ -1,6 +1,6 @@
 # Conclusion and future plans {#ch:conclusion}
 
-This chapter concludes the thesis and lays out the plans for future work.
+The three papers assembled in this thesis, share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "", demystified missing data in time. These papers are bundled with software. In this conclusion, I will give a brief summary of each package, and discuss the future directions of my research.
 
 ## Software development
 
@@ -10,7 +10,7 @@ sugrrants_dl <- cran_downloads("sugrrants", from = "2017-07-28")
 tsibble_dl <- cran_downloads("tsibble", from = "2018-01-09")
 ```
 
-The research methods developed in this thesis have been translated into three open source R packages: **sugrrants**, **tsibble**, and **mists**.
+A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**.
 
 ### sugrrants
 
@@ -22,7 +22,7 @@ The **tsibble** package provides a data infrastructure and a domain specific lan
 
 ### mists
 
-The **mists** package aims at exploring missing values for temporal data both analytically and graphically. It implements a compact abstraction for efficiently indexing missing data in time, along with numerical and visual methods. It also brings missing data polishing techniques into live. The Github repository has received 22 stars, but the package is not on CRAN yet. The documentation site is available at <https://pkg.earo.me/sugrrants>. 
+The **mists** package aims at exploring missing values for temporal data both analytically and graphically. It implements a compact abstraction for efficiently indexing missing data in time, along with numerical and visual methods. It also brings missing data polishing techniques into live. The Github repository has received 22 stars, but the package is not on CRAN yet. The documentation site is available at <https://pkg.earo.me/mists>. 
 
 ## Future work
 
