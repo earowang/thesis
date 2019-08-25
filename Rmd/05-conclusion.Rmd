@@ -1,6 +1,6 @@
 # Conclusion and future plans {#ch:conclusion}
 
-The three papers assembled in this thesis, share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "", demystified missing data in time. These papers are bundled with software. In this conclusion, I will give a brief summary of each package, and discuss the future directions of my research.
+The three papers assembled in this thesis, share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "", demystified missing data in time. These papers are bundled with software. In this conclusion, I will briefly summarise each package and their impact, and discuss the future directions of my research.
 
 ## Software development
 
@@ -26,6 +26,14 @@ The **mists** package aims at exploring missing values for temporal data both an
 
 ## Future work
 
-## Process for generating missing data in time
+### Process for generating missing data in time
 
-### Visual methods for temporal data of nesting and crossing factors
+Missing values in cross-sectional data are typically characterised by the overall, row-wise, and column-wise missings. Neither, however, captures the dynamics in temporal data. How to characterise temporal missingness receives little research. A good metric of such could possibly shed lights on the process for generating and imputing missing data in time.
+
+I will expand on Chapter \@ref(ch:mists), to develop systematic missing data generating processes. Generating temporal missingness can be decomposed into two steps: (1) to inject point missings along indices and (2) to simulate the corresponding lengths.
+
+### Visual methods for temporal data of nesting and crossing interactions
+
+A collection of time series are often structured in a way that allows nesting and crossing interactions [@fpp]. For example, a manufacturing company can add up every store's sales by region, by state and by country, which gives a strictly hierarchical time series; alternatively, they can gather the sales based on common attributes such as store, brand, price range and so forth, which leads to a crossed configuration. Nesting is a special case of crossing, with parent-children relations involved. Temporal information such as date-times is also intrinsically hierarchical, seconds nested within minutes, hours, and etc. The new tsibble structure has the neat capability of supporting these structural embeddings.
+
+Numerous nesting and crossing combinations can yield unwieldy plots, in many of which an abundance of information are possibly buried. Focus-plus-context visualisation with interactivity comes to rescue. Dual contexts, structurally informative subjects and time, provide the source and visual clues for elegant navigation. Interactions on contextual plots control what to be visualised in the main plots, that form our focuses. Many kinds of visual displays can be generated to progressively build a richer data picture through guided or self explorations.
