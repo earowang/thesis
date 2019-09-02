@@ -7,7 +7,7 @@ tb_small <- read_rds("data/tsibble/tb-small.rds")
 tb_small %>%
   filter(year > 2010) %>%
   knitr::kable(booktabs = TRUE, caption = "(ref:tb-sub)", linesep = "") %>%
-  kableExtra::kable_styling(position = "center", latex_options = "hold_position")
+  kableExtra::kable_styling(position = "center", latex_options= "hold_position")
 
 ## ---- tb-print
 as_tsibble(tb_small, key = id(country, gender), index = year) %>%
@@ -92,3 +92,9 @@ ggplot() +
   theme_bw() +
   transition_manual(group)
 
+## ---- tsibble-pipeline
+pedestrian %>% 
+  fill_gaps() %>% # turn implicit missingness to explicit
+  filter(year(Date_Time) == 2016) %>%  # subset data of year 2016
+  model(arima = ARIMA(Count)) %>% # fit ARIMA to each sensor
+  forecast(h = days(2)) # forecast 2 days ahead

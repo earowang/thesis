@@ -6,6 +6,7 @@ library(tidyverse)
 library(sugrrants)
 library(showtext)
 library(tsibble)
+theme_set(theme_bw())
 
 # loading pedestrian data
 pedestrian_2016 <- read_rds("data/calendar-vis/pedestrian-2016.rds")
@@ -15,7 +16,7 @@ hol16 <- holiday_aus(2016, state = "VIC") %>%
 workday <- fct_inorder(c("Work day", "Non-work day"))
 # turning implicit missingness to explicit
 pedestrian_2016 <- pedestrian_2016 %>% 
-  as_tsibble(key = id(Sensor_Name), index = Date_Time) %>% 
+  as_tsibble(key = Sensor_Name, index = Date_Time) %>% 
   group_by(Sensor_Name) %>% 
   fill_gaps(.full = TRUE) %>% 
   ungroup() %>% 
@@ -208,7 +209,7 @@ prettify(p_facet, size = 3, label.padding = unit(0.1, "lines"))
 fs_cal_day <- fs %>% 
   mutate(Lagged_Counts = dplyr::lag(Hourly_Counts)) %>% 
   frame_calendar(x = Lagged_Counts, y = Hourly_Counts, date = Date, 
-    calendar = "daily", width = 0.95, height = 0.8, scale = "free")
+    calendar = "daily", width = 0.8, height = 0.8, scale = "free")
 
 p_fs_day <- fs_cal_day %>% 
   ggplot(
@@ -219,13 +220,17 @@ p_fs_day <- fs_cal_day %>%
   theme(legend.position = "bottom")
 prettify(p_fs_day, size = 3, label.padding = unit(0.15, "lines"))
 
-## ---- boxplot
+## ---- chn
+# boxplots for hourly counts across all the sensors in 2016 Dec with Chinese 
+# labels
+# font_install(source_han_serif())
+showtext_auto()
 # boxplots for hourly counts across all the sensors in 2016 December
 pedestrian_dec <- pedestrian_2016 %>% 
   filter(Month == "December") %>% 
   frame_calendar(
     x = Time, y = Hourly_Counts, date = Date, width = 0.97, height = 0.97
-)
+  )
 p_boxplot <- pedestrian_dec %>% 
   ggplot() +
   geom_boxplot(
@@ -237,13 +242,6 @@ p_boxplot <- pedestrian_dec %>%
     aes(.Time, .Hourly_Counts, group = Date), 
     se = FALSE, method = "loess"
   )
-prettify(p_boxplot, label = c("label", "text", "text2"))
-
-## ---- chn
-# boxplots for hourly counts across all the sensors in 2016 Dec with Chinese 
-# labels
-font_install(source_han_serif())
-showtext_auto()
 p_chn <- prettify(
   p_boxplot, locale = "zh", abbr = FALSE, 
   size = 3, label.padding = unit(0.15, "lines"),
@@ -254,9 +252,28 @@ p_chn
 # ggsave("figure/chn-1.pdf", p_chn, width = 8, height = 8)
 # showtext_auto(FALSE) 
 
+## ---- facet-calendar
+subdat %>% 
+  filter_index(~ "2016-04") %>% 
+  ggplot(aes(x = Time, y = Hourly_Counts, colour = Sensor_Name)) +
+  geom_line() +
+  facet_calendar(~ Date) +
+  scale_x_continuous(breaks = seq(0, 24, by = 12)) +
+  scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
+  theme(legend.position = "bottom") +
+  xlab("Time") +
+  ylab("Hourly Counts")
+
 ## ---- load-elec
-elec <- read_rds("data/calendar-vis/elec.rds")
+elec <- read_rds("data/calendar-vis/elec.rds") %>% 
+  filter(date >= ymd("20180101"), date < ymd("20180701"))
 rdbl <- c("Weekday" = "#d7191c", "Weekend" = "#2c7bb6")
+
+## ---- elec-line
+elec %>% 
+  ggplot(aes(x = date_time, y = kwh)) +
+  geom_line() +
+  facet_wrap(~ id, labeller = label_both, ncol = 1)
 
 ## ---- dow
 elec <- elec %>% 
@@ -269,7 +286,8 @@ elec %>%
   group_by(date, wday, id) %>% 
   summarise(kwh = sum(kwh, na.rm = TRUE)) %>% 
   ggplot(aes(x = wday, y = kwh)) +
-  lvplot::geom_lv(aes(fill = ..LV..), colour = "black", outlier.shape = 8) +
+  geom_boxplot(colour = "black", outlier.shape = 8) +
+  # lvplot::geom_lv(aes(fill = ..LV..), colour = "black", outlier.shape = 8) +
   facet_wrap(~ id, labeller = label_both) +
   xlab("Day of week") +
   ylab("kWh") +
@@ -294,42 +312,12 @@ ggplot(elec, aes(x = time, y = kwh)) +
   ylab("kWh") +
   guides(colour = "none")
 
-## ---- h1
-h1 <- elec %>% 
-  filter(id == 1) %>% 
-  frame_calendar(x = time, y = kwh, date = date) %>% 
+## ---- calendar-elec
+p_cal_elec <- elec %>% 
+  frame_calendar(x = time, y = kwh, date = date, nrow = 1) %>% 
     ggplot(aes(x = .time, y = .kwh, group = date)) +
-    geom_line(aes(colour = weekday)) +
-    scale_color_manual(name = "", values = rdbl) +
+    geom_line(aes(colour = as.factor(id)), size = 0.5) +
+    scale_colour_brewer(name = "", palette = "PiYG") +
+    facet_grid(id ~ ., labeller = label_both) +
     theme(legend.position = "bottom")
-prettify(h1)
-
-## ---- h2
-h2 <- elec %>% 
-  filter(id == 2) %>% 
-  frame_calendar(x = time, y = kwh, date = date) %>% 
-    ggplot(aes(x = .time, y = .kwh, group = date)) +
-    geom_line(aes(colour = weekday)) +
-    scale_color_manual(name = "", values = rdbl) +
-    theme(legend.position = "bottom")
-prettify(h2)
-
-## ---- h3
-h3 <- elec %>% 
-  filter(id == 3) %>% 
-  frame_calendar(x = time, y = kwh, date = date) %>% 
-    ggplot(aes(x = .time, y = .kwh, group = date)) +
-    geom_line(aes(colour = weekday)) +
-    scale_color_manual(name = "", values = rdbl) +
-    theme(legend.position = "bottom")
-prettify(h3)
-
-## ---- h4
-h4 <- elec %>% 
-  filter(id == 4) %>% 
-  frame_calendar(x = time, y = kwh, date = date) %>% 
-    ggplot(aes(x = .time, y = .kwh, group = date)) +
-    geom_line(aes(colour = weekday)) +
-    scale_color_manual(name = "", values = rdbl) +
-    theme(legend.position = "bottom")
-prettify(h4)
+prettify(p_cal_elec, size = 2.5, label.padding = unit(0.1, "lines"))

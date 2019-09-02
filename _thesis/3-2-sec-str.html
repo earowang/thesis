@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.2 Data structures | Tidy tools for supporting fluent workflow in temporal data analysis</title>
-  <meta name="description" content="3.2 Data structures | Tidy tools for supporting fluent workflow in temporal data analysis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="3.2 Data structures | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.2 Data structures | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
@@ -22,13 +21,13 @@
   
   
 
-<meta name="author" content="Earo Wang">
+<meta name="author" content="Earo Wang" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="3-1-sec-intro.html">
@@ -47,8 +46,71 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="template/style.css" type="text/css" />
 </head>
@@ -83,7 +145,8 @@
 <li class="chapter" data-level="2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html"><i class="fa fa-check"></i><b>2.2</b> Creating a calendar display</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:transformation"><i class="fa fa-check"></i><b>2.2.1</b> Data transformation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:opt"><i class="fa fa-check"></i><b>2.2.2</b> Options</a></li>
-<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Variations</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Varieties of calendar display</a></li>
+<li class="chapter" data-level="2.2.4" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#reasons-to-use-calendar-based-graphics"><i class="fa fa-check"></i><b>2.2.4</b> Reasons to use calendar-based graphics</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2-3-sec-case.html"><a href="2-3-sec-case.html"><i class="fa fa-check"></i><b>2.3</b> Case study</a></li>
 <li class="chapter" data-level="2.4" data-path="2-4-sec-discussion.html"><a href="2-4-sec-discussion.html"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
@@ -92,19 +155,20 @@
 <li class="chapter" data-level="3" data-path="3-ch-tsibble.html"><a href="3-ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-1-sec-intro.html"><a href="3-1-sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
-<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
-<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Comparing time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-data-standards"><i class="fa fa-check"></i><b>3.2.2</b> Existing data standards</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data"><i class="fa fa-check"></i><b>3.2.3</b> Tidy data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
 <li class="chapter" data-level="3.3.2" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
 <li class="chapter" data-level="3.3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
-<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
-<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Temporal data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Model</a></li>
+<li class="chapter" data-level="3.4.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#summary-1"><i class="fa fa-check"></i><b>3.4.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
@@ -115,30 +179,24 @@
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
-<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgements-2.html"><a href="acknowledgements-2.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="3.7" data-path="3-7-smart-grid-customer-data-in-australia.html"><a href="3-7-smart-grid-customer-data-in-australia.html"><i class="fa fa-check"></i><b>3.7</b> Smart-grid customer data in Australia</a></li>
+<li class="chapter" data-level="3.8" data-path="3-8-sec-conclusion.html"><a href="3-8-sec-conclusion.html"><i class="fa fa-check"></i><b>3.8</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Missingness in time: speaking the language of data</a><ul>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-introduction-1.html"><a href="4-1-introduction-1.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="4-2-process-for-generating-missing-data-in-time.html"><a href="4-2-process-for-generating-missing-data-in-time.html"><i class="fa fa-check"></i><b>4.2</b> Process for generating missing data in time</a></li>
-<li class="chapter" data-level="4.3" data-path="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><a href="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><i class="fa fa-check"></i><b>4.3</b> Tools for exploring temporal patterns of missingness</a></li>
-<li class="chapter" data-level="4.4" data-path="4-4-assessing-results-of-imputation-techniques.html"><a href="4-4-assessing-results-of-imputation-techniques.html"><i class="fa fa-check"></i><b>4.4</b> Assessing results of imputation techniques</a></li>
-<li class="chapter" data-level="4.5" data-path="4-5-case-study.html"><a href="4-5-case-study.html"><i class="fa fa-check"></i><b>4.5</b> Case study</a></li>
-<li class="chapter" data-level="4.6" data-path="4-6-discussion.html"><a href="4-6-discussion.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
 <li class="chapter" data-level="5.1.2" data-path="5-1-software-development.html"><a href="5-1-software-development.html#tsibble"><i class="fa fa-check"></i><b>5.1.2</b> tsibble</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5-1-software-development.html"><a href="5-1-software-development.html#mists"><i class="fa fa-check"></i><b>5.1.3</b> mists</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#the-grammar-of-forecasting-reconciliation"><i class="fa fa-check"></i><b>5.2.1</b> The grammar of forecasting reconciliation</a></li>
-<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-nesting-and-crossing-temporal-data"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for nesting and crossing temporal data</a></li>
-<li class="chapter" data-level="5.2.3" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-inference-for-temporal-data"><i class="fa fa-check"></i><b>5.2.3</b> Visual inference for temporal data</a></li>
+<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#process-for-generating-missing-data-in-time"><i class="fa fa-check"></i><b>5.2.1</b> Process for generating missing data in time</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-temporal-data-of-nesting-and-crossing-interactions"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for temporal data of nesting and crossing interactions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="5-3-final-words.html"><a href="5-3-final-words.html"><i class="fa fa-check"></i><b>5.3</b> Final words</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -164,21 +222,23 @@
 <div id="sec:str" class="section level2">
 <h2><span class="header-section-number">3.2</span> Data structures</h2>
 <div id="sec:time-series" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Time series and longitudinal data</h3>
-<p>Temporal data problems are typically grouped into two types of analysis, time series and longitudinal. Despite being exactly the same data input, the representation of time series and longitudinal data diverges due to different modeling approaches.</p>
-<p>Time series can be univariate or multivariate, and for modeling require relatively long lengths (i.e., large <span class="math inline">\(T\)</span>). Time series researchers and analysts who are concerned with this large <span class="math inline">\(T\)</span> property, are mostly concerned with stochastic processes, for the primary purpose of forecasting, and characterizing temporal dynamics. Most statistical software represent such time series as vectors or matrices. Multivariate time series are typically assumed to be in the format where each row is assumed to hold observations at a time point and each column to contain a single time series. (The tidy data name for this would be <strong>wide format</strong>.) This implies that data are columns of homogeneous types: numeric or non-numeric, but there are limited supporting methods for non-numeric variables. In addition, time indexes are stripped off the data and implicitly inferred as attributes or meta-information. There is a strict requirement that the number of observations must be the same across all the series. Data wrangling, from the form that data arrives in, to this specialist format, can be frustrating and difficult, inhibiting the performance of downstream tasks.</p>
-<p>For longitudinal analysis, researchers and analysts are primarily interested in explaining trends across and variations among individuals, and making inference about a broader population. Longitudinal data or panel data typically assumes fewer measurements (small <span class="math inline">\(T\)</span>) over a large number of individuals (large <span class="math inline">\(N\)</span>). It often occurs that measurements for individuals are taken at different time points, resulting in an unbalanced panel. Thus, the primary format required for modeling such data is stacked series, blocks of measurements for each individual, with columns indicating individual, times of measurement and the measurements themselves. (The tidy data name for this would be <strong>long format</strong>.) Evidently, this data organization saves storage space for many sparse cells, compared to structuring it into wide format which would have missing values in many cells. A drawback of this format is that information unique to each individual is often repeated for all time points. An appealing feature is that data is structured in a semantic manner with reference to observations and variables, with the time index stated explicitly. This opens the door to easily operating on time to make calculations and extract different temporal components, such as month and day of the week. It is conducive to examining the data in many different ways and leading to more comprehensive exploration and forecasting.</p>
+<h3><span class="header-section-number">3.2.1</span> Comparing time series and longitudinal data</h3>
+<p>Temporal data problems often fall into two types of analysis, time series and longitudinal. Both of these may have similar data input, but the representation for modelling is typically different. Time series analysis tends to focus on the dependency within series, and the cross-correlation between series. Longitudinal analysis tends to focus on overall temporal patterns across demographic or experimental treatment strata, that incorporates within subject dependency.</p>
+<p>Time series can be univariate or multivariate, and require relatively long lengths (i.e., large <span class="math inline">\(T\)</span>) for modeling. With this large <span class="math inline">\(T\)</span> property, the series can be handled as stochastic processes for the primary purposes of forecasting and characterizing temporal dynamics. Due to an expectation of regularly spaced time, and equal lengths across series, multivariate time series are typically assumed to be in the format where each column contains a single time series, and time is specified implicitly. This also implies that data are columns of homogeneous types: either all numeric or all non-numeric. It can be frustrating to wrestle data from its original format to this modeling format. The format could be considered to be model-centric, rather than data-centric, and thus throws the analyst into the deep end of the pool, rather than allowing them to gently wade to the modeling stage from the shallow end. The expectation is that the “model” is at the center of the analytical universe. This is contrary to the <strong>tidyverse</strong> conceptualization (Figure <a href="3-1-sec-intro.html#fig:tsibble-fit">3.1</a>), which holistically captures the data workflow. More support needs to be provided, in the form of consistent tools and data structures, to transform the data into the analytical cycle.</p>
+<p>Longitudinal data (or panel data) typically assumes fewer measurements (small <span class="math inline">\(T\)</span>) over a large number of individuals (large <span class="math inline">\(N\)</span>). It often occurs that measurements for individuals are taken at different time points, and in different quantities. The primary format required for modeling is stacked data, blocks of measurements for each individual, with columns indicating panels, times of measurement and the measurements themselves. An appealing feature is that data is structured in a semantic manner with reference to observations and variables, with panel and time explicitly stated.</p>
 </div>
-<div id="tidy-data-and-the-grammar-of-data-manipulation" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Tidy data and the grammar of data manipulation</h3>
-<p><span class="citation">Wickham (<a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span> coined the term “tidy data”, which is a rephrasing of the second and third normal forms in relational databases but in a way that makes more sense to data scientists by referring rows to observations and columns to variables. The principles of “tidy data” attempt to standardize the mapping of the semantics of a dataset to its physical representation. This data structure is the fundamental unit of the <strong>tidyverse</strong>, which is a collection of R packages designed for data science. The ubiquitous use of the <strong>tidyverse</strong> is testament to the simplicity, practicality and general applicability of the tools. The <strong>tidyverse</strong> provides abstract yet functional grammars to manipulate and visualize data in easier-to-comprehend form. One of the <strong>tidyverse</strong> packages, <strong>dplyr</strong> <span class="citation">(H. Wickham, François, et al. <a href="bibliography.html#ref-R-dplyr">2018</a>)</span>, showcases the value of a grammar as a principled vehicle to transform data for a wide range of data challenges, providing a consistent set of verbs: <code>mutate()</code>, <code>select()</code>, <code>filter()</code>, <code>summarize()</code>, and <code>arrange()</code>. Each verb focuses on a singular task. Most common data tasks can be rephrased and tackled with these five key verbs, by composing them sequentially.</p>
-<p>The <strong>tidyverse</strong> largely formalizes exploratory data analysis. Many in the R community have adopted the <strong>tidyverse</strong> way of thinking and extended it to broader domains, such as simple features for spatial data in the <strong>sf</strong> package <span class="citation">(Pebesma <a href="bibliography.html#ref-RJ-2018-009">2018</a>)</span> and missing value handling in the <strong>naniar</strong> package <span class="citation">(Tierney and Cook <a href="bibliography.html#ref-tierney-naniar-2018">2018</a>)</span>. Temporal data tools need to catch up.</p>
+<div id="existing-data-standards" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Existing data standards</h3>
+<p>In R <span class="citation">(R Core Team <a href="bibliography.html#ref-R-base">2018</a>)</span>, time series and longitudinal data are of different representations. The native <code>ts</code> object and the enhancements of <strong>zoo</strong> <span class="citation">(Zeileis and Grothendieck <a href="bibliography.html#ref-zoo2005">2005</a>)</span> and <strong>xts</strong> <span class="citation">(Ryan and Ulrich <a href="bibliography.html#ref-R-xts">2018</a>)</span>, assemble time series into wide matrices with implicit time indexes. If there are multiple sub-groups, such as country or product type, these would be kept in different data objects. A relatively new R package <strong>tibbletime</strong> <span class="citation">(Vaughan and Dancho <a href="bibliography.html#ref-R-tibbletime">2018</a><a href="bibliography.html#ref-R-tibbletime">b</a>)</span> proposed a data class of <em>time tibble</em> to represent time series in heterogeneous long format. It only requires an index variable to be declared. However, this is insufficient, and a more rigid data structure is required for temporal analytics and modeling. The <strong>plm</strong> <span class="citation">(Croissant and Millo <a href="bibliography.html#ref-plm2008">2008</a>)</span> and <strong>panelr</strong> <span class="citation">(Long <a href="bibliography.html#ref-R-panelr">2019</a>)</span> packages both manage longitudinal data in long format.</p>
+<p>Stata <span class="citation">(StataCorp <a href="bibliography.html#ref-Stata">2017</a>)</span> provides two commands, <code>tsset</code> and <code>xtset</code>, to declare time series and panels respectively, both of which require explicit panel id and time index specification. Different variables would be stored in multiple columns. The underlying data arrangement is only long form, for both types of data. Both groups of functions can be applied interchangeably to whether the data is declared for time series or longitudinal data. The SAS software <span class="citation">(SAS Institute Inc. <a href="bibliography.html#ref-SAS-STAT">2018</a>)</span> also handles both types of data in the same way as Stata.</p>
 </div>
-<div id="existing-time-series-standards-in-r" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Existing time series standards in R</h3>
-<p>Current standards, provided by the native <code>ts</code> object in R, and extended by <strong>zoo</strong> <span class="citation">(Zeileis and Grothendieck <a href="bibliography.html#ref-zoo2005">2005</a>)</span> and <strong>xts</strong> <span class="citation">(Ryan and Ulrich <a href="bibliography.html#ref-R-xts">2018</a>)</span>, assemble temporal data into matrices with implicit time indexes. These objects were designed for modeling methods. The diagram in the style of Figure <a href="3-1-sec-intro.html#fig:tsibble-fit">3.1</a> would place the model at the center of the analytical universe, and all the transformations and visualizations would hinge on that format. This is contrary to the <strong>tidyverse</strong> conceptualization, which holistically captures the full data workflow.</p>
-<p>A new temporal data class is needed in the upstream of the workflow, which could incorporate all the downstream modules. A relatively new R package <strong>tibbletime</strong> <span class="citation">(Vaughan and Dancho <a href="bibliography.html#ref-R-tibbletime">2018</a><a href="bibliography.html#ref-R-tibbletime">b</a>)</span> proposed a data class of <em>time tibble</em> to represent temporal data in heterogeneous tabular format. It only requires an index variable to declare a temporal data object, thus placing it at the import stage. However, as proposed in Section <a href="3-3-sec-semantics.html#sec:semantics">3.3</a> a more rigid data structure is required for time series analytics and models.</p>
-<p>This paper describes a new tidy representation for temporal data, and a unified framework to streamline the workflow from data preprocessing to visualization and forecasting, as an integral part of a tidy data analysis.</p>
+<div id="tidy-data" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Tidy data</h3>
+<p><span class="citation">Wickham (<a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span> coined the term “tidy data”, to standardize the mapping of the semantics of a dataset to its physical representation. In tidy form, rows correspond to observations and columns to variables. Tidy data is a rephrasing of the second and third normal forms from relational databases, but the explanation in terms of observations and variables is easier to understand because it uses statistical terminology.</p>
+<p>Multiple time series, with each column corresponding to a measurement is tidy data when the time index is explicitly stored in a column. The stacked data format used in longitudinal data is tidy, and accommodates explicit identification of sub-groups.</p>
+<p>The tidy data structure is the fundamental unit of the <strong>tidyverse</strong>, which is a collection of R packages designed for data science. The ubiquitous use of the <strong>tidyverse</strong> is testament to the simplicity, practicality and general applicability of the tools. The <strong>tidyverse</strong> provides abstract yet functional grammars to manipulate and visualize data in easier-to-comprehend form. One of the <strong>tidyverse</strong> packages, <strong>dplyr</strong> <span class="citation">(H. Wickham, François, et al. <a href="bibliography.html#ref-R-dplyr">2019</a>)</span>, showcases the value of a grammar as a principled vehicle to transform data for a wide range of data challenges, providing a consistent set of verbs: <code>mutate()</code>, <code>select()</code>, <code>filter()</code>, <code>summarize()</code>, and <code>arrange()</code>. Each verb focuses on a singular task. Most common data tasks can be rephrased and tackled with these five key verbs, in conjunction with <code>group_by()</code> to perform grouped operations.</p>
+<p>The <strong>tidyverse</strong> largely formalizes exploratory data analysis. Many in the R community have adopted the <strong>tidyverse</strong> way of thinking and extended it to broader domains, such as simple features for spatial data in the <strong>sf</strong> package <span class="citation">(Pebesma <a href="bibliography.html#ref-RJ-2018-009">2018</a>)</span> and missing value handling in the <strong>naniar</strong> package <span class="citation">(Tierney and Cook <a href="bibliography.html#ref-tierney-naniar-2018">2018</a>)</span>. This paper with the associated <strong>tsibble</strong> R package <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2019</a><a href="bibliography.html#ref-R-tsibble">b</a>)</span> extends the tidy way of thinking to temporal data.</p>
+<p>For temporal data, the tidy definition needs additional criteria, that assist in handling the time context. This is addressed in the next section, and encompasses both time series and longitudinal data. It provides a unified framework to streamline the workflow from data preprocessing to visualization and modeling, as an integral part of a tidy data analysis.</p>
 </div>
 </div>
             </section>

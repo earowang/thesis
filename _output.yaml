@@ -12,7 +12,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
     edit: https://github.com/earowang/thesis/edit/master/%s
-    download: ["pdf"]
+  download: [""]
   sharing: no
 bookdown::pdf_book:
   template: template/monashthesis.tex

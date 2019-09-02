@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Case study | Tidy tools for supporting fluent workflow in temporal data analysis</title>
-  <meta name="description" content="2.3 Case study | Tidy tools for supporting fluent workflow in temporal data analysis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="2.3 Case study | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Case study | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
@@ -22,13 +21,13 @@
   
   
 
-<meta name="author" content="Earo Wang">
+<meta name="author" content="Earo Wang" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="2-2-sec-algorithm.html">
@@ -47,8 +46,71 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="template/style.css" type="text/css" />
 </head>
@@ -83,7 +145,8 @@
 <li class="chapter" data-level="2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html"><i class="fa fa-check"></i><b>2.2</b> Creating a calendar display</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:transformation"><i class="fa fa-check"></i><b>2.2.1</b> Data transformation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:opt"><i class="fa fa-check"></i><b>2.2.2</b> Options</a></li>
-<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Variations</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Varieties of calendar display</a></li>
+<li class="chapter" data-level="2.2.4" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#reasons-to-use-calendar-based-graphics"><i class="fa fa-check"></i><b>2.2.4</b> Reasons to use calendar-based graphics</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2-3-sec-case.html"><a href="2-3-sec-case.html"><i class="fa fa-check"></i><b>2.3</b> Case study</a></li>
 <li class="chapter" data-level="2.4" data-path="2-4-sec-discussion.html"><a href="2-4-sec-discussion.html"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
@@ -92,19 +155,20 @@
 <li class="chapter" data-level="3" data-path="3-ch-tsibble.html"><a href="3-ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-1-sec-intro.html"><a href="3-1-sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
-<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
-<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Comparing time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-data-standards"><i class="fa fa-check"></i><b>3.2.2</b> Existing data standards</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data"><i class="fa fa-check"></i><b>3.2.3</b> Tidy data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
 <li class="chapter" data-level="3.3.2" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
 <li class="chapter" data-level="3.3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
-<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
-<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Temporal data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Model</a></li>
+<li class="chapter" data-level="3.4.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#summary-1"><i class="fa fa-check"></i><b>3.4.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
@@ -115,30 +179,24 @@
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
-<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgements-2.html"><a href="acknowledgements-2.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="3.7" data-path="3-7-smart-grid-customer-data-in-australia.html"><a href="3-7-smart-grid-customer-data-in-australia.html"><i class="fa fa-check"></i><b>3.7</b> Smart-grid customer data in Australia</a></li>
+<li class="chapter" data-level="3.8" data-path="3-8-sec-conclusion.html"><a href="3-8-sec-conclusion.html"><i class="fa fa-check"></i><b>3.8</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Missingness in time: speaking the language of data</a><ul>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-introduction-1.html"><a href="4-1-introduction-1.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="4-2-process-for-generating-missing-data-in-time.html"><a href="4-2-process-for-generating-missing-data-in-time.html"><i class="fa fa-check"></i><b>4.2</b> Process for generating missing data in time</a></li>
-<li class="chapter" data-level="4.3" data-path="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><a href="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><i class="fa fa-check"></i><b>4.3</b> Tools for exploring temporal patterns of missingness</a></li>
-<li class="chapter" data-level="4.4" data-path="4-4-assessing-results-of-imputation-techniques.html"><a href="4-4-assessing-results-of-imputation-techniques.html"><i class="fa fa-check"></i><b>4.4</b> Assessing results of imputation techniques</a></li>
-<li class="chapter" data-level="4.5" data-path="4-5-case-study.html"><a href="4-5-case-study.html"><i class="fa fa-check"></i><b>4.5</b> Case study</a></li>
-<li class="chapter" data-level="4.6" data-path="4-6-discussion.html"><a href="4-6-discussion.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
 <li class="chapter" data-level="5.1.2" data-path="5-1-software-development.html"><a href="5-1-software-development.html#tsibble"><i class="fa fa-check"></i><b>5.1.2</b> tsibble</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5-1-software-development.html"><a href="5-1-software-development.html#mists"><i class="fa fa-check"></i><b>5.1.3</b> mists</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#the-grammar-of-forecasting-reconciliation"><i class="fa fa-check"></i><b>5.2.1</b> The grammar of forecasting reconciliation</a></li>
-<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-nesting-and-crossing-temporal-data"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for nesting and crossing temporal data</a></li>
-<li class="chapter" data-level="5.2.3" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-inference-for-temporal-data"><i class="fa fa-check"></i><b>5.2.3</b> Visual inference for temporal data</a></li>
+<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#process-for-generating-missing-data-in-time"><i class="fa fa-check"></i><b>5.2.1</b> Process for generating missing data in time</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-temporal-data-of-nesting-and-crossing-interactions"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for temporal data of nesting and crossing interactions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="5-3-final-words.html"><a href="5-3-final-words.html"><i class="fa fa-check"></i><b>5.3</b> Final words</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -163,46 +221,30 @@
             <section class="normal" id="section-">
 <div id="sec:case" class="section level2">
 <h2><span class="header-section-number">2.3</span> Case study</h2>
-<p>The use of the calendar display is illustrated on smart meter energy usage from four households in Melbourne, Australia. Individuals can download their own data from the energy supplier, and the data contained in the paper is made available from four colleagues of the authors. The calendar display is useful to help people understand their energy use. The data contains half-hourly electricity consumption in 2017 and 2018. The analysis begins by looking at the distribution over days of week, then time of day split by work days and non-work days, followed by the calendar display to inspect the daily schedules.</p>
-<p>Figure <a href="2-3-sec-case.html#fig:dow">2.13</a> shows the energy use across days of week in the form of letter value plots <span class="citation">(Hofmann, Wickham, and Kafadar <a href="bibliography.html#ref-hofmann2017letter">2017</a>)</span>. Letter value plots are a variant of boxplots for large data, with other quantiles represented by boxes. Letters indicate the fraction of the data divisions, for example, F indicates fourths or quartiles, and the two outer ends of the box are the 25th and 75th percentile, the same traditional ends of the box as a boxplot. The letter E indicates eighths, with box ends being 12.5th and 87.5th percentiles of the data. These additional boxes replace the whiskers in a traditional boxplot. The letter value plots for the households, show a line indicating the median (M) and the innermost boxes corresponding to the fourth (F) and the eighth (E) quantile divisions. Inspecting the medians across households tells us that household 3, a family size of one couple and two kids, uses more energy over the week days, than other households. The relatively larger boxes for household 2 indicates greater variability in daily energy consumption with noticeable variations on Thursdays, and much higher usage over the weekends. The other two households (1 and 4) tend to consume more energy with more variation on the weekends relative to the week days, reflecting of work and leisure patterns.</p>
+<p>The use of the calendar display is illustrated on smart meter energy usage from four households in Melbourne, Australia. Individuals can download their own data from the energy supplier, and the data used in this section is sourced from four colleagues of the authors. The calendar display is useful to help people understand their energy use. The data contains half-hourly electricity consumption in the first half of 2018. The analysis begins by looking at the distribution over days of week, then time of day split by work days and non-work days, followed by the calendar display to inspect the daily schedules.</p>
+<p>Figure <a href="2-3-sec-case.html#fig:dow">2.13</a> shows the energy use across days of week using boxplots. Inspecting the medians across households tells us that household 3, a family size of one couple and two children, uses more energy over the week days than other households. The relatively larger boxes for household 2 indicate greater variability in daily energy consumption with noticeable variations on Thursdays, and much higher usage over the weekends. The other two households (1 and 4) tend to consume more energy with more variation on the weekends relative to the week days, reflecting work and leisure patterns.</p>
 <div class="figure" style="text-align: center"><span id="fig:dow"></span>
-<img src="figure/dow-1.png" alt="Letter value plots of daily energy usage against day of week for four households, with one line dislaying the median (M) and each box corresponding to the fourth (F) and eighth (E) paired quantile estimates. Suggested by the medians, household 3 uses more enery than the others on the week days, due to a large family size. By constrast, household 2 sees considerally large variability." width="100%" />
+<img src="figure/dow-1.png" alt="Boxplots of daily energy usage against day of week for four households. Suggested by the medians, household 3 uses more energy than the others on the week days. By contrast, household 2 sees considerably larger variability." width="100%" />
 <p class="caption">
-Figure 2.13: Letter value plots of daily energy usage against day of week for four households, with one line dislaying the median (M) and each box corresponding to the fourth (F) and eighth (E) paired quantile estimates. Suggested by the medians, household 3 uses more enery than the others on the week days, due to a large family size. By constrast, household 2 sees considerally large variability.
+Figure 2.13: Boxplots of daily energy usage against day of week for four households. Suggested by the medians, household 3 uses more energy than the others on the week days. By contrast, household 2 sees considerably larger variability.
 </p>
 </div>
-<p>Figure <a href="2-3-sec-case.html#fig:hod">2.14</a> shows energy consumption against time of day, separately by week day and weekend. Household 1 is an early bird, starting their day before 6 and going back home around 18 on week days. They switch air conditioning or heating on when they get home from work and keep it operating until mid-night, learned from the small horizontal cluster of points around 0.8 kWh. On the other hand, the stripes above 1 kWh for household 2 indicates that perhaps air conditioning or heating runs continuously for some periods, consuming the twice the energy as household 1. A third peak occurs around 15 for household 3 only, likely when the kids are home from school. They also have a consistent energy pattern between week days and weekends. As for household 4, their home routine starts after 18 on week days. Figures <a href="2-3-sec-case.html#fig:dow">2.13</a> and <a href="2-3-sec-case.html#fig:hod">2.14</a>, part of a traditional graphical toolkit, are useful for summarizing overall deviations across days and households.</p>
+<p>Figure <a href="2-3-sec-case.html#fig:hod">2.14</a> shows energy consumption against time of day, separately by week day and weekend. Household 1 is an early riser, starting their day before 6am and going back home around 6pm on week days. They switch air conditioning on when they get home from work and keep it operating until midnight, evident from the small horizontal cluster of points around 0.8 kWh. On the other hand, the stripes above 1 kWh for household 2 indicates that air conditioning may run continuously for some periods, consuming twice the energy as household 1. A third peak occurs around 3pm for household 3 only, likely coinciding when the children arrive home from school. They also have a consistent energy pattern between week days and weekends. As for household 4, their home routine starts after 6pm on week days. Figures <a href="2-3-sec-case.html#fig:dow">2.13</a> and <a href="2-3-sec-case.html#fig:hod">2.14</a>, part of a traditional graphical toolkit, are useful for summarizing overall deviations across days and households.</p>
 <div class="figure" style="text-align: center"><span id="fig:hod"></span>
-<img src="figure/hod-1.png" alt="Scatterplot between half-hourly energy usage and time of day with the averages overlaid, constrasting week days and weekends for each household. All have different daily routines between week days and weekends, except for household 3. On week days, household 1 wakes up early before 6, and household 2 around 6, followed by household 3 and 4. The use of air conditioning and heating are noted in household 1 and 2." width="100%" />
+<img src="figure/hod-1.png" alt="Scatterplots of half-hourly energy usage by time of day, with hourly averages overlaid, faceted by household and type of day. All households have different week days versus weekends daily routines. On week days, household 1 wakes up early before 6am, and household 2 around 6am, followed by household 3 and 4. The use of air conditioning is notable in households 1 and 2, as seen by horizontal clusters of points." width="100%" />
 <p class="caption">
-Figure 2.14: Scatterplot between half-hourly energy usage and time of day with the averages overlaid, constrasting week days and weekends for each household. All have different daily routines between week days and weekends, except for household 3. On week days, household 1 wakes up early before 6, and household 2 around 6, followed by household 3 and 4. The use of air conditioning and heating are noted in household 1 and 2.
+Figure 2.14: Scatterplots of half-hourly energy usage by time of day, with hourly averages overlaid, faceted by household and type of day. All households have different week days versus weekends daily routines. On week days, household 1 wakes up early before 6am, and household 2 around 6am, followed by household 3 and 4. The use of air conditioning is notable in households 1 and 2, as seen by horizontal clusters of points.
 </p>
 </div>
-<p>Figure <a href="2-3-sec-case.html#fig:h1">2.15</a>-<a href="2-3-sec-case.html#fig:h4">2.18</a> display the data in calendar layout individually for each household, unfolding their day-to-day life. Glancing over household 1, we can see that their overall energy use is low. Their week day energy use is distinguishable from their weekends, indicating a working household. The air conditioner appears to be used in the summer months (December–February) in the evening and weekends. In household 2, heating keeps functioning for consecutive hours, which is evident in the mid July. In contrast, household 1 uses heating cautiously. These observations help to explain the stripes and clusters in Figure <a href="2-3-sec-case.html#fig:hod">2.14</a>. The calendar plots speak the stories about vacation time that are untold by previous plots. Household 1 is on vacation over three weeks of June, and household 2 was also away for vacation in late December and in the second week of June. Figure <a href="2-3-sec-case.html#fig:h3">2.17</a> shows household 3 takes two one-month-long family trips in September until early October and in June/July. Household 4 is away over two or three weeks in early October, December, early April, and late June. The use of air conditioning and heating leaves no trace in these two households.</p>
-<div class="figure" style="text-align: center"><span id="fig:h1"></span>
-<img src="figure/h1-1.png" alt="Calendar display for household 1, indicates higher weekend usage, and in the summer months, November-February. It seems that they took a vacation in June." width="100%" />
+
+<div class="figure" style="text-align: center"><span id="fig:calendar-elec"></span>
+<img src="figure/calendar-elec-1.png" alt="Calendar displays faceted by each household using global scales. Long flat low energy usage indicates vacation time, and high energy consumption by household 2 is visible in January and February." width="100%" />
 <p class="caption">
-Figure 2.15: Calendar display for household 1, indicates higher weekend usage, and in the summer months, November-February. It seems that they took a vacation in June.
+Figure 2.15: Calendar displays faceted by each household using global scales. Long flat low energy usage indicates vacation time, and high energy consumption by household 2 is visible in January and February.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:h2"></span>
-<img src="figure/h2-1.png" alt="Calendar display for household 2, reveals their tendency to use air conditioning and heating continuously. Not many vacation were taken." width="100%" />
-<p class="caption">
-Figure 2.16: Calendar display for household 2, reveals their tendency to use air conditioning and heating continuously. Not many vacation were taken.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:h3"></span>
-<img src="figure/h3-1.png" alt="Calendar display for household 3. Their energy use reveals higher energy use in the winter months, with multiple peaks daily on both week days and weekends. There are some high peaks in summer, perhaps indicating occasional air conditioner use. There have been several long vacations in the past year." width="100%" />
-<p class="caption">
-Figure 2.17: Calendar display for household 3. Their energy use reveals higher energy use in the winter months, with multiple peaks daily on both week days and weekends. There are some high peaks in summer, perhaps indicating occasional air conditioner use. There have been several long vacations in the past year.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:h4"></span>
-<img src="figure/h4-1.png" alt="Calendar display for household 4, shows energy use mostly in the evenings and on weekends. Four short trips were taken in October, December, April, and June." width="100%" />
-<p class="caption">
-Figure 2.18: Calendar display for household 4, shows energy use mostly in the evenings and on weekends. Four short trips were taken in October, December, April, and June.
-</p>
-</div>
+
+<p>Figure <a href="2-3-sec-case.html#fig:calendar-elec">2.15</a> displays the global scaling of each household’s data in a calendar layout, unfolding their day-to-day life via electricity usage. Glancing over household 1, their overall energy use is relatively low. Their week day energy use is distinguishable from their weekends, indicating a working household. The air conditioner appears to be used in the summer months (January and February) for a couple of hours in the evening and weekends. In contrast, household 2 keeps a cooling system functioning for much longer hours, which becomes more evident from late Wednesday through Thursday to early Friday in mid-January. These observations help to explain the stripes and clusters of household 2 in Figure <a href="2-3-sec-case.html#fig:hod">2.14</a>. It is difficult to give a succinct description of household 3 since everyday energy pattern is variable, but May and June see more structure than the previous months. Individual data can be idiosyncratic, hence aggregated plots like Figure <a href="2-3-sec-case.html#fig:dow">2.13</a> and <a href="2-3-sec-case.html#fig:hod">2.14</a> are essential for assembling pieces to form a picture. However, the calendar plots tell the stories that are untold by previous plots, for example, their vacation time. Household 1 is on vacation over three weeks of mid-June, and household 2 also took some days off in the second week of June. Further, household 3 takes one short trip in January and the another one starting in the fourth week of June. Household 4 is away over two or three weeks in early April and late June. They all tend to take breaks during June probably due to the fact that the University winter break starts in June.</p>
 </div>
             </section>
 

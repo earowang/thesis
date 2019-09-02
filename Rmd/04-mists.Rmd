@@ -1,6 +1,6 @@
-# Missingness in time: speaking the language of data {#ch:mists}
+# Data representation, visual and analytical techniques for demystifying temporal missing data {#ch:mists}
 
-Can missing values methods speak the language of data, to go beyond the probabilistic taxonomy, MCAR, MAR, MNAR? Yes they can! A suite of exploratory methods and imputation choices for tidy missing data analysis have been developed, for example the **naniar** R package, which fit neatly into a tidy data workflow. However, temporal data is left behind. This work will present exploratory and explanatory tools for temporal missing, equipped with a new data-centric taxonomy. How to assess results of imputation techniques will be discussed in turn. Tools to facilitate the process will be available in the R package called **mists**.
+Missing data provokes an air of mystery, that makes analysts itching throughout the exploration loop of transformation, visualization, and modelling. How to handle missing values involves decisions with many degrees of freedom, lending itself to a tedious and unwieldy process. The challenge of missingness roots in seeing what isn't there. The aim of this work is to clear that mysterious air away from missing data with the focus of temporal contexts from the data-centric perspective. A new sparse representation facilitates to index the runs of missings in time efficiently, with supporting operations and visual methods. This places missing data solely in the spotlight, speaking for themselves. When too many missings are scattered across variables and observations over time, missing data polishing strategies are populated and formulated. This equips analysts with tidy tools to iteratively remove missings from rows and columns, while keeping the temporal nature intact. The accompanying software is the R package **mists**
 
 ```{r mists-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('scripts/mists.R')
@@ -17,22 +17,7 @@ read_chunk('scripts/mists.R')
 
 ## Introduction
 
-## Process for generating missing data in time
-
 ```{r miss-types, fig.height = 7, fig.cap = "(ref:miss-types-cap)"}
 ```
 
 (ref:miss-types-cap) Time series lines along with missing distributions plotted for monthly number of international airline passengers from 1949 to 1960. This series shows an upward trend with strong seasonal patterns. The gray blocks indicate the missingness. To generate missing data in time, the process could be classified into four types of temporal missings: (1) missing at level, (2) missing at occasional, (3) missing at runs, (4) missing at season.
-
-## Tools for exploring temporal patterns of missingness
-
-```{r miss-types-acf, fig.height = 6, fig.cap = "(ref:miss-types-acf-cap)"}
-```
-
-(ref:miss-types-acf-cap) Autocorrelation plots using the phi coefficients corresponding to the binary form of Figure \@ref(fig:miss-types).
-
-## Assessing results of imputation techniques
-
-## Case study
-
-## Discussion

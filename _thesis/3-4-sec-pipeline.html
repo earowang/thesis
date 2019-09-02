@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3.4 Data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis</title>
-  <meta name="description" content="3.4 Data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.4 Temporal data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis</title>
+  <meta name="description" content="3.4 Temporal data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta property="og:title" content="3.4 Temporal data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -17,18 +16,18 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="twitter:title" content="3.4 Temporal data pipelines | Tidy tools for supporting fluent workflow in temporal data analysis" />
   
   
   
 
-<meta name="author" content="Earo Wang">
+<meta name="author" content="Earo Wang" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="3-3-sec-semantics.html">
@@ -47,8 +46,71 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="template/style.css" type="text/css" />
 </head>
@@ -83,7 +145,8 @@
 <li class="chapter" data-level="2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html"><i class="fa fa-check"></i><b>2.2</b> Creating a calendar display</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:transformation"><i class="fa fa-check"></i><b>2.2.1</b> Data transformation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:opt"><i class="fa fa-check"></i><b>2.2.2</b> Options</a></li>
-<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Variations</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Varieties of calendar display</a></li>
+<li class="chapter" data-level="2.2.4" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#reasons-to-use-calendar-based-graphics"><i class="fa fa-check"></i><b>2.2.4</b> Reasons to use calendar-based graphics</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2-3-sec-case.html"><a href="2-3-sec-case.html"><i class="fa fa-check"></i><b>2.3</b> Case study</a></li>
 <li class="chapter" data-level="2.4" data-path="2-4-sec-discussion.html"><a href="2-4-sec-discussion.html"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
@@ -92,19 +155,20 @@
 <li class="chapter" data-level="3" data-path="3-ch-tsibble.html"><a href="3-ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-1-sec-intro.html"><a href="3-1-sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Time series and longitudinal data</a></li>
-<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data-and-the-grammar-of-data-manipulation"><i class="fa fa-check"></i><b>3.2.2</b> Tidy data and the grammar of data manipulation</a></li>
-<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-time-series-standards-in-r"><i class="fa fa-check"></i><b>3.2.3</b> Existing time series standards in R</a></li>
+<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Comparing time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-data-standards"><i class="fa fa-check"></i><b>3.2.2</b> Existing data standards</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data"><i class="fa fa-check"></i><b>3.2.3</b> Tidy data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
 <li class="chapter" data-level="3.3.2" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
 <li class="chapter" data-level="3.3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Data pipelines</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Time series transformation</a></li>
-<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Time series visualization</a></li>
-<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Time series models</a></li>
+<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Temporal data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Model</a></li>
+<li class="chapter" data-level="3.4.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#summary-1"><i class="fa fa-check"></i><b>3.4.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
@@ -115,30 +179,24 @@
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
-<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
-<li class="chapter" data-level="" data-path="acknowledgements-2.html"><a href="acknowledgements-2.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="3.7" data-path="3-7-smart-grid-customer-data-in-australia.html"><a href="3-7-smart-grid-customer-data-in-australia.html"><i class="fa fa-check"></i><b>3.7</b> Smart-grid customer data in Australia</a></li>
+<li class="chapter" data-level="3.8" data-path="3-8-sec-conclusion.html"><a href="3-8-sec-conclusion.html"><i class="fa fa-check"></i><b>3.8</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Missingness in time: speaking the language of data</a><ul>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-introduction-1.html"><a href="4-1-introduction-1.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="4-2-process-for-generating-missing-data-in-time.html"><a href="4-2-process-for-generating-missing-data-in-time.html"><i class="fa fa-check"></i><b>4.2</b> Process for generating missing data in time</a></li>
-<li class="chapter" data-level="4.3" data-path="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><a href="4-3-tools-for-exploring-temporal-patterns-of-missingness.html"><i class="fa fa-check"></i><b>4.3</b> Tools for exploring temporal patterns of missingness</a></li>
-<li class="chapter" data-level="4.4" data-path="4-4-assessing-results-of-imputation-techniques.html"><a href="4-4-assessing-results-of-imputation-techniques.html"><i class="fa fa-check"></i><b>4.4</b> Assessing results of imputation techniques</a></li>
-<li class="chapter" data-level="4.5" data-path="4-5-case-study.html"><a href="4-5-case-study.html"><i class="fa fa-check"></i><b>4.5</b> Case study</a></li>
-<li class="chapter" data-level="4.6" data-path="4-6-discussion.html"><a href="4-6-discussion.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
 <li class="chapter" data-level="5.1.2" data-path="5-1-software-development.html"><a href="5-1-software-development.html#tsibble"><i class="fa fa-check"></i><b>5.1.2</b> tsibble</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5-1-software-development.html"><a href="5-1-software-development.html#mists"><i class="fa fa-check"></i><b>5.1.3</b> mists</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#the-grammar-of-forecasting-reconciliation"><i class="fa fa-check"></i><b>5.2.1</b> The grammar of forecasting reconciliation</a></li>
-<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-nesting-and-crossing-temporal-data"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for nesting and crossing temporal data</a></li>
-<li class="chapter" data-level="5.2.3" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-inference-for-temporal-data"><i class="fa fa-check"></i><b>5.2.3</b> Visual inference for temporal data</a></li>
+<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#process-for-generating-missing-data-in-time"><i class="fa fa-check"></i><b>5.2.1</b> Process for generating missing data in time</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-temporal-data-of-nesting-and-crossing-interactions"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for temporal data of nesting and crossing interactions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="5-3-final-words.html"><a href="5-3-final-words.html"><i class="fa fa-check"></i><b>5.3</b> Final words</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 <li class="divider"></li>
@@ -162,407 +220,45 @@
 
             <section class="normal" id="section-">
 <div id="sec:pipeline" class="section level2">
-<h2><span class="header-section-number">3.4</span> Data pipelines</h2>
-<p>A data pipeline describes the flow of data through an analysis, and can generally assist in conceptualizing the process, when it is applied to a variety of problems. <span class="citation">Mcilroy, Pinson, and Tague (<a href="bibliography.html#ref-unix">1978</a>)</span> coined the term “pipelines” in software development while developing Unix at Bell Labs. In Unix-based computer operating systems, a pipeline chains together a series of operations on the basis of their standard streams, so that the output of each program becomes the input to another. The Extract, Transform, and Load (ETL) process from recent data warehousing literature dating back to <span class="citation">Kimball and Caserta (<a href="bibliography.html#ref-kimball2011data">2011</a>)</span> outlines the workflow to prepare data for analysis, and can also be considered a data pipeline. <span class="citation">Buja et al. (<a href="bibliography.html#ref-viewing-pipeline">1988</a>)</span> describes a viewing pipeline for interactive statistical graphics, that takes control of the transformation from data to plot. <span class="citation">Swayne, Cook, and Buja (<a href="bibliography.html#ref-xgobi">1998</a>)</span>, <span class="citation">Swayne et al. (<a href="bibliography.html#ref-ggobi">2003</a>)</span>, <span class="citation">Sutherland et al. (<a href="bibliography.html#ref-orca">2000</a>)</span>, <span class="citation">Wickham et al. (<a href="bibliography.html#ref-plumbing">2010</a>)</span> and <span class="citation">Xie, Hofmann, and Cheng (<a href="bibliography.html#ref-xie2014reactive">2014</a>)</span> implemented data pipelines for the interactive statistical software <strong>XGobi</strong>, <strong>GGobi</strong>, <strong>Orca</strong>, <strong>plumbr</strong> and <strong>cranvas</strong>, respectively. The pipeline is typically described with a one way flow, from data to plot. For interactive graphics, where all plots need to be updated when a user interacts with one plot, the events typically trigger the data pipeline to be run. <span class="citation">Xie, Hofmann, and Cheng (<a href="bibliography.html#ref-xie2014reactive">2014</a>)</span> uses a reactive programming framework, to implement the pipeline, in which user’s interactions trigger a sequence of modules to update their views, that is, practically the same as running the data pipeline producing each plot.</p>
-<p>Building a data pipeline is technically difficult: many implementation decisions have to be made about the interface, input and output objects and functionality. The tidy data abstraction lays the plumbing for data analysis modules of transformation, visualization and modeling. Each module communicates with the others, requiring tidy input, producing tidy output, chaining a series of operations together to accomplish the analytic tasks.</p>
-<p>What is notable about an effective implementation of a data pipeline is that it coordinates a user’s analysis making it cleaner to follow, and permits a wider audience to focus on the data analysis without getting lost in a jungle of computational intricacies. A fluent pipeline glues tidy data and the grammar of data manipulation together. It helps (1) break up a big problem to into manageable blocks, (2) generate human readable analysis workflow, (3) avoid introducing mistakes, at least making it possible to trace them through the pipeline. New data tools developed in the R package <strong>tsibble</strong> <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2019</a>)</span> articulate the time series data pipeline, which shepherds raw temporal data through to time series analysis, and plots. More detailed explanations are given in the following sections, and the examples.</p>
+<h2><span class="header-section-number">3.4</span> Temporal data pipelines</h2>
+<p>A data pipeline describes the flow of data through an analysis, and can generally assist in conceptualizing the process for a stream of problems. <span class="citation">Mcilroy, Pinson, and Tague (<a href="bibliography.html#ref-unix">1978</a>)</span> coined the term “pipelines” in software development while developing Unix at Bell Labs. In Unix-based computer operating systems, a pipeline chains together a series of operations based on their standard streams, so that the output of each program becomes the input to another. The Extract, Transform, and Load (ETL) process, described in recent data warehousing literature <span class="citation">(Kimball and Caserta <a href="bibliography.html#ref-kimball2011data">2011</a>)</span>, outlines the workflow to prepare data for analysis, and can also be considered a data pipeline. <span class="citation">Buja et al. (<a href="bibliography.html#ref-viewing-pipeline">1988</a>)</span> describes a viewing pipeline for interactive statistical graphics, that takes control of the transformation from data to plot. <span class="citation">Swayne, Cook, and Buja (<a href="bibliography.html#ref-xgobi">1998</a>)</span>, <span class="citation">Swayne et al. (<a href="bibliography.html#ref-ggobi">2003</a>)</span>, <span class="citation">Sutherland et al. (<a href="bibliography.html#ref-orca">2000</a>)</span>, <span class="citation">Wickham et al. (<a href="bibliography.html#ref-plumbing">2010</a>)</span> and <span class="citation">Xie, Hofmann, and Cheng (<a href="bibliography.html#ref-xie2014reactive">2014</a>)</span> implemented data pipelines for the interactive statistical software <strong>XGobi</strong>, <strong>GGobi</strong>, <strong>Orca</strong>, <strong>plumbr</strong> and <strong>cranvas</strong>, respectively.</p>
+<p>A fluent data pipeline anticipates a standard data structure. The tsibble data abstraction lays the plumbing for data analysis modules of transformation, visualization and modeling in temporal contexts. It provides a data infrastructure to a new ecosystem, <strong>tidyverts</strong>. (The name “tidyverts” is a play on the term “tidyverse” that acknowledges the time series analysis purpose.)</p>
 <div id="sec:timepipeline" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Time series transformation</h3>
-<p>Figure <a href="3-4-sec-pipeline.html#fig:tsibble-pipeline">3.3</a> illustrates the distinction of a time series pipeline from a regular data pipeline. It is highly recommended to check for identical entries of key and index before constructing a tsibble. Duplicates signal the data quality issue, which would likely affect subsequent analyses and hence decision making. Analysts are encouraged to gaze at data early and reason about the process of data cleaning. When the data meets the tsibble standard, it flows neatly into the analysis stage and takes full advantage of the tsibble infrastructure.</p>
-<div class="figure" style="text-align: center"><span id="fig:tsibble-pipeline"></span>
-<img src="img/tsibble-pipeline.png" alt="A time series pipeline is different from a regular data pipeline: (1) check if the key and index uniquely identify each observation in the data whist creating a tsibble; (2) check if there are time gaps in the tsibble before analysis." width="100%" />
-<p class="caption">
-Figure 3.3: A time series pipeline is different from a regular data pipeline: (1) check if the key and index uniquely identify each observation in the data whist creating a tsibble; (2) check if there are time gaps in the tsibble before analysis.
-</p>
-</div>
-
-<p>Many time operations such as lag/lead and time series models, assume an intact vector input ordered in time. Since a tsibble permits time gaps in the index, it is good practice to check and inspect any gaps in time following the creation of a tsibble, in order to prevent inviting these avoidable errors into the analysis. The first suite of verbs (rephrasing actions performed on the object) are provided to understand and tackle implicit missing values: (1) <code>has_gaps()</code> checks if there exists time gaps; (2) <code>scan_gaps()</code> reveals all implicit missing observations; (3) <code>count_gaps()</code> summarizes the time ranges that are absent from the data; (4) <code>fill_gaps()</code> turns them into explicit ones, along with imputing by values or functions. To look into gaps over individual time periods or full-length time span, the common argument <code>.full</code> in these functions gives an option to easily switch between. The specification of <code>.full = TRUE</code> will result in fully balanced panels in other words.</p>
-<caption>
-<span id="tab:verb-table">Table 3.2: </span>: A list of table verbs working with tsibble. Functions in bold originating from the tidyverse and are adapted for tsibble.
-</caption>
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#lwrxzvxmpn .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #000000;
-  font-size: 16px;
-  background-color: #FFFFFF;
-  /* table.background.color */
-  width: auto;
-  /* table.width */
-  border-top-style: solid;
-  /* table.border.top.style */
-  border-top-width: 2px;
-  /* table.border.top.width */
-  border-top-color: #A8A8A8;
-  /* table.border.top.color */
-}
-
-#lwrxzvxmpn .gt_heading {
-  background-color: #FFFFFF;
-  /* heading.background.color */
-  border-bottom-color: #FFFFFF;
-}
-
-#lwrxzvxmpn .gt_title {
-  color: #000000;
-  font-size: 125%;
-  /* heading.title.font.size */
-  padding-top: 4px;
-  /* heading.top.padding */
-  padding-bottom: 1px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#lwrxzvxmpn .gt_subtitle {
-  color: #000000;
-  font-size: 85%;
-  /* heading.subtitle.font.size */
-  padding-top: 1px;
-  padding-bottom: 4px;
-  /* heading.bottom.padding */
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#lwrxzvxmpn .gt_bottom_border {
-  border-bottom-style: solid;
-  /* heading.border.bottom.style */
-  border-bottom-width: 2px;
-  /* heading.border.bottom.width */
-  border-bottom-color: #A8A8A8;
-  /* heading.border.bottom.color */
-}
-
-#lwrxzvxmpn .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#lwrxzvxmpn .gt_col_heading {
-  color: #000000;
-  background-color: #FFFFFF;
-  /* column_labels.background.color */
-  font-size: 16px;
-  /* column_labels.font.size */
-  font-weight: initial;
-  /* column_labels.font.weight */
-  vertical-align: middle;
-  padding: 10px;
-  margin: 10px;
-}
-
-#lwrxzvxmpn .gt_sep_right {
-  border-right: 5px solid #FFFFFF;
-}
-
-#lwrxzvxmpn .gt_group_heading {
-  padding: 8px;
-  color: #000000;
-  background-color: #FFFFFF;
-  /* stub_group.background.color */
-  font-size: 16px;
-  /* stub_group.font.size */
-  font-weight: initial;
-  /* stub_group.font.weight */
-  border-top-style: solid;
-  /* stub_group.border.top.style */
-  border-top-width: 2px;
-  /* stub_group.border.top.width */
-  border-top-color: #A8A8A8;
-  /* stub_group.border.top.color */
-  border-bottom-style: solid;
-  /* stub_group.border.bottom.style */
-  border-bottom-width: 2px;
-  /* stub_group.border.bottom.width */
-  border-bottom-color: #A8A8A8;
-  /* stub_group.border.bottom.color */
-  vertical-align: middle;
-}
-
-#lwrxzvxmpn .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #000000;
-  background-color: #FFFFFF;
-  /* stub_group.background.color */
-  font-size: 16px;
-  /* stub_group.font.size */
-  font-weight: initial;
-  /* stub_group.font.weight */
-  border-top-style: solid;
-  /* stub_group.border.top.style */
-  border-top-width: 2px;
-  /* stub_group.border.top.width */
-  border-top-color: #A8A8A8;
-  /* stub_group.border.top.color */
-  border-bottom-style: solid;
-  /* stub_group.border.bottom.style */
-  border-bottom-width: 2px;
-  /* stub_group.border.bottom.width */
-  border-bottom-color: #A8A8A8;
-  /* stub_group.border.bottom.color */
-  vertical-align: middle;
-}
-
-#lwrxzvxmpn .gt_striped {
-  background-color: #f2f2f2;
-}
-
-#lwrxzvxmpn .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#lwrxzvxmpn .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#lwrxzvxmpn .gt_row {
-  padding: 10px;
-  /* row.padding */
-  margin: 10px;
-  vertical-align: middle;
-}
-
-#lwrxzvxmpn .gt_stub {
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #A8A8A8;
-  padding-left: 12px;
-}
-
-#lwrxzvxmpn .gt_stub.gt_row {
-  background-color: #FFFFFF;
-}
-
-#lwrxzvxmpn .gt_summary_row {
-  background-color: #FFFFFF;
-  /* summary_row.background.color */
-  padding: 6px;
-  /* summary_row.padding */
-  text-transform: inherit;
-  /* summary_row.text_transform */
-}
-
-#lwrxzvxmpn .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-}
-
-#lwrxzvxmpn .gt_table_body {
-  border-top-style: solid;
-  /* field.border.top.style */
-  border-top-width: 2px;
-  /* field.border.top.width */
-  border-top-color: #A8A8A8;
-  /* field.border.top.color */
-  border-bottom-style: solid;
-  /* field.border.bottom.style */
-  border-bottom-width: 2px;
-  /* field.border.bottom.width */
-  border-bottom-color: #A8A8A8;
-  /* field.border.bottom.color */
-}
-
-#lwrxzvxmpn .gt_footnote {
-  font-size: 90%;
-  /* footnote.font.size */
-  padding: 4px;
-  /* footnote.padding */
-}
-
-#lwrxzvxmpn .gt_sourcenote {
-  font-size: 90%;
-  /* sourcenote.font.size */
-  padding: 4px;
-  /* sourcenote.padding */
-}
-
-#lwrxzvxmpn .gt_center {
-  text-align: center;
-}
-
-#lwrxzvxmpn .gt_left {
-  text-align: left;
-}
-
-#lwrxzvxmpn .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#lwrxzvxmpn .gt_font_normal {
-  font-weight: normal;
-}
-
-#lwrxzvxmpn .gt_font_bold {
-  font-weight: bold;
-}
-
-#lwrxzvxmpn .gt_font_italic {
-  font-style: italic;
-}
-
-#lwrxzvxmpn .gt_super {
-  font-size: 65%;
-}
-
-#lwrxzvxmpn .gt_footnote_glyph {
-  font-style: italic;
-  font-size: 65%;
-}
-</style>
-<div id="lwrxzvxmpn" style="overflow-x:auto;"><!--gt table start-->
-<table class='gt_table'>
-<tr>
-<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Verb</th>
-<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Description</th>
-</tr>
-<tbody class='gt_table_body'>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Time gaps</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>has_gaps()</td>
-<td class='gt_row gt_left'>Test if a tsibble has gaps in time</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>scan_gaps()</td>
-<td class='gt_row gt_left gt_striped'>Reveal implicit missing entries</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>count_gaps()</td>
-<td class='gt_row gt_left'>Summarize time gaps</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>fill_gaps()</td>
-<td class='gt_row gt_left gt_striped'>Fill in gaps by values and functions</td>
-</tr>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Row-wise</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>filter()</td>
-<td class='gt_row gt_left'>Pick rows based on conditions</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>filter_index()</td>
-<td class='gt_row gt_left gt_striped'>Provide a shorthand for time subsetting</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>slice()</td>
-<td class='gt_row gt_left'>Select rows based on row positions</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>arrange()</td>
-<td class='gt_row gt_left gt_striped'>Sort the ordering of row by variables</td>
-</tr>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Column-wise</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>select()</td>
-<td class='gt_row gt_left'>Pick columns by variables</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>mutate()</td>
-<td class='gt_row gt_left gt_striped'>Add new variables</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>transmute()</td>
-<td class='gt_row gt_left'>Drops existing variables</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>summarize()</td>
-<td class='gt_row gt_left gt_striped'>Aggregate values over time</td>
-</tr>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Group-wise</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>index_by()</td>
-<td class='gt_row gt_left'>Group by index candidate</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>group_by()</td>
-<td class='gt_row gt_left gt_striped'>Group by one or more variables</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>group_by_key()</td>
-<td class='gt_row gt_left'>Group by key variables</td>
-</tr>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Reshape</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>gather()</td>
-<td class='gt_row gt_left gt_striped'>Gather columns into long form</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>spread()</td>
-<td class='gt_row gt_left'>Spread columns into wide form</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>nest()</td>
-<td class='gt_row gt_left gt_striped'>Nest values in a list-variable</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>unnest()</td>
-<td class='gt_row gt_left'>Unnest a list-variable</td>
-</tr>
-<tr class='gt_group_heading_row'>
-<td colspan='2' class='gt_group_heading'>Join tables</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>left_join()</td>
-<td class='gt_row gt_left gt_striped'>Join two tables together</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>right_join()</td>
-<td class='gt_row gt_left'>Join two tables together</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>full_join()</td>
-<td class='gt_row gt_left gt_striped'>Join two tables together</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>inner_join()</td>
-<td class='gt_row gt_left'>Join two tables together</td>
-</tr>
-<tr>
-<td class='gt_row gt_left gt_striped'>semi_join()</td>
-<td class='gt_row gt_left gt_striped'>Join two tables together</td>
-</tr>
-<tr>
-<td class='gt_row gt_left'>anti_join()</td>
-<td class='gt_row gt_left'>Join two tables together</td>
-</tr>
-</tbody>
-</table>
-<!--gt table end-->
-</div>
-
-<p>Besides the time gap verbs, the <strong>tidyverse</strong> vocabulary is adapted and expanded to facilitate time series transformations, as listed in Table <a href="3-4-sec-pipeline.html#tab:verb-table">3.2</a>. The <strong>tidyverse</strong> suite showcases the general-purpose verbs for effectively manipulating tabular data, for example <code>filter()</code> picks observations, <code>select()</code> picks variables, and <code>left_join()</code> joins two tables. But these verbs need handling with care when used in the time series domain. A perceivable difference is summarizing variables between data frame and tsibble using <code>summarize()</code>. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries. Users who are already familiar with the <strong>tidyverse</strong>, will experience a gentle learning curve for mastering these verbs and glide into time series analysis with low cognitive load.</p>
-<p>Attention has been paid to warning and error handling. The principle that underpins most verbs is a tsibble in and a tsibble out, thereby striving to maintain a valid tsibble by automatically updating index and key under the hood. If the desired temporal ordering is changed by row-wise verbs, a warning is broadcast. If a tsibble cannot be maintained in the output of a pipeline module (likely occurring to column-wise verbs), for example the index is removed by selection, an error informs users of the problem and suggests alternatives. This avoids surprising users and reminds them of the time context.</p>
-<p>The tsibble structure and operations support data pipelines for sequencing analysis. <span class="citation">Friedman and Wand (<a href="bibliography.html#ref-eopl">2008</a>)</span> asserted “No matter how complex and polished the individual operations are, it is often the quality of the glue that most directly determines the power of the system.” Each verb works with other transformation family members in harmony. This set of verbs can result in many combinations to prepare tsibble for a broad range of visualization and modeling problems. Chaining operations is achieved with the pipe operator <code>%&gt;%</code> introduced in the <strong>magrittr</strong> package <span class="citation">(Bache and Wickham <a href="bibliography.html#ref-R-magrittr">2014</a>)</span>, read as “then”. A sequence of functions can be composed in a way that can be naturally read from left to right, which improves the readability of the code. It consequently generates a block of code without saving intermediate values.</p>
-<p>Most importantly, a new ecosystem for tidy time series analysis has been undertaken, using the tsibble framework, and is called “tidyverts”, a play on tidyverse that acknowledges the time series analysis purpose.</p>
+<h3><span class="header-section-number">3.4.1</span> Transformation</h3>
+<p>The <strong>tsibble</strong> package not only provides a tsibble data object but also a domain specific language in R for transforming temporal data. It takes advantage of the wrangling verbs implemented in the <strong>dplyr</strong> package, and develops a suite of new tools for facilitating temporal manipulation for primarily easing two aspects: implicit missingness handlers and time-aware aggregations.</p>
+<p>Implicit missingness are values that should be present but are absent. In regularly spaced temporal data, these are data entries that should be available at certain time points but are missing, leaving gaps in time. These can be detected when computing the interval estimate. It will be a problem for temporal models and operations like lag/lead are applied. A family of verbs are provided to help explore implicit missing values, and convert them into an explicit state, as follows:</p>
+<ul>
+<li><code>has_gaps()</code> checks the existence of time gaps.</li>
+<li><code>scan_gaps()</code> reveals all implicit missing observations.</li>
+<li><code>count_gaps()</code> summarizes the time ranges that are absent from the data.</li>
+<li><code>fill_gaps()</code> turns them into explicit ones, along with imputing by values or functions.</li>
+</ul>
+<p>These verbs are evocative, and of simple interface. They, by default, look into gaps for each individual time period. Switching on the option <code>.full = TRUE</code> will fill in the full-length time span, and create fully balanced panels in longitudinal data, when possible.</p>
+<p>The other important function, is an adverb, <code>index_by()</code>, which is the counterpart of <code>group_by()</code> in <strong>dplyr</strong>, grouping and partitioning by the index only. It is most often used in conjunction with <code>summarize()</code>, thus creating aggregations to higher-level time resolutions. This combination automatically produces a new index and interval, and can also be used regularize data of irregular interval.</p>
+<p>In addition to the new verbs, the <strong>dplyr</strong> vocabulary has been adapted and expanded to facilitate temporal transformations. The <strong>dplyr</strong> suite showcases the general-purpose verbs for effectively manipulating tabular data. But these verbs need handling with care due to the context switch. A perceivable difference is summarizing variables between normal data and tsibble using <code>summarize()</code>. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries.</p>
+<p>Attention has been paid to warning and error handling. The principle that underpins most verbs is <em>a tsibble in and a tsibble out</em>, thereby striving to maintain a valid tsibble over the course of the transformation pipeline. If the desired temporal ordering is changed by row-wise verbs (such as <code>arrange()</code> and <code>slice()</code>), a warning is broadcast. If a tsibble cannot be maintained in the output of a pipeline module (likely occurring with column-wise verbs), for example the index is dropped by <code>select()</code>-ing, an error informs users of the problem and suggests alternatives. This avoids surprising users and reminds them of the time context. In general, users who are already familiar with the <strong>tidyverse</strong>, should have less resistance to learning the new semantics and verbs.</p>
 </div>
 <div id="sec:ts-vis" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Time series visualization</h3>
-<p>As a tsibble is a subclassing of data frame, it integrates well with the grammar of graphics. It is easy to create and extend specialist time series plotting methods based on the tsibble structure, for example autocorrelation plots and calendar-based graphics <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-wang-calendarviz-2018">2018</a><a href="bibliography.html#ref-wang-calendarviz-2018">a</a>)</span>.</p>
+<h3><span class="header-section-number">3.4.2</span> Visualization</h3>
+<p>The <strong>ggplot2</strong> package <span class="citation">(Wickham <a href="bibliography.html#ref-wickham2009ggplot2">2009</a>)</span> (as the implementation of grammar of graphics) builds a powerful graphical system to declaratively visualize data. The data underpinning of <strong>ggplot2</strong> is tidy data, and in turn tsibble integrates well with <strong>ggplot2</strong>. The integration encourages more flexible graphics for exploring temporal structures via index, and individual or group differences via key.</p>
+<p>Line charts are universally accepted for ordered data, such as time series plots or spaghetti plots, depending on the fields. But they end up with exactly the same grammar: chronological time mapped to the horizontal axis, and the interested measurement on the vertical axis, for each unit. Many specialist plots centering around time series or longitudinal data, hence can be described and re-created under the umbrella of the grammar and <strong>ggplot2</strong>.</p>
 </div>
 <div id="sec:ts-models" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Time series models</h3>
-<p>Modeling is crucial to explanatory and predictive analytics, but often imposes stricter assumptions on tsibble data. The verbs listed in Table <a href="3-4-sec-pipeline.html#tab:verb-table">3.2</a> ease the transition to a tsibble that suits modeling. A tidy forecasting framework built on top of tsibble is under development, which aims at promoting transparent forecasting practices and concise model representation. A tsibble usually contains multiple time series. Batch forecasting will be enabled if a univariate model, such as ARIMA and Exponential Smoothing, is applied to each time series independently. This yields a “mable” (short for model table), where each model relates to each “key” value in tsibble. This avoids expensive data copying and reduces model storage. The mable is further supplied to forecasting methods, to produce a “fable” (short for forecasting table) in which each “key” along with its future time holds predictions. It also underlines the advantage of tsibble’s “key” in acting as linkage between data inputs, models and forecasts. Advanced forecasting techniques, such as vector autocorrelation, hierarchical reconciliation, and ensembles, can be developed in a similar spirit. The modeling module is a current endeavor.</p>
+<h3><span class="header-section-number">3.4.3</span> Model</h3>
+<p>Modeling is crucial to explanatory and predictive analytics, where time series and longitudinal data analysis diverge. The tsibble, as a model-oriented object, can flow into both types of modelling, and the new semantics (index and key) can be internally utilized to accelerate modelling.</p>
+<p>Most time series models are univariate, such as ARIMA and Exponential Smoothing, modelling temporal dynamics for each series independently. The <strong>fable</strong> package <span class="citation">(O’Hara-Wild, Hyndman, and Wang <a href="bibliography.html#ref-R-fable">2019</a>)</span>, currently under development, provides a tidy forecasting framework built on top of tsibble, with the goal of promoting transparent and human-centered forecasting practices. With the presence of the key, a tsibble can hold many series. Since models are fundamentally scalable, the <code>model()</code> and <code>forecast()</code> generics will take care of fitting and forecasting univariate models to each series across time in a tsibble at once.</p>
+<p>Panel data models, however, put emphases on overall, within, and between variation both across individuals and time. Fixed and random effects models could be developed in line with the <strong>fable</strong> design.</p>
+</div>
+<div id="summary-1" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Summary</h3>
+<p>To sum up, the tsibble abstraction provides a formal organization of forwarding tidy data to model-oriented temporal data. The supporting operations can be chained for sequencing analysis, articulating a data pipeline. As <span class="citation">Friedman and Wand (<a href="bibliography.html#ref-eopl">2008</a>)</span> stated, “No matter how complex and polished the individual operations are, it is often the quality of the glue that most directly determines the power of the system.” A mini snippet below, illustrates how transformation and forecasting are glued together, to realize the fluent pipeline.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">pedestrian <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">fill_gaps</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># turn implicit missingness to explicit</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(Date_Time) <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># subset data of year 2016</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">model</span>(<span class="dt">arima =</span> <span class="kw">ARIMA</span>(Count)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># fit ARIMA to each sensor</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">forecast</span>(<span class="dt">h =</span> <span class="kw">days</span>(<span class="dv">2</span>)) <span class="co"># forecast 2 days ahead</span></a></code></pre></div>
+<p>Here, the <code>pedestrian</code> dataset <span class="citation">(City of Melbourne <a href="bibliography.html#ref-ped">2017</a>)</span>, available in the <strong>tsibble</strong> package is used. It contains hourly tallies of pedestrians at four counting sensors in 2015 and 2016 in inner Melbourne. The pipe operator <code>%&gt;%</code> introduced in the <strong>magrittr</strong> package <span class="citation">(Bache and Wickham <a href="bibliography.html#ref-R-magrittr">2014</a>)</span> chains the verbs, read as “then”. A sequence of functions are composed in a way that can be naturally read from left to right, which improves the code readability. This code is read as “take the pedestrian data, fill the temporal gaps, filter to 2016 measurements, then apply an ARIMA model and forecast ahead 2 days.”</p>
+<p>Piping coordinates a user’s analysis making it cleaner to follow, and permits a wider audience to follow the data analysis from code, without getting lost in a jungle of computational intricacies. It helps to (1) break up a big problem into more manageable blocks, (2) generate human readable analysis workflow, and (3) forestall introducing mistakes or, at least, make it possible to track, and fix, mistakes upstream through the pipeline.</p>
 </div>
 </div>
             </section>
