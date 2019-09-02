@@ -1,0 +1,3 @@
+# Acknowledgements {-}
+
+First and foremost, I would like to thank my supervisors, [Dianne Cook](http://dicook.org) and [Rob J Hyndman](http://robjhyndman.com).
