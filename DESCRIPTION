@@ -9,24 +9,26 @@ Authors@R:
 URL: https://thesis.earo.me
 BugReports: https://github.com/earowang/thesis/issues
 Depends:
-    R (>= 3.1),
-    bookdown,
-    cliapp,
-    cranlogs,
-    forcats,
-    gganimate,
-    ggmap,
-    gt,
-    kableExtra,
-    knitr,
-    lubridate,
-    showtext,
-    sugrrants,
-    tidyverse,
-    tsibble
+    bookdown (>= 0.12),
+    cliapp (>= 0.1.0),
+    fable (>= 0.1.0),
+    forcats (>= 0.4.0),
+    gganimate (>= 1.0.3),
+    ggmap (>= 3.0.0),
+    kableExtra (>= 1.1.0),
+    knitr (>= 1.24),
+    lubridate (>= 1.7.4),
+    patchwork (>= 0.0.1),
+    R (>= 3.6),
+    showtext (>= 0.7),
+    sugrrants (>= 0.2.4),
+    tidyverse (>= 1.2.1),
+    tsibble (>= 0.8.3.9000)
 Imports:
-    magick,
-    spelling
+    cranlogs (>= 2.1.1),
+    magick (>= 2.1),
+    spelling (>= 2.1)
 Remotes:
-    rstudio/gt
+    thomasp85/patchwork
+Encoding: UTF-8
 Language: en-GB
