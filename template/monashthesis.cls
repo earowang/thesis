@@ -107,6 +107,7 @@
 \widowpenalty = 10000
 \brokenpenalty = 10000
 \RequirePackage{microtype}
+\RequirePackage{ragged2e}
 
 %% BIBLIOGRAPHY
 \usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}
@@ -197,8 +198,7 @@
         Monash University in \@submitdate\\
         Department of Econometrics and Business Statistics
     \end{center}
-    \hrulefill
-    \newpage\thispagestyle{empty}}}
+    \newpage\mbox{}\thispagestyle{empty}\newpage}}
 
 \numberwithin{section}{chapter}
 \numberwithin{equation}{chapter}

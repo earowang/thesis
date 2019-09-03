@@ -91,7 +91,7 @@ subdat %>%
   ) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
   scale_x_datetime(date_labels = "%d %b %Y", date_minor_breaks = "1 month") +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "none") +
   xlab("Date Time") +
   ylab("Hourly Counts")
 
@@ -106,7 +106,7 @@ subdat %>%
   ) +
   scale_x_continuous(breaks = seq(0, 24, by = 6)) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "none") +
   xlab("Time") +
   ylab("Hourly Counts")
 
@@ -200,8 +200,8 @@ p_facet <- facet_cal %>%
     Sensor_Name ~ ., 
     labeller = labeller(Sensor_Name = label_wrap_gen(20))
   ) +
-  scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
-  theme(legend.position = "bottom")
+  scale_colour_manual(name = "Sensor", values = sensor_cols) +
+  theme(legend.position = "none")
 prettify(p_facet, size = 3, label.padding = unit(0.1, "lines"))
 
 ## ---- scatterplot
@@ -260,7 +260,7 @@ subdat %>%
   facet_calendar(~ Date) +
   scale_x_continuous(breaks = seq(0, 24, by = 12)) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
-  theme(legend.position = "bottom") +
+  theme(strip.text.x = element_text(size = 7), legend.position = "bottom") +
   xlab("Time") +
   ylab("Hourly Counts")
 
@@ -319,5 +319,5 @@ p_cal_elec <- elec %>%
     geom_line(aes(colour = as.factor(id)), size = 0.5) +
     scale_colour_brewer(name = "", palette = "PiYG") +
     facet_grid(id ~ ., labeller = label_both) +
-    theme(legend.position = "bottom")
+    theme(legend.position = "none")
 prettify(p_cal_elec, size = 2.5, label.padding = unit(0.1, "lines"))

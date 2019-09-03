@@ -19,17 +19,17 @@ A routine examination of the data would involve constructing a time series plot 
 
 Faceting, initially called trellis displays [@becker_visual_1996], is an example of a small multiple [@tufte1983visual], where different subsets of the same data are displayed across one or more conditioning variables. It allows the comparison of subsets. Faceting can also be thought of as a simple ensemble graphic [@unwin_ensemble_2018]. It is a homogeneous collection of plots, whereas the ensemble graphics broadly organize related plots for a data set together into one display.
 
-```{r ped-map, fig.width = 7, out.width = "0.7\\linewidth", fig.cap = "(ref:ped-map-cap)"}
+```{r ped-map, fig.width = 7, out.width = "0.9\\linewidth", fig.cap = "(ref:ped-map-cap)"}
 ```
 
 (ref:ped-map-cap) Google map of the Melbourne city area, grey dots indicate all the sensor locations. The three locations highlighted will be analyzed in the paper: the State Library is a public library; Flagstaff Station is a train station, closed on non-work days; Birrarung Marr is an outdoor park hosting many cultural and sports events.
 
-```{r time-series-plot, fig.height = 6, fig.cap = "(ref:time-series-plot)"}
+```{r time-series-plot, fig.height = 4.5, fig.cap = "(ref:time-series-plot)"}
 ```
 
 (ref:time-series-plot) Time series plots showing 2016 pedestrian counts, measured by three different sensors in the city of Melbourne. Small multiples of lines show that the foot traffic varies at one location to another. The spike in counts at the State Library corresponds to the timing of the event "White Night", where there were many people taking part in activities in the city throughout the night. A relatively persistent pattern repeats from one week to another at Flagstaff Station. Birrarung Marr looks rather noisy and spiky, with several runs of missing records.
 
-```{r facet-time, fig.height = 6, fig.cap = "(ref:facet-time-cap)"}
+```{r facet-time, fig.height = 4.5, fig.cap = "(ref:facet-time-cap)"}
 ```
 
 (ref:facet-time-cap) Hourly pedestrian counts for 2016, faceted by sensors, and days of the week. The focus is on time of day and day of week across the sensors. Daily commuter patterns at Flagstaff Station, the variability of the foot traffic at Birrarung Marr, and the consistent pedestrian behavior at the State Library, can be seen.
@@ -40,7 +40,7 @@ In contrast, calendar-based graphics unpack the temporal variable, at different 
 
 The proposed algorithm goes beyond the calendar-based heatmap. The approach is developed with three conditions in mind: (1) to display time-of-day variation in addition to longer temporal components such as day-of-week and day-of-year; (2) to incorporate line graphs and other types of glyphs into the graphical toolkit for the calendar layout; (3) to enable patterns related to special events more easily pop-up to viewers. The proposed algorithm has been implemented in the `frame_calendar()` and `facet_calendar()` functions in the **sugrrants** package using R.
 
-The remainder of the paper is organized as follows. Section \@ref(sec:algorithm) details the construction of the calendar layout in depth. It describes the algorithms of data transformation (Section \@ref(sec:transformation)), the available options (Section \@ref(sec:opt)), and variations of its usage (Section \@ref(sec:variations)). Section \@ref(sec:facet-calendar) explains the full faceting extension, that is equipped with formal labels and axes. An analysis of half-hourly household energy consumption, using the calendar display, is illustrated in a case study in Section \@ref(sec:case). Section \@ref(sec:discussion) discusses the limitations of calendar displays and possible new directions.
+The remainder of the paper is organized as follows. Section \@ref(sec:algorithm) details the construction of the calendar layout in depth. It describes the algorithms of data transformation (Section \@ref(sec:transformation)), the available options (Section \@ref(sec:opt)), variations of its usage (Section \@ref(sec:variations)), and the full faceting extension (Section \@ref(sec:facet-calendar)). An analysis of half-hourly household energy consumption, using the calendar display, is illustrated in a case study in Section \@ref(sec:case). Section \@ref(sec:discussion) discusses the limitations of calendar displays and possible new directions.
 
 ## Creating a calendar display {#sec:algorithm}
 
@@ -64,7 +64,7 @@ The grid position for any day in the month is given by
 
 \noindent Figure \@ref(fig:month-diagram) illustrates this $(i, j)$ layout for a month where $k=5$.
 
-```{r month-diagram, out.width = "360pt", out.height = "250pt", fig.cap = "(ref:month-diagram-cap)"}
+```{r month-diagram, out.width = "420pt", fig.cap = "(ref:month-diagram-cap)"}
 include_graphics("img/month.png")
 ```
 
@@ -72,7 +72,7 @@ include_graphics("img/month.png")
 
 To create the layout for a full year, $(m, n)$ denotes the position of the month arranged in the plot, where $1 \le m \le M$ and $1 \le n \le N$; $b$ denotes the small amount of white space between each month for visual separation. Figure \@ref(fig:year-diagram) illustrates this layout where $M = 3$ and $N = 4$.
 
-```{r year-diagram, out.width = "360pt", out.height = "250pt", fig.cap = "(ref:year-diagram-cap)"}
+```{r year-diagram, out.width = "420pt", fig.cap = "(ref:year-diagram-cap)"}
 include_graphics("img/year-diagram.png")
 ```
 
@@ -110,8 +110,8 @@ The algorithm has several optional parameters that modify the layout, direction 
 
 ```r
 frame_calendar(data, x, y, date, calendar = "monthly", dir = "h",
-  week_start = 1, nrow = NULL, ncol = NULL, polar = FALSE, scale = "fixed",
-  width = 0.95, height = 0.95, margin = NULL)
+  week_start = 1, nrow = NULL, ncol = NULL, polar = FALSE,
+  scale = "fixed", width = 0.95, height = 0.95, margin = NULL)
 ```
 
 It is assumed that the `data` is in tidy format [@wickham2014tidy], and `x`, `y` are the variables that will be mapped to the horizontal and vertical axes in each cell. For example, the `x` is the time of the day, and `y` is the count (Figure \@ref(fig:fs-2016)). The `date` argument specifies the date variable used to construct the calendar layout.
@@ -171,7 +171,7 @@ Plots can be layered. A comparison of sensors can be done by overlaying them in 
 
 To avoid overlapping, when differences between groups are large enough to be seen separately, the calendar layout can be faceted into a series of subplots for the different sensors. Figure \@ref(fig:facet) shows calendar plots that are faceted by sensors. This arrangement allows comparison of the overall structure between sensors, while emphasizing individual sensor variation. In particular, it can be immediately learned that Birrarung Marr was busy and packed over many weekends, but events took place on Friday evenings only in September. The Australian Open, a major international tennis tournament, attracted constant foot traffic in the last two weeks of January. The calendar plot can be faceted by any categorical variable in the data.
 
-```{r facet, fig.height = 10.2, fig.cap = "(ref:facet-cap)"}
+```{r facet, fig.height = 9.5, fig.cap = "(ref:facet-cap)"}
 ```
 
 (ref:facet-cap) Line charts, embedded in the $6 \times 2$ monthly calendar, colored and faceted by the 3 sensors. The variations of an individual sensor are emphasized.
@@ -187,7 +187,7 @@ Almost any type of plot can be shown in a calendar pane. Most of the full range 
 
 The algorithm can also produce more complicated plots, such as boxplots. Figure \@ref(fig:chn) uses a loess smooth line [@cleveland1979loess] superimposed on side-by-side boxplots. It shows the distribution of hourly counts across all 43 sensors during December. The last week of December is the holiday season: people are off work on the day before Christmas (December 24), go shopping on the Boxing day (December 26), and stay out for the fireworks on New Year's Eve. The text in the plot is labeled in Chinese, showcasing the support for other languages.
 
-```{r chn, fig.height = 8, fig.cap = "(ref:chn-cap)", fig.showtext = TRUE}
+```{r chn, fig.height = 6.5, fig.cap = "(ref:chn-cap)", fig.showtext = TRUE}
 ```
 
 (ref:chn-cap) Side-by-side boxplots of hourly counts for all the 43 sensors in December 2016, with the loess smooth line superimposed on each day. It shows the hourly distribution in the city as a whole. The increased variability is notable on the last day of December as New Year's Eve approaches. The month and week day are labeled in Chinese, which demonstrates the support for languages other than English.
@@ -219,24 +219,24 @@ The purpose of the calendar display is to facilitate quick discoveries of unusua
 
 ## Case study {#sec:case}
 
-```{r load-elec, cache.extra = tools::md5sum("data/elec.rds")}
+```{r load-elec}
 ```
 
 The use of the calendar display is illustrated on smart meter energy usage from four households in Melbourne, Australia. Individuals can download their own data from the energy supplier, and the data used in this section is sourced from four colleagues of the authors. The calendar display is useful to help people understand their energy use. The data contains half-hourly electricity consumption in the first half of 2018. The analysis begins by looking at the distribution over days of week, then time of day split by work days and non-work days, followed by the calendar display to inspect the daily schedules.
 
 Figure \@ref(fig:dow) shows the energy use across days of week using boxplots. Inspecting the medians across households tells us that household 3, a family size of one couple and two children, uses more energy over the week days than other households. The relatively larger boxes for household 2 indicate greater variability in daily energy consumption with noticeable variations on Thursdays, and much higher usage over the weekends. The other two households (1 and 4) tend to consume more energy with more variation on the weekends relative to the week days, reflecting work and leisure patterns.
 
-```{r dow, fig.height = 7, fig.cap = "Boxplots of daily energy usage against day of week for four households. Suggested by the medians, household 3 uses more energy than the others on the week days. By contrast, household 2 sees considerably larger variability."}
+```{r dow, fig.height = 4.5, fig.cap = "Boxplots of daily energy usage against day of week for four households. Suggested by the medians, household 3 uses more energy than the others on the week days. By contrast, household 2 sees considerably larger variability."}
 ```
 
 Figure \@ref(fig:hod) shows energy consumption against time of day, separately by week day and weekend. Household 1 is an early riser, starting their day before 6am and going back home around 6pm on week days. They switch air conditioning on when they get home from work and keep it operating until midnight, evident from the small horizontal cluster of points around 0.8 kWh. On the other hand, the stripes above 1 kWh for household 2 indicates that air conditioning may run continuously for some periods, consuming twice the energy as household 1. A third peak occurs around 3pm for household 3 only, likely coinciding when the children arrive home from school. They also have a consistent energy pattern between week days and weekends. As for household 4, their home routine starts after 6pm on week days. Figures \@ref(fig:dow) and \@ref(fig:hod), part of a traditional graphical toolkit, are useful for summarizing overall deviations across days and households.
 
-```{r hod, fig.height = 6, fig.cap = "(ref:hod-cap)"}
+```{r hod, fig.height = 4.5, fig.cap = "(ref:hod-cap)"}
 ```
 
 (ref:hod-cap) Scatterplots of half-hourly energy usage by time of day, with hourly averages overlaid, faceted by household and type of day. All households have different week days versus weekends daily routines. On week days, household 1 wakes up early before 6am, and household 2 around 6am, followed by household 3 and 4. The use of air conditioning is notable in households 1 and 2, as seen by horizontal clusters of points.
 
-```{r calendar-elec, fig.height = 10.5, fig.cap = "(ref:calendar-elec-cap)"}
+```{r calendar-elec, fig.height = 9.3, fig.cap = "(ref:calendar-elec-cap)"}
 ```
 
 (ref:calendar-elec-cap) Calendar displays faceted by each household using global scales. Long flat low energy usage indicates vacation time, and high energy consumption by household 2 is visible in January and February.
@@ -253,4 +253,4 @@ The methodology creates the western calendar layout, because most countries have
 
 ## Acknowledgements {-}
 
-We would like to thank Stuart Lee and Heike Hofmann for their feedback on earlier versions of this work. We thank Thomas Lin Pedersen for pointing out some critical **ggplot2** internals, which makes the `facet_calendar()` implementation possible. We are very grateful to anonymous reviewers for helpful comments that have led to many improvements of the paper. The **sugrrants** R package is available from CRAN <https://CRAN.R-project.org/package=sugrrants> and the development version is available on Github <https://github.com/earowang/sugrrants>. All materials required to reproduce this article and a history of the changes can be found at the project's Github repository <https://github.com/earowang/paper-calendar-vis>.
+We would like to thank Stuart Lee and Heike Hofmann for their feedback on earlier versions of this work. We thank Thomas Lin Pedersen for pointing out some critical **ggplot2** internals, which makes the `facet_calendar()` implementation possible. We are very grateful to anonymous reviewers for helpful comments that have led to many improvements in the paper. The **sugrrants** R package is available from CRAN <https://CRAN.R-project.org/package=sugrrants> and the development version is available on Github <https://github.com/earowang/sugrrants>. All materials required to reproduce this article and a history of the changes can be found at the project's Github repository <https://github.com/earowang/paper-calendar-vis>.

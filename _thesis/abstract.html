@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.1 Software development | Tidy tools for supporting fluent workflow in temporal data analysis</title>
-  <meta name="description" content="5.1 Software development | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <title>Abstract | Tidy tools for supporting fluent workflow in temporal data analysis</title>
+  <meta name="description" content="Abstract | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.1 Software development | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta property="og:title" content="Abstract | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.1 Software development | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="twitter:title" content="Abstract | Tidy tools for supporting fluent workflow in temporal data analysis" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="5-ch-conclusion.html">
-<link rel="next" href="5-2-future-work.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="acknowledgements.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -220,29 +220,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="software-development" class="section level2">
-<h2><span class="header-section-number">5.1</span> Software development</h2>
-<p>A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: <strong>sugrrants</strong>, <strong>tsibble</strong>, and <strong>mists</strong>.</p>
-<div id="sugrrants" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> sugrrants</h3>
-<p>The <strong>sugrrants</strong> package implements the idea of displaying data in the familiar calendar style in the <code>frame_calendar()</code> and <code>facet_calendar()</code>. The research article, a shorter version of Chapter <a href="2-ch-calendar-vis.html#ch:calendar-vis">2</a>, has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There have been a grand total of 14,347 downloads from the RStudio mirror (one of 90 CRAN mirrors) dating from 2017-07-28 to 2019-09-03; and it has been starred 47 times on Github so far. The homepage at <a href="https://pkg.earo.me/sugrrants" class="uri">https://pkg.earo.me/sugrrants</a> contains detailed documentation and a vignette on <code>frame_calendar()</code>.</p>
-</div>
-<div id="tsibble" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> tsibble</h3>
-<p>The <strong>tsibble</strong> package provides a data infrastructure and a domain specific language in R for representing and manipulating tidy temporal data. This package is aimed for the fundamental architecture that other temporal tools will be built upon. For example, a new suite of time series analysis packages, titled <a href="https://github.com/tidyverts">“tidyverts”</a>, have been developed for the new “tsibble” object. The <strong>tsibble</strong> package has won 2019 John Chambers Statistical Software Award from ASA Sections on Statistical Computing and Statistical Graphics. It has been downloaded 37,684 times from the RStudio mirror since it landed on CRAN; and it has received 234 stars on Github. These metrics are the indicators of my research impact, the recognition by professionals, and the uptakes by users. The website (<a href="https://tsibble.tidyverts.org" class="uri">https://tsibble.tidyverts.org</a>) includes full documentation and three vignettes about the package usage.</p>
-</div>
-<div id="mists" class="section level3">
-<h3><span class="header-section-number">5.1.3</span> mists</h3>
-<p>The <strong>mists</strong> package aims at exploring missing values for temporal data both analytically and graphically. It implements a compact abstraction for efficiently indexing missing data in time, along with numerical and visual methods. It also brings missing data polishing techniques into live. The Github repository has received 22 stars, but the package is not on CRAN yet. The documentation site is available at <a href="https://pkg.earo.me/mists" class="uri">https://pkg.earo.me/mists</a>.</p>
-</div>
+<div id="abstract" class="section level1 unnumbered">
+<h1>Abstract</h1>
+<p>The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.</p>
+
+
+<!-- 
+
+\newpage
+
+# Declaration {-}
+
+I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis. 
+
+This thesis includes 3 publications, two of which have been revised and resubmitted and one not yet to be submitted. The core theme of the thesis is "Tidy tools for temporal data". The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics and Business Statistics under the supervision of Professor Dianne Cook and Professor Rob J Hyndman.
+    
+The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.
+
+In the case of Chapter 2, 3 and 4 my contribution to the work involved the following:
+
+\begin{table}
+\centering\footnotesize\tabcolsep=0.12cm
+\begin{tabular}{|p{1cm}|p{2cm}|p{1.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
+\hline
+\RaggedRight\textbf{Thesis Chapter}  & \RaggedRight\textbf{Publication Title}  & \RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} & \RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
+2 & Calendar-based graphics for visualizing people's daily schedules & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
+\hline
+3 & A new tidy data structure to support exploration and modeling of temporal data & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
+\hline
+4 & Data representation, visual and analytical techniques for demystifying temporal missing data & Not yet to be submitted & xx & xx & \multicolumn{1}{c|}{N} \\
+\hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+
+I have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
+
+\textbf{Student name:} \authorname
+
+\textbf{Student signature:}
+
+\textbf{Date:}
+
+-->
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="5-ch-conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5-2-future-work.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="acknowledgements.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -272,7 +302,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/earowang/thesis/edit/master/Rmd/05-conclusion.Rmd",
+"link": "https://github.com/earowang/thesis/edit/master/Rmd/00-b-abstract.Rmd",
 "text": "Edit"
 },
 "history": {

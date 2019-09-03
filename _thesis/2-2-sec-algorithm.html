@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#open-and-reproducible-research"><i class="fa fa-check"></i>Open and reproducible research</a></li>
@@ -240,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{equation}\]</span></p>
 <p>Figure <a href="2-2-sec-algorithm.html#fig:month-diagram">2.4</a> illustrates this <span class="math inline">\((i, j)\)</span> layout for a month where <span class="math inline">\(k=5\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:month-diagram"></span>
-<img src="img/month.png" alt="Illustration of the indexing layout for cells in a month, where \(k\) is day of the week, \(g\) is day of the month, \((i, j)\) indicates grid position." width="360pt" height="250pt" />
+<img src="img/month.png" alt="Illustration of the indexing layout for cells in a month, where \(k\) is day of the week, \(g\) is day of the month, \((i, j)\) indicates grid position." width="420pt" />
 <p class="caption">
 Figure 2.4: Illustration of the indexing layout for cells in a month, where <span class="math inline">\(k\)</span> is day of the week, <span class="math inline">\(g\)</span> is day of the month, <span class="math inline">\((i, j)\)</span> indicates grid position.
 </p>
@@ -248,7 +249,7 @@ Figure 2.4: Illustration of the indexing layout for cells in a month, where <spa
 
 <p>To create the layout for a full year, <span class="math inline">\((m, n)\)</span> denotes the position of the month arranged in the plot, where <span class="math inline">\(1 \le m \le M\)</span> and <span class="math inline">\(1 \le n \le N\)</span>; <span class="math inline">\(b\)</span> denotes the small amount of white space between each month for visual separation. Figure <a href="2-2-sec-algorithm.html#fig:year-diagram">2.5</a> illustrates this layout where <span class="math inline">\(M = 3\)</span> and <span class="math inline">\(N = 4\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:year-diagram"></span>
-<img src="img/year-diagram.png" alt="Illustration of the indexing layout for months of one year, where \(M\) and \(N\) indicate number of rows and columns, \(b\) is a space parameter separating cells." width="360pt" height="250pt" />
+<img src="img/year-diagram.png" alt="Illustration of the indexing layout for months of one year, where \(M\) and \(N\) indicate number of rows and columns, \(b\) is a space parameter separating cells." width="420pt" />
 <p class="caption">
 Figure 2.5: Illustration of the indexing layout for months of one year, where <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> indicate number of rows and columns, <span class="math inline">\(b\)</span> is a space parameter separating cells.
 </p>
@@ -280,8 +281,8 @@ Figure 2.6: The calendar plot of hourly foot traffic at Flagstaff Station, using
 <h3><span class="header-section-number">2.2.2</span> Options</h3>
 <p>The algorithm has several optional parameters that modify the layout, direction of display, scales, plot size and switching to polar coordinates. These are accessible to the user by the inputs to the function <code>frame_calendar()</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">frame_calendar</span>(data, x, y, date, <span class="dt">calendar =</span> <span class="st">&quot;monthly&quot;</span>, <span class="dt">dir =</span> <span class="st">&quot;h&quot;</span>,</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="dt">week_start =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="ot">NULL</span>, <span class="dt">ncol =</span> <span class="ot">NULL</span>, <span class="dt">polar =</span> <span class="ot">FALSE</span>, <span class="dt">scale =</span> <span class="st">&quot;fixed&quot;</span>,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">width =</span> <span class="fl">0.95</span>, <span class="dt">height =</span> <span class="fl">0.95</span>, <span class="dt">margin =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="dt">week_start =</span> <span class="dv">1</span>, <span class="dt">nrow =</span> <span class="ot">NULL</span>, <span class="dt">ncol =</span> <span class="ot">NULL</span>, <span class="dt">polar =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">scale =</span> <span class="st">&quot;fixed&quot;</span>, <span class="dt">width =</span> <span class="fl">0.95</span>, <span class="dt">height =</span> <span class="fl">0.95</span>, <span class="dt">margin =</span> <span class="ot">NULL</span>)</a></code></pre></div>
 <p>It is assumed that the <code>data</code> is in tidy format <span class="citation">(Wickham <a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span>, and <code>x</code>, <code>y</code> are the variables that will be mapped to the horizontal and vertical axes in each cell. For example, the <code>x</code> is the time of the day, and <code>y</code> is the count (Figure <a href="2-2-sec-algorithm.html#fig:fs-2016">2.6</a>). The <code>date</code> argument specifies the date variable used to construct the calendar layout.</p>
 <p>The algorithm handles displaying a single month or several years. The arguments <code>nrow</code> and <code>ncol</code> specify the layout of multiple months. For some time frames, some arrangements may be more beneficial than others. For example, to display data for three years, setting <code>nrow = 3</code> and <code>ncol = 12</code> would show each year on a single row.</p>
 <div id="layouts" class="section level4">

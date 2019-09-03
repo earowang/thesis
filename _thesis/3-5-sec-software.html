@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#open-and-reproducible-research"><i class="fa fa-check"></i>Open and reproducible research</a></li>
@@ -245,13 +246,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>tile</strong>: tiling window without overlapping observations.</li>
 <li><strong>stretch</strong>: fixing an initial window and expanding to include more observations.</li>
 </ol>
-<p>Figure <a href="#fig:animate"><strong>??</strong></a> shows animations of rolling windows for sliding, tiling and stretching on annual tuberculosis cases for Australia. A block of consecutive elements with a window size of 5 is initialized in each case, and the windows roll sequentially to the end of series, with average counts being computed within each window.</p>
-<video width="100%"  autoplay controls loop>
-<source src="figure/animate.webm" />
-<p>
-An illustration of a window of size 5 to compute rolling averages over annual tuberculosis cases in Australia using sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)
+<p>Figure <a href="3-5-sec-software.html#fig:animate">3.4</a> shows animations of rolling windows for sliding, tiling and stretching on annual tuberculosis cases for Australia. A block of consecutive elements with a window size of 5 is initialized in each case, and the windows roll sequentially to the end of series, with average counts being computed within each window.</p>
+<div class="figure" style="text-align: center"><span id="fig:animate"></span>
+<img src="figure/animate.gif" alt="An illustration of a window of size 5 to compute rolling averages over annual tuberculosis cases in Australia using sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)" width="100%" />
+<p class="caption">
+Figure 3.4: An illustration of a window of size 5 to compute rolling averages over annual tuberculosis cases in Australia using sliding, tiling and stretching. (Animation needs to be viewed with Adobe Acrobat Reader.)
 </p>
-</video>
+</div>
 
 <p>Rolling windows adapt to functional programming, for which the <strong>purrr</strong> package <span class="citation">(Henry and Wickham <a href="bibliography.html#ref-R-purrr">2019</a><a href="bibliography.html#ref-R-purrr">a</a>)</span> sets a good example. These functions accept and return arbitrary inputs and outputs, with arbitrary methods. For example, moving averages anticipate numerics and produce averaged numerics via <code>mean()</code>. However, rolling window regression feeds a data frame into a linear regression method like <code>lm()</code>, and generates a complex object that contains coefficients, fitted values, and etc.</p>
 <p>Rolling windows not only iterate but roll over a sequence of elements of a fixed window. A complete and consistent set of tools are available for facilitating window-related operations, a family of <code>slide()</code>, <code>tile()</code>, <code>stretch()</code>, and their variants. <code>slide()</code> expects one input, <code>slide2()</code> two inputs, and <code>pslide()</code> multiple inputs. For type stability, the functions always return lists. Other variants including <code>*_lgl()</code>, <code>*_int()</code>, <code>*_dbl()</code>, <code>*_chr()</code> return vectors of the corresponding types, as well as <code>*_dfr()</code> and <code>*_dfc()</code> for row-binding and column-binding data frames respectively. Their multiprocessing equivalents prefixed by <code>future_*()</code> enable rolling in parallel <span class="citation">(Bengtsson <a href="bibliography.html#ref-R-future">2019</a>; Vaughan and Dancho <a href="bibliography.html#ref-R-furrr">2018</a><a href="bibliography.html#ref-R-furrr">a</a>)</span>.</p>

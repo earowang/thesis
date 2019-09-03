@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#open-and-reproducible-research"><i class="fa fa-check"></i>Open and reproducible research</a></li>
@@ -241,36 +242,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; # A tsibble: 5,548,444 x 22 [!] &lt;UTC&gt;
 #&gt; # Key:       flight_num [22,562]</code></pre>
 <p>Transforming a tsibble for exploratory data analysis with a suite of time-aware and general-purpose manipulation verbs can result in well-constructed pipelines. A couple of use cases are described to show how to approach the interested questions by wrangling the tsibble while maintaining its temporal context.</p>
-<p>What time of day and day of week should passengers travel to avoid suffering from horrible delay? Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.4</a> plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are computed. This pipeline is initialized by regularizing and reshaping the list of the upper quantiles of departure delays for each hour. To visualize the temporal profiles, the time components (for example hours and weekdays) are extracted from the index. The flow chart (Figure <a href="3-6-sec-cases.html#fig:flight-pipeline3">3.5</a>) demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval for all flights, and the output ends up with a tsibble of one-hour interval by quantiles. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18) from Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.4</a>.</p>
+<p>What time of day and day of week should passengers travel to avoid suffering from horrible delay? Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.5</a> plots hourly quantile estimates across day of week in the form of small multiples. The upper-tail delay behaviors are of primary interest, and hence 50%, 80% and 95% quantiles are computed. This pipeline is initialized by regularizing and reshaping the list of the upper quantiles of departure delays for each hour. To visualize the temporal profiles, the time components (for example hours and weekdays) are extracted from the index. The flow chart (Figure <a href="3-6-sec-cases.html#fig:flight-pipeline3">3.6</a>) demonstrates the operations undertaking in the data pipeline. The input to this pipeline is a tsibble of irregular interval for all flights, and the output ends up with a tsibble of one-hour interval by quantiles. To reduce the likelihood of suffering a delay, it is recommended to avoid the peak hour around 6pm (18) from Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.5</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:draw-qtl"></span>
 <img src="figure/draw-qtl-1.png" alt="Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails." width="100%" />
 <p class="caption">
-Figure 3.4: Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
+Figure 3.5: Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline3"></span>
-<img src="img/flight-pipeline3" alt="Flow chart illustrates the pipeline that preprocesses the data for creating Figure 3.4." width="100%" />
+<img src="img/flight-pipeline3" alt="Flow chart illustrates the pipeline that preprocesses the data for creating Figure 3.5." width="100%" />
 <p class="caption">
-Figure 3.5: Flow chart illustrates the pipeline that preprocesses the data for creating Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.4</a>.
+Figure 3.6: Flow chart illustrates the pipeline that preprocesses the data for creating Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.5</a>.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:sel-monthly-plot"></span>
 <img src="figure/sel-monthly-plot-1.png" alt="Daily delayed percentages for flight departure, with two-month moving averages overlaid, at five international airports. There are least fluctuations, and relatively fewer delays, observed at KOA airport." width="100%" />
 <p class="caption">
-Figure 3.6: Daily delayed percentages for flight departure, with two-month moving averages overlaid, at five international airports. There are least fluctuations, and relatively fewer delays, observed at KOA airport.
+Figure 3.7: Daily delayed percentages for flight departure, with two-month moving averages overlaid, at five international airports. There are least fluctuations, and relatively fewer delays, observed at KOA airport.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline2"></span>
-<img src="img/flight-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.6." width="100%" />
+<img src="img/flight-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.7." width="100%" />
 <p class="caption">
-Figure 3.7: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="3-6-sec-cases.html#fig:sel-monthly-plot">3.6</a>.
+Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="3-6-sec-cases.html#fig:sel-monthly-plot">3.7</a>.
 </p>
 </div>
 
-<p>A closer examination of some big airports across the US will give an indication of how well the busiest airports manage the outflow traffic on a daily basis. A subset that contains observations for Houston (IAH), New York (JFK), Kalaoa (KOA), Los Angeles (LAX) and Seattle (SEA) airports is obtained first. The succeeding operations compute delayed percentages every day at each airport, which are shown as grey lines in Figure <a href="3-6-sec-cases.html#fig:sel-monthly-plot">3.6</a>. Winter months tend to fluctuate a lot compared to the summer across all the airports. Superimposed on the plot are two-month moving averages, so the temporal trend is more visible. Since the number of days for each month is variable, moving averages over two months will require a weights input. But the weights specification can be avoided using a pair of commonly used rectangling verbs–<code>nest()</code> and <code>unnest()</code>, to wrap data frames partitioned by months into list-columns. The sliding operation with a large window size smooths out the fluctuations and gives a stable trend around 25% over the year, for IAH, JFK, LAX and SEA. LAX airport has seen a gradual decline in delays over the year, whereas the SEA airport has a steady delay. The IAH and JFK airports have more delays in the middle of year, while the KOA has the inverse pattern with higher delay percentage in both ends of the year. This pipeline gets the data into the daily series, and shifts the focus to five selected airports.</p>
+<p>A closer examination of some big airports across the US will give an indication of how well the busiest airports manage the outflow traffic on a daily basis. A subset that contains observations for Houston (IAH), New York (JFK), Kalaoa (KOA), Los Angeles (LAX) and Seattle (SEA) airports is obtained first. The succeeding operations compute delayed percentages every day at each airport, which are shown as grey lines in Figure <a href="3-6-sec-cases.html#fig:sel-monthly-plot">3.7</a>. Winter months tend to fluctuate a lot compared to the summer across all the airports. Superimposed on the plot are two-month moving averages, so the temporal trend is more visible. Since the number of days for each month is variable, moving averages over two months will require a weights input. But the weights specification can be avoided using a pair of commonly used rectangling verbs–<code>nest()</code> and <code>unnest()</code>, to wrap data frames partitioned by months into list-columns. The sliding operation with a large window size smooths out the fluctuations and gives a stable trend around 25% over the year, for IAH, JFK, LAX and SEA. LAX airport has seen a gradual decline in delays over the year, whereas the SEA airport has a steady delay. The IAH and JFK airports have more delays in the middle of year, while the KOA has the inverse pattern with higher delay percentage in both ends of the year. This pipeline gets the data into the daily series, and shifts the focus to five selected airports.</p>
 <p>This case study begins with duplicates fixing, that resolved the issue for constructing the tsibble. A range of temporal transformations can be handled by many free-form combinations of verbs, facilitating exploratory visualization.</p>
 </div>
 </div>
