@@ -24,7 +24,6 @@ opts_chunk$set(
 
 # Welcome {-}
 
-This is the website for my PhD thesis at Monash University (Australia), titled "Tidy tools for supporting fluent workflow in temporal data analysis". It is a work in progress.
+This is the website for my PhD thesis at Monash University (Australia), titled "Tidy tools for supporting fluent workflow in temporal data analysis".
 
 `r if (knitr::is_latex_output()) '-->'`
-
