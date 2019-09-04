@@ -23,7 +23,8 @@ Depends:
     showtext (>= 0.7),
     sugrrants (>= 0.2.4),
     tidyverse (>= 1.2.1),
-    tsibble (>= 0.8.3.9000)
+    tsibble (>= 0.8.3.9000),
+    vctrs
 Imports:
     cranlogs (>= 2.1.1),
     magick (>= 2.1),

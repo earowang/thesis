@@ -1,5 +1,5 @@
 # Abstract {-}
 
-The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.
+This thesis makes three original contributions for the analysis of temporal data. All three are grounded in an exploratory data analysis pipeline for time-indexed data. The research begins with a new technique for visualising data using a calendar layout, that fits neatly into a pipeline workflow. It is most useful when the data relates to human activity, and embeds plots in the familiar calendar. The second contribution is a new data abstraction which streamlines transformation, visualisation, and modelling for temporal data analysis. This "tsibble" data object is infrastructure holding the foundation of time series pipelines. The tsibble representation exposes a need for conceptually framing the handling of temporal missing values in a data-centric workflow. This is the third contribution of the thesis: exploratory and explanatory tools for understanding missing patterns in time.
 
 \newpage

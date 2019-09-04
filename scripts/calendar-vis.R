@@ -258,7 +258,7 @@ subdat %>%
   ggplot(aes(x = Time, y = Hourly_Counts, colour = Sensor_Name)) +
   geom_line() +
   facet_calendar(~ Date) +
-  scale_x_continuous(breaks = seq(0, 24, by = 12)) +
+  scale_x_continuous(breaks = c(6, 18)) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
   theme(strip.text.x = element_text(size = 7), legend.position = "bottom") +
   xlab("Time") +

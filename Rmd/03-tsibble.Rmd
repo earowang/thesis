@@ -298,7 +298,7 @@ A closer examination of some big airports across the US will give an indication 
 
 This case study begins with duplicates fixing, that resolved the issue for constructing the tsibble. A range of temporal transformations can be handled by many free-form combinations of verbs, facilitating exploratory visualization.
 
-## Smart-grid customer data in Australia
+### Smart-grid customer data in Australia
 
 ```{r load-elec}
 ```

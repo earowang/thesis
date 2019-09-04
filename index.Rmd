@@ -26,4 +26,6 @@ opts_chunk$set(
 
 This is the website for my PhD thesis at Monash University (Australia), titled "Tidy tools for supporting fluent workflow in temporal data analysis".
 
+`r Sys.Date()`
+
 `r if (knitr::is_latex_output()) '-->'`

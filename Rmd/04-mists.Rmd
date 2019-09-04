@@ -8,16 +8,3 @@ read_chunk('scripts/mists.R')
 
 ```{r load-mists}
 ```
-
-```{r count-na}
-```
-
-```{r miss-types-funs}
-```
-
-## Introduction
-
-```{r miss-types, fig.height = 7, fig.cap = "(ref:miss-types-cap)"}
-```
-
-(ref:miss-types-cap) Time series lines along with missing distributions plotted for monthly number of international airline passengers from 1949 to 1960. This series shows an upward trend with strong seasonal patterns. The gray blocks indicate the missingness. To generate missing data in time, the process could be classified into four types of temporal missings: (1) missing at level, (2) missing at occasional, (3) missing at runs, (4) missing at season.

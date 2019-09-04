@@ -1,3 +1,9 @@
 # Acknowledgements {-}
 
-First and foremost, I would like to thank my supervisors, [Dianne Cook](http://dicook.org) and [Rob J Hyndman](http://robjhyndman.com).
+This thesis would not be possible without many people.
+
+First and foremost, I would like to express my gratitude to my supervisors, [Dianne Cook](http://dicook.org) and [Rob J Hyndman](http://robjhyndman.com).
+
+I thank Heike Hofmann for hosting me at Iowa State University during the summer of 2018. I enjoyed many discussions with Heike, where I received brilliant questions and insightful advice on my research. I thank Stuart Lee and Mitchell O'Hara-Wild for countless conversations on software development, that helped to shape this thesis. I thank David Frazier and Roger Peng for being the best pingpong partner.
+
+Last but not least, I thank the R community and the tidyverse team for ongoing inspiration.
