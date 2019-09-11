@@ -8,14 +8,14 @@ Visualisation is critical for understanding the data patterns, and for discoveri
 
 ## Tidy temporal data structure {#sec:tsibble}
 
-Data representation is an important component of data science research. "Tidy data" [@wickham2014tidy] is the fundamental data architecture of the **tidyverse** ecosystem, making it possible to build fluent data pipelines for transformation, visualisation, and modelling. It does not adequately describe temporal data, and the current time series structures that are useful for modelling, inhibits a data-centric workflow. This research develops a new tidy data abstraction for temporal data, which lubricates the plumbing of temporal data analysis. Chapter \@ref(ch:tsibble) describes this abstraction, the process of using it for time series analysis, and a comprehensive literature review of related work. 
+Data representation is an important component of data science research. "Tidy data" [@wickham2014tidy] is the fundamental data architecture of the **tidyverse** ecosystem, making it possible to build fluent data pipelines for transformation, visualisation, and modelling. It does not adequately describe temporal data, and the current time series structures that are primarily model-oriented, inhibits a data-centric workflow. This research develops a new tidy data abstraction for temporal data, which lubricates the plumbing of temporal data analysis. Chapter \@ref(ch:tsibble) describes this abstraction, the process of using it for time series analysis, and a comprehensive literature review of related work. 
 
 ## Missingness in time {#sec:mists}
 
-Chapter \@ref(ch:mists) develops exploratory and explanatory tools for understanding missing patterns in time, that fits into a tidy data workflow. This is a work in progress.
+Missing data perhaps creates an obstacle in the analysis, but the invisibles may mask some data gems. To reveal them, a new data structure is designed for indexing missing values in time, and many operations and plots are built around it. Chapter \@ref(ch:mists) develops exploratory and explanatory tools for missing patterns in time, that fits into a tidy workflow.
 
 ## Summary
 
-Chapter \@ref(ch:calendar-vis) provides full details of the calendar plot, algorithm and application. Chapter \@ref(ch:tsibble) explains the new data abstraction--tsibble--and illustrates how it can be used to for the basis of exploratory methods, visualisation and modelling of temporal data. Chapter \@ref(ch:mists) outlines a new nomenclature for temporal missing patterns, tools to identify these processes in data, and evaluate imputation results. 
+Chapter \@ref(ch:calendar-vis) provides full details of the calendar plot, algorithm and application. Chapter \@ref(ch:tsibble) explains the new data abstraction--tsibble--and illustrates how it can be used to for the basis of exploratory methods, visualisation and modelling of temporal data. Chapter \@ref(ch:mists) outlines brief categories for temporal missing patterns, and provides tools to easily work with indexed missing values in data. 
 
 Chapter \@ref(ch:conclusion) summarises the software tools developed for the work and the impact, and discusses the future plans.
