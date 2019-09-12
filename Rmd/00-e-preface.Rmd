@@ -1,6 +1,6 @@
 # Preface {-}
 
-Chapter \@ref(ch:calendar-vis) has been conditionally accepted by the *Journal of Computational and Graphical Statistics* for the second-round revision. It has won the ASA Statistical Graphics Student Paper Award and the ACEMS Business Analytics Prize in 2018. Chapter \@ref(ch:tsibble) has been tentatively accepted and resubmitted to the *Journal of Computational and Graphical Statistics*. The accompanying R package **tsibble** has won the John Chambers Statistical Software Award in 2019. Chapter \@ref(ch:mists) is not yet to be submitted.
+Chapter \@ref(ch:calendar-vis) has been conditionally accepted by the *Journal of Computational and Graphical Statistics* for the second-round revision. It has won the ASA Statistical Graphics Student Paper Award and the ACEMS Business Analytics Prize in 2018. Chapter \@ref(ch:tsibble) has been tentatively accepted and resubmitted to the *Journal of Computational and Graphical Statistics*. The accompanying R package **tsibble** has won the John Chambers Statistical Software Award in 2019. Chapter \@ref(ch:mists) is yet to be submitted.
 
 ### Open and reproducible research {-}
 
