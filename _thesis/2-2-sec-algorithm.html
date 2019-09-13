@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Creating a calendar display | Tidy tools for supporting fluent workflow in temporal data analysis</title>
   <meta name="description" content="2.2 Creating a calendar display | Tidy tools for supporting fluent workflow in temporal data analysis" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Creating a calendar display | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="2-1-introduction.html">
-<link rel="next" href="2-3-sec-case.html">
+<link rel="prev" href="2-1-introduction.html"/>
+<link rel="next" href="2-3-sec-case.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -180,14 +180,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="3-7-smart-grid-customer-data-in-australia.html"><a href="3-7-smart-grid-customer-data-in-australia.html"><i class="fa fa-check"></i><b>3.7</b> Smart-grid customer data in Australia</a></li>
-<li class="chapter" data-level="3.8" data-path="3-8-sec-conclusion.html"><a href="3-8-sec-conclusion.html"><i class="fa fa-check"></i><b>3.8</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
-<li class="chapter" data-level="4.1" data-path="4-1-introduction-1.html"><a href="4-1-introduction-1.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
@@ -370,9 +368,6 @@ Figure 2.11: Side-by-side boxplots of hourly counts for all the 43 sensors in De
 </div>
 <div id="sec:facet-calendar" class="section level4">
 <h4><span class="header-section-number">2.2.3.5</span> Faceted calendar</h4>
-<p>The <code>frame_calendar()</code> function described in Section <a href="2-2-sec-algorithm.html#sec:opt">2.2.2</a> is a data restructuring function, neatly integrating into a data pipeline but it requires two steps: data transformation and then plot. There is also little freedom to tailor axes and labels, because specialist code needs to be applied.</p>
-<p>The <code>facet_calendar()</code> integrates the algorithm into the <strong>ggplot2</strong> graphical system so that the calendar layout is automatic, and the full functionality of axes, labels, and customization is accessible. A faceting method lays out panels in a grid. The user needs to supply the variable containing dates, in order for the faceting calendar function to prepare the arrangement of panels, as defined by Equation <a href="2-2-sec-algorithm.html#eq:grid">(2.1)</a>. The remainder of the plot construction for each panel is handled entirely by <strong>ggplot2</strong> internals.</p>
-<p>Formal axes and labels unavailable in calendar plots generated by the <code>frame_calendar()</code> are possible (Figure <a href="2-2-sec-algorithm.html#fig:facet-calendar">2.12</a>). It is much easier for readers to infer the scaling (global or local) employed for the plot. Non-existing panels mean non-existing days in the month, and blank panels indicate missing data on the day. This avoids confusion about missing data or days when missingness lives in the ends of month panels, which may occur when using <code>frame_calendar()</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:facet-calendar"></span>
 <img src="figure/facet-calendar-1.png" alt="A faceted calendar showing a fraction of the data shown in Figure 2.8. The faceted calendar takes more plot real estate than the calendar plot, but it provides native ggplot2 support for labels and axes." width="100%" />
 <p class="caption">
@@ -380,6 +375,9 @@ Figure 2.12: A faceted calendar showing a fraction of the data shown in Figure <
 </p>
 </div>
 
+<p>The <code>frame_calendar()</code> function described in Section <a href="2-2-sec-algorithm.html#sec:opt">2.2.2</a> is a data restructuring function, neatly integrating into a data pipeline but it requires two steps: data transformation and then plot. There is also little freedom to tailor axes and labels, because specialist code needs to be applied.</p>
+<p>The <code>facet_calendar()</code> integrates the algorithm into the <strong>ggplot2</strong> graphical system so that the calendar layout is automatic, and the full functionality of axes, labels, and customization is accessible. A faceting method lays out panels in a grid. The user needs to supply the variable containing dates, in order for the faceting calendar function to prepare the arrangement of panels, as defined by Equation <a href="2-2-sec-algorithm.html#eq:grid">(2.1)</a>. The remainder of the plot construction for each panel is handled entirely by <strong>ggplot2</strong> internals.</p>
+<p>Formal axes and labels unavailable in calendar plots generated by the <code>frame_calendar()</code> are possible (Figure <a href="2-2-sec-algorithm.html#fig:facet-calendar">2.12</a>). It is much easier for readers to infer the scaling (global or local) employed for the plot. Non-existing panels mean non-existing days in the month, and blank panels indicate missing data on the day. This avoids confusion about missing data or days when missingness lives in the ends of month panels, which may occur when using <code>frame_calendar()</code>.</p>
 <p>However, the <code>facet_calendar()</code> takes much more run time compared with <code>frame_calendar()</code>. The faceted calendar also uses more plot real estate for panel headings and axes. The reader can compare the two approaches by examining the compact Figure <a href="2-2-sec-algorithm.html#fig:overlay">2.8</a>, relative to Figure <a href="2-2-sec-algorithm.html#fig:facet-calendar">2.12</a>. The space consumed by the former shows a full year, and the latter shows four months, only a third of the data. For fast rendering and economy of space, <code>frame_calendar()</code> is recommended.</p>
 </div>
 </div>
@@ -446,8 +444,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

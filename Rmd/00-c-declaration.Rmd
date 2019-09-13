@@ -34,6 +34,8 @@ I have not renumbered sections of submitted or published papers in order to gene
 
 \textbf{Student signature:}
 
+\includegraphics[scale=0.05]{img/signature.png}
+
 \textbf{Date:} `r Sys.Date()`
 
 `r if (knitr::is_html_output()) '-->'`

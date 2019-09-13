@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Abstract | Tidy tools for supporting fluent workflow in temporal data analysis</title>
   <meta name="description" content="Abstract | Tidy tools for supporting fluent workflow in temporal data analysis" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Abstract | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="acknowledgements.html">
+<link rel="prev" href="index.html"/>
+<link rel="next" href="acknowledgements.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -180,14 +180,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="3-7-smart-grid-customer-data-in-australia.html"><a href="3-7-smart-grid-customer-data-in-australia.html"><i class="fa fa-check"></i><b>3.7</b> Smart-grid customer data in Australia</a></li>
-<li class="chapter" data-level="3.8" data-path="3-8-sec-conclusion.html"><a href="3-8-sec-conclusion.html"><i class="fa fa-check"></i><b>3.8</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
-<li class="chapter" data-level="4.1" data-path="4-1-introduction-1.html"><a href="4-1-introduction-1.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
@@ -222,7 +220,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="abstract" class="section level1 unnumbered">
 <h1>Abstract</h1>
-<p>The abstract should outline the main approach and findings of the thesis and must not be more than 500 words.</p>
+<p>This work is driven by the need for a conceptual framework to tackle temporal analyses in a data-centric workflow. Most research on temporal data focuses on modeling. Corresponding software requires very stringently formatted data, but does not give provide guidelines or tools on how to get raw data into shape. It has led to ad-hoc, and once-off solutions, which this research repairs.</p>
+<p>There are three original contributions for the temporal data analysis in this research. They are grounded in the spirit of exploratory data analysis for time-indexed data. The first contribution (Chapter <a href="2-ch-calendar-vis.html#ch:calendar-vis">2</a>) is a new technique for visualising data using a calendar layout. It is most useful when the data relates to daily human activity, and patterns can be explored in relation to people’s schedules. The second contribution (Chapter <a href="3-ch-tsibble.html#ch:tsibble">3</a>) is a new data abstraction which streamlines transformation, visualisation, and modelling in temporal contexts. This “tsibble” object is a data infrastructure forming the foundation of temporal data pipelines. The third contribution (Chapter <a href="4-ch-mists.html#ch:mists">4</a>) is to equip analysts with exploratory and explanatory tools for discovering missing patterns in time, and thus provides assistance in deciding on appropriate imputation methods, to prepare data for analysis.</p>
 
 
 <!-- 
@@ -233,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 I hereby declare that this thesis contains no material which has been accepted for the award of any other degree or diploma at any university or equivalent institution and that, to the best of my knowledge and belief, this thesis contains no material previously published or written by another person, except where due reference is made in the text of the thesis. 
 
-This thesis includes 3 publications, two of which have been revised and resubmitted and one not yet to be submitted. The core theme of the thesis is "Tidy tools for temporal data". The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics and Business Statistics under the supervision of Professor Dianne Cook and Professor Rob J Hyndman.
+This thesis includes 3 publications, two of which have been revised and resubmitted and one not yet submitted. The core theme of the thesis is "tidy tools for temporal data". The ideas, development and writing up of all the papers in the thesis were the principal responsibility of myself, the student, working within the Department of Econometrics and Business Statistics under the supervision of Professor Dianne Cook and Professor Rob J Hyndman.
     
 The inclusion of co-authors reflects the fact that the work came from active collaboration between researchers and acknowledges input into team-based research.
 
@@ -244,11 +243,11 @@ In the case of Chapter 2, 3 and 4 my contribution to the work involved the follo
 \begin{tabular}{|p{1cm}|p{2cm}|p{1.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
 \hline
 \RaggedRight\textbf{Thesis Chapter}  & \RaggedRight\textbf{Publication Title}  & \RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} & \RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
-2 & Calendar-based graphics for visualizing people's daily schedules & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
+2 & Calendar-based graphics for visualizing people's daily schedules & Returned for revision & 70\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 20\% (2) Rob J Hyndman, input into manuscript 10\% & \multicolumn{1}{c|}{N} \\
 \hline
 3 & A new tidy data structure to support exploration and modeling of temporal data & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
 \hline
-4 & Data representation, visual and analytical techniques for demystifying temporal missing data & Not yet to be submitted & xx & xx & \multicolumn{1}{c|}{N} \\
+4 & Data representation, visual and analytical techniques for demystifying temporal missing data & Not yet submitted & xx & xx & \multicolumn{1}{c|}{N} \\
 \hline
 \end{tabular}
 \end{table}
@@ -261,7 +260,9 @@ I have not renumbered sections of submitted or published papers in order to gene
 
 \textbf{Student signature:}
 
-\textbf{Date:}
+\includegraphics[width=50mm,scale=0.05]{img/signature.png}
+
+\textbf{Date:} 2019-09-13
 
 -->
 
@@ -324,8 +325,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
