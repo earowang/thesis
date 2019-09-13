@@ -17,7 +17,7 @@ In the case of Chapter 2, 3 and 4 my contribution to the work involved the follo
 \begin{tabular}{|p{1cm}|p{2cm}|p{1.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
 \hline
 \RaggedRight\textbf{Thesis Chapter}  & \RaggedRight\textbf{Publication Title}  & \RaggedRight\textbf{Status (published, in press, accepted or returned for revision)}  & \RaggedRight\textbf{Nature and} {\%} \RaggedRight\textbf{of student contribution} & \RaggedRight\textbf{Co-author name(s) Nature and} {\%} \RaggedRight\textbf{of Co-author’s contribution} & \RaggedRight\textbf{Co-author(s), Monash student Y/N} \\ \hline
-2 & Calendar-based graphics for visualizing people's daily schedules & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
+2 & Calendar-based graphics for visualizing people's daily schedules & Returned for revision & 70\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 20\% (2) Rob J Hyndman, input into manuscript 10\% & \multicolumn{1}{c|}{N} \\
 \hline
 3 & A new tidy data structure to support exploration and modeling of temporal data & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
 \hline
