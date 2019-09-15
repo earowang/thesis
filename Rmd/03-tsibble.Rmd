@@ -162,6 +162,8 @@ Panel data models, however, put emphases on overall, within, and between variati
 
 To sum up, the tsibble abstraction provides a formal organization of forwarding tidy data to model-oriented temporal data. The supporting operations can be chained for sequencing analysis, articulating a data pipeline. As @eopl stated, "No matter how complex and polished the individual operations are, it is often the quality of the glue that most directly determines the power of the system." A mini snippet below, illustrates how transformation and forecasting are glued together, to realize the fluent pipeline.
 
+\newpage
+
 ```{r tsibble-pipeline, eval = FALSE, echo = TRUE}
 ```
 
