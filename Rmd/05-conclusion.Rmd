@@ -11,12 +11,12 @@ read_chunk('scripts/software.R')
 ```{r software-impact}
 ```
 
+A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories.
+
 ```{r software-ghcommits, fig.height = 3, fig.cap = "(ref:software-ghcommits-cap)"}
 ```
 
 (ref:software-ghcommits-cap) Beeswarm plots of my Github commits to three repositories: sugrrants, tsibble, and mists during my PhD years.
-
-A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories.
 
 ### sugrrants
 
