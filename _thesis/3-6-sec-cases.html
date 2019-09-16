@@ -249,7 +249,7 @@ Figure 3.5: Small multiples of lines about departure delay against time of day, 
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline3"></span>
-<img src="img/flight-pipeline3" alt="Flow chart illustrates the pipeline that preprocesses the data for creating Figure 3.5." width="100%" />
+<img src="img/flight-pipeline3.png" alt="Flow chart illustrates the pipeline that preprocesses the data for creating Figure 3.5." width="100%" />
 <p class="caption">
 Figure 3.6: Flow chart illustrates the pipeline that preprocesses the data for creating Figure <a href="3-6-sec-cases.html#fig:draw-qtl">3.5</a>.
 </p>
@@ -263,7 +263,7 @@ Figure 3.7: Daily delayed percentages for flight departure, with two-month movin
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:flight-pipeline2"></span>
-<img src="img/flight-pipeline2" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.7." width="100%" />
+<img src="img/flight-pipeline2.png" alt="Flow chart illustrating the pipeline that preprocessed the data for creating Figure 3.7." width="100%" />
 <p class="caption">
 Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for creating Figure <a href="3-6-sec-cases.html#fig:sel-monthly-plot">3.7</a>.
 </p>
@@ -275,7 +275,7 @@ Figure 3.8: Flow chart illustrating the pipeline that preprocessed the data for 
 <div id="smart-grid-customer-data-in-australia" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Smart-grid customer data in Australia</h3>
 <p>Sensors have been installed in households across major cities in Australia to collect data for the smart city project. One of the trials is monitoring households’ electricity usage through installed smart meters in the area of Newcastle over 2010–2014 <span class="citation">(Department of the Environment and Energy <a href="bibliography.html#ref-smart-meter">2018</a>)</span>. Data from 2013 have been sliced to examine temporal patterns of customers’ energy consumption with <strong>tsibble</strong> for this case study. Half-hourly general supply in kwH have been recorded for 2,924 customers in the data set, resulting in 46,102,229 observations in total. Daily high and low temperatures in Newcastle in 2013 provide explanatory variables other than time in a different data table <span class="citation">(Bureau of Meteorology <a href="bibliography.html#ref-newcastle-temp">2019</a>)</span>, obtained using the R package <strong>bomrang</strong> <span class="citation">(Sparks et al. <a href="bibliography.html#ref-R-bomrang">2018</a>)</span>. Aggregating the half-hourly energy data to the same daily time interval as the temperature data allows us to join the two data tables to explore how local weather can contribute to the variations of daily electricity use and the accuracy of demand forecasting.</p>
-<p>During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to 17.9% of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household. Figure <a href="3-6-sec-cases.html#fig:count-gaps">3.9</a> shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the top.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.</p>
+<p>During a power outage, electricity usage for some households may become unavailable, thus resulting in implicit missing values in the database. Gaps in time occur to 17.9% of the households in this dataset. It would be interesting to explore these missing patterns as part of a preliminary analysis. Since the smart meters have been installed at different dates for each household, it is reasonable to assume that the records are obtainable for different time lengths for each household. Figure <a href="3-6-sec-cases.html#fig:count-gaps">3.9</a> shows the gaps for the top 49 households arranged in rows from high to low in tallies. (The remaining households values have been aggregated into a single batch and appear at the bottom facet.) Missing values can be seen to occur at any time during the entire span. A small number of customers have undergone energy unavailability in consecutive hours, indicated by a line range in the plot. On the other hand, the majority suffer occasional outages with more frequent occurrence in January.</p>
 <div class="figure" style="text-align: center"><span id="fig:count-gaps"></span>
 <img src="figure/count-gaps-1.png" alt="Exploring temporal location of missing values, using time gap plots for the 49 customers with most implicit missing values. The remaining customers are grouped into the one line in the bottom panel. Each cross represents an observation missing in time and a line between two dots shows continuous missingness over time. Missing values tend to occur at various times, although there is a higher concentration of missing in January and February for most customers." width="100%" />
 <p class="caption">
@@ -300,7 +300,7 @@ Figure 3.11: One-day (48 steps ahead) forecasts generated by ARIMA models, with 
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:elec-pipeline2"></span>
-<img src="img/elec-pipeline2" alt="Flow chart illustrating the pipeline involved for creating Figure 3.10 and Figure 3.11." width="100%" />
+<img src="img/elec-pipeline2.png" alt="Flow chart illustrating the pipeline involved for creating Figure 3.10 and Figure 3.11." width="100%" />
 <p class="caption">
 Figure 3.12: Flow chart illustrating the pipeline involved for creating Figure <a href="3-6-sec-cases.html#fig:calendar-plot">3.10</a> and Figure <a href="3-6-sec-cases.html#fig:elec-forecast">3.11</a>.
 </p>

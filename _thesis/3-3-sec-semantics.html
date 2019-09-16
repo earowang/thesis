@@ -220,14 +220,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sec:semantics" class="section level2">
 <h2><span class="header-section-number">3.3</span> Contextual semantics</h2>
-<p>The choice of tidy representation of temporal data arises from a data- and model-oriented perspective, which can accommodate all of the operations that are to be performed on the data in time-based contexts. Figure <a href="3-1-sec-intro.html#fig:tsibble-fit">3.1</a> marks where this new abstraction is placed in the tidy model, which is referred to as a “tsibble”. The “tidy data” principles are adapted in tsibble with the following rules:</p>
+<p>The choice of tidy representation of temporal data arises from a data- and model-oriented perspective, which can accommodate all of the operations that are to be performed on the data in time-based contexts. Figure <a href="3-1-sec-intro.html#fig:tsibble-fit">3.1</a> marks where this new abstraction is placed in the tidy model, which is referred to as a “tsibble”. The “tidy data” principles are extended as <em>tidy temporal data principles</em> in tsibble as follows:</p>
 <ol style="list-style-type: decimal">
 <li>Index is a variable with inherent ordering from past to present.</li>
 <li>Key is a set of variables that define observational units over time</li>
 <li>Each observation should be uniquely identified by index and key.</li>
 <li>Each observational unit should be measured at a common interval, if regularly spaced.</li>
 </ol>
-<p>Figure <a href="3-3-sec-semantics.html#fig:tsibble-semantics">3.2</a> sketches out the data form required for a tsibble, an extension of the tidy format to the time domain. Beyond the layout, tsibble gives the contextual meaning to variables in order to construct the temporal data object, as newly introduced “index” and “key” semantics stated in definitions 1 and 2 above. Variables other than index and key are considered as measurements. Definitions 3 and 4 imply that a tsibble is <em>tidier</em> than tidy data, positioning itself as a model input that gives rise to more robust and reliable downstream analytics.</p>
+<p>Figure <a href="3-3-sec-semantics.html#fig:tsibble-semantics">3.2</a> sketches out the data form required for a tsibble, an extension of the tidy format to the time domain. Beyond the layout, tsibble gives the contextual meaning to variables in order to construct the temporal data object, as newly introduced “index” and “key” semantics stated in definitions 1 and 2 above. Variables other than index and key are considered as measurements. Definitions 3 and 4 imply that a tsibble has stricter formatting structure than tidy data, positioning itself as a model input that gives rise to more robust and reliable downstream analytics.</p>
 <div class="figure" style="text-align: center"><span id="fig:tsibble-semantics"></span>
 <img src="img/tsibble-semantics.png" alt="The architecture of the tsibble structure is built on top of the “tidy data” principles, with temporal semantics: index and key." width="100%" />
 <p class="caption">
