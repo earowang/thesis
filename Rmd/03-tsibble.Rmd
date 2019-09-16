@@ -39,13 +39,13 @@ Longitudinal data (or panel data) typically assumes fewer measurements or shorte
 
 ### Existing data standards
 
-In R [@R-base], time series and longitudinal data are of different representations. The native `ts` object and the enhancements of **zoo** [@zoo2005] and **xts** [@R-xts], assemble time series into wide matrices with implicit time indexes. If there are multiple sub-groups, such as country or product type, these would be kept in different data objects. A relatively new R package **tibbletime** [@R-tibbletime] proposed a data class of *time tibble* to represent time series in heterogeneous long format. It only requires an index variable to be declared. However, this is insufficient, and a more rigid data structure is required for temporal analytics and modeling. The **plm** [@plm2008] and **panelr** [@R-panelr] packages both manage longitudinal data in long format.
+In R [@R-base], time series and longitudinal data are often of different representations. The native `ts` object and the enhancements of **zoo** [@zoo2005] and **xts** [@R-xts], assemble time series into wide matrices with implicit time indexes. If there are multiple sub-groups, such as country or product type, these would be kept in different data objects. A relatively new R package **tibbletime** [@R-tibbletime] proposed a data class of *time tibble* to represent time series in heterogeneous long format. It only requires an index variable to be declared. However, this is insufficient, and a more rigid data structure is required for temporal analytics and modeling. The **plm** [@plm2008] and **panelr** [@R-panelr] packages both manage longitudinal data in long format.
 
 Stata [@Stata] provides two commands, `tsset` and `xtset`, to declare time series and panels respectively, both of which require explicit panel id and time index specification. Different variables would be stored in multiple columns. The underlying data arrangement is only long form, for both types of data. Both groups of functions can be applied interchangeably to whether the data is declared for time series or longitudinal data. The SAS software [@SAS-STAT] also handles both types of data in the same way as Stata.
 
 ### Tidy data
 
-@wickham2014tidy coined the term "tidy data", to standardize the mapping of the semantics of a dataset to its physical representation. In tidy form, rows correspond to observations and columns to variables. Tidy data is a rephrasing of the second and third normal forms from relational databases, but the explanation in terms of observations and variables is easier to understand because it uses statistical terminology.
+@wickham2014tidy coined the term "tidy data", to standardize the mapping of the semantics of a dataset to its physical representation. In tidy form, rows correspond to observations and columns to variables. Tidy data is a rephrasing of the second and third normal forms from relational databases (citation to Codd needed?), but the explanation in terms of observations and variables is easier to understand because it uses statistical terminology.
 
 Multiple time series, with each column corresponding to a measurement is tidy data when the time index is explicitly stored in a column. The stacked data format used in longitudinal data is tidy, and accommodates explicit identification of sub-groups.
 
@@ -57,14 +57,14 @@ For temporal data, the tidy definition needs additional criteria, that assist in
 
 ## Contextual semantics {#sec:semantics}
 
-The choice of tidy representation of temporal data arises from a data- and model-oriented perspective, which can accommodate all of the operations that are to be performed on the data in time-based contexts. Figure \@ref(fig:tsibble-fit) marks where this new abstraction is placed in the tidy model, which is referred to as a "tsibble". The "tidy data" principles are adapted in tsibble with the following rules:
+The choice of tidy representation of temporal data arises from a data- and model-oriented perspective, which can accommodate all of the operations that are to be performed on the data in time-based contexts. Figure \@ref(fig:tsibble-fit) marks where this new abstraction is placed in the tidy model, which is referred to as a "tsibble". The "tidy data" principles in [ref Tidy Data paper] are extended as *tidy temporal data principles* in tsibble as follows:
 
 1. Index is a variable with inherent ordering from past to present.
 2. Key is a set of variables that define observational units over time
 3. Each observation should be uniquely identified by index and key.
 4. Each observational unit should be measured at a common interval, if regularly spaced.
 
-Figure \@ref(fig:tsibble-semantics) sketches out the data form required for a tsibble, an extension of the tidy format to the time domain. Beyond the layout, tsibble gives the contextual meaning to variables in order to construct the temporal data object, as newly introduced "index" and "key" semantics stated in definitions 1 and 2 above. Variables other than index and key are considered as measurements. Definitions 3 and 4 imply that a tsibble is *tidier* than tidy data, positioning itself as a model input that gives rise to more robust and reliable downstream analytics.
+Figure \@ref(fig:tsibble-semantics) sketches out the data form required for a tsibble, an extension of the tidy format to the time domain. Beyond the layout, tsibble gives the contextual meaning to variables in order to construct the temporal data object, as newly introduced "index" and "key" semantics stated in definitions 1 and 2 above. Variables other than index and key are considered as measurements. Definitions 3 and 4 imply that a tsibble has stricter formatting structure than tidy data, positioning itself as a model input that gives rise to more robust and reliable downstream analytics.
 
 ```{r tsibble-semantics, fig.cap = "(ref:tsibble-semantics-cap)"}
 include_graphics("img/tsibble-semantics.png")
