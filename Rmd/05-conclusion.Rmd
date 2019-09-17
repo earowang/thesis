@@ -13,10 +13,11 @@ read_chunk('scripts/software.R')
 
 A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories, and Figure \@ref(fig:software-downloads) shows the daily downloads of the packages from the RStudio mirror (one of 90 CRAN mirrors) since they were available on CRAN.
 
-```{r software-ghcommits, fig.height = 3, fig.cap = "(ref:software-ghcommits-cap)"}
+```{r software-ghcommits, fig.cap = "(ref:software-ghcommits-cap)"}
+include_graphics("img/pkg-commits.png")
 ```
 
-(ref:software-ghcommits-cap) Beeswarm plots of my Github commits to three repositories: sugrrants, tsibble, and mists during my PhD years.
+(ref:software-ghcommits-cap) Scatter plots of my weekly Git commits to three repositories: sugrrants, tsibble, and mists during my PhD years.
 
 ```{r software-stars}
 ```
