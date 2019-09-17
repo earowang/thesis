@@ -7,11 +7,9 @@ cli_h1("Preprocessing")
 cli_h2("Spelling check")
 rmd_files <- list.files(pattern = "*.Rmd", full.names = TRUE, recursive = TRUE)
 wordlist <- readLines("WORDLIST")
-spell_gb <- spelling::spell_check_files(rmd_files, wordlist, "en_GB")
-spell_us <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
-spell_res <- intersect(spell_gb[[1]], spell_us[[1]])
-if (length(spell_res) > 0) {
-  print(subset(spell_gb, spell_gb[[1]] %in% spell_res))
+spell_res <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
+if (length(spell_res$word) > 0) {
+  print(spell_res)
   stop("Can you please fix typos listed above first?", call. = FALSE)
 }
 

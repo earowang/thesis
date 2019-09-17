@@ -22,7 +22,7 @@ Faceting, initially called trellis displays [@becker_visual_1996], is an example
 ```{r ped-map, fig.width = 7, fig.cap = "(ref:ped-map-cap)"}
 ```
 
-(ref:ped-map-cap) Google map of the Melbourne city area, grey dots indicate all the sensor locations. The three locations highlighted will be analyzed in the paper: the State Library is a public library; Flagstaff Station is a train station, closed on non-work days; Birrarung Marr is an outdoor park hosting many cultural and sports events.
+(ref:ped-map-cap) Google map of the Melbourne city area, gray dots indicate all the sensor locations. The three locations highlighted will be analyzed in the paper: the State Library is a public library; Flagstaff Station is a train station, closed on non-work days; Birrarung Marr is an outdoor park hosting many cultural and sports events.
 
 ```{r time-series-plot, fig.height = 4.5, fig.cap = "(ref:time-series-plot)"}
 ```
