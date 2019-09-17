@@ -11,16 +11,24 @@ read_chunk('scripts/software.R')
 ```{r software-impact}
 ```
 
-A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories.
+A particular emphasis of this thesis is translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories, and Figure \@ref(fig:software-downloads) shows the daily downloads of the packages from the RStudio mirror (one of 90 CRAN mirrors) since they were available on CRAN.
 
 ```{r software-ghcommits, fig.height = 3, fig.cap = "(ref:software-ghcommits-cap)"}
 ```
 
 (ref:software-ghcommits-cap) Beeswarm plots of my Github commits to three repositories: sugrrants, tsibble, and mists during my PhD years.
 
+```{r software-stars}
+```
+
+```{r software-downloads, fig.height = 3, fig.cap = "(ref:software-downloads-cap)"}
+```
+
+(ref:software-downloads-cap) Daily downloads of sugrrants and tsibble from the RStudio mirror since they landed on CRAN.
+
 ### sugrrants
 
-The **sugrrants** package implements the idea of displaying data in the familiar calendar style in the `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There have been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror (one of 90 CRAN mirrors) dating from 2017-07-28 to `r Sys.Date()`; and it has been starred `r sugrrants_stars` times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
+The **sugrrants** package implements the idea of displaying data in the familiar calendar style in the `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There have been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror dating from 2017-07-28 to `r Sys.Date()`; and it has been starred `r sugrrants_stars` times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
 
 ### tsibble
 
