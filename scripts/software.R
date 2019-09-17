@@ -2,7 +2,7 @@
 library(gh)
 library(cranlogs)
 library(tidyverse)
-library(ggbeeswarm)
+library(lubridate)
 
 # credits to Luke Zappia
 # source: https://github.com/lazappi/phd-commits
@@ -54,10 +54,12 @@ pkgs <- bind_rows(sugrrants, tsibble, mists) %>%
   mutate(Package = fct_relevel(Package, my_pkgs))
 
 pkgs %>% 
-  ggplot(aes(x = When, y = fct_rev(Package), colour = Package)) +
-  geom_quasirandom(groupOnX = FALSE, size = 0.6) +
-  theme(legend.position = "none") +
-  ylab("Package")
+  group_by(Package, Week = tsibble::yearweek(When)) %>% 
+  summarise(Commits = n()) %>% 
+  ggplot(aes(x = Week, y = Commits)) +
+  geom_smooth(se = FALSE) +
+  geom_point() +
+  facet_grid(Package ~ .)
 
 ## ---- software-stars
 sugrrants_stars <- gh("/repos/:owner/:repo",

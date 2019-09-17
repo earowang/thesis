@@ -42,7 +42,7 @@ The **mists** package aims at exploring missing values for temporal data analyti
 
 ### Process for generating missing data in time
 
-Missing values in cross-sectional data are typically characterized by the overall, row-wise, and column-wise missings. However, neither captures the dynamics in temporal data. A well-defined characteristic is need to characterize temporal missingness, and this could possibly shed lights on the process for generating and imputing missing data in time.
+Missing values in multivariate data are typically characterized by the overall, row-wise, and column-wise missings. However, neither captures the dynamics in temporal data. A well-defined characteristic is need to characterize temporal missingness, and this could possibly shed lights on the process for generating and imputing missing data in time.
 
 Generating temporal missingness can be decomposed into two steps: (1) injecting missings at time points to reflect the functional form of time, and (2) generating the corresponding run lengths to reflect the temporal dependency. I will expand on Chapter \@ref(ch:mists), to generalize missing data generating processes in temporal contexts. Because of the evolving nature of time, the underpinning mechanisms of missing data may change from one period to another. Applying the new characteristic to the data, on a rolling window basis, could indicate the missing data status, and thus come up with appropriate missing data remedies.
 
