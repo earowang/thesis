@@ -183,14 +183,14 @@ The companion function `na_polish_autotrace()` documents the entire polishing pr
 ```{r wdi-load}
 ```
 
-The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018. It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at the first glance for further analyses.
+The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
 
 ```{r wdi-vis, fig.height = 7, fig.cap = "(ref:wdi-vis-cap)"}
 ```
 
 (ref:wdi-vis-cap) Missing data heatmap, with black for missing values and gray for present values. Pixels are arranged as the data cells, reflecting the missingness status. The amount of missings varies vastly by variables.
 
-A grid search is performed on this dataset to study the robustness of the polishing parameters $c$ and $\tau$. By setting $\tau$ to 0 and 0.1 respectively, a sequence of $c$, ranging from 0.4 (worst) to 0.9 (best) by 0.1, are passed to each polisher. This setup gives `r format(NROW(cutoff_grids) * 2, big.mark = ",")` possible combinations for the automatic polishing strategy to take place.
+A grid search on the polishing parameters $c$ and $\tau$ is performed on this dataset to study their robustness. After setting $\tau$ to 0 and 0.1 respectively, a sequence of $c$, ranging from 0.4 (worst) to 0.9 (best) by 0.1, are passed to each polisher. This setup gives `r format(NROW(cutoff_grids) * 2, big.mark = ",")` possible combinations for the automatic polishing strategy to take place.
 
 ```{r wdi-pass, fig.height = 3, fig.cap = "(ref:wdi-pass-cap)"}
 ```
@@ -202,14 +202,14 @@ A grid search is performed on this dataset to study the robustness of the polish
 
 (ref:wdi-grid-plot-cap) The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of $c$ can make a significant impact on `na_polish_key()` and `na_polish_measures()`, but little on polishing index.
 
-Figure \@ref(fig:wdi-pass) exhibits how many iterations needed to exit the polishing until $l \le \tau$ given the same set of $c$ when $\tau = 0$ or $\tau = 0.1$. If $\tau = 0$, the procedure can take up to 21 iterations to complete; but if $\tau = 0.1$, maximum 4 iterations are sufficient. The loss metric dramatically declines from iteration 1 to 2, with marginal decrease afterwards for both $\tau$. It suggests $\tau = 0.1$ is perhaps a right amount of tolerance and saves a considerable amount of computational time. When $\tau = 0.1$, Figure \@ref(fig:wdi-grid-plot) shows the influence of different $c$ on the polishing results. Following the rule of minimizing the loss (i.e. maximizing the proportion of missing values while minimizing the proportion of removed data), the polishers `na_polish_index()`, `na_polish_key()`, and `na_polish_measures()`, suggest that 0.5 is a good candidate of $c$. No matter which value $c$ takes, the `na_polish_index2()` polisher behaves constantly.
+Figure \@ref(fig:wdi-pass) exhibits the number of iterations needed to exit the polishing,with $l \le \tau$ given the same set of $c$ when $\tau = 0$ or $\tau = 0.1$. If $\tau = 0$, the procedure can take up to 21 iterations to complete; but if $\tau = 0.1$, maximum 4 iterations are sufficient. The loss metric dramatically declines from iteration 1 to 2, with a marginal decrease afterwards for both $\tau$. It suggests $\tau = 0.1$ is perhaps a right amount of tolerance and saves a considerable amount of computational time. When $\tau = 0.1$, Figure \@ref(fig:wdi-grid-plot) shows the influence of different values of $c$ on the polishing results. Following the rule of minimizing the loss (i.e. maximizing the proportion of missing values while minimizing the proportion of removed data), the polishers `na_polish_index()`, `na_polish_key()`, and `na_polish_measures()`, suggest that 0.5 is a good candidate of $c$. No matter which value $c$ takes, the `na_polish_index2()` polisher behaves constantly.
 
 ```{r wdi-polished-vis, fig.height = 7, fig.cap = "(ref:wdi-polished-vis-cap)"}
 ```
 
 (ref:wdi-polished-vis-cap) Missingness heatmap for the polished data. The polished data gives 11.8% missing values, compared to 44.9% in Figure \@ref(fig:wdi-vis).
 
-Using $c = 0.5$ for each polisher and $\tau = 0.1$, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 columns and 6,304 rows including 37 countries, the polished data ends up with 11.8% missing values. Figure \@ref(fig:wdi-polished-vis) displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks greatly in size, and appears less intimidating to work with.
+Using $c = 0.5$ for each polisher and $\tau = 0.1$, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 columns and 6,304 rows including 37 countries, the polished data ends up with 11.8% missing values. Figure \@ref(fig:wdi-polished-vis) displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks greatly in size, but is much more complete, making it more feasible to impute and do further analysis.
 
 The polishing techniques prepare the data for imputation, and in turn for models. Figure \@ref(fig:mists-pipeline) visualized the pipeline that the data filters in and out, from polishing to modeling. A subset of polished data, China's estimates, is ready for further examination. In this subset, 14 out of 29 measurements contain missing data. The jailbird plot is used to highlight the blocks of missings, shown as Figure \@ref(fig:wdi-chn-imputed). The red dots are the imputed values using the Stineman interpolation [@stineman; @R-stinepack] for each series, which generate well-behaved interpolation. The complete data set with imputed values is fed into the Exponential Smoothing models (ETS) and forecast for the next three years. Figure \@ref(fig:wdi-chn-ets) shows the point forecasts with 80% and 95% prediction intervals. If not imputed, ETS would complain about not supporting missing values straightway.
 
@@ -234,7 +234,7 @@ include_graphics("img/mists-pipeline.png")
 
 ### Melbourne pedestrian sensors
 
-Many sensors have been installed that track hourly pedestrian tallies in downtown Melbourne [@ped], in order to understand people's daily rhythms at the city level, as part of the emerging smart city plan. Sensors may fail for periods of time. Figure \@ref(fig:pedestrian-rangeplot) illustrates the distributions of missingness (which we read as failures) in 2016 across 43 sensors, using the range plot organized from the most missing sensor to the least.
+Many sensors have been installed that track hourly pedestrian tallies in downtown Melbourne [@ped], as part of the emerging smart city plan. It is valuable for understanding the rhythm of daily life of people in the city. There are numerous missing values, likely due to sensors failing for periods of time. Figure \@ref(fig:pedestrian-rangeplot) illustrates the distributions of missingness in 2016 across 43 sensors, using the range plot organized from the most missing sensor to the least.
 
 ```{r pedestrian-load}
 ```
@@ -254,12 +254,12 @@ Many sensors have been installed that track hourly pedestrian tallies in downtow
 
 (ref:spencer-jailbird-cap) The jailbird with colored imputed data using the seasonal split method for the sensor at Spencer Street from 2016 August to December. Strong seasonal features are prominent in the original data, but it is hard to detect the seasonal pattern from the imputed data.
 
-Contrasting the WDI dataset, the pedestrian data features multiple seasonal components: time of day, day of week, and public holidays, which can be seen in Figure \@ref(fig:spencer-jailbird) and \@ref(fig:spencer-imputes). The imputed values, using the seasonal split method available in the **imputeTS** package, are drawn as red points with the gray background. They appear to fall in the reasonable range, but it is hard to assess if the seasonality has been taken into account. Figure \@ref(fig:spencer-imputes) splits the series into work and non-work days, colored by imputed and actual data. The imputation follows closely to the daily shape, but ignores the weekly pattern. Thereby, the imputed results are perhaps underestimated. 
+In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure \@ref(fig:spencer-jailbird), overlays imputed values (red), computed using the seasonal split method available in the **imputeTS** package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure \@ref(fig:spencer-imputes) drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method doesn't perform well with the multiple seasonality. 
 
 ```{r spencer-imputes, fig.height = 4, fig.cap = "(ref:spencer-imputes-cap)"}
 ```
 
-(ref:spencer-imputes-cap) Data split by two panels, work versus non-work days. The imputation (purple lines) grasps the key moments (morning and afternoon commutes, and lunch break) in a work day, but is unable to build the non-work profile.
+(ref:spencer-imputes-cap) Examining the daily seasonality, relative to the work day vs not components, using faceted line plots. The imputation (purple) grasps the key moments (morning and afternoon commutes, and lunch break) in a work day, but is unable to build the non-work profile.
 
 ## Conclusion {#sec:mists-conclusion}
 

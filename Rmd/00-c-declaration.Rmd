@@ -34,7 +34,7 @@ I have not renumbered sections of submitted or published papers in order to gene
 
 \textbf{Student signature:}
 
-```{r signature, out.width = "0.2\\linewidth"}
+```{r signature, out.width = "20%", fig.align = "left"}
 if (file.exists("img/signature.png")) knitr::include_graphics("img/signature.png")
 ```
 

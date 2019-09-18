@@ -1,6 +1,6 @@
 # Conclusion and future plans {#ch:conclusion}
 
-The three papers assembled in this thesis share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "[TODO]", demystified missing data in time. These papers are bundled with software. In this conclusion, I will briefly summarize each package and their impact, and discuss the future directions of my research.
+The three papers assembled in this thesis share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "Data representation, visual and analytical techniques for demystifying temporal missing data", demystified missing data in time. These papers are bundled with software. In this conclusion, I will briefly summarize each package and their impact, and discuss the future directions of my research.
 
 ```{r software-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('scripts/software.R')
