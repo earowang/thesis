@@ -2,7 +2,7 @@ book_filename: "thesis"
 language:
   ui:
     chapter_name: "Chapter "
-rmd_subdir: true
+rmd_subdir: ["Rmd/"]
 output_dir: _thesis
 delete_merged_file: true
 clean: [thesisrefs.bib.bbl, thesisrefs.bib.blg, thesis.run.xml]

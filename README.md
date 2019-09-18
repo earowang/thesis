@@ -6,9 +6,9 @@ This repo contains source files for my PhD thesis titled, "Tidy tools for suppor
 
 Since this repo contains two large data files (>= 50MB), you need to first download and install a git plugin called [`git-lfs`](https://git-lfs.github.com) for versioning large files, and set up Git LFS using command `git lfs install` in console, in order to fully clone this repo.
 
-## Reproducible research
+## Reproducible research using `renv`
 
-This research project uses the [renv](https://rstudio.github.io/renv/) package to create reproducible environments. A project-specific library will be created when you open this repo with R. Run `renv::restore()` to install the same versions of packages that are used to produce this manuscript.
+This research project uses the [renv](https://rstudio.github.io/renv/) package to create reproducible environments. A project-specific library will be created when you open this project with R/RStudio. Run `renv::restore()` to install a long list of packages with the same versions that are used to produce this manuscript.
 
 ## Directories
 
