@@ -19,9 +19,6 @@ include_graphics("img/pkg-commits.png")
 
 (ref:software-ghcommits-cap) Scatter plots of my weekly Git commits to three repositories, sugrrants, tsibble, and mists, during my PhD years.
 
-```{r software-stars}
-```
-
 ```{r software-downloads, fig.height = 3, fig.cap = "(ref:software-downloads-cap)"}
 ```
 
@@ -29,15 +26,15 @@ include_graphics("img/pkg-commits.png")
 
 ### sugrrants
 
-The **sugrrants** package implements the idea of displaying data in the familiar calendar style using `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There has been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror dating from 2017-07-28 to `r Sys.Date()`; and it has been starred `r sugrrants_stars` times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
+The **sugrrants** package implements the idea of displaying data in the familiar calendar style using `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There has been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror dating from 2017-07-28 to `r Sys.Date()`; and it has been starred 48 times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
 
 ### tsibble
 
-The **tsibble** package provides a data infrastructure and a domain specific language in R for representing and manipulating tidy temporal data. This package provides the fundamental architecture that other temporal tools will be built upon. For example, a new suite of time series analysis packages, titled ["tidyverts"](https://github.com/tidyverts), have been developed for the new "tsibble" object. The **tsibble** package has won the 2019 John Chambers Statistical Software Award from the ASA Sections on Statistical Computing and Statistical Graphics. It has been downloaded `r format(sum(tsibble_dl$count), big.mark = ",")` times from the RStudio mirror since it landed on CRAN; and it has received `r tsibble_stars` stars on Github. These metrics are the indicators of my research impact, the recognition by professionals, and the uptakes by users. The website (<https://tsibble.tidyverts.org>) includes full documentation and three vignettes about the package usage.
+The **tsibble** package provides a data infrastructure and a domain specific language in R for representing and manipulating tidy temporal data. This package provides the fundamental architecture that other temporal tools will be built upon. For example, a new suite of time series analysis packages, titled ["tidyverts"](https://github.com/tidyverts), have been developed for the new "tsibble" object. The **tsibble** package has won the 2019 John Chambers Statistical Software Award from the ASA Sections on Statistical Computing and Statistical Graphics. It has been downloaded `r format(sum(tsibble_dl$count), big.mark = ",")` times from the RStudio mirror since it landed on CRAN; and it has received 241 stars on Github. These metrics are the indicators of my research impact, the recognition by professionals, and the uptakes by users. The website (<https://tsibble.tidyverts.org>) includes full documentation and three vignettes about the package usage.
 
 ### mists
 
-The **mists** package aims at exploring missing values for temporal data analytically and graphically. It implements a compact abstraction for efficiently indexing missing data in time, along with numerical and visual methods. It also provides new missing data polishing techniques. The Github repository has received `r mists_stars` stars, but the package is not on CRAN yet. The documentation site is available at <https://pkg.earo.me/mists>.
+The **mists** package aims at exploring missing values for temporal data analytically and graphically. It implements a compact abstraction for efficiently indexing missing data in time, along with numerical and visual methods. It also provides new missing data polishing techniques. The Github repository has received 22 stars, but the package is not on CRAN yet. The documentation site is available at <https://pkg.earo.me/mists>.
 
 ## Future work
 
