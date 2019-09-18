@@ -244,10 +244,7 @@ Many sensors have been installed that track hourly pedestrian tallies in downtow
 
 (ref:pedestrian-rangeplot-cap) The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data.
 
-```{r spencer-spinoplot, fig.height = 3, fig.width = 3, out.width = "0.5\\linewidth", fig.cap = "(ref:spencer-spinoplot-cap)", eval = is_latex_output()}
-```
-
-```{r spencer-spinoplot, fig.height = 3, fig.width = 3, fig.cap = "(ref:spencer-spinoplot-cap)", eval = is_html_output()}
+```{r spencer-spinoplot, fig.height = 3, fig.width = 3, out.width = "40%", fig.cap = "(ref:spencer-spinoplot-cap)"}
 ```
 
 (ref:spencer-spinoplot-cap) The gasp plot for missings at Spencer St-Collins St (South), with six disjoint runs coupled with the frequencies of one to four.

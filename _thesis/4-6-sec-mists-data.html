@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis</title>
+  <meta name="description" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  
+  
+  
+
+<meta name="author" content="Earo Wang" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="4-5-sec-mists-polish.html"/>
+<link rel="next" href="4-7-sec-mists-conclusion.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="template/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Temporal tidy tools</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#open-and-reproducible-research"><i class="fa fa-check"></i>Open and reproducible research</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-ch-intro.html"><a href="1-ch-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-1-sec-calendar-vis.html"><a href="1-1-sec-calendar-vis.html"><i class="fa fa-check"></i><b>1.1</b> Calendar-based graphics</a></li>
+<li class="chapter" data-level="1.2" data-path="1-2-sec-tsibble.html"><a href="1-2-sec-tsibble.html"><i class="fa fa-check"></i><b>1.2</b> Tidy temporal data structure</a></li>
+<li class="chapter" data-level="1.3" data-path="1-3-sec-mists.html"><a href="1-3-sec-mists.html"><i class="fa fa-check"></i><b>1.3</b> Missingness in time</a></li>
+<li class="chapter" data-level="1.4" data-path="1-4-summary.html"><a href="1-4-summary.html"><i class="fa fa-check"></i><b>1.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-ch-calendar-vis.html"><a href="2-ch-calendar-vis.html"><i class="fa fa-check"></i><b>2</b> Calendar-based graphics for visualizing people’s daily schedules</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-1-introduction.html"><a href="2-1-introduction.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html"><i class="fa fa-check"></i><b>2.2</b> Creating a calendar display</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:transformation"><i class="fa fa-check"></i><b>2.2.1</b> Data transformation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:opt"><i class="fa fa-check"></i><b>2.2.2</b> Options</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#sec:variations"><i class="fa fa-check"></i><b>2.2.3</b> Varieties of calendar display</a></li>
+<li class="chapter" data-level="2.2.4" data-path="2-2-sec-algorithm.html"><a href="2-2-sec-algorithm.html#reasons-to-use-calendar-based-graphics"><i class="fa fa-check"></i><b>2.2.4</b> Reasons to use calendar-based graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-3-sec-case.html"><a href="2-3-sec-case.html"><i class="fa fa-check"></i><b>2.3</b> Case study</a></li>
+<li class="chapter" data-level="2.4" data-path="2-4-sec-discussion.html"><a href="2-4-sec-discussion.html"><i class="fa fa-check"></i><b>2.4</b> Discussion</a></li>
+<li class="chapter" data-level="" data-path="acknowledgements-1.html"><a href="acknowledgements-1.html"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-ch-tsibble.html"><a href="3-ch-tsibble.html"><i class="fa fa-check"></i><b>3</b> A new tidy data structure to support exploration and modeling of temporal data</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-1-sec-intro.html"><a href="3-1-sec-intro.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html"><i class="fa fa-check"></i><b>3.2</b> Data structures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#sec:time-series"><i class="fa fa-check"></i><b>3.2.1</b> Comparing time series and longitudinal data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#existing-data-standards"><i class="fa fa-check"></i><b>3.2.2</b> Existing data standards</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-2-sec-str.html"><a href="3-2-sec-str.html#tidy-data"><i class="fa fa-check"></i><b>3.2.3</b> Tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html"><i class="fa fa-check"></i><b>3.3</b> Contextual semantics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:index"><i class="fa fa-check"></i><b>3.3.1</b> Index</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:key"><i class="fa fa-check"></i><b>3.3.2</b> Key</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3-3-sec-semantics.html"><a href="3-3-sec-semantics.html#sec:interval"><i class="fa fa-check"></i><b>3.3.3</b> Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html"><i class="fa fa-check"></i><b>3.4</b> Temporal data pipelines</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:timepipeline"><i class="fa fa-check"></i><b>3.4.1</b> Transformation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-vis"><i class="fa fa-check"></i><b>3.4.2</b> Visualization</a></li>
+<li class="chapter" data-level="3.4.3" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#sec:ts-models"><i class="fa fa-check"></i><b>3.4.3</b> Model</a></li>
+<li class="chapter" data-level="3.4.4" data-path="3-4-sec-pipeline.html"><a href="3-4-sec-pipeline.html#summary-1"><i class="fa fa-check"></i><b>3.4.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html"><i class="fa fa-check"></i><b>3.5</b> Software structure and design decisions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#data-first"><i class="fa fa-check"></i><b>3.5.1</b> Data first</a></li>
+<li class="chapter" data-level="3.5.2" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#functional-programming"><i class="fa fa-check"></i><b>3.5.2</b> Functional programming</a></li>
+<li class="chapter" data-level="3.5.3" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#modularity"><i class="fa fa-check"></i><b>3.5.3</b> Modularity</a></li>
+<li class="chapter" data-level="3.5.4" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#extensibility"><i class="fa fa-check"></i><b>3.5.4</b> Extensibility</a></li>
+<li class="chapter" data-level="3.5.5" data-path="3-5-sec-software.html"><a href="3-5-sec-software.html#tidy-evaluation"><i class="fa fa-check"></i><b>3.5.5</b> Tidy evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html"><i class="fa fa-check"></i><b>3.6</b> Case studies</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#on-time-performance-for-domestic-flights-in-u.s.a"><i class="fa fa-check"></i><b>3.6.1</b> On-time performance for domestic flights in U.S.A</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-sec-cases.html"><a href="3-6-sec-cases.html#smart-grid-customer-data-in-australia"><i class="fa fa-check"></i><b>3.6.2</b> Smart-grid customer data in Australia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-1-sec-mists-intro.html"><a href="4-1-sec-mists-intro.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="4-2-sec-mists-categories.html"><a href="4-2-sec-mists-categories.html"><i class="fa fa-check"></i><b>4.2</b> Categories of temporal missing data</a></li>
+<li class="chapter" data-level="4.3" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html"><i class="fa fa-check"></i><b>4.3</b> New data abstraction and operations for missing data in time</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#new-encoding-for-indexing-missing-data-by-time"><i class="fa fa-check"></i><b>4.3.1</b> New encoding for indexing missing data by time</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#supporting-functions-operating-on-rle-na"><i class="fa fa-check"></i><b>4.3.2</b> Supporting functions operating on RLE &lt;<code>NA</code>&gt;</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html"><i class="fa fa-check"></i><b>4.4</b> Visual methods for exploring temporal missingness</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-distributions"><i class="fa fa-check"></i><b>4.4.1</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-aggregations"><i class="fa fa-check"></i><b>4.4.2</b> Visualizing aggregations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html"><i class="fa fa-check"></i><b>4.5</b> Scaling up to large collections of temporal data</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#polishing-missing-data-by-variables-and-observations"><i class="fa fa-check"></i><b>4.5.1</b> Polishing missing data by variables and observations</a></li>
+<li class="chapter" data-level="4.5.2" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#formulating-polishing-strategies"><i class="fa fa-check"></i><b>4.5.2</b> Formulating polishing strategies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Application</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#world-development-indicators"><i class="fa fa-check"></i><b>4.6.1</b> World development indicators</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#melbourne-pedestrian-sensors"><i class="fa fa-check"></i><b>4.6.2</b> Melbourne pedestrian sensors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="4-7-sec-mists-conclusion.html"><a href="4-7-sec-mists-conclusion.html"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5-1-software-development.html"><a href="5-1-software-development.html#tsibble"><i class="fa fa-check"></i><b>5.1.2</b> tsibble</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5-1-software-development.html"><a href="5-1-software-development.html#mists"><i class="fa fa-check"></i><b>5.1.3</b> mists</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-2-future-work.html"><a href="5-2-future-work.html#process-for-generating-missing-data-in-time"><i class="fa fa-check"></i><b>5.2.1</b> Process for generating missing data in time</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html#visual-methods-for-temporal-data-of-nesting-and-crossing-interactions"><i class="fa fa-check"></i><b>5.2.2</b> Visual methods for temporal data of nesting and crossing interactions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tidy tools for supporting fluent workflow in temporal data analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:mists-data" class="section level2">
+<h2><span class="header-section-number">4.6</span> Application</h2>
+<div id="world-development-indicators" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> World development indicators</h3>
+<p>The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the <span class="citation">World Bank Group (<a href="bibliography.html#ref-wdi">2019</a>)</span>. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018. It contains 10,850 observations with 44.9% of missing values in the measurements. Figure <a href="4-6-sec-mists-data.html#fig:wdi-vis">4.7</a> gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at the first glance for further analyses.</p>
+<div class="figure" style="text-align: center"><span id="fig:wdi-vis"></span>
+<img src="figure/wdi-vis-1.png" alt="Missing data heatmap, with black for missing values and gray for present values. Pixels are arranged as the data cells, reflecting the missingness status. The amount of missings varies vastly by variables." width="100%" />
+<p class="caption">
+Figure 4.7: Missing data heatmap, with black for missing values and gray for present values. Pixels are arranged as the data cells, reflecting the missingness status. The amount of missings varies vastly by variables.
+</p>
+</div>
+
+<p>A grid search is performed on this dataset to study the robustness of the polishing parameters <span class="math inline">\(c\)</span> and <span class="math inline">\(\tau\)</span>. By setting <span class="math inline">\(\tau\)</span> to 0 and 0.1 respectively, a sequence of <span class="math inline">\(c\)</span>, ranging from 0.4 (worst) to 0.9 (best) by 0.1, are passed to each polisher. This setup gives 2,592 possible combinations for the automatic polishing strategy to take place.</p>
+<div class="figure" style="text-align: center"><span id="fig:wdi-pass"></span>
+<img src="figure/wdi-pass-1.png" alt="The loss metrics against the number of iterations conditional on two tolerance values. When \(\tau = 0\), it can take the number of iterations up to 21, with marginal improvements from the second iteration onwards." width="100%" />
+<p class="caption">
+Figure 4.8: The loss metrics against the number of iterations conditional on two tolerance values. When <span class="math inline">\(\tau = 0\)</span>, it can take the number of iterations up to 21, with marginal improvements from the second iteration onwards.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:wdi-grid-plot"></span>
+<img src="figure/wdi-grid-plot-1.png" alt="The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of \(c\) can make a significant impact on na_polish_key() and na_polish_measures(), but little on polishing index." width="100%" />
+<p class="caption">
+Figure 4.9: The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of <span class="math inline">\(c\)</span> can make a significant impact on <code>na_polish_key()</code> and <code>na_polish_measures()</code>, but little on polishing index.
+</p>
+</div>
+
+<p>Figure <a href="4-6-sec-mists-data.html#fig:wdi-pass">4.8</a> exhibits how many iterations needed to exit the polishing until <span class="math inline">\(l \le \tau\)</span> given the same set of <span class="math inline">\(c\)</span> when <span class="math inline">\(\tau = 0\)</span> or <span class="math inline">\(\tau = 0.1\)</span>. If <span class="math inline">\(\tau = 0\)</span>, the procedure can take up to 21 iterations to complete; but if <span class="math inline">\(\tau = 0.1\)</span>, maximum 4 iterations are sufficient. The loss metric dramatically declines from iteration 1 to 2, with marginal decrease afterwards for both <span class="math inline">\(\tau\)</span>. It suggests <span class="math inline">\(\tau = 0.1\)</span> is perhaps a right amount of tolerance and saves a considerable amount of computational time. When <span class="math inline">\(\tau = 0.1\)</span>, Figure <a href="4-6-sec-mists-data.html#fig:wdi-grid-plot">4.9</a> shows the influence of different <span class="math inline">\(c\)</span> on the polishing results. Following the rule of minimizing the loss (i.e. maximizing the proportion of missing values while minimizing the proportion of removed data), the polishers <code>na_polish_index()</code>, <code>na_polish_key()</code>, and <code>na_polish_measures()</code>, suggest that 0.5 is a good candidate of <span class="math inline">\(c\)</span>. No matter which value <span class="math inline">\(c\)</span> takes, the <code>na_polish_index2()</code> polisher behaves constantly.</p>
+<div class="figure" style="text-align: center"><span id="fig:wdi-polished-vis"></span>
+<img src="figure/wdi-polished-vis-1.png" alt="Missingness heatmap for the polished data. The polished data gives 11.8% missing values, compared to 44.9% in Figure 4.7." width="100%" />
+<p class="caption">
+Figure 4.10: Missingness heatmap for the polished data. The polished data gives 11.8% missing values, compared to 44.9% in Figure <a href="4-6-sec-mists-data.html#fig:wdi-vis">4.7</a>.
+</p>
+</div>
+
+<p>Using <span class="math inline">\(c = 0.5\)</span> for each polisher and <span class="math inline">\(\tau = 0.1\)</span>, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 columns and 6,304 rows including 37 countries, the polished data ends up with 11.8% missing values. Figure <a href="4-6-sec-mists-data.html#fig:wdi-polished-vis">4.10</a> displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks greatly in size, and appears less intimidating to work with.</p>
+<p>The polishing techniques prepare the data for imputation, and in turn for models. Figure <a href="4-6-sec-mists-data.html#fig:mists-pipeline">4.11</a> visualized the pipeline that the data filters in and out, from polishing to modeling. A subset of polished data, China’s estimates, is ready for further examination. In this subset, 14 out of 29 measurements contain missing data. The jailbird plot is used to highlight the blocks of missings, shown as Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-imputed">4.12</a>. The red dots are the imputed values using the Stineman interpolation <span class="citation">(Stineman <a href="bibliography.html#ref-stineman">1980</a>; Halldor Bjornsson and Grothendieck <a href="bibliography.html#ref-R-stinepack">2018</a>)</span> for each series, which generate well-behaved interpolation. The complete data set with imputed values is fed into the Exponential Smoothing models (ETS) and forecast for the next three years. Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-ets">4.13</a> shows the point forecasts with 80% and 95% prediction intervals. If not imputed, ETS would complain about not supporting missing values straightway.</p>
+<div class="figure" style="text-align: center"><span id="fig:mists-pipeline"></span>
+<img src="img/mists-pipeline.png" alt="The pipeline demonstrates the sequence of functions required for modeling data with a large amount of missings. It begins with the polishing, and then transform, interpolate, model, and forecast." width="100%" />
+<p class="caption">
+Figure 4.11: The pipeline demonstrates the sequence of functions required for modeling data with a large amount of missings. It begins with the polishing, and then transform, interpolate, model, and forecast.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:wdi-chn-imputed"></span>
+<img src="figure/wdi-chn-imputed-1.png" alt="The jailbird plot with imputed values highlighted for the subset of 14 measurements in China. The gaps are filled with the well-behaved values between actual data points." width="100%" />
+<p class="caption">
+Figure 4.12: The jailbird plot with imputed values highlighted for the subset of 14 measurements in China. The gaps are filled with the well-behaved values between actual data points.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:wdi-chn-ets"></span>
+<img src="figure/wdi-chn-ets-1.png" alt="Three-year forecasts built with ETS models using the polished and imputed data." width="100%" />
+<p class="caption">
+Figure 4.13: Three-year forecasts built with ETS models using the polished and imputed data.
+</p>
+</div>
+
+</div>
+<div id="melbourne-pedestrian-sensors" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Melbourne pedestrian sensors</h3>
+<p>Many sensors have been installed that track hourly pedestrian tallies in downtown Melbourne <span class="citation">(City of Melbourne <a href="bibliography.html#ref-ped">2017</a>)</span>, in order to understand people’s daily rhythms at the city level, as part of the emerging smart city plan. Sensors may fail for periods of time. Figure <a href="4-6-sec-mists-data.html#fig:pedestrian-rangeplot">4.14</a> illustrates the distributions of missingness (which we read as failures) in 2016 across 43 sensors, using the range plot organized from the most missing sensor to the least.</p>
+<div class="figure" style="text-align: center"><span id="fig:pedestrian-rangeplot"></span>
+<img src="figure/pedestrian-rangeplot-1.png" alt="The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data." width="100%" />
+<p class="caption">
+Figure 4.14: The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:spencer-spinoplot"></span>
+<img src="figure/spencer-spinoplot-1.png" alt="The gasp plot for missings at Spencer St-Collins St (South), with six disjoint runs coupled with the frequencies of one to four." width="50%" />
+<p class="caption">
+Figure 4.15: The gasp plot for missings at Spencer St-Collins St (South), with six disjoint runs coupled with the frequencies of one to four.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:spencer-jailbird"></span>
+<img src="figure/spencer-jailbird-1.png" alt="The jailbird with colored imputed data using the seasonal split method for the sensor at Spencer Street from 2016 August to December. Strong seasonal features are prominent in the original data, but it is hard to detect the seasonal pattern from the imputed data." width="100%" />
+<p class="caption">
+Figure 4.16: The jailbird with colored imputed data using the seasonal split method for the sensor at Spencer Street from 2016 August to December. Strong seasonal features are prominent in the original data, but it is hard to detect the seasonal pattern from the imputed data.
+</p>
+</div>
+
+<p>Contrasting the WDI dataset, the pedestrian data features multiple seasonal components: time of day, day of week, and public holidays, which can be seen in Figure <a href="4-6-sec-mists-data.html#fig:spencer-jailbird">4.16</a> and <a href="4-6-sec-mists-data.html#fig:spencer-imputes">4.17</a>. The imputed values, using the seasonal split method available in the <strong>imputeTS</strong> package, are drawn as red points with the gray background. They appear to fall in the reasonable range, but it is hard to assess if the seasonality has been taken into account. Figure <a href="4-6-sec-mists-data.html#fig:spencer-imputes">4.17</a> splits the series into work and non-work days, colored by imputed and actual data. The imputation follows closely to the daily shape, but ignores the weekly pattern. Thereby, the imputed results are perhaps underestimated.</p>
+<div class="figure" style="text-align: center"><span id="fig:spencer-imputes"></span>
+<img src="figure/spencer-imputes-1.png" alt="Data split by two panels, work versus non-work days. The imputation (purple lines) grasps the key moments (morning and afternoon commutes, and lunch break) in a work day, but is unable to build the non-work profile." width="100%" />
+<p class="caption">
+Figure 4.17: Data split by two panels, work versus non-work days. The imputation (purple lines) grasps the key moments (morning and afternoon commutes, and lunch break) in a work day, but is unable to build the non-work profile.
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="4-5-sec-mists-polish.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-7-sec-mists-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/earowang/thesis/edit/master/Rmd//04-mists.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["thesis.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

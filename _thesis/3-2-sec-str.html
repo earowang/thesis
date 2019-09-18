@@ -185,7 +185,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a></li>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-1-sec-mists-intro.html"><a href="4-1-sec-mists-intro.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="4-2-sec-mists-categories.html"><a href="4-2-sec-mists-categories.html"><i class="fa fa-check"></i><b>4.2</b> Categories of temporal missing data</a></li>
+<li class="chapter" data-level="4.3" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html"><i class="fa fa-check"></i><b>4.3</b> New data abstraction and operations for missing data in time</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#new-encoding-for-indexing-missing-data-by-time"><i class="fa fa-check"></i><b>4.3.1</b> New encoding for indexing missing data by time</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#supporting-functions-operating-on-rle-na"><i class="fa fa-check"></i><b>4.3.2</b> Supporting functions operating on RLE &lt;<code>NA</code>&gt;</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html"><i class="fa fa-check"></i><b>4.4</b> Visual methods for exploring temporal missingness</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-distributions"><i class="fa fa-check"></i><b>4.4.1</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-aggregations"><i class="fa fa-check"></i><b>4.4.2</b> Visualizing aggregations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html"><i class="fa fa-check"></i><b>4.5</b> Scaling up to large collections of temporal data</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#polishing-missing-data-by-variables-and-observations"><i class="fa fa-check"></i><b>4.5.1</b> Polishing missing data by variables and observations</a></li>
+<li class="chapter" data-level="4.5.2" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#formulating-polishing-strategies"><i class="fa fa-check"></i><b>4.5.2</b> Formulating polishing strategies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Application</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#world-development-indicators"><i class="fa fa-check"></i><b>4.6.1</b> World development indicators</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#melbourne-pedestrian-sensors"><i class="fa fa-check"></i><b>4.6.2</b> Melbourne pedestrian sensors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="4-7-sec-mists-conclusion.html"><a href="4-7-sec-mists-conclusion.html"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
@@ -236,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="citation">Wickham (<a href="bibliography.html#ref-wickham2014tidy">2014</a>)</span> coined the term “tidy data”, to standardize the mapping of the semantics of a dataset to its physical representation. In tidy form, rows correspond to observations and columns to variables. Tidy data is a rephrasing of the second and third normal forms from relational databases <span class="citation">(Codd <a href="bibliography.html#ref-codd_relational_1970">1970</a>)</span>, but the explanation in terms of observations and variables is easier to understand because it uses statistical terminology.</p>
 <p>Multiple time series, with each column corresponding to a measurement is tidy data when the time index is explicitly stored in a column. The stacked data format used in longitudinal data is tidy, and accommodates explicit identification of sub-groups.</p>
 <p>The tidy data structure is the fundamental unit of the <strong>tidyverse</strong>, which is a collection of R packages designed for data science. The ubiquitous use of the <strong>tidyverse</strong> is testament to the simplicity, practicality and general applicability of the tools. The <strong>tidyverse</strong> provides abstract yet functional grammars to manipulate and visualize data in easier-to-comprehend form. One of the <strong>tidyverse</strong> packages, <strong>dplyr</strong> <span class="citation">(H. Wickham, François, et al. <a href="bibliography.html#ref-R-dplyr">2019</a>)</span>, showcases the value of a grammar as a principled vehicle to transform data for a wide range of data challenges, providing a consistent set of verbs: <code>mutate()</code>, <code>select()</code>, <code>filter()</code>, <code>summarize()</code>, and <code>arrange()</code>. Each verb focuses on a singular task. Most common data tasks can be rephrased and tackled with these five key verbs, in conjunction with <code>group_by()</code> to perform grouped operations.</p>
-<p>The <strong>tidyverse</strong> largely formalizes exploratory data analysis. Many in the R community have adopted the <strong>tidyverse</strong> way of thinking and extended it to broader domains, such as simple features for spatial data in the <strong>sf</strong> package <span class="citation">(Pebesma <a href="bibliography.html#ref-RJ-2018-009">2018</a>)</span> and missing value handling in the <strong>naniar</strong> package <span class="citation">(Tierney and Cook <a href="bibliography.html#ref-tierney-naniar-2018">2018</a>)</span>. This paper extends the tidy way of thinking to temporal data, which is implemented in the <strong>tsibble</strong> R package <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2019</a><a href="bibliography.html#ref-R-tsibble">b</a>)</span>.</p>
+<p>The <strong>tidyverse</strong> largely formalizes exploratory data analysis. Many in the R community have adopted the <strong>tidyverse</strong> way of thinking and extended it to broader domains, such as simple features for spatial data in the <strong>sf</strong> package <span class="citation">(Pebesma <a href="bibliography.html#ref-RJ-2018-009">2018</a>)</span> and missing value handling in the <strong>naniar</strong> package <span class="citation">(Tierney and Cook <a href="bibliography.html#ref-tierney-naniar-2018">2018</a><a href="bibliography.html#ref-tierney-naniar-2018">a</a>)</span>. This paper extends the tidy way of thinking to temporal data, which is implemented in the <strong>tsibble</strong> R package <span class="citation">(Wang, Cook, and Hyndman <a href="bibliography.html#ref-R-tsibble">2019</a><a href="bibliography.html#ref-R-tsibble">c</a>)</span>.</p>
 <p>For temporal data, the tidy definition needs additional criteria, that assist in handling the time context. This is addressed in the next section, and encompasses both time series and longitudinal data. It provides a unified framework to streamline the workflow from data preprocessing to visualization and modeling, as an integral part of a tidy data analysis.</p>
 </div>
 </div>
@@ -276,7 +296,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/earowang/thesis/edit/master/Rmd/03-tsibble.Rmd",
+"link": "https://github.com/earowang/thesis/edit/master/Rmd//03-tsibble.Rmd",
 "text": "Edit"
 },
 "history": {

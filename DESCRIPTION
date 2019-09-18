@@ -16,6 +16,8 @@ Depends:
     forcats (>= 0.4.0),
     gganimate (>= 1.0.3),
     ggmap (>= 3.0.0),
+    gifski (>= 0.8.6),
+    hms (>= 0.5.1),
     imputeTS (>= 3.0),
     kableExtra (>= 1.1.0),
     knitr (>= 1.24),
@@ -29,15 +31,15 @@ Depends:
     tidyverse (>= 1.2.1),
     tsibble (>= 0.8.4),
     vctrs (>= 0.2.0),
-    hms (>= 0.5.1)
+    visdat (>= 0.5.3)
 Imports:
     cranlogs (>= 2.1.1),
-    magick (>= 2.2),
-    spelling (>= 2.1),
-    git2r (>= 0.26.1),
-    ggrepel (>= 0.8.1),
     fs (>= 1.3.1),
-    ggbeeswarm (>= 0.6.0)
+    ggbeeswarm (>= 0.6.0),
+    ggrepel (>= 0.8.1),
+    git2r (>= 0.26.1),
+    magick (>= 2.2),
+    spelling (>= 2.1)
 Remotes:
     earowang/mists,
     thomasp85/patchwork,

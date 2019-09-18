@@ -19,7 +19,7 @@ A routine examination of the data would involve constructing a time series plot 
 
 Faceting, initially called trellis displays [@becker_visual_1996], is an example of a small multiple [@tufte1983visual], where different subsets of the same data are displayed across one or more conditioning variables. It allows the comparison of subsets. Faceting can also be thought of as a simple ensemble graphic [@unwin_ensemble_2018]. It is a homogeneous collection of plots, whereas the ensemble graphics broadly organize related plots for a data set together into one display.
 
-```{r ped-map, fig.width = 7, fig.cap = "(ref:ped-map-cap)"}
+```{r ped-map, fig.width = 7, out.width = "70%", fig.cap = "(ref:ped-map-cap)"}
 ```
 
 (ref:ped-map-cap) Google map of the Melbourne city area, gray dots indicate all the sensor locations. The three locations highlighted will be analyzed in the paper: the State Library is a public library; Flagstaff Station is a train station, closed on non-work days; Birrarung Marr is an outdoor park hosting many cultural and sports events.

@@ -185,7 +185,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="3-7-sec-conclusion.html"><a href="3-7-sec-conclusion.html"><i class="fa fa-check"></i><b>3.7</b> Conclusion and future work</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a></li>
+<li class="chapter" data-level="4" data-path="4-ch-mists.html"><a href="4-ch-mists.html"><i class="fa fa-check"></i><b>4</b> Data representation, visual and analytical techniques for demystifying temporal missing data</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-1-sec-mists-intro.html"><a href="4-1-sec-mists-intro.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="4-2-sec-mists-categories.html"><a href="4-2-sec-mists-categories.html"><i class="fa fa-check"></i><b>4.2</b> Categories of temporal missing data</a></li>
+<li class="chapter" data-level="4.3" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html"><i class="fa fa-check"></i><b>4.3</b> New data abstraction and operations for missing data in time</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#new-encoding-for-indexing-missing-data-by-time"><i class="fa fa-check"></i><b>4.3.1</b> New encoding for indexing missing data by time</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html#supporting-functions-operating-on-rle-na"><i class="fa fa-check"></i><b>4.3.2</b> Supporting functions operating on RLE &lt;<code>NA</code>&gt;</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html"><i class="fa fa-check"></i><b>4.4</b> Visual methods for exploring temporal missingness</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-distributions"><i class="fa fa-check"></i><b>4.4.1</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html#visualizing-aggregations"><i class="fa fa-check"></i><b>4.4.2</b> Visualizing aggregations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html"><i class="fa fa-check"></i><b>4.5</b> Scaling up to large collections of temporal data</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#polishing-missing-data-by-variables-and-observations"><i class="fa fa-check"></i><b>4.5.1</b> Polishing missing data by variables and observations</a></li>
+<li class="chapter" data-level="4.5.2" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html#formulating-polishing-strategies"><i class="fa fa-check"></i><b>4.5.2</b> Formulating polishing strategies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Application</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#world-development-indicators"><i class="fa fa-check"></i><b>4.6.1</b> World development indicators</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html#melbourne-pedestrian-sensors"><i class="fa fa-check"></i><b>4.6.2</b> Melbourne pedestrian sensors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="4-7-sec-mists-conclusion.html"><a href="4-7-sec-mists-conclusion.html"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html#sugrrants"><i class="fa fa-check"></i><b>5.1.1</b> sugrrants</a></li>
@@ -231,6 +251,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-R-future">
 <p>Bengtsson, Henrik. 2019. <em>Future: Unified Parallel and Distributed Processing in R for Everyone</em>. <a href="https://CRAN.R-project.org/package=future">https://CRAN.R-project.org/package=future</a>.</p>
 </div>
+<div id="ref-Box:1990:TSA:574978">
+<p>Box, George Edward Pelham, and Gwilym Jenkins. 1990. <em>Time Series Analysis, Forecasting and Control</em>. San Francisco, CA, USA: Holden-Day, Inc.</p>
+</div>
 <div id="ref-viewing-pipeline">
 <p>Buja, Andreas, Daniel Asimov, Catherine Hurley, and John A. McDonald. 1988. “Elements of a Viewing Pipeline for Data Analysis.” In <em>Dynamic Graphics for Statistics</em>, edited by William S. Cleveland and Marylyn E. McGill. Belmont, California: Wadsworth, Inc.</p>
 </div>
@@ -245,6 +268,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-R-shiny">
 <p>Chang, Winston, Joe Cheng, JJ Allaire, Yihui Xie, and Jonathan McPherson. 2019. <em>Shiny: Web Application Framework for R</em>. <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.</p>
+</div>
+<div id="ref-cheng_visually_2015">
+<p>Cheng, Xiaoyue, Dianne Cook, and Heike Hofmann. 2015. “Visually Exploring Missing Values in Multivariable Data Using a Graphical User Interface.” <em>Journal of Statistical Software</em> 68 (6). <a href="https://doi.org/10.18637/jss.v068.i06">https://doi.org/10.18637/jss.v068.i06</a>.</p>
 </div>
 <div id="ref-ped">
 <p>City of Melbourne. 2017. <em>Pedestrian Volume in Melbourne</em>. City of Melbourne, Australia. <a href="http://www.pedestrian.melbourne.vic.gov.au">http://www.pedestrian.melbourne.vic.gov.au</a>.</p>
@@ -273,8 +299,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-eopl">
 <p>Friedman, Daniel P., and Mitchell Wand. 2008. <em>Essentials of Programming Languages, 3rd Edition</em>. 3rd ed. The MIT Press.</p>
 </div>
+<div id="ref-gschwandtner_timecleanser_2014">
+<p>Gschwandtner, Theresia, Wolfgang Aigner, Silvia Miksch, Johannes Gärtner, Simone Kriglstein, Margit Pohl, and Nik Suchy. 2014. “TimeCleanser: A Visual Analytics Approach for Data Cleansing of Time-Oriented Data.” In <em>Proceedings of the 14th International Conference on Knowledge Technologies and Data-Driven Business - I-KNOW ’14</em>, 1–8. Graz, Austria: ACM Press. <a href="https://doi.org/10.1145/2637748.2638423">https://doi.org/10.1145/2637748.2638423</a>.</p>
+</div>
+<div id="ref-Gschwandtner2012taxonomy">
+<p>Gschwandtner, Theresia, Johannes Gärtner, Wolfgang Aigner, and Silvia Miksch. 2012. “A Taxonomy of Dirty Time-Oriented Data.” In <em>Multidisciplinary Research and Practice for Information Systems</em>, edited by Gerald Quirchmayr, Josef Basl, Ilsun You, Lida Xu, and Edgar Weippl, 58–72. Berlin, Heidelberg: Springer Berlin Heidelberg.</p>
+</div>
 <div id="ref-R-geofacet">
 <p>Hafen, Ryan. 2019. <em>Geofacet: ’Ggplot2’ Faceting Utilities for Geographical Data</em>. <a href="https://CRAN.R-project.org/package=geofacet">https://CRAN.R-project.org/package=geofacet</a>.</p>
+</div>
+<div id="ref-R-stinepack">
+<p>Halldor Bjornsson, Tomas Johannesson &amp;, and Icelandic Met. Office; Gabor Grothendieck. 2018. <em>Stinepack: Stineman, a Consistently Well Behaved Method of Interpolation</em>. <a href="https://CRAN.R-project.org/package=stinepack">https://CRAN.R-project.org/package=stinepack</a>.</p>
 </div>
 <div id="ref-R-purrr">
 <p>Henry, Lionel, and Hadley Wickham. 2019a. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.</p>
@@ -284,6 +319,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-tidy-eval">
 <p>———. 2019c. “Tidy Tidyverse Design Principles.” <a href="https://principles.tidyverse.org">https://principles.tidyverse.org</a>.</p>
+</div>
+<div id="ref-Hofmann2006">
+<p>Hofmann, Heike. 2006. “Multivariate Categorical Data — Mosaic Plots.” In <em>Graphics of Large Datasets: Visualizing a Million</em>, 105–24. New York, NY: Springer New York. <a href="https://doi.org/10.1007/0-387-37977-0_5">https://doi.org/10.1007/0-387-37977-0_5</a>.</p>
 </div>
 <div id="ref-fpp">
 <p>Hyndman, Rob J, and George Athanasopoulos. 2017. <em>Forecasting: Principles and Practice</em>. Melbourne, Australia: OTexts. <a href="OTexts.org/fpp2">OTexts.org/fpp2</a>.</p>
@@ -309,11 +347,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-lam2007overview">
 <p>Lam, Heidi, Tamara Munzner, and Robert Kincaid. 2007. “Overview Use in Multiple Visual Information Resolution Interfaces.” <em>IEEE Transactions on Visualization and Computer Graphics</em> 13 (6). IEEE: 1278–85.</p>
 </div>
+<div id="ref-Little1988test">
+<p>Little, Roderick J. A. 1988. “A Test of Missing Completely at Random for Multivariate Data with Missing Values.” <em>Journal of the American Statistical Association</em> 83 (404). Taylor &amp; Francis: 1198–1202. <a href="https://doi.org/10.1080/01621459.1988.10478722">https://doi.org/10.1080/01621459.1988.10478722</a>.</p>
+</div>
 <div id="ref-R-panelr">
 <p>Long, Jacob A. 2019. <em>Panelr: Regression Models and Utilities for Repeated Measures and Panel Data</em>. <a href="https://CRAN.R-project.org/package=panelr">https://CRAN.R-project.org/package=panelr</a>.</p>
 </div>
 <div id="ref-unix">
 <p>Mcilroy, Doug, E.N. Pinson, and B.A. Tague. 1978. “Unix Time-Sharing System Forward.” <em>The Bell System Technical Journal</em>, 1902–3. <a href="https://archive.org/details/bstj57-6-1899">https://archive.org/details/bstj57-6-1899</a>.</p>
+</div>
+<div id="ref-Moritz2017imputets">
+<p>Moritz, Steffen, and Thomas Bartz-Beielstein. 2017. “imputeTS: Time Series Missing Value Imputation in R.” <em>The R Journal</em> 9 (1): 207–18. <a href="https://doi.org/10.32614/RJ-2017-009">https://doi.org/10.32614/RJ-2017-009</a>.</p>
 </div>
 <div id="ref-R-fable">
 <p>O’Hara-Wild, Mitchell, Rob Hyndman, and Earo Wang. 2019. <em>Fable: Forecasting Models for Tidy Time Series</em>. <a href="https://fable.tidyverts.org">https://fable.tidyverts.org</a>.</p>
@@ -339,6 +383,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-Stata">
 <p>StataCorp. 2017. <em>Stata Statistical Software: Release 15</em>. College Station, TX, United States: StataCorp LLC. <a href="https://www.stata.com">https://www.stata.com</a>.</p>
 </div>
+<div id="ref-stineman">
+<p>Stineman, Russell W. 1980. “A Consistently Well Behaved Method of Interpolation.” <em>Creative Computing</em> 6 (7): 54–57.</p>
+</div>
 <div id="ref-orca">
 <p>Sutherland, Peter, Anthony Rossini, Thomas Lumley, Nicholas Lewin-Koh, Julie Dickerson, Zach Cox, and Dianne Cook. 2000. “Orca: A Visualization Toolkit for High-Dimensional Data.” <em>Journal of Computational and Graphical Statistics</em> 9 (3). Taylor &amp; Francis: 509–29. <a href="https://doi.org/10.1080/10618600.2000.10474896">https://doi.org/10.1080/10618600.2000.10474896</a>.</p>
 </div>
@@ -348,14 +395,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-ggobi">
 <p>Swayne, Deborah F., Duncan Temple Lang, Andreas Buja, and Dianne Cook. 2003. “GGobi: Evolving from XGobi into an Extensible Framework for Interactive Data Visualization.” <em>Computational Statistics &amp; Data Analysis</em> 43: 423–44.</p>
 </div>
+<div id="ref-swayne1998">
+<p>Swayne, D F, and A Buja. 1998. “Missing Data in Interactive High-Dimensional Data Visualization.” <em>Computational Statistics</em>. researchgate.net, 1–8.</p>
+</div>
 <div id="ref-tidyverse-principles">
 <p>Tidyverse Team. 2019. “Tidy Evaluation.” <a href="https://tidyeval.tidyverse.org">https://tidyeval.tidyverse.org</a>.</p>
 </div>
 <div id="ref-tierney-naniar-2018">
-<p>Tierney, Nicholas J, and Dianne Cook. 2018. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</p>
+<p>Tierney, Nicholas J, and Dianne Cook. 2018a. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</p>
+</div>
+<div id="ref-Tierney2018naniar">
+<p>———. 2018b. “Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</p>
 </div>
 <div id="ref-tufte1983visual">
 <p>Tufte, Edward R. 1983. <em>The Visual Display of Quantitative Information</em>. Graphics press Cheshire, CT.</p>
+</div>
+<div id="ref-medpolish">
+<p>Tukey, John W. 1977. <em>Exploratory Data Analysis</em>. Reading, Massachusetts: Addison-Wesley.</p>
+</div>
+<div id="ref-MANET">
+<p>Unwin, Antony, George Hawkins, Heike Hofmann, and Bernd Siegl. 1996. “Interactive Graphics for Data Sets with Missing Values: MANET.” <em>Journal of Computational and Graphical Statistics</em> 5 (2). [American Statistical Association, Taylor &amp; Francis, Ltd., Institute of Mathematical Statistics, Interface Foundation of America]: 113–22. <a href="http://www.jstor.org/stable/1390776">http://www.jstor.org/stable/1390776</a>.</p>
 </div>
 <div id="ref-unwin_ensemble_2018">
 <p>Unwin, Antony, and Pedro Valero-Mora. 2018. “Ensemble Graphics.” <em>Journal of Computational and Graphical Statistics</em> 27 (1): 157–65. <a href="https://doi.org/10.1080/10618600.2017.1383264">https://doi.org/10.1080/10618600.2017.1383264</a>.</p>
@@ -375,11 +434,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-wang-calendarviz-2018">
 <p>Wang, Earo, Dianne Cook, and Rob J Hyndman. 2018. “Calendar-Based Graphics for Visualizing People’s Daily Schedules.”</p>
 </div>
+<div id="ref-tsibble">
+<p>———. 2019a. “A New Tidy Data Structure to Support Exploration and Modeling of Temporal Data.”</p>
+</div>
 <div id="ref-R-sugrrants">
-<p>Wang, Earo, Di Cook, and Rob Hyndman. 2019a. <em>Sugrrants: Supporting Graphs for Analysing Time Series</em>. <a href="https://CRAN.R-project.org/package=sugrrants">https://CRAN.R-project.org/package=sugrrants</a>.</p>
+<p>Wang, Earo, Di Cook, and Rob Hyndman. 2019b. <em>Sugrrants: Supporting Graphs for Analysing Time Series</em>. <a href="https://CRAN.R-project.org/package=sugrrants">https://CRAN.R-project.org/package=sugrrants</a>.</p>
 </div>
 <div id="ref-R-tsibble">
-<p>———. 2019b. <em>Tsibble: Tidy Temporal Data Frames and Tools</em>. <a href="https://tsibble.tidyverts.org">https://tsibble.tidyverts.org</a>.</p>
+<p>———. 2019c. <em>Tsibble: Tidy Temporal Data Frames and Tools</em>. <a href="https://tsibble.tidyverts.org">https://tsibble.tidyverts.org</a>.</p>
+</div>
+<div id="ref-kalman">
+<p>Welch, Greg, Gary Bishop, and others. 2006. “An Introduction to the Kalman Filter.” SIGGRAPH. <a href="https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf">https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf</a>.</p>
 </div>
 <div id="ref-wickham2009ggplot2">
 <p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. New York, NY: Springer-Verlag New York.</p>
@@ -402,6 +467,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-r4ds">
 <p>Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science</em>. O’Reilly Media. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
 </div>
+<div id="ref-R-vctrs">
+<p>Wickham, Hadley, Lionel Henry, and Davis Vaughan. 2019. <em>Vctrs: Vector Helpers</em>. <a href="https://github.com/r-lib/vctrs">https://github.com/r-lib/vctrs</a>.</p>
+</div>
 <div id="ref-Wickham2012glyph">
 <p>Wickham, Hadley, Heike Hofmann, Charlotte Wickham, and Dianne Cook. 2012. “Glyph-Maps for Visually Exploring Temporal Patterns in Climate Data and Models.” <em>Environmetrics</em> 23 (5): 382–93.</p>
 </div>
@@ -413,6 +481,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-R-TimeProjection">
 <p>Wong, Jeffrey. 2013. <em>TimeProjection: Time Projections</em>. <a href="https://CRAN.R-project.org/package=TimeProjection">https://CRAN.R-project.org/package=TimeProjection</a>.</p>
+</div>
+<div id="ref-wdi">
+<p>World Bank Group. 2019. <em>World Development Indicators</em>. The World Bank Group. <a href="https://databank.worldbank.org/source/world-development-indicators/">https://databank.worldbank.org/source/world-development-indicators/</a>.</p>
 </div>
 <div id="ref-tb-data">
 <p>World Health Organization. 2018. <em>Tuberculosis Data</em>. Block 3510, Jalan Teknokrat 6, 63000 Cyberjaya, Selangor, Malaysia: World Health Organization. <a href="http://www.who.int/tb/country/data/download/en/">http://www.who.int/tb/country/data/download/en/</a>.</p>
@@ -470,7 +541,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/earowang/thesis/edit/master/Rmd/99-references.Rmd",
+"link": "https://github.com/earowang/thesis/edit/master/Rmd//99-references.Rmd",
 "text": "Edit"
 },
 "history": {

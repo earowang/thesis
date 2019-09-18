@@ -409,6 +409,13 @@
       "Repository": "CRAN",
       "Hash": "3fc5d4d6893bd1598318a35def5e9d23"
     },
+    "gifski": {
+      "Package": "gifski",
+      "Version": "0.8.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "59833f0e4cf5dc06a9a5ba4ec7035d82"
+    },
     "git2r": {
       "Package": "git2r",
       "Version": "0.26.1",
@@ -1130,6 +1137,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "1f264fa42320c4f44b1689d89101e823"
+    },
+    "visdat": {
+      "Package": "visdat",
+      "Version": "0.5.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9bda34c3ecc23952bae1bfa2f70471a4"
     },
     "webshot": {
       "Package": "webshot",
