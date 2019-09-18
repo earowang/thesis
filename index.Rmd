@@ -4,7 +4,7 @@ author: 'Earo Wang'
 degreetype: 'Doctor of Philosophy'
 site: bookdown::bookdown_site
 degrees: 'B.Comm. (Hons), Monash University'
-bibliography: [bib/calendar.bib, bib/tsibble.bib, bib/thesisrefs.bib]
+bibliography: [bib/calendar.bib, bib/tsibble.bib, bib/mists.bib, bib/thesisrefs.bib]
 link-citations: yes
 ---
 

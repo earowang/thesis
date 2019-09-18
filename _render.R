@@ -5,7 +5,7 @@ start_app(theme = simple_theme())
 cli_h1("Preprocessing")
 # spelling check
 cli_h2("Spelling check")
-rmd_files <- list.files(pattern = "Rmd/*.Rmd", full.names = TRUE, recursive = TRUE)
+rmd_files <- list.files("Rmd", pattern = "*.Rmd", full.names = TRUE, recursive = TRUE)
 wordlist <- readLines("WORDLIST")
 spell_res <- spelling::spell_check_files(rmd_files, wordlist, "en_US")
 if (length(spell_res$word) > 0) {
@@ -20,7 +20,7 @@ for (i in img_pdf) {
   file_pdf <- paste0("img/", i)
   dest_pdf <- paste0("img/", sub("pdf$", "png", i))
   magick::image_write(
-    magick::image_read(file_pdf, 300), dest_pdf, "png", 
+    magick::image_read(file_pdf, 300), dest_pdf, "png",
     density = 300
   )
 }

@@ -1,152 +1,137 @@
-## ---- load-mists
+## ---- mists-load
 library(tidyverse)
 library(lubridate)
 library(tsibble)
 library(imputeTS)
-library(rlang)
-library(sugrrants)
-set.seed(2019)
+library(mists)
+library(vctrs)
+theme_set(theme_bw())
 
+## ---- miss-types
 ts_airgap <- as_tsibble(tsAirgap)
 ts_airgap_full <- as_tsibble(tsAirgapComplete)
 
-## ---- count-na
-count_na <- function(.data, ...) {
-  exprs <- enexprs(...)
-  if (is_false(has_length(exprs, 1))) {
-    abort("`count_na()` only accepts one variable.")
-  }
-  idx <- index(.data)
-  grped_tbl <- group_by(as_tibble(.data), !!! key(.data))
-  lst_out <- summarise(grped_tbl, na = list2(tbl_na(!!! exprs, !! idx)))
-  idx_type <- class(lst_out[["na"]][[1]][[".from"]])
-  out <- unnest(lst_out, na)
-  class(out[[".from"]]) <- class(out[[".to"]]) <- idx_type
-  tibble(!!! out)
-}
-
-tbl_na <- function(x, y) {
-  if (!anyNA(x)) {
-    tibble(.from = y[0], .to = y[0], .n = integer())
-  } else {
-    len_x <- length(x)
-    na_lgl <- is.na(x)
-    na_rle <- rle(na_lgl)
-    lgl_rle <- na_rle$values
-    na_idx <- na_rle$lengths
-    to <- cumsum(na_idx)
-    from <- c(1, to[-length(to)] + 1)
-    na_nobs <- na_idx[lgl_rle]
-    tibble(
-      .from = y[from][lgl_rle],
-      .to = y[to][lgl_rle],
-      .n = na_nobs
-    )
-  }
-}
-
-## ---- miss-types-funs
 # Types of temporal missings
-miss_at_season <- function(.data) {
-  idx <- eval_tidy(index(.data), .data)
+miss_at_time <- function(.data) {
+  idx <- pull(.data, !!index(.data))
+  init <- floor(vec_size(.data) * 0.1)
+  trend_idx <- idx[cumsum(rev(seq_len(init))) + init]
+  mutate(.data, value = ifelse(idx %in% trend_idx, NA, value))
+}
+
+miss_at_regular <- function(.data) {
+  idx <- pull(.data, !!index(.data))
   rnd_seas <- month(sample(idx, size = 1))
-  mutate(
-    .data,
-    value = ifelse(month(idx) %in% rnd_seas, NA, value)
-  )
+  mutate(.data, value = ifelse(month(idx) %in% rnd_seas, NA, value))
 }
 
 miss_at_occasional <- function(.data) {
-  idx <- eval_tidy(index(.data), .data)
-  rnd_idx <- sample(idx, size = round(NROW(.data) * 0.03))
-  mutate(
-    .data,
-    value = ifelse(idx %in% rnd_idx, NA, value)
-  )
-}
-
-miss_at_level <- function(.data) {
-  idx <- eval_tidy(index(.data), .data)
-  init <- floor(NROW(.data) * 0.1)
-  rnd_start <- idx[init]
-  level_idx <- idx[cumsum(seq_len(init)) + init]
-  mutate(
-    .data,
-    value = ifelse(idx %in% level_idx, NA, value)
-  )
+  idx <- pull(.data, !!index(.data))
+  rnd_idx <- sample(idx, size = round(vec_size(.data) * 0.1))
+  mutate(.data, value = ifelse(idx %in% rnd_idx, NA, value))
 }
 
 miss_at_runs <- function(.data) {
-  idx <- eval_tidy(index(.data), .data)
-  rnd_init <- sample(idx, size = ceiling(NROW(.data) * 0.01))
-  rnd_len <- sample(5:(NROW(.data) * 0.1), size = length(rnd_init))
-  rnd_run <- do.call("c", purrr::map2(rnd_init, rnd_len, ~ .x + seq_len(.y)))
-  mutate(
-    .data,
-    value = ifelse(idx %in% rnd_run, NA, value)
-  )
+  idx <- pull(.data, !!index(.data))
+  n <- vec_size(.data)
+  na_indices_lgl <- runif(n) < .1
+  na_indices <- which(na_indices_lgl)
+  na_lengths <- rpois(n = sum(na_indices_lgl), lambda = 5)
+  lst_indices <- map2(na_lengths, na_indices, function(.x, .y) 0:(.x - 1) + .y)
+  na_indices <- vec_c(!!!lst_indices)
+  rnd_run <- idx[na_indices]
+  mutate(.data, value = ifelse(idx %in% rnd_run, NA, value))
 }
 
-## ---- miss-types
-ts_airgap_level <- miss_at_level(ts_airgap_full) %>%
-  mutate(type = "missing at level") %>%
-  update_tsibble(key = id(type))
-ts_airgap_season <- miss_at_season(ts_airgap_full) %>%
-  mutate(type = "missing at season") %>%
-  update_tsibble(key = id(type))
+set.seed(2019)
+ts_airgap_time <- miss_at_time(ts_airgap_full) %>%
+  mutate(type = "Functional") %>%
+  update_tsibble(key = type)
+ts_airgap_regular <- miss_at_regular(ts_airgap_full) %>%
+  mutate(type = "Periodic") %>%
+  update_tsibble(key = type)
 ts_airgap_occasional <- miss_at_occasional(ts_airgap_full) %>%
-  mutate(type = "missing at occasional") %>%
-  update_tsibble(key = id(type))
+  mutate(type = "Occasions") %>%
+  update_tsibble(key = type)
 ts_airgap_runs <- miss_at_runs(ts_airgap_full) %>%
-  mutate(type = "missing at runs") %>%
-  update_tsibble(key = id(type))
+  mutate(type = "Runs") %>%
+  update_tsibble(key = type)
 ts_airgap_miss <-
   rbind(
-    ts_airgap_level, ts_airgap_season,
+    ts_airgap_time, ts_airgap_regular,
     ts_airgap_occasional, ts_airgap_runs
-  )
+  ) %>% 
+  mutate(type = fct_relevel(type, c("Occasions", "Periodic", "Functional", "Runs")))
 
-ggplot() +
-  geom_line(aes(x = index, y = value), data = ts_airgap_miss) +
-  geom_rect(
-    aes(xmin = .from - 1, xmax = .to + 1), ymin = -Inf, ymax = Inf,
-    data = count_na(ts_airgap_miss, value), colour = "grey50", fill = "grey50",
-  ) +
-  facet_wrap(~ type, ncol = 1) +
-  xlab("Year") +
-  ylab("Passengers") +
-  theme_bw()
+## ---- tbl-x-line
+ggplot(ts_airgap_miss, aes(x = index, y = value)) +
+  geom_line() +
+  geom_point(size = .5) +
+  facet_grid(type ~ ., labeller = labeller(type = label_wrap_gen(20)))
 
-## ---- miss-types-acf
-ts_airgap_dummy <- ts_airgap_miss %>%
-  mutate(dummy = ifelse(is.na(value), 1L, 0L))
-
-phi_coef <- function(...) {
-  # ref: https://en.wikipedia.org/wiki/Phi_coefficient
-  tab <- table(...)
-  stopifnot(all(dim(tab) == c(2, 2)))
-  nominator <- prod(diag(tab)) - prod(c(tab[1, 2], tab[2, 1]))
-  n1_row <- sum(tab[1, ])
-  n2_row <- sum(tab[2, ])
-  n1_col <- sum(tab[, 1])
-  n2_col <- sum(tab[, 2])
-  denominator <- sqrt(n1_row * n1_col * n2_row * n2_col)
-  nominator / denominator
-}
-
-acf_binary <- function(x, lag_max = NULL) {
-  if (is_null(lag_max)) {
-    lag_max <- floor(10 * log10(length(x)))
-  }
-  purrr::map_dbl(seq_len(lag_max), ~ phi_coef(x, dplyr::lag(x, .x)))
-}
-
-ts_airgap_acf <- ts_airgap_dummy %>% 
+## ---- na-rle-ex1
+airgap_na_rle <- ts_airgap_miss %>% 
+  as_tibble() %>% 
   group_by(type) %>% 
-  group_map(~ tibble(acf = acf_binary(.x$dummy), lag = seq_along(acf)))
+  summarise(na_runs = list_of_na_rle(value, index_by = index))
 
-ts_airgap_acf %>% 
-  ggplot(aes(x = lag, y = acf)) +
-  geom_col() +
-  facet_wrap(~ type, ncol = 1) +
-  ylab("Phi coefficient")
+print(airgap_na_rle$na_runs[3:4])
+
+## ---- na-rle-rangeplot
+na_rle_rangeplot(airgap_na_rle, x = na_runs, y = fct_rev(type)) +
+  xlim(range(ts_airgap_miss$index)) +
+  xlab("Year month")
+
+## ---- layer-na-rle
+ggplot(ts_airgap_miss, aes(x = index, y = value)) +
+  geom_line(na.rm = TRUE) +
+  layer_na_rle(na_runs, data = airgap_na_rle, alpha = 0.5) +
+  facet_grid(type ~ .)
+
+## ---- imputets-gapsize
+plotNA.gapsize(as.ts(ts_airgap_occasional), legend = FALSE)
+plotNA.gapsize(as.ts(ts_airgap_runs))
+
+## ---- na-rle-spinoplot
+na_rle_spinoplot(airgap_na_rle, x = na_runs, facets = type) +
+  xlab("runs [frequency]")
+
+## ----- na-rle-spinoplot2
+na_x1 <- airgap_na_rle$na_runs[[3]]
+na_x2 <- airgap_na_rle$na_runs[[4]]
+tibble(
+  x = as_list_of(na_x1, na_x2), 
+  y = as_list_of(na_x2, na_x1),
+  facet = c("Occasions intersects Runs", "Runs intersects Occasions")
+) %>% 
+  na_rle_spinoplot(x = x, y = y, facets = facet) +
+  scale_fill_manual(values = c(`TRUE` = "#af8dc3", `FALSE` = "#7fbf7b")) +
+  xlab("runs [frequency]") +
+  ylab("proportion of overlaps")
+
+## ---- ignore
+na_runs_wind <- nycflights13::weather %>% 
+  group_by(origin) %>% 
+  summarise_at(
+    vars(contains("wind")), 
+    ~ list_of_na_rle(., index_by = time_hour)
+  )
+na_runs_wind
+
+na_runs_wind %>% 
+  na_rle_spinoplot(wind_dir, wind_gust, origin)
+
+na_runs_wind %>% 
+  na_rle_spinoplot(wind_gust, wind_dir, origin, ncol = 1)
+
+na_runs_wind %>% 
+  mutate(start_wind_dir = na_rle_indices(wind_dir)) %>% 
+  unnest(start_wind_dir) %>% 
+  mutate(
+    start_time = hour(start_wind_dir),
+    start_mday = mday(start_wind_dir),
+    start_wday = wday(start_wind_dir, label = TRUE, week_start = 1),
+  ) %>% 
+  ggplot(aes(x = start_time)) +
+  geom_bar() +
+  facet_wrap(~ origin)
