@@ -52,7 +52,7 @@ Numerous nesting and crossing combinations can yield unwieldy plots, in many of 
 
 ## Final words
 
-Three primary types of activities that shape this thesis are presentations, package development, and writing. I have developed a habit of using Git/Github to track and synchronize my academic work since I started the PhD program. Figure \@ref(fig:phd-ghcommits) presents all the commits grouped by the activity types, with annotations of the important milestones.
+Presentations, package development, and writing are the three primary types of activities that shape this thesis. I have developed a habit of using Git/Github to track and synchronize my academic work since I started the PhD program. All commits are grouped by the activity types, with annotations of important milestones, shown in Figure \@ref(fig:phd-ghcommits). It has been a fruitful program.
 
 ```{r phd-ghcommits, fig.cap = "(ref:phd-ghcommits-cap)", fig.pos = "ht"}
 include_graphics("img/phd-commits.png")

@@ -332,6 +332,13 @@
       "Repository": "CRAN",
       "Hash": "d9bf0922f00c345bef1559e9cfc0846b"
     },
+    "feasts": {
+      "Package": "feasts",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3d6f700427ef67d9e90df3c4ca5383e3"
+    },
     "forcats": {
       "Package": "forcats",
       "Version": "0.4.0",
