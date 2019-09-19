@@ -1,6 +1,6 @@
 # Data representation, visual and analytical techniques for demystifying temporal missing data {#ch:mists}
 
-Missing data provokes an air of mystery, that makes analysts itching throughout the exploration loop of transformation, visualization, and modeling. How to handle missing values involves decisions with many degrees of freedom, lending itself to a tedious and unwieldy process. The challenge of missingness roots in seeing what isn't there. The aim of this work is to clear that mysterious air away from missing data with the focus of temporal contexts from the data-centric perspective. A new sparse representation facilitates to index the runs of missings in time efficiently, with supporting operations and visual methods. This places missing data solely in the spotlight, speaking for themselves. When too many missings are scattered across variables and observations over time, missing data polishing strategies are populated and formulated. This equips analysts with tidy tools to iteratively remove missings from rows and columns, while keeping the temporal nature intact. The accompanying software is the R package **mists**.
+Missing data provokes an air of mystery, that makes analysis difficult throughout the exploration loop of transformation, visualization, and modeling. How to handle missing values involves decisions with many degrees of freedom, leading to a tedious and unwieldy process. The challenge of missingness is rooted in seeing what is not there. The aim of this work is to clear that mysterious air away from missing data with the focus on temporal contexts from a data-centric perspective. A new sparse representation facilitates the efficient indexing of runs of missings in time, with supporting operations and visual methods. This places missing data in the spotlight, speaking for themselves. When too many missings are scattered across variables and observations over time, missing data polishing strategies are populated and formulated. This equips analysts with tidy tools to iteratively remove missings from rows and columns, while keeping the temporal nature intact. The accompanying software is the R package **mists**.
 
 ```{r mists-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('scripts/mists.R')
@@ -23,17 +23,17 @@ rle_na1 <- function() {
 
 ## Introduction {#sec:mists-intro}
 
-Temporal missingness occurs when there is an absence of a value in time. For regularly spaced data, which is often assumed in time series, implicit missing values can be relatively easily spotted because there are gaps in the regularity. These can be converted to explicit missing values with ease. In irregular temporal data, missings should be specified explicitly in the raw data. Once the missings are explicitly declared, the patterns can be explored, and appropriate methods for imputation employed. Missing value research has a long history, but little attention has been paid to temporal missings. 
+Temporal missingness occurs when there is an absence of a value in time. For regularly spaced data, which is often assumed in time series, implicit missing values can be relatively easily spotted because there are gaps in the regularity. These can be converted to explicit missing values with ease. In irregular temporal data, missings should be specified explicitly in the raw data. Once the missings are explicitly declared, the patterns can be explored, and appropriate methods for imputation employed. Missing value research has a long history, but little attention has been paid to temporal missings.
 
 @Little1988test established a taxonomy for missing data mechanisms: missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR). This is a view of missingness from the probabilistic perspective, because these mechanisms all specify a generating distribution from which to specify imputation methods. A data-centric approach to missings is described in @MANET, which shows how to explore missing value patterns with interactive graphics. @swayne1998 illustrated how using a shadow matrix could be useful for exploring multivariate missings using interactive graphics. A graphical user interface for exploring missing values in multivariate data using static plots is provided by @cheng_visually_2015. Recently, @Tierney2018naniar developed a collection of tidy tools in the R package `naniar` to facilitate transforming, visualizing, and imputing missing data.
 
-In contrast to multivariate data, temporal data has the time dimension that needs to be  explored, to understand the temporal dynamics of missing values. Little work has been conducted in this area. @Gschwandtner2012taxonomy provides a taxonomy of time-oriented data quality problems from single and multiple sources. This work is accompanied by an interactive visual system, TimeCleanser [@gschwandtner_timecleanser_2014], for assessing data qualities for time-oriented missing data, which facilitates cleaning different time formats. Missing values are considered to be a data quality issue as a component of that system. The R package **imputeTS** [@Moritz2017imputets] provides time series imputation methods, such as temporal interpolation and Kalman Smoothing [@kalman], with a few graphical methods for summarizing missing values in time series. None of the existing work fully addresses the problem of handling temporal missing data. There is a need for better data structures, and visualization methods to explore temporal missing data, to better understand the temporal dynamics, and prepare it for imputation and subsequent modeling. 
+In contrast to multivariate data, temporal data has the time dimension that needs to be explored, to understand the temporal dynamics of missing values. Little work has been conducted in this area. @Gschwandtner2012taxonomy provides a taxonomy of time-oriented data quality problems from single and multiple sources. This work is accompanied by an interactive visual system, TimeCleanser [@gschwandtner_timecleanser_2014], for assessing data qualities for time-oriented missing data, which facilitates cleaning different time formats. Missing values are considered to be a data quality issue as a component of that system. The R package **imputeTS** [@Moritz2017imputets] provides time series imputation methods, such as temporal interpolation and Kalman Smoothing [@kalman], with a few graphical methods for summarizing missing values in time series. None of the existing work fully addresses the problem of handling temporal missing data. There is a need for better data structures, and visualization methods to explore temporal missing data, to better understand the temporal dynamics, and prepare it for imputation and subsequent modeling.
 
 The paper is organized as follows. Section \@ref(sec:mists-categories) outlines four categories of temporal missing patterns. Section \@ref(sec:mists-na-rle) proposes a new type of vector class to encode missing values in time, coupled with visual tools (Section \@ref(sec:mists-vis)). A new suite of polishing techniques, for dealing with missings on large collection of series, are discussed in Section \@ref(sec:mists-polish). Applications illustrating the new techniques are in Section \@ref(sec:mists-data). Section \@ref(sec:mists-conclusion) concludes the paper.
 
 ## Categories of temporal missing data {#sec:mists-categories}
 
-Missing values in time can occur in many different patterns. Figure \@ref(fig:tbl-x-line) presents the classical time series, monthly totals of international airline passengers from 1949 to 1960 [@Box:1990:TSA:574978], with simulated gaps of missing values arising from four different patterns:
+Missing values in time can occur in many different patterns. Figure \@ref(fig:tbl-x-line) presents a classical time series, monthly totals of international airline passengers from 1949 to 1960 [@Box:1990:TSA:574978], with simulated gaps of missing values arising from four different patterns:
 
 1. sporadically, where data is missing at random time points, which will be called *Missing at Occasions (MO)*.
 2. periodically, for example, missing every Tuesday, which will be called *Missing at Periodic time (MP)*. This could be thought of as structural missing values.
@@ -48,9 +48,9 @@ Missing values in time can occur in many different patterns. Figure \@ref(fig:tb
 
 (ref:tbl-x-line-cap) Line plots of a series spiked with four different types of temporal missing patterns. It is hard to discern the difference in the patterns from line plots, which motivates development of new graphical methods for exploring temporal missingness.
 
-This categorization may not be exhaustive, although with combinations these four types can form a wide range of temporal missing data patterns. 
+This categorization may not be exhaustive, although with combinations these four types can form a wide range of temporal missing data patterns.
 
-Some of these types can be mapped to probability nomenclature for missing values. MO mirrors MCAR, where missings are completely at random. MP and MF are forms of MAR, where a known variable could be used to build imputation models. MR does not have an analogy. 
+Some of these types can be mapped to probability nomenclature for missing values. MO mirrors MCAR, where missings are completely at random. MP and MF are forms of MAR, where a known variable could be used to build imputation models. MR does not have an analogy.
 
 It is difficult to detect the missing patterns, or discern the difference, from Figure \@ref(fig:tbl-x-line). This is a typical way to plot time series in the presence of missing values, but it is not a good diagnostic plot. Thus, the motivation for this new work, a desire to provide better diagnostic plots for exploring temporal missings, that neatly integrates with the tidy data workflow. To lubricate this work, a new data structure is developed, and discussed in the next section.
 
@@ -60,7 +60,7 @@ Figure \@ref(fig:tbl-x-line) is a typical time series plot, plotting the present
 
 ### New encoding for indexing missing data by time
 
-Inspired by run-length encoding (RLE), a new encoding is proposed to solely extract the `NA`s from time-indexed data and compress them in a simpler form, namely "`r rle_na1()`". It is comprised of three components to locate the missings and mark their corresponding runs: (1) positions where `NA` starts, (2) run lengths (`NA` in a row), and (3) interval (for example, hourly or yearly intervals). This implies that time indices should be unique.
+Inspired by run-length encoding (RLE), a new encoding is proposed to solely extract the `NA`s from time-indexed data and compress them in a simpler form, namely "`r rle_na1()`". It comprises three components to locate the missings and mark their corresponding runs: (1) positions where `NA` starts, (2) run lengths (`NA` in a row), and (3) interval (for example, hourly or yearly intervals). This implies that time indices should be unique.
 
 This new encoding purely focuses on indexed missing values, separated from its data input. It is partially lossless, because its reverse operation can recover the original positions of missing values, but not the whole data. It is most useful and compact on indexing runs of missing data, requiring less storage than its original lengthy form. However, when missings mostly involve runs of length one, it is not that advantageous. Considering the missingness types of *Missing at Occasions* and *Missing at Runs* in Figure \@ref(fig:tbl-x-line), the former occupies 14 positions to store `NA`s; while the latter uses 7 positions for storing more `NA`s than the former as a sparser representation. The `r rle_na1()` is easy to interpret: a sequence of 12 `NA`s beginning at 1949 March, followed by 13 `NA`s since 1950 August, and so on, for the latter.
 
@@ -81,11 +81,11 @@ These math operations primarily require a singular `r rle_na1()` at a time. The 
 
 ## Visual methods for exploring temporal missingness {#sec:mists-vis}
 
-The `r rle_na1()` object provides an additional layer that adheres to the original data. To frame this in the grammar of graphics, indexed missing data can be considered as a graphical layer on top of the existing data plot, infusing the missings into a richer data context instead of an isolated context. The **imputeTS** R package makes a gallery of graphics available for plotting the distribution and aggregation of missingness for univariate time series, but they are a tad cumbersome and limited. This section enhances the visual toolkit for temporal missing data. 
+The `r rle_na1()` object provides an additional layer that adheres to the original data. To frame this in the grammar of graphics, indexed missing data can be considered as a graphical layer on top of the existing data plot, infusing the missings into a richer data context instead of an isolated context. The **imputeTS** R package makes a gallery of graphics available for plotting the distribution and aggregation of missingness for univariate time series, but they are cumbersome and limited. This section enhances the visual toolkit for temporal missing data.
 
 ### Visualizing distributions
 
-The range plot is designed to focus primarily on missingness. Figure \@ref(fig:na-rle-rangeplot) shows the range plots of the four scenarios. A line range with closing points corresponds to a run length in the `r rle_na1()`, and a single point when the element is of length one. The range plot is the graphical equivalent of `r rle_na1()`. The missingness patterns (MO, MP, MF, MR) are clearer in this compact display, than the gaps in the original series (Figure \@ref(fig:tbl-x-line)). 
+The range plot is designed to focus primarily on missingness. Figure \@ref(fig:na-rle-rangeplot) shows the range plots of the four scenarios. A line range with closing points corresponds to a run length in the `r rle_na1()`, and a single point when the element is of length one. The range plot is the graphical equivalent of `r rle_na1()`. The missingness patterns (MO, MP, MF, MR) are clearer in this compact display, than the gaps in the original series (Figure \@ref(fig:tbl-x-line)).
 
 ```{r tbl-x-list-of}
 ```
@@ -116,9 +116,9 @@ Visualizing aggregations summarizes run lengths of missing data, for example the
 
 (ref:na-rle-spinoplot-cap) The gasp plot turns the focus from distributions to aggregations of run lengths, for the four missing patterns. Missing at Runs is clearly differentiated from the rest.
 
-Figure \@ref(fig:na-rle-spinoplot) demonstrates the use of the gasp plot (also known as the spineplot) for visualizing the aggregations of missingness in time. Since the plot is faceted by the four types, it shows the individual distribution of run lengths and compares between, but puts no emphasis on the association between them. The four types of missing patterns produce quite different gasp plots. 
+Figure \@ref(fig:na-rle-spinoplot) demonstrates the use of the gasp plot (also known as the spineplot) for visualizing the aggregations of missingness in time. Since the plot is faceted by the four types, it shows the individual distribution of run lengths and compares between, but puts no emphasis on the association between them. The four types of missing patterns produce quite different gasp plots.
 
-Figure \@ref(fig:na-rle-spinoplot2) explores the idea of how missings intersect on the two variables. The 100% of the bar in Figure \@ref(fig:na-rle-spinoplot) is replaced by the proportion of intersection with another variable. The missing values of the *Occasions* type intersects with the *Runs* type by 25% in the left panel. The right panel is the swap between them, showing that the overlapping missings of the *Runs* type with the *Occasions* occur to the longer runs. This also showcases the use of the set operation `intersect()`. 
+Figure \@ref(fig:na-rle-spinoplot2) explores the idea of how missings intersect on the two variables. The 100% of the bar in Figure \@ref(fig:na-rle-spinoplot) is replaced by the proportion of intersection with another variable. The missing values of the *Occasions* type intersects with the *Runs* type by 25% in the left panel. The right panel is the swap between them, showing that the overlapping missings of the *Runs* type with the *Occasions* occur to the longer runs. This also showcases the use of the set operation `intersect()`.
 
 ```{r na-rle-spinoplot2, fig.height = 3, fig.cap = "(ref:na-rle-spinoplot2-cap)"}
 ```
@@ -131,7 +131,7 @@ Section \@ref(sec:mists-vis) discussed the graphics for revealing and understand
 
 ### Polishing missing data by variables and observations
 
-The polishing procedure assumes that the incoming data is "tsibble" [@tsibble]. The tsibble is a modern re-imagining of temporal data, which formally organizes a collection of related observational units and measurements over time in a tabular form. A tsibble consists of index, key, and measurements in a long format. The index variable contains time in chronological order; the key uniquely defines each observational unit over time; columns other than index and key are classified as measurements.
+The polishing procedure assumes that the incoming data is a "tsibble" [@tsibble]. The tsibble is a modern re-imagining of temporal data, which formally organizes a collection of related observational units and measurements over time in a tabular form. A tsibble consists of index, key, and measurements in a long format. The index variable contains time in chronological order; the key uniquely defines each observational unit over time; columns other than index and key are classified as measurements.
 
 This data structure invokes polishing procedures in two directions (by rows and columns), resulting in four polishers:
 
@@ -147,19 +147,17 @@ However, an ideal choice of $c$ is not clear. Missing data polishing is an upstr
 ### Formulating polishing strategies
 
 The polishers described in the previous section are the elementary tools provided to analysts for brushing missings away. A few iterations using these functions are often required with lots of manual efforts to achieve a desired result. The polished data can be influenced by the ordering of polishers and cutoff choices. The polishing goal, in general, is to maximize the proportion of missings in the removed data slice as well as to minimize the number of observations to be removed. An automated polishing strategy is formulated to refine the procedure with less human involvement, as implemented in `na_polish_auto()`. It essentially takes care of the sequence of polishers and the number of iterations in operation, but leaves the cutoff in the user's hands. This automating process involves a loss metric in a loop to determine the order the polishers and when to stop the iterations. This loss metric is defined as
-
 \begin{equation}
   l_{i} = (1 - p_{i}) \times \frac{r_{i}}{N},
   (\#eq:mists-loss)
 \end{equation}
-
 where $p$ is the proportion of missings, $r$ is the number of removed observations for each data slice $i = 1, \dots$, and $N$ is the total observations. Minimizing the loss $l$ guides the polishing procedure:
 
 1. Run four polishers independently to obtain $l_{i}$.
 2. Re-run the polishers sequentially according to the $l_{i}$ from high to low, and obtain $l_{I}$ where $I$ is an iteration.
 3. Repeat 1 and 2 until $l_{I} \le \tau$, where $\tau$ is a pre-specified tolerance value close to $0$. (Early exit given a higher $\tau$.)
 
-The companion function `na_polish_autotrace()` documents the entire polishing process above, and traces the $p_{i}$, $r_{i}$, and $l_{i}$ down along the way. These quantities can provide useful visual summaries about missing data patterns, and aid to choose the cutoffs in return.
+The companion function `na_polish_autotrace()` documents the entire polishing process above, and traces the $p_{i}$, $r_{i}$, and $l_{i}$ along the way. These quantities can provide useful visual summaries about missing data patterns, and an aid to choose the cutoffs in return.
 
 ## Application {#sec:mists-data}
 
@@ -168,7 +166,7 @@ The companion function `na_polish_autotrace()` documents the entire polishing pr
 ```{r wdi-load}
 ```
 
-The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix \@ref(data-dictionary)). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
+The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix \@ref(data-dictionary)). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values can be overwhelming at first glance. This severely inhibits further analyses.
 
 ```{r wdi-vis, fig.height = 7, fig.cap = "(ref:wdi-vis-cap)"}
 ```
@@ -239,7 +237,7 @@ Many sensors have been installed that track hourly pedestrian tallies in downtow
 
 (ref:spencer-jailbird-cap) The jailbird with colored imputed data using the seasonal split method for the sensor at Spencer Street from 2016 August to December. Strong seasonal features are prominent in the original data, but it is hard to detect the seasonal pattern from the imputed data.
 
-In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure \@ref(fig:spencer-jailbird), overlays imputed values (red), computed using the seasonal split method available in the **imputeTS** package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure \@ref(fig:spencer-imputes) drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method doesn't perform well with the multiple seasonality. 
+In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure \@ref(fig:spencer-jailbird), overlays imputed values (red), computed using the seasonal split method available in the **imputeTS** package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure \@ref(fig:spencer-imputes) drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method doesn't perform well with the multiple seasonality.
 
 ```{r spencer-imputes, fig.height = 4, fig.cap = "(ref:spencer-imputes-cap)"}
 ```
@@ -248,9 +246,9 @@ In contrast to the WDI data, the pedestrian data features multiple seasonal comp
 
 ## Conclusion {#sec:mists-conclusion}
 
-The presence of missing values provides a barrier to getting analysis started, and if the proportion of missing is high imputation could be unreliable. Restricting to only complete data might produce an analysis using little data. This paper has presented a new data structure, several new visual techniques and an algorithm for handling large amounts of temporal missings. These tools facilitate exploring and understanding missing value patterns, diagnosing the imputations, in preparation for time series modeling. These are available in the R package, **mists**.
+The presence of missing values provides a barrier to getting analysis started, and if the proportion of missing is high, imputation can be unreliable. Restricting to only complete data might produce an analysis using little data. This paper has presented a new data structure, several new visual techniques, and an algorithm for handling large amounts of temporal missings. These tools facilitate exploring and understanding missing value patterns, and diagnosing the imputations in preparation for time series modeling. These are available in the R package, **mists**.
 
-There are some natural next directions of this work. The literature review uncovered a lack of a comprehensive system for simulating different types of missing value patterns. Conceptualizing and developing a system would greatly help in understanding what is seen in practice. Much of the early work on exploratory methods for missings used in interactive graphics methods. The methods developed in this paper could be developed to incorporate interaction, as new technology arises that makes this easier. 
+There are some natural next directions of this work. The literature review uncovered the lack of a comprehensive system for simulating different types of missing value patterns. Conceptualizing and developing a system would greatly help in understanding what is seen in practice. Much of the early work on exploratory methods for missings is used in interactive graphical methods. The methods developed in this paper could be developed to incorporate interaction, as new technology arises that makes this easier.
 
 ## Acknowledgements
 
