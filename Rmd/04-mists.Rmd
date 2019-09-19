@@ -2,20 +2,6 @@
 
 Missing data provokes an air of mystery, that makes analysts itching throughout the exploration loop of transformation, visualization, and modeling. How to handle missing values involves decisions with many degrees of freedom, lending itself to a tedious and unwieldy process. The challenge of missingness roots in seeing what isn't there. The aim of this work is to clear that mysterious air away from missing data with the focus of temporal contexts from the data-centric perspective. A new sparse representation facilitates to index the runs of missings in time efficiently, with supporting operations and visual methods. This places missing data solely in the spotlight, speaking for themselves. When too many missings are scattered across variables and observations over time, missing data polishing strategies are populated and formulated. This equips analysts with tidy tools to iteratively remove missings from rows and columns, while keeping the temporal nature intact. The accompanying software is the R package **mists**.
 
-```{r mists-setup, cache = FALSE, include = FALSE}
-hook_output <-  knit_hooks$get('output')
-knit_hooks$set(output = function(x, options) {
-  # this hook is used only when the linewidth option is not NULL
-  if (!is.null(n <- options$linewidth)) {
-    x = knitr:::split_lines(x)
-    # any lines wider than n should be wrapped
-    if (any(nchar(x) > n)) x = strwrap(x, width = n)
-    x = paste(x, collapse = '\n')
-  }
-  hook_output(x, options)
-})
-```
-
 ```{r mists-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('scripts/mists.R')
 read_chunk('scripts/mists-wdi.R')
@@ -262,4 +248,10 @@ In contrast to the WDI data, the pedestrian data features multiple seasonal comp
 
 ## Conclusion {#sec:mists-conclusion}
 
-Missing data often puts analysts off with little clue on how to get it started. Complete data analysis might lead to no observation left in the data set; on the other end, too many missings make it impossible to impute. Missingness in time naturally carries temporal information over. This has been molded into a new vector class `r rle_na1()` for exploratory and explanatory operations and visualization, particularly useful for diagnosing the imputation method applied to a handful of series. The new polishing scheme handles missing values at scale, reducing the pain by removing missing data through an iterative automatic procedure, in order to produce a reasonable subset for later temporal data analysis.
+The presence of missing values provides a barrier to getting analysis started, and if the proportion of missing is high imputation could be unreliable. Restricting to only complete data might produce an analysis using little data. This paper has presented a new data structure, several new visual techniques and an algorithm for handling large amounts of temporal missings. These tools facilitate exploring and understanding missing value patterns, diagnosing the imputations, in preparation for time series modeling. These are available in the R package, **mists**.
+
+There are some natural next directions of this work. The literature review uncovered a lack of a comprehensive system for simulating different types of missing value patterns. Conceptualizing and developing a system would greatly help in understanding what is seen in practice. Much of the early work on exploratory methods for missings used in interactive graphics methods. The methods developed in this paper could be developed to incorporate interaction, as new technology arises that makes this easier. 
+
+## Acknowledgements
+
+This article was created with knitr [@knitr] and R Markdown [@rmarkdown]. The **mists** R package is available on Github <https://github.com/earowang/mists>.

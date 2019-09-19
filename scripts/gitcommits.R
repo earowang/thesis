@@ -43,21 +43,21 @@ get_commits <- function(path, distinct = TRUE, filter = TRUE,
 
 my_pkgs <- c("sugrrants", "tsibble", "mists")
 
-sugrrants <- get_commits("~/Rpkg/sugrrants") %>% 
+sugrrants <- get_commits("~/Rpkg/sugrrants") %>%
   mutate(Package = my_pkgs[1])
-tsibble <- get_commits("~/Rpkg/tsibble") %>% 
+tsibble <- get_commits("~/Rpkg/tsibble") %>%
   mutate(Package = my_pkgs[2])
-mists <- get_commits("~/Rpkg/mists") %>% 
+mists <- get_commits("~/Rpkg/mists") %>%
   mutate(Package = my_pkgs[3])
-pkgs <- bind_rows(sugrrants, tsibble, mists) %>% 
-  distinct(SHA, .keep_all = TRUE) %>% 
+pkgs <- bind_rows(sugrrants, tsibble, mists) %>%
+  distinct(SHA, .keep_all = TRUE) %>%
   mutate(Repository = "Package", Package = fct_relevel(Package, my_pkgs))
 
-p_pkgs <- pkgs %>% 
-  group_by(Package, Week = tsibble::yearweek(When)) %>% 
-  summarise(Commits = n()) %>% 
+p_pkgs <- pkgs %>%
+  group_by(Package, Week = tsibble::yearweek(When)) %>%
+  summarise(Commits = n()) %>%
   ggplot(aes(x = Week, y = Commits)) +
-  geom_smooth(se = FALSE) +
+  geom_smooth(span = 0.15, se = FALSE) +
   geom_point() +
   facet_grid(Package ~ .) +
   theme_bw()
@@ -66,19 +66,19 @@ ggsave("img/pkg-commits.pdf", plot = p_pkgs, device = "pdf", width = 8, height =
 
 types <- c("Presentation", "Analysis & writing", "Package")
 
-talks <- map_dfr(dir_ls("~/Talks"), get_commits) %>% 
-  distinct(SHA, .keep_all = TRUE) %>% 
+talks <- map_dfr(dir_ls("~/Talks"), get_commits) %>%
+  distinct(SHA, .keep_all = TRUE) %>%
   mutate(Repository = types[1])
 
 writing <- paste0("~/Research/",
-  c("phd-monash", "thesis-mid", "thesis", "paper-calendar-vis", "paper-tsibble", "paper-mists")) %>% 
-  map_dfr(get_commits) %>% 
-  distinct(SHA, .keep_all = TRUE) %>% 
+  c("phd-monash", "thesis-mid", "thesis", "paper-calendar-vis", "paper-tsibble", "paper-mists")) %>%
+  map_dfr(get_commits) %>%
+  distinct(SHA, .keep_all = TRUE) %>%
   mutate(Repository = types[2])
 
 phd_commits <- bind_rows(pkgs, talks, writing)
 
-phd_milestones <- 
+phd_milestones <-
   tribble(
     ~ date, ~ event, ~ Repository,
     "2017-03-23", "Confirmation", types[2],
@@ -100,29 +100,29 @@ phd_milestones <-
     "2018-01-09", "Release tsibble", types[3],
     "2017-08-22", "Submit sugrrants paper", types[2],
     "2019-02-13", "Submit tsibble paper", types[2]
-  ) %>% 
+  ) %>%
   mutate(date = ymd(date))
 
-phd_commits <- phd_commits %>% 
-  mutate(date = as_date(When)) %>% 
-  left_join(phd_milestones) %>% 
+phd_commits <- phd_commits %>%
+  mutate(date = as_date(When)) %>%
+  left_join(phd_milestones) %>%
   mutate(event = case_when(duplicated(event) ~ NA_character_, TRUE ~ event))
 
 p_commits <- phd_commits %>%
   ggplot(aes(x = When, y = Repository, colour = Repository)) +
   ggbeeswarm::geom_quasirandom(groupOnX = FALSE, size = 0.6) +
   geom_label_repel(
-    aes(label = event), data = filter(phd_commits, Repository == types[3]), 
+    aes(label = event), data = filter(phd_commits, Repository == types[3]),
     nudge_y = 0.5, hjust = 0,
     arrow = arrow(length = unit(0.02, "npc"), type = "closed")
   ) +
   geom_label_repel(
-    aes(label = event), data = filter(phd_commits, Repository == types[2]), 
+    aes(label = event), data = filter(phd_commits, Repository == types[2]),
     nudge_y = -1, hjust = 0,
     arrow = arrow(length = unit(0.02, "npc"), type = "closed")
   ) +
   geom_label_repel(
-    aes(label = event), data = filter(phd_commits, Repository == types[1]), 
+    aes(label = event), data = filter(phd_commits, Repository == types[1]),
     nudge_y = 4, hjust = 1,
     arrow = arrow(length = unit(0.02, "npc"), type = "closed")
   ) +

@@ -21,7 +21,7 @@ In the case of Chapter 2, 3 and 4 my contribution to the work involved the follo
 \hline
 3 & A new tidy data structure to support exploration and modeling of temporal data & Returned for revision & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
 \hline
-4 & Data representation, visual and analytical techniques for demystifying temporal missing data & Not yet submitted & xx & xx & \multicolumn{1}{c|}{N} \\
+4 & Data representation, visual and analytical techniques for demystifying temporal missing data & To be submitted & 80\%. Concept and developing software and writing first draft & (1) Dianne Cook, Concept and input into manuscript 15\% (2) Rob J Hyndman, input into manuscript 5\% & \multicolumn{1}{c|}{N} \\
 \hline
 \end{tabular}
 \end{table}

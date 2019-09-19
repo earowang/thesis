@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="4-6-sec-mists-data.html"/>
-<link rel="next" href="5-ch-conclusion.html"/>
+<link rel="next" href="4-8-acknowledgements-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html"><i class="fa fa-check"></i><b>4.5</b> Scaling up to large collections of temporal data</a></li>
 <li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Application</a></li>
 <li class="chapter" data-level="4.7" data-path="4-7-sec-mists-conclusion.html"><a href="4-7-sec-mists-conclusion.html"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="4-8-acknowledgements-2.html"><a href="4-8-acknowledgements-2.html"><i class="fa fa-check"></i><b>4.8</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a></li>
@@ -193,17 +194,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sec:mists-conclusion" class="section level2">
 <h2><span class="header-section-number">4.7</span> Conclusion</h2>
-<p>Missing data often puts analysts off with little clue on how to get it started. Complete data analysis might lead to no observation left in the data set; on the other end, too many missings make it impossible to impute. Missingness in time naturally carries temporal information over. This has been molded into a new vector class RLE &lt;NA&gt; for exploratory and explanatory operations and visualization, particularly useful for diagnosing the imputation method applied to a handful of series. The new polishing scheme handles missing values at scale, reducing the pain by removing missing data through an iterative automatic procedure, in order to produce a reasonable subset for later temporal data analysis.</p>
-
+<p>The presence of missing values provides a barrier to getting analysis started, and if the proportion of missing is high imputation could be unreliable. Restricting to only complete data might produce an analysis using little data. This paper has presented a new data structure, several new visual techniques and an algorithm for handling large amounts of temporal missings. These tools facilitate exploring and understanding missing value patterns, diagnosing the imputations, in preparation for time series modeling. These are available in the R package, <strong>mists</strong>.</p>
+<p>There are some natural next directions of this work. The literature review uncovered a lack of a comprehensive system for simulating different types of missing value patterns. Conceptualizing and developing a system would greatly help in understanding what is seen in practice. Much of the early work on exploratory methods for missings used in interactive graphics methods. The methods developed in this paper could be developed to incorporate interaction, as new technology arises that makes this easier.</p>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="4-6-sec-mists-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5-ch-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4-8-acknowledgements-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
