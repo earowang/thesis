@@ -4,7 +4,7 @@ Chapter \@ref(ch:calendar-vis) has been conditionally accepted by the *Journal o
 
 ### Open and reproducible research {-}
 
-This thesis is written in R Markdown [@rmarkdown] with **bookdown** [@bookdown]. The online version of this thesis is hosted at <https://thesis.earo.me>, powered by [Netlify](http://netlify.com). All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository <https://github.com/earowang/thesis>.
+This thesis is written in R Markdown [@rmarkdown] with **bookdown** [@bookdown], using **renv** [@renv] to create reproducible environments. The online version of this thesis is hosted at <https://thesis.earo.me>, powered by [Netlify](http://netlify.com). All materials (including the data sets and source files) required to reproduce this document can be found at the Github repository <https://github.com/earowang/thesis>.
 
 ### License {-}
 

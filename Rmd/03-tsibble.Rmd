@@ -326,6 +326,8 @@ Aggregation across all individuals helps to sketch a big picture of the behavior
 
 A common practice with energy data analysis is load forecasting, because providers need to know they have capacity to supply electricity. To illustrate the pipeline including modeling, here demand is modeled for December 2013, with the usage forecast for the last day (48 steps ahead because the data is half-hourly). The energy data for the last day is not used for modeling. ARIMA models with and without a temperature covariate are fitted using automatic order selection [@autoarima]. The logarithmic transformation is applied to the average demand to ensure positive forecasts. Figure \@ref(fig:elec-forecast) plots one-day forecasts from both models against the actual demand, for the last two-week window. The ARIMA model which includes the average temperature covariate gives a better fit than the one without, although both tend to underestimate the night demand. The forecasting performance is reported in Table \@ref(tab:elec-accuracy), consistent with the findings in Figure \@ref(fig:elec-forecast).
 
+\newpage
+
 ```{r elec-model}
 ```
 

@@ -4,16 +4,17 @@ bookdown::gitbook:
   split_by: section+number
   split_bib: no
   fig_retina: 1
+  toc_depth: 2
   config:
     toc:
       collapse: none
       before: |
         <li><strong><a href="./">Temporal tidy tools</a></strong></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></li>
+        <li><strong><a href="https://github.com/rstudio/bookdown" target="blank">Proudly published with bookdown</a></strong></li>
     edit: https://github.com/earowang/thesis/edit/master/%s
-  download: no
-  sharing: no
+    download: no
+    sharing: no
 bookdown::pdf_book:
   template: template/monashthesis.tex
   dev: "pdf"

@@ -27,7 +27,7 @@ rle_na1 <- function() {
   if (knitr::is_latex_output()) {
     "RLE \\<`NA`\\>"
   } else {
-    "RLE <`NA`>"
+    "RLE \\<NA\\>"
   }
 }
 ```
@@ -40,7 +40,6 @@ rle_na1 <- function() {
 Temporal missingness occurs when there is an absence of a value in time. For regularly spaced data, which is often assumed in time series, implicit missing values can be relatively easily spotted because there are gaps in the regularity. These can be converted to explicit missing values with ease. In irregular temporal data, missings should be specified explicitly in the raw data. Once the missings are explicitly declared, the patterns can be explored, and appropriate methods for imputation employed. Missing value research has a long history, but little attention has been paid to temporal missings. 
 
 @Little1988test established a taxonomy for missing data mechanisms: missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR). This is a view of missingness from the probabilistic perspective, because these mechanisms all specify a generating distribution from which to specify imputation methods. A data-centric approach to missings is described in @MANET, which shows how to explore missing value patterns with interactive graphics. @swayne1998 illustrated how using a shadow matrix could be useful for exploring multivariate missings using interactive graphics. A graphical user interface for exploring missing values in multivariate data using static plots is provided by @cheng_visually_2015. Recently, @Tierney2018naniar developed a collection of tidy tools in the R package `naniar` to facilitate transforming, visualizing, and imputing missing data.
-
 
 In contrast to multivariate data, temporal data has the time dimension that needs to be  explored, to understand the temporal dynamics of missing values. Little work has been conducted in this area. @Gschwandtner2012taxonomy provides a taxonomy of time-oriented data quality problems from single and multiple sources. This work is accompanied by an interactive visual system, TimeCleanser [@gschwandtner_timecleanser_2014], for assessing data qualities for time-oriented missing data, which facilitates cleaning different time formats. Missing values are considered to be a data quality issue as a component of that system. The R package **imputeTS** [@Moritz2017imputets] provides time series imputation methods, such as temporal interpolation and Kalman Smoothing [@kalman], with a few graphical methods for summarizing missing values in time series. None of the existing work fully addresses the problem of handling temporal missing data. There is a need for better data structures, and visualization methods to explore temporal missing data, to better understand the temporal dynamics, and prepare it for imputation and subsequent modeling. 
 
@@ -90,7 +89,7 @@ The instance of `r rle_na1()` is a reduced form for representing `NA` in time, b
 
 The `r rle_na1()` prioritizes indexed missing data as the raw data itself, that provides the opportunities to manipulate the missings with many useful operations.
 
-It is computationally efficient to sum (`sum()`) and count (`length()`) the run lengths over a standalone `r rle_na1()`, than directly dealing with its original form for identical results. Other mathematical functions, such as `mean()` and `median()`, make it accessible to compute runs-related statistics. For example, `mean(<``r rle_na1()``>)` is the average of missings *per run*. If not going on the route of RLE, it would be cumbersome to compute these statistics otherwise.
+It is computationally efficient to sum (`sum()`) and count (`length()`) the run lengths over a standalone `r rle_na1()`, than directly dealing with its original form for identical results. Other mathematical functions, such as `mean()` and `median()`, make it accessible to compute runs-related statistics. For example, `mean(<`r rle_na1()`>)` is the average of missings *per run*. If not going on the route of RLE, it would be cumbersome to compute these statistics otherwise.
 
 These math operations primarily require a singular `r rle_na1()` at a time. The other set is the set operators that performs set union (`union()`), intersection (`intersect()`), and asymmetric difference (`setdiff()`) on a pair of `r rle_na1()`. They are useful for exploring the association between multiple sets of missing data. For example, the `intersect()` operator could tell if they overlap with each other and by how much, which powers one of the plots in the next section. Since set operators are binary functions, a collection of series can be successively combined and applied to give an overall picture about all.
 
@@ -183,7 +182,7 @@ The companion function `na_polish_autotrace()` documents the entire polishing pr
 ```{r wdi-load}
 ```
 
-The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
+The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix \@ref(data-dictionary)). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
 
 ```{r wdi-vis, fig.height = 7, fig.cap = "(ref:wdi-vis-cap)"}
 ```

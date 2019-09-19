@@ -1,0 +1,8 @@
+# (APPENDIX) Appendix {-}
+
+# Data dictionary
+
+```{r wdi-data-dict}
+```
+
+(ref:wdi-data-dict) Data dictionary for the World Development Indicators.

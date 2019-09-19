@@ -507,6 +507,13 @@
       "Repository": "CRAN",
       "Hash": "4a15d8cfc931554fb2e71d66c1313b45"
     },
+    "janitor": {
+      "Package": "janitor",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e1310d9b920ef337ec2ecd8d73b21f0d"
+    },
     "jpeg": {
       "Package": "jpeg",
       "Version": "0.1-8",
@@ -969,6 +976,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "15dc3997ce89bb9fd33615c43f2e5d67"
+    },
+    "snakecase": {
+      "Package": "snakecase",
+      "Version": "0.11.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5c861a2766fb272f515b7704dcbe08d6"
     },
     "sourcetools": {
       "Package": "sourcetools",

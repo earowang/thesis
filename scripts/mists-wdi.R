@@ -151,4 +151,7 @@ raw_dat %>%
   distinct(`Series Code`, `Series Name`) %>% 
   mutate(`Series Code` = janitor::make_clean_names(`Series Code`)) %>% 
   knitr::kable(booktabs = TRUE, longtable = TRUE, caption = "(ref:wdi-data-dict)", linesep = "") %>%
-  kableExtra::kable_styling(position = "center", latex_options= c("hold_position", "repeat_header"))
+  kableExtra::kable_styling(
+    font_size = 9, position = "center",
+    latex_options= c("hold_position", "repeat_header")
+  )

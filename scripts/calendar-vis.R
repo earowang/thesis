@@ -223,7 +223,7 @@ prettify(p_fs_day, size = 3, label.padding = unit(0.15, "lines"))
 ## ---- chn
 # boxplots for hourly counts across all the sensors in 2016 Dec with Chinese 
 # labels
-# font_install(source_han_serif())
+font_install(source_han_serif())
 showtext_auto()
 # boxplots for hourly counts across all the sensors in 2016 December
 pedestrian_dec <- pedestrian_2016 %>% 
