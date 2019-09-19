@@ -11,7 +11,7 @@ read_chunk('scripts/software.R')
 ```{r software-impact}
 ```
 
-A particular emphasis of this thesis is on translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Github commits to these repositories, and Figure \@ref(fig:software-downloads) shows the daily downloads of the packages from the RStudio mirror (one of 90 CRAN mirrors) since they were available on CRAN.
+A particular emphasis of this thesis is on translating research methodologies in the form of open source R packages: **sugrrants**, **tsibble**, and **mists**. Figure \@ref(fig:software-ghcommits) gives an overview of my Git commits to these repositories, and Figure \@ref(fig:software-downloads) shows the daily downloads of the packages from the RStudio mirror (one of 90 CRAN mirrors) since they were available on CRAN.
 
 ```{r software-ghcommits, fig.cap = "(ref:software-ghcommits-cap)"}
 include_graphics("img/pkg-commits.png")
@@ -52,7 +52,7 @@ Numerous nesting and crossing combinations can yield unwieldy plots, in many of 
 
 ## Final words
 
-Presentations, package development, and writing are the three primary types of activities that shape this thesis. I have developed a habit of using Git/Github to track and synchronize my academic work since I started the PhD program. All commits are grouped by the activity types, with annotations of important milestones, shown in Figure \@ref(fig:phd-ghcommits). It has been a fruitful program.
+Presentations, package development, and writing are the three primary types of activities that shape this thesis. I have developed a habit of using Git and Github to track and synchronize my academic work since I started the PhD program. All commits are grouped by the activity types, with annotations of important milestones, shown in Figure \@ref(fig:phd-ghcommits). It has been a fruitful program.
 
 ```{r phd-ghcommits, fig.cap = "(ref:phd-ghcommits-cap)", fig.pos = "ht"}
 include_graphics("img/phd-commits.png")
