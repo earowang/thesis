@@ -1,6 +1,6 @@
 # Conclusion and future plans {#ch:conclusion}
 
-The three papers assembled in this thesis share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "Data representation, visual and analytical techniques for demystifying temporal missing data", demystified missing data in time. These papers are bundled with software. In this conclusion, I will briefly summarize each package and their impact, and discuss the future directions of my research.
+The three papers assembled in this thesis share a common theme of exploratory analysis for temporal data using tidy tools. Chapter \@ref(ch:calendar-vis), "Calendar-based graphics for visualizing people's daily schedules", described a new calendar-based display. Chapter \@ref(ch:tsibble), "A new tidy data structure to support exploration and modeling of temporal data", proposed a new temporal data abstraction. Chapter \@ref(ch:mists), "Data representation, visual and analytical techniques for demystifying temporal missing data", explored missing data in time. These papers are bundled with software. In this conclusion, I will briefly summarize each package and their impact, and discuss the future directions of my research.
 
 ```{r software-initial, echo = FALSE, cache = FALSE, include = FALSE}
 read_chunk('scripts/software.R')
@@ -17,12 +17,12 @@ A particular emphasis of this thesis is on translating research methodologies in
 include_graphics("img/pkg-commits.png")
 ```
 
-(ref:software-ghcommits-cap) Scatter plots of my weekly Git commits to three repositories, sugrrants, tsibble, and mists, during my PhD years.
+(ref:software-ghcommits-cap) Scatter plots of my weekly Git commits to three repositories, sugrrants, tsibble, and mists, during my PhD years. The smoothed lines show the bursts of my coding activity.
 
 ```{r software-downloads, fig.height = 3, fig.cap = "(ref:software-downloads-cap)"}
 ```
 
-(ref:software-downloads-cap) Daily downloads of sugrrants and tsibble from the RStudio mirror since they landed on CRAN.
+(ref:software-downloads-cap) Daily downloads (using the square root transformation) of sugrrants and tsibble from the RStudio mirror since they landed on CRAN.
 
 ### sugrrants
 
@@ -49,3 +49,13 @@ Generating temporal missingness can be decomposed into two steps: (1) injecting 
 A collection of time series are often structured in a way that allows nesting and crossing interactions [@fpp]. For example, a manufacturing company can add up every store's sales by region, by state and by country, which gives a strictly hierarchical time series; alternatively, they can gather the sales based on common attributes such as store, brand, price range and so forth, which leads to a crossed configuration. Nesting is a special case of crossing, with parent-children relations involved. Temporal information such as date-times is often also intrinsically hierarchical, seconds nested within minutes, hours, and etc. The new tsibble structure has the neat capability of supporting these structural embeddings.
 
 Numerous nesting and crossing combinations can yield unwieldy plots, in many of which an abundance of information is possibly buried. Focus-plus-context visualization with interactivity comes to the rescue. Dual contexts, structurally informative subjects, and time provide the source and visual clues for elegant navigation. Interactions on contextual plots control what is to be visualized in the main plots. Many kinds of visual displays can be generated to progressively build a richer data picture through guided or self explorations.
+
+## Final words
+
+Three primary types of activities that shape this thesis are presentations, package development, and writing. I have developed a habit of using Git/Github to track and synchronize my academic work since I started the PhD program. Figure \@ref(fig:phd-ghcommits) presents all the commits grouped by the activity types, with annotations of the important milestones.
+
+```{r phd-ghcommits, fig.cap = "(ref:phd-ghcommits-cap)", fig.pos = "ht"}
+include_graphics("img/phd-commits.png")
+```
+
+(ref:phd-ghcommits-cap) Beeswarm plots of my Git commits split by the activity types during my PhD years, labeled with some milestones.

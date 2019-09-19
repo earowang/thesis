@@ -147,11 +147,17 @@ wdi_chn_imputed %>%
 ## ---- wdi-data-dict
 raw_dat <- read_csv("data-raw/mists/world-development-indicators.csv", na = "..",
   n_max = 11935)
-raw_dat %>% 
+wdi_dict <- raw_dat %>% 
   distinct(`Series Code`, `Series Name`) %>% 
   mutate(`Series Code` = janitor::make_clean_names(`Series Code`)) %>% 
-  knitr::kable(booktabs = TRUE, longtable = TRUE, caption = "(ref:wdi-data-dict)", linesep = "") %>%
+  knitr::kable(booktabs = TRUE, longtable = TRUE, caption = "(ref:wdi-data-dict)", linesep = "")
+
+## ---- wdi-data-dict-html
+wdi_dict
+
+## ---- wdi-data-dict-latex
+wdi_dict %>% 
   kableExtra::kable_styling(
-    font_size = 9, position = "center",
+    font_size = 8.5, position = "center",
     latex_options= c("hold_position", "repeat_header")
   )

@@ -5,4 +5,10 @@
 ```{r wdi-data-dict}
 ```
 
+```{r wdi-data-dict-html, eval = is_html_output()}
+```
+
+```{r wdi-data-dict-latex, eval = is_latex_output()}
+```
+
 (ref:wdi-data-dict) Data dictionary for the World Development Indicators.

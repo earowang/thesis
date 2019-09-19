@@ -75,7 +75,7 @@ The instance of `r rle_na1()` is a reduced form for representing `NA` in time, b
 
 The `r rle_na1()` prioritizes indexed missing data as the raw data itself, that provides the opportunities to manipulate the missings with many useful operations.
 
-It is computationally efficient to sum (`sum()`) and count (`length()`) the run lengths over a standalone `r rle_na1()`, than directly dealing with its original form for identical results. Other mathematical functions, such as `mean()` and `median()`, make it accessible to compute runs-related statistics. For example, `mean(<`r rle_na1()`>)` is the average of missings *per run*. If not going on the route of RLE, it would be cumbersome to compute these statistics otherwise.
+It is computationally efficient to sum (`sum()`) and count (`length()`) the run lengths over a standalone `r rle_na1()`, than directly dealing with its original form for identical results. Other mathematical functions, such as `mean()` and `median()`, make it accessible to compute runs-related statistics. For example, `mean()` gives the average of missings *per run*. If not going on the route of RLE, it would be cumbersome to compute these statistics otherwise.
 
 These math operations primarily require a singular `r rle_na1()` at a time. The other set is the set operators that performs set union (`union()`), intersection (`intersect()`), and asymmetric difference (`setdiff()`) on a pair of `r rle_na1()`. They are useful for exploring the association between multiple sets of missing data. For example, the `intersect()` operator could tell if they overlap with each other and by how much, which powers one of the plots in the next section. Since set operators are binary functions, a collection of series can be successively combined and applied to give an overall picture about all.
 
@@ -168,7 +168,7 @@ The companion function `na_polish_autotrace()` documents the entire polishing pr
 ```{r wdi-load}
 ```
 
-The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix \@ref(data-dictionary)). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
+The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the @wdi. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table \@ref(tab:wdi-data-dict) in Appendix). It contains `r format(NROW(wdi), big.mark = ",")` observations with `r scales::percent(mean(is.na(wdi[-c(1, 2)])))` of missing values in the measurements. Figure \@ref(fig:wdi-vis) gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.
 
 ```{r wdi-vis, fig.height = 7, fig.cap = "(ref:wdi-vis-cap)"}
 ```
@@ -194,9 +194,9 @@ Figure \@ref(fig:wdi-pass) exhibits the number of iterations needed to exit the 
 
 (ref:wdi-polished-vis-cap) Missingness heatmap for the polished data. The polished data gives 11.8% missing values, compared to 44.9% in Figure \@ref(fig:wdi-vis).
 
-Using $c = 0.5$ for each polisher and $\tau = 0.1$, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 columns and 6,304 rows including 37 countries, the polished data ends up with 11.8% missing values. Figure \@ref(fig:wdi-polished-vis) displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks greatly in size, but is much more complete, making it more feasible to impute and do further analysis.
+Using $c = 0.5$ for each polisher and $\tau = 0.1$, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 of 55 variables and 37 of 217 countries, produces a polished data with 11.8% instead of 44.9% missing values. Figure \@ref(fig:wdi-polished-vis) displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks in size, but is much more complete, making it more feasible to impute and do further analysis.
 
-The polishing techniques prepare the data for imputation, and in turn for models. Figure \@ref(fig:mists-pipeline) visualized the pipeline that the data filters in and out, from polishing to modeling. A subset of polished data, China's estimates, is ready for further examination. In this subset, 14 out of 29 measurements contain missing data. The jailbird plot is used to highlight the blocks of missings, shown as Figure \@ref(fig:wdi-chn-imputed). The red dots are the imputed values using the Stineman interpolation [@stineman; @R-stinepack] for each series, which generate well-behaved interpolation. The complete data set with imputed values is fed into the Exponential Smoothing models (ETS) and forecast for the next three years. Figure \@ref(fig:wdi-chn-ets) shows the point forecasts with 80% and 95% prediction intervals. If not imputed, ETS would complain about not supporting missing values straightway.
+The polishing process prepares the data for imputation, and in turn for modeling. Figure \@ref(fig:mists-pipeline) displays the data pipeline that polishes, filters in and out, imputes, models and forecasts each series. The series for China is used too illustrate the result from this pipeline. In this subset, 14 of 29 variables contain missing data. The jailbird plot (Figure \@ref(fig:wdi-chn-imputed)) is used to highlight the blocks of missings. The red dots represent imputed values, computed using the Stineman interpolation [@stineman; @R-stinepack] for each series. The results look very consistent for each series. The complete data is passed into Exponential Smoothing models (ETS) and forecast for the next three years. Figure \@ref(fig:wdi-chn-ets) shows the point forecasts with 80% and 95% prediction intervals. ETS does not accept any missings, so this pipeline has provided a smooth flow of messy temporal data into tidy model output. 
 
 ```{r mists-pipeline, fig.cap = "(ref:mists-pipeline-cap)"}
 include_graphics("img/mists-pipeline.png")
@@ -210,12 +210,12 @@ include_graphics("img/mists-pipeline.png")
 ```{r wdi-chn-imputed, fig.height = 9, fig.cap = "(ref:wdi-chn-imputed-cap)"}
 ```
 
-(ref:wdi-chn-imputed-cap) The jailbird plot with imputed values highlighted for the subset of 14 measurements in China. The gaps are filled with the well-behaved values between actual data points.
+(ref:wdi-chn-imputed-cap) The jailbird plot, for the subset of 14 time series from China, overlaid with imputed values (red). The gaps are filled with the well-behaved imputations that are consistent with the complete data.
 
 ```{r wdi-chn-ets, fig.height = 9, fig.cap = "(ref:wdi-chn-ets-cap)"}
 ```
 
-(ref:wdi-chn-ets-cap) Three-year forecasts built with ETS models using the polished and imputed data.
+(ref:wdi-chn-ets-cap) Three-year forecasts built with ETS models on the polished and imputed data for China, with 80% and 95% prediction intervals.
 
 ### Melbourne pedestrian sensors
 
@@ -227,7 +227,7 @@ Many sensors have been installed that track hourly pedestrian tallies in downtow
 ```{r pedestrian-rangeplot, fig.height = 7, fig.cap = "(ref:pedestrian-rangeplot-cap)"}
 ```
 
-(ref:pedestrian-rangeplot-cap) The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data.
+(ref:pedestrian-rangeplot-cap) The range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data. Across series, many missings can be seen to be occurring at similar times. The common missing at the beginning of October is likely the start of daylight savings (summer) time in Melbourne, where an hour disappears from the world.
 
 ```{r spencer-spinoplot, fig.height = 3, fig.width = 3, out.width = "40%", fig.cap = "(ref:spencer-spinoplot-cap)"}
 ```
