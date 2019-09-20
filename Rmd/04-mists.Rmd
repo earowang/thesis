@@ -159,7 +159,7 @@ where $p$ is the proportion of missings, $r$ is the number of removed observatio
 
 The companion function `na_polish_autotrace()` documents the entire polishing process above, and traces the $p_{i}$, $r_{i}$, and $l_{i}$ along the way. These quantities can provide useful visual summaries about missing data patterns, and an aid to choose the cutoffs in return.
 
-## Application {#sec:mists-data}
+## Applications {#sec:mists-data}
 
 ### World development indicators
 
@@ -237,7 +237,7 @@ Many sensors have been installed that track hourly pedestrian tallies in downtow
 
 (ref:spencer-jailbird-cap) The jailbird with colored imputed data using the seasonal split method for the sensor at Spencer Street from 2016 August to December. Strong seasonal features are prominent in the original data, but it is hard to detect the seasonal pattern from the imputed data.
 
-In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure \@ref(fig:spencer-jailbird), overlays imputed values (red), computed using the seasonal split method available in the **imputeTS** package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure \@ref(fig:spencer-imputes) drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method doesn't perform well with the multiple seasonality.
+In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure \@ref(fig:spencer-jailbird), overlays imputed values (red), computed using the seasonal split method available in the **imputeTS** package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure \@ref(fig:spencer-imputes) drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method does not perform well with the multiple seasonality.
 
 ```{r spencer-imputes, fig.height = 4, fig.cap = "(ref:spencer-imputes-cap)"}
 ```

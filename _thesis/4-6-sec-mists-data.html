@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis</title>
-  <meta name="description" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <title>4.6 Applications | Tidy tools for supporting fluent workflow in temporal data analysis</title>
+  <meta name="description" content="4.6 Applications | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta property="og:title" content="4.6 Applications | Tidy tools for supporting fluent workflow in temporal data analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.6 Application | Tidy tools for supporting fluent workflow in temporal data analysis" />
+  <meta name="twitter:title" content="4.6 Applications | Tidy tools for supporting fluent workflow in temporal data analysis" />
   
   
   
@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="4-3-sec-mists-na-rle.html"><a href="4-3-sec-mists-na-rle.html"><i class="fa fa-check"></i><b>4.3</b> New data abstraction and operations for missing data in time</a></li>
 <li class="chapter" data-level="4.4" data-path="4-4-sec-mists-vis.html"><a href="4-4-sec-mists-vis.html"><i class="fa fa-check"></i><b>4.4</b> Visual methods for exploring temporal missingness</a></li>
 <li class="chapter" data-level="4.5" data-path="4-5-sec-mists-polish.html"><a href="4-5-sec-mists-polish.html"><i class="fa fa-check"></i><b>4.5</b> Scaling up to large collections of temporal data</a></li>
-<li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Application</a></li>
+<li class="chapter" data-level="4.6" data-path="4-6-sec-mists-data.html"><a href="4-6-sec-mists-data.html"><i class="fa fa-check"></i><b>4.6</b> Applications</a></li>
 <li class="chapter" data-level="4.7" data-path="4-7-sec-mists-conclusion.html"><a href="4-7-sec-mists-conclusion.html"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
 <li class="chapter" data-level="4.8" data-path="4-8-acknowledgements-2.html"><a href="4-8-acknowledgements-2.html"><i class="fa fa-check"></i><b>4.8</b> Acknowledgements</a></li>
 </ul></li>
@@ -194,10 +194,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="sec:mists-data" class="section level2">
-<h2><span class="header-section-number">4.6</span> Application</h2>
+<h2><span class="header-section-number">4.6</span> Applications</h2>
 <div id="world-development-indicators" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> World development indicators</h3>
-<p>The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the <span class="citation">World Bank Group (<a href="bibliography.html#ref-wdi">2019</a>)</span>. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table <a href="A-data-dictionary.html#tab:wdi-data-dict">A.1</a> in Appendix <a href="A-data-dictionary.html#data-dictionary">A</a>). It contains 10,850 observations with 44.9% of missing values in the measurements. Figure <a href="4-6-sec-mists-data.html#fig:wdi-vis">4.7</a> gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values sparks overwhelmingness at first glance. This severely inhibits further analyses.</p>
+<p>The motivating example for the polishing techniques is the World Development Indicators (WDI), sourced from the <span class="citation">World Bank Group (<a href="bibliography.html#ref-wdi">2019</a>)</span>. The dataset presents 55 national estimates of development indicators from 217 countries and regions around the globe every year from 1969 to 2018 (A data dictionary is given in Table <a href="A-data-dictionary.html#tab:wdi-data-dict">A.1</a> in Appendix <a href="A-data-dictionary.html#data-dictionary">A</a>). It contains 10,850 observations with 44.9% of missing values in the measurements. Figure <a href="4-6-sec-mists-data.html#fig:wdi-vis">4.7</a> gives the overall picture of missingness in the data. Missingness appears as blocks and strips across observations and variables. Such data involving a great amount of missing values can spark overwhelmingness at the first try. This severely inhibits further analyses.</p>
 <div class="figure" style="text-align: center"><span id="fig:wdi-vis"></span>
 <img src="figure/wdi-vis-1.png" alt="Missing data heatmap, with black for missing values and gray for present values. Pixels are arranged as the data cells, reflecting the missingness status. The amount of missings varies vastly by variables." width="100%" />
 <p class="caption">
@@ -276,7 +276,7 @@ Figure 4.16: The jailbird with colored imputed data using the seasonal split met
 </p>
 </div>
 
-<p>In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure <a href="4-6-sec-mists-data.html#fig:spencer-jailbird">4.16</a>, overlays imputed values (red), computed using the seasonal split method available in the <strong>imputeTS</strong> package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure <a href="4-6-sec-mists-data.html#fig:spencer-imputes">4.17</a> drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method doesn’t perform well with the multiple seasonality.</p>
+<p>In contrast to the WDI data, the pedestrian data features multiple seasonal components: time of day, day of week, and different types of days like public holidays. Seasonal patterns corresponding to these temporal elements can be seen. The jailbird plot in Figure <a href="4-6-sec-mists-data.html#fig:spencer-jailbird">4.16</a>, overlays imputed values (red), computed using the seasonal split method available in the <strong>imputeTS</strong> package. They appear to fall in the reasonable range, but do not seem to have captured the seasonality. Mostly what can be observed in the long time series is work day vs not seasonality. Figure <a href="4-6-sec-mists-data.html#fig:spencer-imputes">4.17</a> drills down into the finer daily seasonality. It splits the series into work and non-work days, colored by imputed or not. The imputation actually does well to capture the daily patterns, at least for working days, It fails on non-working days because it estimates a commuter pattern. This imputation method does not perform well with the multiple seasonality.</p>
 <div class="figure" style="text-align: center"><span id="fig:spencer-imputes"></span>
 <img src="figure/spencer-imputes-1.png" alt="Examining the daily seasonality, relative to the work day vs not components, using faceted line plots. The imputation (purple) grasps the key moments (morning and afternoon commutes, and lunch break) in a work day, but is unable to build the non-work profile." width="100%" />
 <p class="caption">

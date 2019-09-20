@@ -22,7 +22,7 @@ include_graphics("img/pkg-commits.png")
 ```{r software-downloads, fig.height = 3, fig.cap = "(ref:software-downloads-cap)"}
 ```
 
-(ref:software-downloads-cap) Impact of these works (sugrrants and tsibble) as measured by daily downloads (on square root scale) from the RStudio mirror since they landed on CRAN. The **tsibble** package has increasing trend, suggesting steady adoption of new data structure.
+(ref:software-downloads-cap) Impact of these works (sugrrants and tsibble) as measured by daily downloads (on square root scale) from the RStudio mirror since they landed on CRAN. The **tsibble** package has an increasing trend, suggesting the steady adoption of the new data structure.
 
 ### sugrrants
 
