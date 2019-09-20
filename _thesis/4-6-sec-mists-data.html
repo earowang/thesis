@@ -168,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="5-ch-conclusion.html"><a href="5-ch-conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion and future plans</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-software-development.html"><a href="5-1-software-development.html"><i class="fa fa-check"></i><b>5.1</b> Software development</a></li>
 <li class="chapter" data-level="5.2" data-path="5-2-future-work.html"><a href="5-2-future-work.html"><i class="fa fa-check"></i><b>5.2</b> Future work</a></li>
+<li class="chapter" data-level="5.3" data-path="5-3-final-words.html"><a href="5-3-final-words.html"><i class="fa fa-check"></i><b>5.3</b> Final words</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-data-dictionary.html"><a href="A-data-dictionary.html"><i class="fa fa-check"></i><b>A</b> Data dictionary</a></li>
@@ -213,9 +214,9 @@ Figure 4.8: The loss metrics against the number of iterations conditional on two
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:wdi-grid-plot"></span>
-<img src="figure/wdi-grid-plot-1.png" alt="The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of \(c\) can make a significant impact on na_polish_key() and na_polish_measures(), but little on polishing index." width="100%" />
+<img src="figure/wdi-grid-plot-1.png" alt="The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of cutoff (\(c\)) makes a significant impact on na_polish_key() and na_polish_measures(), but little changes for the polishing indexes (first two columns)." width="100%" />
 <p class="caption">
-Figure 4.9: The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of <span class="math inline">\(c\)</span> can make a significant impact on <code>na_polish_key()</code> and <code>na_polish_measures()</code>, but little on polishing index.
+Figure 4.9: The beeswarm plot showing the effect of the grid parameters for four polishers. The choice of cutoff (<span class="math inline">\(c\)</span>) makes a significant impact on <code>na_polish_key()</code> and <code>na_polish_measures()</code>, but little changes for the polishing indexes (first two columns).
 </p>
 </div>
 
@@ -227,8 +228,8 @@ Figure 4.10: Missingness heatmap for the polished data. The polished data gives 
 </p>
 </div>
 
-<p>Using <span class="math inline">\(c = 0.5\)</span> for each polisher and <span class="math inline">\(\tau = 0.1\)</span>, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 columns and 6,304 rows including 37 countries, the polished data ends up with 11.8% missing values. Figure <a href="4-6-sec-mists-data.html#fig:wdi-polished-vis">4.10</a> displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks greatly in size, but is much more complete, making it more feasible to impute and do further analysis.</p>
-<p>The polishing techniques prepare the data for imputation, and in turn for models. Figure <a href="4-6-sec-mists-data.html#fig:mists-pipeline">4.11</a> visualized the pipeline that the data filters in and out, from polishing to modeling. A subset of polished data, China’s estimates, is ready for further examination. In this subset, 14 out of 29 measurements contain missing data. The jailbird plot is used to highlight the blocks of missings, shown as Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-imputed">4.12</a>. The red dots are the imputed values using the Stineman interpolation <span class="citation">(Stineman <a href="bibliography.html#ref-stineman">1980</a>; Halldor Bjornsson and Grothendieck <a href="bibliography.html#ref-R-stinepack">2018</a>)</span> for each series, which generate well-behaved interpolation. The complete data set with imputed values is fed into the Exponential Smoothing models (ETS) and forecast for the next three years. Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-ets">4.13</a> shows the point forecasts with 80% and 95% prediction intervals. If not imputed, ETS would complain about not supporting missing values straightway.</p>
+<p>Using <span class="math inline">\(c = 0.5\)</span> for each polisher and <span class="math inline">\(\tau = 0.1\)</span>, the automatic polishing process goes through 3 iterations to get the data polished. Removing 11 of 55 variables and 37 of 217 countries, produces a polished data with 11.8% instead of 44.9% missing values. Figure <a href="4-6-sec-mists-data.html#fig:wdi-polished-vis">4.10</a> displays the missingness map for the polished data. Comparing to the original dataset, the polished subset shrinks in size, but is much more complete, making it more feasible to impute and do further analysis.</p>
+<p>The polishing process prepares the data for imputation, and in turn for modeling. Figure <a href="4-6-sec-mists-data.html#fig:mists-pipeline">4.11</a> displays the data pipeline that polishes, filters in and out, imputes, models and forecasts each series. The series for China is used too illustrate the result from this pipeline. In this subset, 14 of 29 variables contain missing data. The jailbird plot (Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-imputed">4.12</a>) is used to highlight the blocks of missings. The red dots represent imputed values, computed using the Stineman interpolation <span class="citation">(Stineman <a href="bibliography.html#ref-stineman">1980</a>; Halldor Bjornsson and Grothendieck <a href="bibliography.html#ref-R-stinepack">2018</a>)</span> for each series. The results look very consistent for each series. The complete data is passed into Exponential Smoothing models (ETS) and forecast for the next three years. Figure <a href="4-6-sec-mists-data.html#fig:wdi-chn-ets">4.13</a> shows the point forecasts with 80% and 95% prediction intervals. ETS does not accept any missings, so this pipeline has provided a smooth flow of messy temporal data into tidy model output.</p>
 <div class="figure" style="text-align: center"><span id="fig:mists-pipeline"></span>
 <img src="img/mists-pipeline.png" alt="The pipeline demonstrates the sequence of functions required for modeling data with a large amount of missings. It begins with the polishing, and then transform, interpolate, model, and forecast." width="100%" />
 <p class="caption">
@@ -237,16 +238,16 @@ Figure 4.11: The pipeline demonstrates the sequence of functions required for mo
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:wdi-chn-imputed"></span>
-<img src="figure/wdi-chn-imputed-1.png" alt="The jailbird plot with imputed values highlighted for the subset of 14 measurements in China. The gaps are filled with the well-behaved values between actual data points." width="100%" />
+<img src="figure/wdi-chn-imputed-1.png" alt="The jailbird plot, for the subset of 14 time series from China, overlaid with imputed values (red). The gaps are filled with the well-behaved imputations that are consistent with the complete data." width="100%" />
 <p class="caption">
-Figure 4.12: The jailbird plot with imputed values highlighted for the subset of 14 measurements in China. The gaps are filled with the well-behaved values between actual data points.
+Figure 4.12: The jailbird plot, for the subset of 14 time series from China, overlaid with imputed values (red). The gaps are filled with the well-behaved imputations that are consistent with the complete data.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:wdi-chn-ets"></span>
-<img src="figure/wdi-chn-ets-1.png" alt="Three-year forecasts built with ETS models using the polished and imputed data." width="100%" />
+<img src="figure/wdi-chn-ets-1.png" alt="Three-year forecasts built with ETS models on the polished and imputed data for China, with 80% and 95% prediction intervals." width="100%" />
 <p class="caption">
-Figure 4.13: Three-year forecasts built with ETS models using the polished and imputed data.
+Figure 4.13: Three-year forecasts built with ETS models on the polished and imputed data for China, with 80% and 95% prediction intervals.
 </p>
 </div>
 
@@ -255,9 +256,9 @@ Figure 4.13: Three-year forecasts built with ETS models using the polished and i
 <h3><span class="header-section-number">4.6.2</span> Melbourne pedestrian sensors</h3>
 <p>Many sensors have been installed that track hourly pedestrian tallies in downtown Melbourne <span class="citation">(City of Melbourne <a href="bibliography.html#ref-ped">2017</a>)</span>, as part of the emerging smart city plan. It is valuable for understanding the rhythm of daily life of people in the city. There are numerous missing values, likely due to sensors failing for periods of time. Figure <a href="4-6-sec-mists-data.html#fig:pedestrian-rangeplot">4.14</a> illustrates the distributions of missingness in 2016 across 43 sensors, using the range plot organized from the most missing sensor to the least.</p>
 <div class="figure" style="text-align: center"><span id="fig:pedestrian-rangeplot"></span>
-<img src="figure/pedestrian-rangeplot-1.png" alt="The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data." width="100%" />
+<img src="figure/pedestrian-rangeplot-1.png" alt="The range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data. Across series, many missings can be seen to be occurring at similar times. The common missing at the beginning of October is likely the start of daylight savings (summer) time in Melbourne, where an hour disappears from the world." width="100%" />
 <p class="caption">
-Figure 4.14: The gap range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data.
+Figure 4.14: The range plot arranges the 43 pedestrian sensors from most missing to the least. Missing at Runs and Occasions can be found in the data. Across series, many missings can be seen to be occurring at similar times. The common missing at the beginning of October is likely the start of daylight savings (summer) time in Melbourne, where an hour disappears from the world.
 </p>
 </div>
 

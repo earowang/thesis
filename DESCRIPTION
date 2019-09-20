@@ -13,6 +13,7 @@ Depends:
     cliapp (>= 0.1.0),
     dplyr (>= 0.8.3),
     fable (>= 0.1.0),
+    feasts (>= 0.1.1),
     forcats (>= 0.4.0),
     gganimate (>= 1.0.3),
     ggmap (>= 3.0.0),

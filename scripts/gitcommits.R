@@ -130,3 +130,5 @@ p_commits <- phd_commits %>%
   scale_colour_brewer(palette = "Set2") +
   theme_bw() +
   theme(legend.position = "none")
+
+ggsave("img/phd-commits.pdf", plot = p_commits, device = "pdf", width = 10, height = 4.5)
