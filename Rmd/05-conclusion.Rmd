@@ -17,12 +17,12 @@ A particular emphasis of this thesis is on translating research methodologies in
 include_graphics("img/pkg-commits.png")
 ```
 
-(ref:software-ghcommits-cap) Scatter plots of my weekly Git commits to three repositories, sugrrants, tsibble, and mists, during my PhD years. The smoothed lines show the bursts of my coding activity.
+(ref:software-ghcommits-cap) Patterns of my package development effort during my PhD years based on Git commits to three repositories, sugrrants, tsibble, and mists. Scatter plots of weekly totals are overlaid with a loess smoother. The **sugrrants** package was the first project with much initial energy, followed by small constant maintenance. The **tsibble** package has been a major project with ongoing constant development and bursts of effort in response to users' feedback. The **mists** package has been a recent intense project.
 
 ```{r software-downloads, fig.height = 3, fig.cap = "(ref:software-downloads-cap)"}
 ```
 
-(ref:software-downloads-cap) Daily downloads (using the square root transformation) of sugrrants and tsibble from the RStudio mirror since they landed on CRAN.
+(ref:software-downloads-cap) Impact of these works (sugrrants and tsibble) as measured by daily downloads (on square root scale) from the RStudio mirror since they landed on CRAN. The **tsibble** package has increasing trend, suggesting steady adoption of new data structure.
 
 ### sugrrants
 
