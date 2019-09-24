@@ -189,7 +189,7 @@
         \Huge\textbf{\expandafter{\@title}}\\
     \end{center}
     \begin{center}
-        \Large\@author\\
+        \Large Yiru (Earo) Wang\\
         \@degrees
     \end{center}
     \vfill

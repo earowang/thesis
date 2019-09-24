@@ -30,7 +30,7 @@ In the case of Chapter 2, 3 and 4 my contribution to the work involved the follo
 
 I have not renumbered sections of submitted or published papers in order to generate a consistent presentation within the thesis.
 
-\textbf{Student name:} \authorname
+\textbf{Student name:} Yiru (Earo) Wang
 
 \textbf{Student signature:}
 
