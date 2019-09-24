@@ -250,6 +250,6 @@ The presence of missing values provides a barrier to getting analysis started, a
 
 There are some natural next directions of this work. The literature review uncovered a lack of a comprehensive system for simulating different types of missing value patterns. Conceptualizing and developing a system would greatly help in understanding what is seen in practice. Much of the early work on exploratory methods for missings provided interactive graphical methods. The plots developed in this paper could be adapted and extended to incorporate interaction, as new technology arises that makes this easier.
 
-## Acknowledgements
+## Acknowledgements {-}
 
 This article was created with knitr [@knitr] and R Markdown [@rmarkdown]. The **mists** R package is available on Github <https://github.com/earowang/mists>.
