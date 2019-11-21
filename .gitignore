@@ -11,4 +11,4 @@ img/*.png
 .Rproj.user
 *.bbl
 thesis\.tex
-report/
+report/ExaminerReports.pdf

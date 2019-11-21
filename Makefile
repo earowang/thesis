@@ -9,3 +9,6 @@ open:
 
 preview:
 	open _thesis/index.html
+
+response:
+	Rscript -e 'Sys.setenv("RSTUDIO_PANDOC" = "/Applications/RStudio.app/Contents/MacOS/pandoc"); rmarkdown::render("report/response.Rmd")'

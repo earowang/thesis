@@ -1,6 +1,6 @@
 Type: Compendium
 Package: thesis
-Version: 1.0.1
+Version: 2.0.0
 Authors@R: 
     person(given = "Earo",
            family = "Wang",
@@ -27,7 +27,7 @@ Depends:
     patchwork (>= 0.0.1),
     R (>= 3.6),
     showtext (>= 0.7),
-    sugrrants (>= 0.2.4),
+    sugrrants (>= 0.2.4.9000),
     tidyr (>= 1.0.0),
     tidyverse (>= 1.2.1),
     tsibble (>= 0.8.4),
@@ -43,7 +43,6 @@ Imports:
     spelling (>= 2.1)
 Remotes:
     earowang/mists,
-    thomasp85/patchwork,
-    tidyverts/fable
+    thomasp85/patchwork
 Encoding: UTF-8
 Language: en-US

@@ -1,0 +1,12 @@
+\makeatletter
+\renewenvironment{quote}
+           {\list{}{\listparindent 0em%
+                    \leftmargin 0em%
+                    %\itemindent    \listparindent
+                    %\rightmargin \leftmargin
+                    \parsep        \z@ \@plus\p@}%
+            \item\relax\color{red}
+}
+           {\endlist}
+\makeatother
+

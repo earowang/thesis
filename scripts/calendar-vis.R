@@ -91,7 +91,7 @@ subdat %>%
   ) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
   scale_x_datetime(date_labels = "%d %b %Y", date_minor_breaks = "1 month") +
-  theme(legend.position = "none") +
+  theme(legend.position = "bottom") +
   xlab("Date Time") +
   ylab("Hourly Counts")
 
@@ -106,7 +106,7 @@ subdat %>%
   ) +
   scale_x_continuous(breaks = seq(0, 24, by = 6)) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
-  theme(legend.position = "none") +
+  theme(legend.position = "bottom") +
   xlab("Time") +
   ylab("Hourly Counts")
 
@@ -200,23 +200,24 @@ p_facet <- facet_cal %>%
     Sensor_Name ~ ., 
     labeller = labeller(Sensor_Name = label_wrap_gen(20))
   ) +
-  scale_colour_manual(name = "Sensor", values = sensor_cols) +
-  theme(legend.position = "none")
+  scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
+  theme(legend.position = "bottom")
 prettify(p_facet, size = 3, label.padding = unit(0.1, "lines"))
 
 ## ---- scatterplot
 # lagged scatterplot for fs street station in the daily calendar format
 fs_cal_day <- fs %>% 
   mutate(Lagged_Counts = dplyr::lag(Hourly_Counts)) %>% 
+  filter_index("2016-01-04" ~ "2016-05-01") %>% 
   frame_calendar(x = Lagged_Counts, y = Hourly_Counts, date = Date, 
-    calendar = "daily", width = 0.8, height = 0.8, scale = "free")
+    calendar = "weekly", width = 0.6, height = 0.6, scale = "free")
 
 p_fs_day <- fs_cal_day %>% 
   ggplot(
     aes(x = .Lagged_Counts, y = .Hourly_Counts, group = Date, colour = Workday)
   ) +
-  geom_point(size = 0.5, alpha = 0.6) +
-  scale_color_manual(values = rdbu) +
+  geom_point(size = 0.8, alpha = 0.8) +
+  scale_colour_manual(values = rdbu) +
   theme(legend.position = "bottom")
 prettify(p_fs_day, size = 3, label.padding = unit(0.15, "lines"))
 
@@ -260,7 +261,10 @@ subdat %>%
   facet_calendar(~ Date) +
   scale_x_continuous(breaks = c(6, 18)) +
   scale_colour_manual(name = "Sensor", values = sensor_cols, guide = "legend") +
-  theme(strip.text.x = element_text(size = 7), legend.position = "bottom") +
+  theme(
+    legend.position = "bottom",
+    strip.text = element_text(size = 7, margin = margin(t = 1, b = 1))
+  ) +
   xlab("Time") +
   ylab("Hourly Counts")
 
@@ -288,7 +292,7 @@ elec %>%
   ggplot(aes(x = wday, y = kwh)) +
   geom_boxplot(colour = "black", outlier.shape = 8) +
   # lvplot::geom_lv(aes(fill = ..LV..), colour = "black", outlier.shape = 8) +
-  facet_wrap(~ id, labeller = label_both) +
+  facet_wrap(~ id, labeller = label_both, scales = "free_y") +
   xlab("Day of week") +
   ylab("kWh") +
   scale_fill_brewer(palette = "Blues", direction = -1) +
@@ -319,5 +323,5 @@ p_cal_elec <- elec %>%
     geom_line(aes(colour = as.factor(id)), size = 0.5) +
     scale_colour_brewer(name = "", palette = "PiYG") +
     facet_grid(id ~ ., labeller = label_both) +
-    theme(legend.position = "none")
+    theme(legend.position = "bottom")
 prettify(p_cal_elec, size = 2.5, label.padding = unit(0.1, "lines"))

@@ -1,0 +1,107 @@
+---
+title: Amendments summary
+author: Yiru (Earo) Wang
+output:
+  MonashEBSTemplates::memo:
+    includes:
+      in_header: preamble2.tex
+fontfamily: mathpazo
+---
+
+I thank my examiners for their thorough and constructive comments. The point by point description of changes are below: the examiners' comments are in red and my response is in black.
+
+> p12 "Then the final coordinates for making the calendar plots of the pedestrian sensor data is" are
+
+Done.
+
+> p36 "The “tidy data” principles are extended as tidy temporal data principles in tsibble as follows:" tsibble should be in bold?
+
+"tsibble" here refers to the new data abstraction in normal text throughout the thesis, while "tsibble" in bold refers to the package **tsibble**.
+
+> p39 "When constructing a tsibble, any duplicates of key-index (i.e. key-value) pairs will fail" Values are measurements and not the same as the index. Duplicates do not fail.
+
+I removed "(i.e. key-value)".
+
+> p40 “Each type of observational units should form a table” unit?
+
+Done.
+
+> p40 (and References) McIlroy not Mcilroy
+
+Done.
+
+> p41 tidyverts needs a reference of some kind
+
+Done.
+
+> p41 "Implicit missingness are values" needs to be rephrased
+
+"missingness" -> "missings".
+
+> p41 "A family of verbs are provided" is
+
+Done.
+
+> p41 "It will be a problem for temporal models and operations like lag/lead are applied." needs rewriting
+
+I rewrote "It will be a problem for temporal models and operations like lag/lead, that expect consecutive time."
+
+> p42 "the interested measurement" the measurement of interest
+
+Done.
+
+> p42 ", hence can" should be "can hence"
+
+Done.
+
+> p47 "A complete and consistent set of tools are available" is available
+
+Done.
+
+> p48 "the table verbs extensively use tidy evaluation to evaluate computation in the context of tsibble data and spotlights the “tidy” interface" spotlight
+
+Done.
+
+> p50 "interested questions" questions of interest
+
+Done.
+
+> p51 "the operations undertaking" undertaken
+
+Done.
+
+> p53 "with higher delay percentage in both ends of the year." at both ends
+
+Done.
+
+> p53 "Half-hourly general supply in kwH have been recorded" has been
+
+Done.
+
+> p70 "The right panel is the swap between them, showing that the overlapping missings of the Runs type with the Occasions occur to the longer runs." ?
+
+I've rephrased to "The right panel interchanges two variables, and indicates that there is little overlap on the long runs."
+
+> p71 'which is referred to “missing data polish”' referred to as?
+
+Done.
+
+> p72 "models would likely complain the existence of any missings and some would even decline the job" Rewrite!
+
+models would likely complain *about* the existence of any missings and some would even decline the job.
+
+> p76 "is used too illustrate" to
+
+Done.
+
+> the bigram "and etc.", which is used a few times, should just be "etc."
+
+Done. 
+
+> The classical text of Chambers et al from 1983 is dated by its reprinting in 2017, which makes it look like a modern text. Shouldn't the original date be used, or at least mentioned?
+
+Done.
+
+> Tierney & Cook (2018a) and (2018b) are the same reference. Presumably one of them should refer to the naniar package.
+
+Done.
