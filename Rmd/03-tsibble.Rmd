@@ -105,7 +105,7 @@ include_graphics("img/tsibble-tidy.png")
 
 (ref:tsibble-tidy-cap) Details about the tidy stage for a tsibble. Built on top of "tidy data", each observation should be uniquely identified by index and key, thereby no duplicated key-index pairs.
 
-Since observational units are embedded, modeling and forecasting across units and time in a tsibble will be simplified. The tsibble key plays a role of the central transit hub in connecting multiple tables managed by the data, models, and forecasts. This neatly decouples the expensive data copy from downstream summaries, significantly reducing the storage space.
+Since observational units are embedded, modeling and forecasting across units and time in a tsibble will be simplified. The tsibble key plays the role of the central transit hub in connecting multiple tables managed by the data, models, and forecasts. This neatly decouples the expensive data copying from downstream summarization, which can significantly reduce the required storage space.
 
 ### Interval {#sec:interval}
 
@@ -144,7 +144,7 @@ These verbs are evocative, and of simple interface. They, by default, look into 
 
 The other important function, is an adverb, `index_by()`, which is the counterpart of `group_by()` in **dplyr**, grouping and partitioning by the index only. It is most often used in conjunction with `summarize()`, thus creating aggregations to higher-level time resolutions. This combination automatically produces a new index and interval, and can also be used regularize data of irregular interval.
 
-In addition to the new verbs, the **dplyr** vocabulary has been adapted and expanded to facilitate temporal transformations. The **dplyr** suite showcases the general-purpose verbs for effectively manipulating tabular data. But these verbs need handling with care due to the context switch. A perceivable difference is summarizing variables between normal data and tsibble using `summarize()`. The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries.
+In addition to the new verbs, the **dplyr** vocabulary has been adapted and expanded to facilitate temporal transformations. The **dplyr** suite showcases the general-purpose verbs for effectively manipulating tabular data. But these verbs need handling with care due to the context switch. A perceivable difference is summarizing variables between normal data and tsibble using `summarize()`. The former gives a single summary for a data table, and the latter provides the corresponding summary for each index value.
 
 Attention has been paid to warning and error handling. The principle that underpins most verbs is *a tsibble in and a tsibble out*, thereby striving to maintain a valid tsibble over the course of the transformation pipeline. If the desired temporal ordering is changed by row-wise verbs (such as `arrange()` and `slice()`), a warning is broadcast. If a tsibble cannot be maintained in the output of a pipeline module (likely occurring with column-wise verbs), for example the index is dropped by `select()`-ing, an error informs users of the problem and suggests alternatives. This avoids surprising users and reminds them of the time context. In general, users who are already familiar with the **tidyverse**, should have less resistance to learning the new semantics and verbs.
 
@@ -270,7 +270,7 @@ What time of day and day of week should passengers travel to avoid suffering fro
 ```{r draw-qtl, fig.cap = "(ref:draw-qtl-cap)"}
 ```
 
-(ref:draw-qtl-cap) Small multiples of lines about departure delay against time of day, faceting day of week and 50%, 80% and 95% quantiles. A blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are apt to hold up around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
+(ref:draw-qtl-cap) Line plots showing departure delay against time of day, faceted by day of week and 50%, 80% and 95% quantiles. The blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are more likely to experience delays around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails.
 
 ```{r flight-pipeline3, fig.cap = "(ref:flight-pipeline3-cap)"}
 include_graphics("img/flight-pipeline3.png")

@@ -18,9 +18,21 @@ Done.
 
 "tsibble" here refers to the new data abstraction in normal text throughout the thesis, while "tsibble" in bold refers to the package **tsibble**.
 
+> p36 "It contains 12 observations and 5 variables landing in a tidy data form." landing?
+
+No changes made. Supervisor agreed on this.
+
+> p38 "(such as in the Stata)" in the Stata package?
+
+"Stata" is used throughout Chapter 3. It's statistical software as R, not an R package.
+
 > p39 "When constructing a tsibble, any duplicates of key-index (i.e. key-value) pairs will fail" Values are measurements and not the same as the index. Duplicates do not fail.
 
 I removed "(i.e. key-value)".
+
+> p39 "This neatly decouples the expensive data copy from downstream summaries, significantly reducing the storage space." An example would be useful here, the sentence is unclear.
+
+I rewrote "This neatly decouples the expensive data copying from downstream summarization, which can significantly reduce the required storage space."
 
 > p40 “Each type of observational units should form a table” unit?
 
@@ -34,9 +46,15 @@ Done.
 
 Done.
 
+> p41 "It takes advantage of the wrangling verbs implemented in the dplyr package, and develops a suite of new tools for facilitating temporal manipulation for primarily easing two aspects: implicit missingness handlers and time-aware aggregations." Confusing.
+
+No changes made. Supervisor agreed on this.
+
+The **tsibble** package leverages the dplyr verbs and contributes new verbs for tackling some common temporal problems with ease.
+
 > p41 "Implicit missingness are values" needs to be rephrased
 
-"missingness" -> "missings".
+I've rephrased "missingness" to "missings".
 
 > p41 "A family of verbs are provided" is
 
@@ -45,6 +63,10 @@ Done.
 > p41 "It will be a problem for temporal models and operations like lag/lead are applied." needs rewriting
 
 I rewrote "It will be a problem for temporal models and operations like lag/lead, that expect consecutive time."
+
+> p42 "The former will reduce to a single summary, whereas the latter will obtain the index and their corresponding summaries." needs rephrasing
+
+ I rewrote "The former gives a single summary for a data table, and the latter provides the corresponding summary for each index value."
 
 > p42 "the interested measurement" the measurement of interest
 
@@ -65,6 +87,10 @@ Done.
 > p50 "interested questions" questions of interest
 
 Done.
+
+> p51 The language in the caption to Figure 3.5 could be improved
+
+I rewrote "Line plots showing departure delay against time of day, faceted by day of week and 50%, 80% and 95% quantiles. The blue horizontal line indicates the 15-minute on-time standard to help grasp the delay severity. Passengers are more likely to experience delays around 18 during a day, and are recommended to travel early. The variations increase substantially as the upper tails."
 
 > p51 "the operations undertaking" undertaken
 
@@ -89,6 +115,10 @@ Done.
 > p72 "models would likely complain the existence of any missings and some would even decline the job" Rewrite!
 
 models would likely complain *about* the existence of any missings and some would even decline the job.
+
+> p74 "can spark overwhelmingness at the first try" Rephrase
+
+No changes made. Supervisor agreed on this.
 
 > p76 "is used too illustrate" to
 
