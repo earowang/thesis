@@ -10,6 +10,10 @@ fontfamily: mathpazo
 
 I thank my examiners for their thorough and constructive comments. The point by point description of changes are below: the examiners' comments are in red and my response is in black.
 
+## Professor Antony R. Unwin {-}
+
+I appreciate all the comments and suggestions, and will incorporate them into future work. Specific comments are addressed as follows:
+
 > p12 "Then the final coordinates for making the calendar plots of the pedestrian sensor data is" are
 
 Done.
@@ -135,3 +139,7 @@ Done.
 > Tierney & Cook (2018a) and (2018b) are the same reference. Presumably one of them should refer to the naniar package.
 
 Done.
+
+## Professor Jeffrey T. Leek {-}
+
+I appreciate all the comments and suggestions, and will incorporate them into future work.
