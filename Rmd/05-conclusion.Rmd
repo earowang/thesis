@@ -26,7 +26,7 @@ include_graphics("img/pkg-commits.png")
 
 ### sugrrants
 
-The **sugrrants** package implements the idea of displaying data in the familiar calendar style using `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There has been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror dating from 2017-07-28 to `r Sys.Date()`; and it has been starred 48 times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
+The **sugrrants** package implements the idea of displaying data in the familiar calendar style using `frame_calendar()` and `facet_calendar()`. The research article, a shorter version of Chapter \@ref(ch:calendar-vis), has been awarded the best student paper prize from ASA Sections on Statistical Computing and Statistical Graphics and ACEMS Business Analytics in 2018. There has been a grand total of `r format(sum(sugrrants_dl$count), big.mark = ",")` downloads from the RStudio mirror dating from 2017-07-28 to 2019-09-20; and it has been starred 48 times on Github so far. The homepage at <https://pkg.earo.me/sugrrants> contains detailed documentation and a vignette on `frame_calendar()`.
 
 ### tsibble
 
